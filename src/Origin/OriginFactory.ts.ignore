@@ -1,4 +1,0 @@
-numbererface OriginFactory
-{
-    public getOrigin(): Origin;
-}

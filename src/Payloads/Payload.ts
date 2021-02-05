@@ -1,15 +1,25 @@
-import { Origin } from '../Origin/Origin';
+// import { DefaultOriginFactory } from '../Origin/DefaultOriginFactory';
+import { Origin, OriginData } from '../Origin/Origin';
+import StackTrace from 'stacktrace-js';
 
-export abstract class Payload {
-    /** @var string */
-    // public static originFactoryClass = DefaultOriginFactory::class;
+export interface PayloadData
+{
+    type: string;
+    content: Record<string, any> | any;
+    origin: OriginData;
+};
 
+export abstract class Payload
+{
     public abstract getType(): string;
 
     public remotePath: string | null = null;
     public localPath: string | null = null;
 
-    public replaceRemotePathWithLocalPath(filePath: string): string {
+    public data: PayloadData = { type: '', content: '', origin: { file: '', line_number: 0 } };
+
+    public replaceRemotePathWithLocalPath(filePath: string): string
+    {
         if (this.remotePath === null || this.localPath === null) {
             return filePath;
         }
@@ -19,27 +29,41 @@ export abstract class Payload {
         return this.localPath.replace(pattern, filePath);
     }
 
-    public getContent(): Record<string, unknown> {
+    public getContent(): Record<string, unknown>
+    {
         return {};
     }
 
-    public toArray(): Record<string, unknown> {
-        return {
-            type: this.getType(),
-            content: this.getContent(),
-            origin: this.getOrigin().toArray(),
-        };
+    public toArray(): PayloadData
+    {
+        if (this.data.type === '') {
+            this.data = {
+                type: this.getType(),
+                content: this.getContent(),
+                origin: this.getOrigin().toArray(),
+            };
+        }
+
+        return this.data;
     }
 
-    public toJson(): string {
+    public toJson(): string
+    {
         return JSON.stringify(this.toArray());
     }
 
-    protected getOrigin(): Origin {
-        // originFactory = new this.originFactoryClass();
+    protected getOrigin(): Origin
+    {
+        // const originFactory = new DefaultOriginFactory(); //new this.originFactoryClass();
+        // const origin = originFactory.getOrigin();
 
-        // origin = originFactory.getOrigin();
-        const origin = new Origin('file.js', 12);
+        const frame = StackTrace.getSync().filter(frame =>
+        {
+            return frame.getFileName().includes('Ray')
+                && frame.getFileName() !== 'Ray.sendRequest';
+        })[1];
+
+        const origin = new Origin(frame?.getFileName(), frame?.getLineNumber());
 
         origin.file = this.replaceRemotePathWithLocalPath(<string>origin.file);
 

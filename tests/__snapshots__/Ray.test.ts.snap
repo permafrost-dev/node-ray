@@ -1,0 +1,391 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sends a classname payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "values": Array [
+            "Ray",
+          ],
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a clear all payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "clear_all",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a clear screen payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "name": "",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "new_screen",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a color payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "color": "red",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "color": "green",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "color": "blue",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a file payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "one,two,three<br>",
+          "label": "test.txt",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a json string payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": Object {
+            "A": 123,
+          },
+          "label": "JSON",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a new screen payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "name": "test 1",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "new_screen",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a notify payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "value": "hello world",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "notify",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a size payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "size": "lg",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "size",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "size": "sm",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "size",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "size": "lg",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "size",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an html payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "<em>test</em>",
+          "label": "HTML",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an image payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "<img src=\\"http://localhost/test.png\\" alt=\\"\\" />",
+          "label": "Image",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an object as json payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "value": "\\"{\\\\\\"a\\\\\\":1,\\\\\\"b\\\\\\":2}\\"",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "json_string",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an xml payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "&lt;a&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;root&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;abc&gt;1&lt;/abc&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/root&gt;<br>&lt;/a&gt;",
+          "label": "XML",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends the ray ban payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "values": Array [
+            "🕶",
+          ],
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends the ray charles payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "values": Array [
+            "🎶 🎹 🎷 🕺",
+          ],
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;

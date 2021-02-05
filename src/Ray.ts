@@ -36,7 +36,6 @@ import { XmlPayload } from './Payloads/XmlPayload';
 type BoolFunction = () => boolean;
 
 export class Ray extends Mixin(RayColors, RaySizes) {
-    //use Macroable;
 
     protected static lockCounter = 0;
 
@@ -53,12 +52,11 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     // @var \Symfony\Component\Stopwatch\Stopwatch[]
     public static stopWatches: Record<string, unknown> = {};
 
-    /** @var boolean */
     public static enabled = true;
 
     public static create(client: Client | null = null, uuid: string | null = null): Ray
     {
-        const settings = SettingsFactory.createFromConfigFile(__dirname);
+        const settings = SettingsFactory.createFromConfigFile();
 
         return new this(settings, client, uuid);
     }
@@ -150,6 +148,18 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         const payload = new HidePayload();
 
         return this.sendRequest(payload);
+    }
+
+    public getOrigin(): any
+    {
+        // const frames = StackTrace.getSync().filter(frame =>
+        // {
+        //     return frame.getFileName().includes('Ray');
+        // });
+
+
+        // console.log(frames);
+
     }
 
     /**
@@ -286,7 +296,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public die(status = ''): void
     {
         if (status.length) {
-            console.log(status);
+            console.error(status);
         }
 
         process.exit(-1);
@@ -405,7 +415,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public xml(xml: string): this
     {
-        const payload = new XmlPayload(xml);
+        const payload = new XmlPayload(`<a>${xml}</a>`);
 
         return this.sendRequest(payload);
     }
@@ -440,6 +450,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         if (this.settings.always_send_raw_values) {
             return this.raw(...args);
         }
+
 
         const payloads = PayloadFactory.createForValues(args);
 

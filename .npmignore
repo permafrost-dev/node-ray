@@ -1,0 +1,15 @@
+/.git
+/.vscode
+/build
+/coverage
+/node_modules
+/src
+/tests
+tsconfig.json
+jest.config.js
+.editorconfig
+.eslintrc.js
+.prettierignore
+.prettierrc
+*.sh
+package-lock.json

@@ -1,11 +1,11 @@
 import { Payload } from '../Payloads/Payload';
 import { EOL } from 'os';
 import formatXml from 'xml-formatter';
+import { formatHtmlForDisplay } from '../lib/utils';
 
 export class XmlPayload extends Payload
 {
-    /** @var string */
-    protected value;
+    protected value: string;
 
     public constructor(value: string)
     {
@@ -19,7 +19,7 @@ export class XmlPayload extends Payload
         return 'custom';
     }
 
-    public getContent(): Record<string, unknown>
+    public getContent(): Record<string, string>
     {
         const content = this.formatXmlForDisplay(this.value);
 
@@ -33,44 +33,19 @@ export class XmlPayload extends Payload
     {
         const content = this.formatAndIndentXml(xml);
 
-        return this.encodeXml(content.trim());
+        return this.encodeXml(content);
     }
 
     protected encodeXml(xml: string): string
     {
-        const escapeChars: Record<string, string> = {
-            '¢': 'cent',
-            '£': 'pound',
-            '¥': 'yen',
-            '€': 'euro',
-            '©': 'copy',
-            '®': 'reg',
-            '<': 'lt',
-            '>': 'gt',
-            '"': 'quot',
-            '&': 'amp',
-            '\'': '#39',
-            ' ': 'nbsp',
-        };
-
-        let regexString = '[';
-        for (const key in escapeChars) {
-            regexString += key;
-        }
-        regexString += ']';
-
-        const regex = new RegExp(regexString, 'g');
-
-        const escapeHTML = (str: string) => str.replace(regex, m => `&${escapeChars[m]};`);
-
-        return escapeHTML(xml).replace(/(\r\n|\r|\n)/g, '<br>');
+        return formatHtmlForDisplay(xml, { encodeEntities: true });
     }
 
     protected formatAndIndentXml(xml: string): string
     {
-        return formatXml(xml, {
+        return formatXml(xml.toString(), {
             indentation: '    ',
-            filter: (node) => node.type !== 'Comment',
+            //filter: (node) => node.type !== 'Comment',
             collapseContent: true,
             lineSeparator: EOL,
         });
