@@ -1,0 +1,24 @@
+import { Payload } from '@/Payloads/Payload';
+
+export class ApplicationLogPayload extends Payload
+{
+    /** @var string */
+    protected value;
+
+    public constructor(value: string)
+    {
+        this.value = value;
+    }
+
+    public getType(): string
+    {
+        return 'application_log';
+    }
+
+    public getContent(): array
+    {
+        return [
+            'value': this.value,
+        ];
+    }
+}

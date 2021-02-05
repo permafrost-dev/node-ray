@@ -1,0 +1,33 @@
+use Spatie\Backtrace\Frame;
+
+trait RemovesRayFrames
+{
+    protected removeRayFrames(array frames): array
+    {
+        frames = array_filter(frames, function (Frame frame) {
+            return ! this.isRayFrame(frame);
+        });
+
+        return array_values(frames);
+    }
+
+    protected isRayFrame(Frame frame): boolean
+    {
+        foreach (this.rayNamespaces() as rayNamespace) {
+            if (substr(frame.class, 0, e.length) === rayNamespace) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    protected rayNamespaces(): array
+    {
+        return [
+            'Spatie\Ray',
+            'Spatie\LaravelRay',
+            'Spatie\WordPressRay',
+        ];
+    }
+}
