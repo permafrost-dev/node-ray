@@ -1,5 +1,5 @@
 /* eslint-disable no-async-promise-executor */
-//use Exception;
+
 //use Spatie\Ray\Exceptions\StopExecutionRequested;
 
 import { Request } from './Request';
@@ -17,9 +17,6 @@ export class Client {
 
     public async send(request: Request) {
         await axios.post(`http://${this.host}:${this.portNumber}/`, request.toArray());
-
-        //console.log(request.toJson());
-        // TODO: send axios post request
     }
 
     public async lockExists(lockName: string) {
@@ -99,35 +96,5 @@ export class Client {
         */
 
         //return false;
-    }
-
-    protected getCurlHandleForUrl(method: string, url: string) {
-        return this.getCurlHandle(method, `http://${this.host}:${this.portNumber}/${url}`);
-    }
-
-    protected getCurlHandle(method: string, fullUrl: string) {
-        console.log(method, fullUrl);
-        /*
-        curlHandle = curl_init();
-
-        curl_setopt(curlHandle, CURLOPT_URL, fullUrl);
-
-        curl_setopt(curlHandle, CURLOPT_HTTPHEADER, array_merge(['Accept: application/json', 'Content-Type: application/json']));
-
-        curl_setopt(curlHandle, CURLOPT_USERAGENT, 'Ray 1.0');
-        curl_setopt(curlHandle, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt(curlHandle, CURLOPT_TIMEOUT, 2);
-        curl_setopt(curlHandle, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt(curlHandle, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-        curl_setopt(curlHandle, CURLOPT_ENCODING, '');
-        curl_setopt(curlHandle, CURLINFO_HEADER_OUT, true);
-        curl_setopt(curlHandle, CURLOPT_FAILONERROR, true);
-
-        if (method === 'post') {
-            curl_setopt(curlHandle, CURLOPT_POST, true);
-        }
-
-        return curlHandle;
-        */
     }
 }

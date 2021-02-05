@@ -1,14 +1,20 @@
-export class RaySizes {
-    // eslint-disable-next-line no-unused-vars
-    public size(size: string): this {
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+export class RaySizes
+{
+    public size(size: string): this
+    {
         return this;
     }
 
-    public small(): this {
+    public small(): this
+    {
         return this.size('sm');
     }
 
-    public large(): this {
+    public large(): this
+    {
         return this.size('lg');
     }
 }

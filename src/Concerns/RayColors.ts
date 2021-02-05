@@ -1,30 +1,40 @@
-export class RayColors {
-    // eslint-disable-next-line no-unused-vars
-    public color(name: string): this {
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+export class RayColors
+{
+    public color(name: string): this
+    {
         return this;
     }
 
-    public green(): this {
+    public green(): this
+    {
         return this.color('green');
     }
 
-    public orange(): this {
+    public orange(): this
+    {
         return this.color('orange');
     }
 
-    public red(): this {
+    public red(): this
+    {
         return this.color('red');
     }
 
-    public purple(): this {
+    public purple(): this
+    {
         return this.color('purple');
     }
 
-    public blue(): this {
+    public blue(): this
+    {
         return this.color('blue');
     }
 
-    public gray(): this {
+    public gray(): this
+    {
         return this.color('gray');
     }
 }

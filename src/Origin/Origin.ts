@@ -9,10 +9,6 @@ export class Origin {
     public file: string | null;
     public lineNumber: number | null;
 
-    /**
-     * @param string|null file
-     * @param number|null lineNumber
-     */
     public constructor(file: string | null, lineNumber: number | null) {
         this.file = file;
 

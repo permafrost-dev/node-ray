@@ -1,5 +1,6 @@
 import { existsSync } from 'fs';
 import { RaySettings, Settings } from './Settings';
+import findUp from 'find-up';
 
 const settingsFactoryCache: Record<string, string> = {};
 
@@ -18,10 +19,16 @@ export class SettingsFactory {
         const configFilePath = this.searchConfigFiles(configDirectory);
 
         if (!existsSync(configFilePath)) {
-            return <RaySettings>{};
+            return {};
         }
 
-        const options = require(configFilePath).default;
+        let options;
+
+        try {
+            options = require(configFilePath);
+        } catch (err) {
+            // error loading config
+        }
 
         return options as RaySettings;
     }
@@ -39,13 +46,14 @@ export class SettingsFactory {
     }
 
     protected searchConfigFilesOnDisk(configDirectory: string | null = null): string {
-        console.log(configDirectory);
-
-        const configNames = ['ray.php'];
-
-        configNames.forEach(fn => {
-            console.log(fn);
+        const configFn = findUp.sync('ray.config.js', {
+            type: 'file',
+            cwd: configDirectory ?? process.cwd(),
         });
+
+        if (configFn) {
+            return configFn;
+        }
 
         return '';
     }

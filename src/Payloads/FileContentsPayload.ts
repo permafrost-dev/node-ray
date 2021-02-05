@@ -19,7 +19,7 @@ export class FileContentsPayload extends Payload {
     public getContent(): Record<string, unknown> {
         if (!existsSync(this.file)) {
             return {
-                content: `File not found: '{${this}.file}'`,
+                content: `File not found: '{${this.file}'`,
                 label: 'File',
             };
         }
@@ -33,7 +33,11 @@ export class FileContentsPayload extends Payload {
     }
 
     protected encodeContent(content: string): string {
-        const result = content.replace(/>/g, '&gt;').replace(/</g, '&lt;').replace(new RegExp(EOL, 'g'), '<br>');
+        const result = content
+            .replace(/>/g, '&gt;')
+            .replace(/</g, '&lt;')
+            .replace(new RegExp(EOL, 'g'), '<br>')
+            .replace(/ /g, '&nbsp;');
 
         return result;
     }
