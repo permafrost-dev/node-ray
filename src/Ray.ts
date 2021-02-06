@@ -2,7 +2,6 @@
 /* eslint-disable no-useless-catch */
 
 import md5 from 'md5';
-import { v4 as uuidv4, v1 as uuidv1 } from 'uuid';
 import { Mixin } from 'ts-mixer';
 import { nonCryptoUuidV4, sleep } from './lib/utils';
 import { ClearAllPayload } from './Payloads/ClearAllPayload';
@@ -33,8 +32,6 @@ import { ShowAppPayload } from './Payloads/ShowAppPayload';
 import { SizePayload } from './Payloads/SizePayload';
 import { TablePayload } from './Payloads/TablePayload';
 import { XmlPayload } from './Payloads/XmlPayload';
-import randomInt from 'random-int';
-
 
 export type BoolFunction = () => boolean;
 
@@ -152,95 +149,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         return this.sendRequest(payload);
     }
-
-    public getOrigin(): any
-    {
-        // const frames = StackTrace.getSync().filter(frame =>
-        // {
-        //     return frame.getFileName().includes('Ray');
-        // });
-
-
-        // console.log(frames);
-
-    }
-
-    /**
-     * @param string|callable stopwatchName
-     *
-     * @return this
-     *
-    public measure(stopwatchName = 'default'): this
-    {
-        if (stopwatchName instanceof Closure) {
-            return this.measureClosure(stopwatchName);
-        }
-
-        if (typeof this.stopWatches[stopwatchName] === 'undefined') {
-            stopwatch = new Stopwatch(true);
-            this.stopWatches[stopwatchName] = stopwatch;
-
-            event = stopwatch.start(stopwatchName);
-            const payload = new MeasurePayload(stopwatchName, event);
-            payload.concernsNewTimer();
-
-            return this.sendRequest(payload);
-        }
-
-        stopwatch = this.stopWatches[stopwatchName];
-        event = stopwatch.lap(stopwatchName);
-        const payload = new MeasurePayload(stopwatchName, event);
-
-        return this.sendRequest(payload);
-    }
-
-    public trace(?Closure startingFromFrame = null): this
-    {
-        backtrace = Backtrace::create();
-
-        if (class_exists(LaravelRay::class) && function_exists('base_path')) {
-            backtrace.applicationPath(base_path());
-        }
-
-        if (startingFromFrame) {
-            backtrace.startingFromFrame(startingFromFrame);
-        }
-
-        const payload = new TracePayload(backtrace.frames());
-
-        return this.sendRequest(payload);
-    }
-
-    public backtrace(?Closure startingFromFrame = null): this
-    {
-        return this.trace(startingFromFrame);
-    }
-
-    public caller(): this
-    {
-        backtrace = Backtrace::create();
-
-        payload = (new CallerPayload(backtrace.frames()));
-
-        return this.sendRequest(payload);
-    }
-
-    protected measureClosure(Closure closure): this
-    {
-        stopwatch = new Stopwatch(true);
-
-        stopwatch.start('closure');
-
-        closure();
-
-        event = stopwatch.stop('closure');
-
-        const payload = new MeasurePayload('closure', event);
-
-        return this.sendRequest(payload);
-    }
-
-    */
 
     public stopTime(stopwatchName = ''): this
     {
