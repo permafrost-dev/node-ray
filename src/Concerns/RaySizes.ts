@@ -3,6 +3,7 @@
 
 export class RaySizes
 {
+    /* istanbul ignore next */
     public size(size: string): this
     {
         return this;

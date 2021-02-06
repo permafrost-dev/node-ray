@@ -1,5 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`conditionally shows a payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "remove",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "remove",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`doesn't blow up when calling html without a value 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "",
+          "label": "HTML",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "",
+          "label": "HTML",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a boolean payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": true,
+          "label": "Boolean",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends a classname payload 1`] = `
 Array [
   Object {
@@ -102,6 +196,54 @@ Array [
     "payloads": Array [
       Object {
         "content": Object {
+          "color": "orange",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "color": "red",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "color": "purple",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
           "color": "blue",
         },
         "origin": Object {
@@ -109,6 +251,44 @@ Array [
           "line_number": 999,
         },
         "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "color": "gray",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a custom payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "test 123",
+          "label": "test",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
       },
     ],
     "uuid": "fakeUuid",
@@ -131,6 +311,25 @@ Array [
           "line_number": 999,
         },
         "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a hide payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "hide",
       },
     ],
     "uuid": "fakeUuid",
@@ -204,6 +403,115 @@ Array [
 ]
 `;
 
+exports[`sends a null payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": null,
+          "label": "Null",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a raw payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "values": Array [
+            "one",
+          ],
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+      Object {
+        "content": Object {
+          "values": Array [
+            "two",
+          ],
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a remove payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "remove",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a remove payload conditionally 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "remove",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "remove",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends a size payload 1`] = `
 Array [
   Object {
@@ -257,6 +565,58 @@ Array [
 ]
 `;
 
+exports[`sends a string payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "values": Array [
+            "test",
+          ],
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a table payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "label": "table",
+          "values": Array [
+            1,
+            2,
+            "<code style=\\"font-size: 0.8rem!important;\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-400\\">Object</span>&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-500 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"A\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>1<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">}</span></code></code>",
+            "<code style=\\"font-size: 0.8rem!important;\\">Ray&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-500 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"settings\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>Settings&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"always_send_raw_values\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>false<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"enable\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>true<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"host\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"localhost\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"local_path\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>null<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"port\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>23517<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"remote_path\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>null<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">}</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"uuid\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"fakeUuid\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">}</span></code></code>",
+            true,
+            null,
+          ],
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "table",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends an html payload 1`] = `
 Array [
   Object {
@@ -287,6 +647,23 @@ Array [
       Object {
         "content": Object {
           "content": "<img src=\\"http://localhost/test.png\\" alt=\\"\\" />",
+          "label": "Image",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "<img src=\\"./TestData/test.txt\\" alt=\\"\\" />",
           "label": "Image",
         },
         "origin": Object {
@@ -337,6 +714,39 @@ Array [
           "line_number": 999,
         },
         "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends show and hide app payloads 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "show_app",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "line_number": 999,
+        },
+        "type": "hide_app",
       },
     ],
     "uuid": "fakeUuid",

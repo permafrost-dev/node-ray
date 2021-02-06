@@ -17,14 +17,6 @@ export const usleep = (milliseconds: number) =>
     while (new Date().getTime() < start + milliseconds) { }
 };
 
-export const usleepAsync = async (milliseconds: number) =>
-{
-    const start = new Date().getTime();
-    while (new Date().getTime() < start + milliseconds) { }
-
-    return Promise.resolve(true);
-};
-
 export const encodeHtmlEntities = (str: string) =>
 {
     const escapeChars: Record<string, string> = {

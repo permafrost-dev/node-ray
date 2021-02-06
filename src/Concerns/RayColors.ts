@@ -3,6 +3,7 @@
 
 export class RayColors
 {
+    /* istanbul ignore next */
     public color(name: string): this
     {
         return this;
@@ -38,3 +39,4 @@ export class RayColors
         return this.color('gray');
     }
 }
+

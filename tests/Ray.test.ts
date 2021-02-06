@@ -9,6 +9,8 @@ beforeEach(() =>
 {
     client = new FakeClient();
     myRay = Ray.create(client, 'fakeUuid');
+
+    myRay.clearCounters();
 });
 
 it('sends the ray ban payload', () =>
@@ -28,7 +30,7 @@ it('sends the ray charles payload', () =>
 it('sends a color payload', () =>
 {
     myRay.color('red');
-    myRay.green().blue();
+    myRay.green().orange().red().purple().blue().gray();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
@@ -70,9 +72,18 @@ it('sends an html payload', () =>
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
+it('doesn\'t blow up when calling html without a value', () =>
+{
+    myRay.html('');
+    myRay.html();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
 it('sends an image payload', () =>
 {
     myRay.image('http://localhost/test.png');
+    myRay.image('./TestData/test.txt');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
@@ -117,4 +128,172 @@ it('sends a file payload', () =>
     myRay.file(__dirname + '/TestData/test.txt');
 
     expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a raw payload', () =>
+{
+    myRay.raw('one', 'two');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('doesn\'t blow up when calling raw without any arguments', () =>
+{
+    myRay.raw();
+
+    expect(client.sentPayloads().length).toBe(0);
+});
+
+it('doesn\'t blow up when calling send without any arguments', () =>
+{
+    myRay.send();
+
+    expect(client.sentPayloads().length).toBe(0);
+});
+
+
+it('sends a payload and returns the value', () =>
+{
+    const value: any = myRay.pass('test');
+
+    expect(client.sentPayloads().length).toBe(1);
+    expect(value).toBe('test');
+});
+
+it('sends show and hide app payloads', () =>
+{
+    myRay.showApp();
+    myRay.hideApp();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('conditionally shows a payload', () =>
+{
+    myRay.showIf(true);
+    myRay.showIf(false);
+    myRay.showIf(() => true);
+
+    myRay.showWhen(true);
+    myRay.showWhen(false);
+    myRay.showWhen(() => true);
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+
+it('sends a null payload', () =>
+{
+    myRay.send(null);
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a boolean payload', () =>
+{
+    myRay.send(true);
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a string payload', () =>
+{
+    myRay.send('test');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a hide payload', () =>
+{
+    myRay.hide();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a remove payload', () =>
+{
+    myRay.remove();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a remove payload conditionally', () =>
+{
+    myRay.removeIf(true);
+    myRay.removeIf(false);
+    myRay.removeWhen(true);
+    myRay.removeWhen(false);
+    myRay.removeWhen(() => false);
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a table payload', () =>
+{
+    myRay.table([1, 2, { A: 1 }, myRay, true, null], 'table');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a custom payload', () =>
+{
+    myRay.sendCustom('test 123', 'test');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('can be disabled', () =>
+{
+    myRay.html('<em>sent</em>');
+    myRay.disable();
+    myRay.html('<em>not sent</em>');
+
+    expect(client.sentPayloads().length).toBe(1);
+});
+
+it('returns the correct enabled state', () =>
+{
+    myRay.disable();
+
+    expect(myRay.enabled()).toBe(false);
+    expect(myRay.disabled()).toBe(true);
+
+    myRay.enable();
+    expect(myRay.enabled()).toBe(true);
+    expect(myRay.disabled()).toBe(false);
+});
+
+it('counts the number of times a piece of code is called', () =>
+{
+    for (let i = 0; i < 2; i++) {
+        myRay.count('first');
+
+        for (let j = 0; j < 2; j++) {
+            myRay.count('first');
+            myRay.count('second');
+        }
+    }
+
+    expect(Ray.counters.get('first')).toBe(6);
+    expect(Ray.counters.get('second')).toBe(4);
+});
+
+it('returns zero for an unknown named counter value', () =>
+{
+    expect(Ray.counters.get('missing')).toBe(0);
+});
+
+it('clears all counters', () =>
+{
+    myRay.count('first');
+    myRay.count('first');
+    myRay.count('second');
+
+    expect(Ray.counters.get('first')).toBe(2);
+    expect(Ray.counters.get('second')).toBe(1);
+
+    myRay.clearCounters();
+
+    expect(Ray.counters.get('first')).toBe(0);
+    expect(Ray.counters.get('second')).toBe(0);
 });
