@@ -32,7 +32,6 @@ export default {
     input: 'src/Ray.ts',
     output: [
         ...outputUnminified,
-        ...outputMinified,
     ],
     plugins: [nodeResolve(), json(), commonjs(), typescript()],
     external: [], //'axios', 'find-up', 'md5', 'pretty-format', 'stacktrace-js', 'xml-formatter', 'uuid'
