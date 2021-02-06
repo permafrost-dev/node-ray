@@ -1,7 +1,7 @@
 <p align="center">
-    <img src="https://static.permafrost.dev/images/node-ray/node-ray-logo.png" alt="node-ray" height="125" style="block">
+    <img src="https://static.permafrost.dev/images/node-ray/node-ray-logo.png" alt="node-ray" height="200" style="block">
     <br><br>
-    <code style="font-size:2.4rem;"><strong>node-ray</strong></code>
+    <code style="font-size:3.0rem;"><strong>node-ray</strong></code>
 </p>
 
 # node-ray
