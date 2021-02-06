@@ -1,19 +1,64 @@
-# ray-node
+# node-ray
+## Debug your NodeJS code with Ray to fix problems faster
 
----
+This package can be installed in any NodeJS application to send messages to the [Ray app](https://myray.app).
 
-## Setup
+## Installation
 
-- `npm install`
-- `npm run build`
-- `node build/test.js`
+Install with npm:
 
+```bash
+npm install node-ray
+```
+
+or yarn:
+
+```bash
+yarn add node-ray
+```
+
+## Usage
+
+The majority of the API from the [original PHP package](https://github.com/spatie/ray) is supported.  See the [api reference](https://spatie.be/docs/ray/v1/usage/reference) for more information.
+
+```js 
+
+// import as an es module
+import { ray } from 'node-ray';
+
+// import as commonjs
+const ray = require('node-ray').ray;
+
+// ---
+
+ray('a string');
+
+ray({ name: 'object' });
+
+ray(['several', 'arguments'], 'can', {be: provided});
+
+ray().newScreen('A new screen');
+
+ray().clearAll();
+
+ray('this is blue').blue();
+
+ray().html('<em>large text</em>').large().green();
+
+ray().image('https://placekitten.com/200/300');
+
+// enable or disable sending data to Ray at runtime: 
+
+ray().disable();
+ray().xml('<one><two>22</two></one>'); // this is not sent
+
+```
 
 ## Configuration
 
-`ray-node` will search for `ray.config.js`.  You should place this file in your project's root directory.
+`node-ray` will search for `ray.config.js`.  You should place this file in your project's root directory, similiar to the way `ray.php` is placed in the root directory when using `spatie/ray`.
 
-This is optional and will use the default settings if no configuration file is found.
+This is optional and the package will use the default settings if no configuration file is found.
 
 _Example:_
 
@@ -27,22 +72,35 @@ module.exports = {
 }
 ```
 
-## Tests
-
-`npm run test`
-
 ## About
 
-Source was converted from original PHP source _(spatie/ray)_.
+This package attempts to replicate the entire PHP API for Ray to provide a robust solution for debugging NodeJS projects.
 
 ## How is this different from `js-ray`?
 
-This is a more complete implementation written in typescript, and it's primary use case is for node.js projects.
-The codebase was translated to Typescript directly from the original PHP source code of `spatie/ray`. 
+This is a more complete implementation written in typescript, and its primary use case is for NodeJS projects.
 
-As a result, supports all of the features that the original package does.  `js-ray` does not support all features of Ray.
+The codebase was translated to Typescript directly from the original PHP source code of [`spatie/ray`](https://github.com/spatie/ray). 
 
-We did, however, draw some inspiration for portions of the code from `js-ray`.
+As a result, `node-ray` supports the majority of features that exist in the original package; [`js-ray`](https://github.com/m1guelpf/ray-js) does not.
+
+We did draw some inspiration for portions of the code from [`js-ray`](https://github.com/m1guelpf/ray-js), however.
+
+## Development setup
+
+- `npm install`
+- `npm run build`
+- `node build/test.js`
+
+## Testing
+
+`node-ray` uses Jest for unit tests.  To run the test suite:
+
+`npm run test`
+
+To update the test snapshots:
+
+`npm run test -- -u`
 
 ---
 
