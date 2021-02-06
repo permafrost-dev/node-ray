@@ -12,7 +12,7 @@ const outputMinified = [
     {
         file: 'dist/standalone.min.js',
         format: 'umd',
-        plugins: [terser()],
+        plugins: [versionInjector(), terser()],
         sourcemap: sourceMapsEnabled,
         exports: 'auto',
         name: 'Ray',
@@ -23,6 +23,7 @@ const outputUnminified = [
     {
         file: 'dist/standalone.js',
         format: 'umd',
+        plugins: [versionInjector()],
         sourcemap: sourceMapsEnabled,
         exports: 'auto',
         name: 'Ray',
@@ -34,6 +35,6 @@ export default {
     output: [
         ...outputUnminified,
     ],
-    plugins: [nodeResolve(), json(), commonjs(), typescript(), versionInjector()],
+    plugins: [nodeResolve(), json(), commonjs(), typescript()],
     external: [], //'axios', 'find-up', 'md5', 'pretty-format', 'stacktrace-js', 'xml-formatter', 'uuid'
 };
