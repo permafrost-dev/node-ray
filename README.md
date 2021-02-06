@@ -1,3 +1,9 @@
+<p align="center">
+    <img src="https://static.permafrost.dev/images/node-ray/node-ray-logo.png" alt="node-ray" height="125" style="block">
+    <br><br>
+    <code style="font-size:2.4rem;"><strong>node-ray</strong></code>
+</p>
+
 # node-ray
 ## Debug your NodeJS code with Ray to fix problems faster
 
@@ -22,36 +28,28 @@ yarn add node-ray
 The majority of the API from the [original PHP package](https://github.com/spatie/ray) is supported.  See the [api reference](https://spatie.be/docs/ray/v1/usage/reference) for more information.
 
 ```js 
-
-// import as an es module
+// es module import:
 import { ray } from 'node-ray';
 
-// import as commonjs
+// commonjs import:
 const ray = require('node-ray').ray;
+```
 
-// ---
-
+```js
 ray('a string');
-
-ray({ name: 'object' });
 
 ray(['several', 'arguments'], 'can', {be: provided});
 
-ray().newScreen('A new screen');
-
-ray().clearAll();
-
-ray('this is blue').blue();
+ray().table(['one two', {a: 100, b: 200, c: 300}, [9, 8, 7]).blue();
 
 ray().html('<em>large text</em>').large().green();
 
 ray().image('https://placekitten.com/200/300');
 
-// enable or disable sending data to Ray at runtime: 
+ray().clearAll();
 
-ray().disable();
-ray().xml('<one><two>22</two></one>'); // this is not sent
-
+ray().disable(); // disable sending data to Ray at runtime
+ray().xml('<one>11</one>'); // disabled, data not sent to Ray
 ```
 
 ## Configuration
@@ -78,7 +76,7 @@ This package attempts to replicate the entire PHP API for Ray to provide a robus
 
 ## How is this different from `js-ray`?
 
-This is a more complete implementation written in typescript, and its primary use case is for NodeJS projects.
+This is a more complete implementation written in typescript, and its primary use case is for NodeJS projects (the default builds won't work in a browser environment).
 
 The codebase was translated to Typescript directly from the original PHP source code of [`spatie/ray`](https://github.com/spatie/ray). 
 
@@ -89,7 +87,7 @@ We did draw some inspiration for portions of the code from [`js-ray`](https://gi
 ## Development setup
 
 - `npm install`
-- `npm run build`
+- `npm run build:all`
 - `node build/test.js`
 
 ## Testing
