@@ -8,7 +8,7 @@ export interface PayloadData
     type: string;
     content: Record<string, any> | any;
     origin: OriginData;
-};
+}
 
 export abstract class Payload
 {

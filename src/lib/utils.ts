@@ -1,5 +1,8 @@
 /* eslint-disable no-empty */
 
+import randomInt from 'random-int';
+import { v4 as uuidv4 } from 'uuid';
+
 
 export interface FormatHtmlOptions
 {
@@ -58,4 +61,30 @@ export const formatHtmlForDisplay = (html: string, options: FormatHtmlOptions = 
     return encodeNewLinesToHtml(
         html.replace(/^(\s+)/gm, m => `${spacesToHtmlSpaces(m)}`) // preserve indentation spaces
     );
+};
+
+export const nonCryptoUuidV4 = (): string =>
+{
+    const v4options = {
+        random: [
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+            randomInt(1, 255),
+        ],
+    };
+
+    return uuidv4(v4options).toString();
 };

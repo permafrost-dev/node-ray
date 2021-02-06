@@ -1,5 +1,4 @@
-console.log('hello world');
 
-export function add(a: number, b: number) {
-    return a + b;
-}
+import { Ray } from './Ray';
+
+export { ray } from './Ray';

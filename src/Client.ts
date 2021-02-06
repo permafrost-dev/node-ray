@@ -5,25 +5,48 @@
 import { Request } from './Request';
 import axios from 'axios';
 
-export class Client {
+export class Client
+{
     protected portNumber: number;
     protected host: string;
 
-    public constructor(portNumber = 23517, host = 'localhost') {
+    public constructor(portNumber = 23517, host = 'localhost')
+    {
         this.portNumber = portNumber;
 
         this.host = host;
     }
 
-    public async send(request: Request) {
-        await axios.post(`http://${this.host}:${this.portNumber}/`, request.toArray());
+    protected getUrlForPath(path: string): string
+    {
+        path = path.replace(/^\//, ''); // strip leading slash
+
+        return `http://${this.host}:${this.portNumber}/${path}`;
     }
 
-    public async lockExists(lockName: string) {
-        return new Promise(async (resolve, reject) => {
+    public async send(request: Request)
+    {
+        try {
+            await axios.post(this.getUrlForPath('/'), request.toArray());
+        } catch (err) {
+            // ignore all errors, such as when Ray isn't running and we can't connect
+        }
+    }
+
+    public async lockExists(lockName: string)
+    {
+        return new Promise(async (resolve, reject) =>
+        {
             //console.log(lockName);
 
-            const resp = await axios.get(`http://${this.host}:${this.portNumber}/locks/${lockName}`);
+            let resp;
+
+            try {
+                resp = await axios.get(this.getUrlForPath(`/locks/${lockName}`));
+            } catch (err) {
+                // ignore errors, i.e. connection failed
+                return false;
+            }
 
             //console.log('resp=', resp);
 

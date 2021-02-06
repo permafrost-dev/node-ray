@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-useless-catch */
 
 import md5 from 'md5';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4, v1 as uuidv1 } from 'uuid';
 import { Mixin } from 'ts-mixer';
-import { sleep } from './lib/utils';
+import { nonCryptoUuidV4, sleep } from './lib/utils';
 import { ClearAllPayload } from './Payloads/ClearAllPayload';
 import { Client } from './Client';
 import { ColorPayload } from './Payloads/ColorPayload';
@@ -32,8 +33,10 @@ import { ShowAppPayload } from './Payloads/ShowAppPayload';
 import { SizePayload } from './Payloads/SizePayload';
 import { TablePayload } from './Payloads/TablePayload';
 import { XmlPayload } from './Payloads/XmlPayload';
+import randomInt from 'random-int';
 
-type BoolFunction = () => boolean;
+
+export type BoolFunction = () => boolean;
 
 export class Ray extends Mixin(RayColors, RaySizes) {
 
@@ -69,7 +72,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         Ray.client = client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
 
-        this.uuid = uuid ?? Ray.fakeUuid ?? uuidv4().toString();
+        this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
 
         Ray.enabled = this.settings.enable !== false;
     }
@@ -299,7 +302,11 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             console.error(status);
         }
 
-        process.exit(-1);
+        global['process'] = {};
+
+        if (typeof process !== 'undefined') {
+            process.exit(-1);
+        }
     }
 
     public className(object: any): this
