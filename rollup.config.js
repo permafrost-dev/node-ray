@@ -32,5 +32,5 @@ export default {
         },
     ],
     plugins: [nodeResolve(), commonjs(), typescript()],
-    external: ['axios', 'find-up', 'md5', 'pretty-format', 'xml-formatter', 'uuid'],
+    external: ['axios', 'find-up', 'md5', 'pretty-format', 'stacktrace-js', 'xml-formatter', 'uuid'],
 };
