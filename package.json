@@ -1,7 +1,7 @@
 {
-  "name": "ray-node",
-  "version": "0.0.1",
-  "description": "Debug with Ray to fix problems faster",
+  "name": "node-ray",
+  "version": "1.0.0",
+  "description": "Debug NodeJS with Ray to fix problems faster",
   "main": "./dist/index.mjs",
   "exports": {
     "import": "./dist/index.mjs",
@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/jest tests --verbose",
+    "test:coverage": "./node_modules/.bin/jest tests --coverage",
     "fmt": "./node_modules/.bin/prettier --config .prettierrc --write $(find src/ tests/ -printf '%p ' -type f -regex '.*\\.([tj]s|json)$')",
     "lint": "./node_modules/.bin/eslint --ext ts,js src/",
     "lint:fix": "./node_modules/.bin/eslint --ext ts,js --fix src/",
@@ -16,7 +17,7 @@
     "build": "rollup --config",
     "preversion": "npm run build"
   },
-  "repository": "https://github.com/permafrost-dev/ray-node",
+  "repository": "https://github.com/permafrost-dev/node-ray",
   "author": "Patrick Organ",
   "license": "MIT",
   "private": true,
