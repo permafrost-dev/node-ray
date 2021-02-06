@@ -15,7 +15,7 @@ coverage:
         informational: true
   precision: 2
   round: up
-  range: "70...100"
+  range: "40...75"
 
 parsers:
   javascript:
