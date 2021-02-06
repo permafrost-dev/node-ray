@@ -1,4 +1,5 @@
+import { Ray, ray } from './Ray';
 
-import { Ray } from './Ray';
+export { Ray, ray } from './Ray';
 
-export { ray } from './Ray';
+export default ray;
