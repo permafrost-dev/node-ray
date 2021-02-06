@@ -27,12 +27,6 @@ export abstract class Payload
         this.data.type = this.getType();
         this.data.content = this.getContent();
         this.data.origin = this.getOrigin().toArray();
-
-        // this.data = {
-        //     type: this.getType(),
-        //     content: this.getContent(),
-        //     origin: this.getOrigin().toArray(),
-        // };
     }
 
     public replaceRemotePathWithLocalPath(filePath: string): string
@@ -55,15 +49,7 @@ export abstract class Payload
     {
         if (!this.initialized) {
             this.initialize();
-
         }
-        // if (this.data.type.length === 0 || this.data.origin.file?.length === 0) {
-        //     this.data = {
-        //         type: this.getType(),
-        //         content: this.getContent(),
-        //         origin: this.getOrigin().toArray(),
-        //     };
-        // }
 
         return this.data;
     }

@@ -302,11 +302,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             console.error(status);
         }
 
-        global['process'] = {};
-
-        if (typeof process !== 'undefined') {
-            process.exit(-1);
-        }
+        process.exit(-1);
     }
 
     public className(object: any): this
