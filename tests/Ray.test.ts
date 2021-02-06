@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 import { FakeClient } from './TestClasses/FakeClient';
-import { Ray } from './../src/Ray';
+import { ray, Ray } from './../src/Ray';
 
 let client: FakeClient, myRay: Ray;
 
@@ -276,6 +276,32 @@ it('counts the number of times a piece of code is called', () =>
 
     expect(Ray.counters.get('first')).toBe(6);
     expect(Ray.counters.get('second')).toBe(4);
+});
+
+function myFunc1()
+{
+    ray().count();
+    return 'test1';
+}
+
+function myFunc2()
+{
+    ray().count();
+    return 'test2';
+}
+
+it('counts the number of times an unnamed piece of code is called', () =>
+{
+    for (let i = 0; i < 2; i++) {
+        myFunc1();
+
+        for (let j = 0; j < 2; j++) {
+            myFunc2();
+        }
+    }
+
+    expect(client.sentPayloads()[3].payloads[0].content.content).toBe('Called 2 times.'); // myFunc1
+    expect(client.sentPayloads()[5].payloads[0].content.content).toBe('Called 4 times.'); // myFunc2
 });
 
 it('returns zero for an unknown named counter value', () =>

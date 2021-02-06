@@ -18,7 +18,7 @@ export abstract class Payload
     public localPath: string | null = null;
 
     public initialized = false;
-    public data: PayloadData = { type: '', content: '', origin: { file: '', line_number: 0 } };
+    public data: PayloadData = { type: '', content: '', origin: { function_name: '', file: '', line_number: 0 } };
 
     public initialize()
     {

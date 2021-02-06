@@ -3,6 +3,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
+import versionInjector from 'rollup-plugin-version-injector';
 
 const sourceMapsEnabled = false;
 
@@ -33,6 +34,6 @@ export default {
     output: [
         ...outputUnminified,
     ],
-    plugins: [nodeResolve(), json(), commonjs(), typescript()],
+    plugins: [nodeResolve(), json(), commonjs(), typescript(), versionInjector()],
     external: [], //'axios', 'find-up', 'md5', 'pretty-format', 'stacktrace-js', 'xml-formatter', 'uuid'
 };

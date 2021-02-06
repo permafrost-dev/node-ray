@@ -32,6 +32,9 @@ import { ShowAppPayload } from './Payloads/ShowAppPayload';
 import { SizePayload } from './Payloads/SizePayload';
 import { TablePayload } from './Payloads/TablePayload';
 import { XmlPayload } from './Payloads/XmlPayload';
+import { Origin, OriginData } from './Origin/Origin';
+import StackTrace from 'stacktrace-js';
+import PACKAGE_VERSION from './version';
 
 export type BoolFunction = () => boolean;
 
@@ -52,7 +55,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     // @var \Symfony\Component\Stopwatch\Stopwatch[]
     public static stopWatches: Record<string, unknown> = {};
 
-    public static enabled = true;
+    public static enabled: boolean | null = null;
 
     public static create(client: Client | null = null, uuid: string | null = null): Ray
     {
@@ -67,11 +70,13 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         this.settings = settings;
 
+        if (Ray.enabled === null) {
+            Ray.enabled = this.settings.enable !== false;
+        }
+
         Ray.client = client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
 
         this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
-
-        Ray.enabled = this.settings.enable !== false;
     }
 
     public enable(): this
@@ -90,12 +95,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public enabled(): boolean
     {
-        return Ray.enabled;
+        return <boolean>Ray.enabled;
     }
 
     public disabled(): boolean
     {
-        return !Ray.enabled;
+        return ! <boolean>Ray.enabled;
     }
 
     public static useClient(client: Client): void
@@ -174,20 +179,14 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public toJson(...values: any[]): this
     {
-        const payloads = values.map(value =>
-        {
-            return new JsonStringPayload(value);
-        });
+        const payloads = values.map(value => new JsonStringPayload(value));
 
         return this.sendRequest(payloads);
     }
 
     public json(...jsons: string[]): this
     {
-        const payloads = jsons.map(json =>
-        {
-            return new DecodedJsonPayload(json);
-        });
+        const payloads = jsons.map(json => new DecodedJsonPayload(json));
 
         return this.sendRequest(payloads);
     }
@@ -201,7 +200,9 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public image(location: string): this
     {
-        return this.sendRequest(new ImagePayload(location));
+        const payload = new ImagePayload(location);
+
+        return this.sendRequest(payload);
     }
 
     public die(status = ''): void
@@ -273,9 +274,9 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public count(name: string | null = null): this
     {
-        const fingerprint = ''; //(new DefaultOriginFactory()).getOrigin().fingerPrnumber();
+        const fingerprint = md5(`${<string>this.getCaller()?.getFileName()}${this.getCaller()?.getLineNumber()}`);
 
-        const [ray, times] = Ray.counters.increment(name || fingerprint);
+        const [ray, times] = Ray.counters.increment(name ?? fingerprint ?? 'none');
 
         let message = `Called `;
 
@@ -326,7 +327,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public xml(xml: string): this
     {
-        const payload = new XmlPayload(`<a>${xml}</a>`);
+        const payload = new XmlPayload(xml);
 
         return this.sendRequest(payload);
     }
@@ -344,10 +345,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             return this;
         }
 
-        const payloads = args.map(argument =>
-        {
-            return LogPayload.createForArguments([argument]);
-        });
+        const payloads = args.map(arg => LogPayload.createForArguments([arg]));
 
         return this.sendRequest(payloads);
     }
@@ -361,7 +359,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         if (this.settings.always_send_raw_values) {
             return this.raw(...args);
         }
-
 
         const payloads = PayloadFactory.createForValues(args);
 
@@ -396,6 +393,67 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this.sendRequest(payload);
     }
 
+    getOriginFrame()
+    {
+        const st = StackTrace.getSync();
+
+        let startFrameIndex = st.findIndex(frame => frame.functionName === 'Ray.sendRequest');
+
+        if (startFrameIndex === -1) {
+            startFrameIndex = 0;
+        }
+
+        const callerFrames = st
+            .slice(startFrameIndex)
+            .filter(frame => frame.functionName?.includes('Ray.'));
+
+        if (callerFrames.length === 1) {
+            return callerFrames.shift();
+        }
+
+        return callerFrames.slice(1).shift();
+    }
+
+    getOrigin()
+    {
+        const frame = this.getOriginFrame();
+
+        const name: string | null = <string | null>frame?.getFunctionName();
+
+        return new Origin(<string | null>frame?.getFileName(), <number | null>frame?.getLineNumber(), name);
+    }
+
+    getCaller()
+    {
+        const st = StackTrace.getSync();
+
+        let startFrameIndex = st.findIndex(frame => frame.functionName === 'Ray.getCaller');
+
+        if (startFrameIndex === -1) {
+            startFrameIndex = 0;
+        }
+
+        const callerFrames = st
+            .slice(startFrameIndex);
+
+        if (callerFrames.length === 1) {
+            return callerFrames.shift();
+        }
+
+        return callerFrames.slice(2).shift();
+    }
+
+    getOriginData()
+    {
+        const frame = this.getOriginFrame();
+
+        return <OriginData>{
+            function_name: frame?.getFunctionName(),
+            file: frame?.getFileName(),
+            line_number: frame?.getLineNumber()
+        };
+    }
+
     public sendRequest(payloads: Payload | Payload[], meta: any[] = []): this
     {
         if (!this.enabled()) {
@@ -407,11 +465,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         }
 
         const allMeta = Object.assign({}, {
-            node_version: process.versions.node
+            node_ray_package_version: PACKAGE_VERSION,
         }, meta);
 
         payloads.forEach(payload =>
         {
+            payload.data.origin = this.getOriginData();
             payload.remotePath = this.settings.remote_path;
             payload.localPath = this.settings.local_path;
         });
