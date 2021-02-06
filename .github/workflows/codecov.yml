@@ -31,12 +31,12 @@ jobs:
 
     - name: Cache dependencies
       uses: actions/cache@v2
-        id: npm-cache
-        with:
-          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ matrix.node-version }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node-version }}-npm-
+      id: npm-cache
+      with:
+        path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-npm-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-${{ matrix.node-version }}-npm-
 
     - name: Install dependencies
       run: npm install
@@ -45,8 +45,8 @@ jobs:
       run: npm run test -- --coverage
 
     - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-            token: ${{ secrets.CODECOV_TOKEN }}
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
 
 
