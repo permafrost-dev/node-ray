@@ -16,8 +16,10 @@ export class FakeClient extends Client
         {
             payload.toArray();
 
-            payload.data.origin.file = <string>(payload.data.origin?.file?.replace(this.baseDirectory(), ''));
-            payload.data.origin.file = this.convertToUnixPath(payload.data.origin.file);
+            const fn: string = payload.data.origin.file ?? '/test/file.js';
+
+            payload.data.origin.file = fn.replace(this.baseDirectory(), '');
+            //payload.data.origin.file = this.convertToUnixPath(payload.data.origin.file);
 
             payload.data.origin.line_number = 999;
         });

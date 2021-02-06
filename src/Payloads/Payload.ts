@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import { DefaultOriginFactory } from '../Origin/DefaultOriginFactory';
 import { Origin, OriginData } from '../Origin/Origin';
 import StackTrace from 'stacktrace-js';
@@ -16,7 +17,23 @@ export abstract class Payload
     public remotePath: string | null = null;
     public localPath: string | null = null;
 
+    public initialized = false;
     public data: PayloadData = { type: '', content: '', origin: { file: '', line_number: 0 } };
+
+    public initialize()
+    {
+        this.initialized = true;
+
+        this.data.type = this.getType();
+        this.data.content = this.getContent();
+        this.data.origin = this.getOrigin().toArray();
+
+        // this.data = {
+        //     type: this.getType(),
+        //     content: this.getContent(),
+        //     origin: this.getOrigin().toArray(),
+        // };
+    }
 
     public replaceRemotePathWithLocalPath(filePath: string): string
     {
@@ -36,13 +53,17 @@ export abstract class Payload
 
     public toArray(): PayloadData
     {
-        if (this.data.type === '') {
-            this.data = {
-                type: this.getType(),
-                content: this.getContent(),
-                origin: this.getOrigin().toArray(),
-            };
+        if (!this.initialized) {
+            this.initialize();
+
         }
+        // if (this.data.type.length === 0 || this.data.origin.file?.length === 0) {
+        //     this.data = {
+        //         type: this.getType(),
+        //         content: this.getContent(),
+        //         origin: this.getOrigin().toArray(),
+        //     };
+        // }
 
         return this.data;
     }
@@ -59,11 +80,11 @@ export abstract class Payload
 
         const frame = StackTrace.getSync().filter(frame =>
         {
-            return frame.getFileName().includes('Ray')
-                && frame.getFileName() !== 'Ray.sendRequest';
+            return frame.getFileName().includes('Ray');
+            //&& frame.getFileName() !== 'Ray.sendRequest';
         })[1];
 
-        const origin = new Origin(frame?.getFileName(), frame?.getLineNumber());
+        const origin = new Origin(frame?.getFileName() ?? '/test.js', frame?.getLineNumber() ?? 888);
 
         origin.file = this.replaceRemotePathWithLocalPath(<string>origin.file);
 
