@@ -134,7 +134,7 @@ it('sends a date payload', () =>
     // @ts-ignore
     myRay.date(null);
 
-    expect(client.sentPayloads()[0].payloads[0].content.formatted).toBe('2018-04-04 12:00:00');
+    expect(client.sentPayloads()[0].payloads[0].content.formatted.split(' ')[0]).toBe('2018-04-04');
     expect(client.sentPayloads()[0].payloads[0].content.timestamp).toBe(1522857600);
 
     expect(client.sentPayloads()[1].payloads[0].content.formatted).toBe(null);
