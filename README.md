@@ -83,7 +83,7 @@ ray('a string');
 
 ray(['several', 'arguments'], 'can', {be: provided});
 
-ray().table(['one two', {a: 100, b: 200, c: 300}, [9, 8, 7]).blue();
+ray().table(['one two', {a: 100, b: 200, c: 300}, [9, 8, 7]]).blue();
 
 ray().html('<em>large text</em>').large().green();
 
