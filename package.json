@@ -39,7 +39,8 @@
     "build:web": "rollup --config rollup.web-config.js",
     "build:standalone": "rollup --config rollup.standalone-config.js",
     "build:all": "npm run build:node && npm run build:web && npm run build:standalone",
-    "preversion": "npm run test && npm run build:all"
+    "preversion": "npm run test",
+    "postversion": "npm run build:all"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.1.0",
