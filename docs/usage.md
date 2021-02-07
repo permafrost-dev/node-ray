@@ -177,6 +177,15 @@ const obj = new MyClass1();
 ray().className(obj);
 ```
 
+### Working with dates
+
+Ray can display information about a date in a nicely formatted table using the `date()` method.
+Specifying the format is optional. It uses the [dayjs formatting](https://day.js.org/docs/en/display/format) style.
+
+```js
+ray().date(new Date(), 'YYYY-MM-DD hh:mm');
+```
+
 ### Feature demo
 
 Here's a sample script that demonstrates a number of the features, both basic and advanced.

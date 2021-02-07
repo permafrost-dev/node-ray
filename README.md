@@ -144,6 +144,7 @@ See [using the package](docs/usage.md).
 | `ray().clearAll()` | Clear current and all previous screens |
 | `ray().className(obj)` | Display the classname for an object |
 | `ray().count(name)` | Count how many times a piece of code is called, with optional name |
+| `ray().date(date, format)` | Display a formatted date, the timezone, and its timestamp | 
 | `ray().die()` | Halt code execution - NodeJS only |
 | `ray().disable()` | Disable sending stuff to Ray |
 | `ray().disabled()` | Check if Ray is disabled |

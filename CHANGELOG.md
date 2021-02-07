@@ -4,9 +4,13 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
-## 1.3.1 - unreleased
+## 1.4.0 - 2021-02-07
 
 - bump `find-up` package version to `5.0`
+
+- add `error()` method to display information about errors
+
+- add `date()` method to display information about a date
 
 ## 1.3.0 - 2021-02-07
 
