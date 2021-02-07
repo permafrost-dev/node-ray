@@ -8,6 +8,8 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 - bump `find-up` package version to `5.0`
 
+- add `dayjs` package
+
 - add `error()` method to display information about errors
 
 - add `date()` method to display information about a date
