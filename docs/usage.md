@@ -167,6 +167,16 @@ Ray can display information about an `Error` or exception with the `error` metho
 ray().error(new Error('my error message'));
 ```
 
+### Displaying class information
+
+You can display the classname of an object with `className()`.
+
+```js
+const obj = new MyClass1();
+
+ray().className(obj);
+```
+
 ### Feature demo
 
 Here's a sample script that demonstrates a number of the features, both basic and advanced.

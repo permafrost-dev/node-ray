@@ -102,6 +102,7 @@ See [using the package](docs/usage.md).
 | `ray(…).blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
 | `ray().clearScreen()` | Clear current screen |
 | `ray().clearAll()` | Clear current and all previous screens |
+| `ray().className(obj)` | Display the classname for an object |
 | `ray().count(name)` | Count how many times a piece of code is called, with optional name |
 | `ray().disable()` | Disable sending stuff to Ray |
 | `ray().disabled()` | Check if Ray is disabled |
