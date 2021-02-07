@@ -2,6 +2,12 @@
     <img src="https://static.permafrost.dev/images/node-ray/node-ray-logo.png" alt="node-ray" height="200" style="block">
     <br><br>
     <code style="font-size:3.0rem;"><strong>node-ray</strong></code>
+    <br><br>
+
+    <img src="https://shields.io/npm/v/node-ray" alt="npm version">&nbsp;
+    <img src="https://shields.io/github/license/permafrost-dev/node-ray" alt="license"> &nbsp;
+    <img src="https://github.com/permafrost-dev/node-ray/workflows/Run%20Tests/badge.svg" alt="test status">&nbsp;
+    <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graph/badge.svg?token=YW2BTKSNEO"/>
 </p>
 
 # node-ray
@@ -83,6 +89,42 @@ The codebase was translated to Typescript directly from the original PHP source 
 As a result, `node-ray` supports the majority of features that exist in the original package; [`js-ray`](https://github.com/m1guelpf/ray-js) does not.
 
 We did draw some inspiration for portions of the code from [`js-ray`](https://github.com/m1guelpf/ray-js), however.
+
+## Using the package
+
+See [using the package](docs/usage.md).
+
+## Reference
+
+| Call | Description |
+| --- | --- |
+| `ray(variable)` | Display a string, array or object |
+| `ray(variable, another, …)` | Ray accepts multiple arguments |
+| `ray(…).blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
+| `ray().clearScreen()` | Clear current screen |
+| `ray().clearAll()` | Clear current and all previous screens |
+| `ray().count(name)` | Count how many times a piece of code is called, with optional name |
+| `ray().disable()` | Disable sending stuff to Ray |
+| `ray().disabled()` | Check if Ray is disabled |
+| `ray().enable()` | Enable sending stuff to Ray |
+| `ray().enabled()` | Check if Ray is enabled |
+| `ray().file(filename)` | Display contents of a file |
+| `ray(…).hide()` | Display something in Ray and make it collapse immediately |
+| `ray().hideApp()` | Programmatically hide the Ray app window |
+| `ray().html(string)` | Send HTML to Ray | 
+| `ray().image(url)` | Display an image in Ray | 
+| `ray().json([…])` | Send JSON to Ray | 
+| `ray().newScreen()` | Start a new screen |
+| `ray().newScreen('title')` | Start a new named screen |
+| `ray(…).notify(message)` | Display a notification |
+| `ray(…).pass(variable)` | Display something in Ray and return the value instead of a Ray instance |
+| `ray().pause()` | Pause code execution within your code; must be called using `await` |
+| `ray().showApp()` | Programmatically show the Ray app window |
+| `ray(…).showIf(true)` | Conditionally show things based on a truthy value or callable  |
+| `ray(…).showWhen(true)` | Conditionally show things based on a truthy value or callable  |
+| `ray(…).small()` | Output text smaller or bigger. Use `large` or `small`|
+| `ray().table([…])` | Display an array of items formatted as a table; Objects and arrays are pretty-printed |
+| `ray().xml(string)` | Send XML to Ray | 
 
 ## Development setup
 
