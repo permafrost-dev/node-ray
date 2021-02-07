@@ -12,6 +12,7 @@
 .prettierrc
 jest.config.js
 package-lock.json
+SECURITY.md
 tsconfig.json
 *.sh
 _*.txt
