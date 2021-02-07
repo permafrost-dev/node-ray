@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.3.1 - unreleased
+
+- bump `find-up` package version to `5.0`
+
 ## 1.3.0 - 2021-02-07
 
 - fix raw html displaying instead of rendered html with calls like `ray({hello: 'world'})`
