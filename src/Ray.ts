@@ -35,6 +35,7 @@ import { XmlPayload } from './Payloads/XmlPayload';
 import { OriginData } from './Origin/Origin';
 import StackTrace from 'stacktrace-js';
 import PACKAGE_VERSION from './version';
+import { ErrorPayload } from './Payloads/ErrorPayload';
 
 export type BoolFunction = () => boolean;
 
@@ -202,6 +203,13 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public className(object: any): this
     {
         return this.send(object.constructor.name);
+    }
+
+    public error(err: Error): this
+    {
+        const payload = new ErrorPayload(err, 'Error');
+
+        return this.sendRequest(payload);
     }
 
     public showWhen(booleanOrCallable: boolean | BoolFunction): this
