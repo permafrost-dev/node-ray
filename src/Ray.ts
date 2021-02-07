@@ -407,15 +407,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return callerFrames.slice(1).shift();
     }
 
-    // getOrigin()
-    // {
-    //     const frame = this.getOriginFrame();
-
-    //     const name: string | null = <string | null>frame?.getFunctionName();
-
-    //     return new Origin(<string | null>frame?.getFileName(), <number | null>frame?.getLineNumber(), name);
-    // }
-
     getCaller()
     {
         const st = StackTrace.getSync();
