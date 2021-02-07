@@ -68,6 +68,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dayjs": "^1.10.4",
     "find-up": "^5.0.0",
     "md5": "^2.3.0",
     "pretty-format": "^26.6.2",
