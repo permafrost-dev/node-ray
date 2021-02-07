@@ -3,11 +3,10 @@
     <br><br>
     <code style="font-size:3.0rem;"><strong>node-ray</strong></code>
     <br><br>
+</p>
 
-    <img src="https://shields.io/npm/v/node-ray" alt="npm version">&nbsp;
-    <img src="https://shields.io/github/license/permafrost-dev/node-ray" alt="license"> &nbsp;
-    <img src="https://github.com/permafrost-dev/node-ray/workflows/Run%20Tests/badge.svg" alt="test status">&nbsp;
-    <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graph/badge.svg?token=YW2BTKSNEO"/>
+<p align="center">
+    <img src="https://shields.io/npm/v/node-ray" alt="npm version"> <img src="https://shields.io/github/license/permafrost-dev/node-ray" alt="license"> <img src="https://github.com/permafrost-dev/node-ray/workflows/Run%20Tests/badge.svg" alt="test status"> <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graph/badge.svg?token=YW2BTKSNEO"/>
 </p>
 
 # node-ray
