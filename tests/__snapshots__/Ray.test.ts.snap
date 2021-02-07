@@ -704,6 +704,29 @@ Array [
 ]
 `;
 
+exports[`sends an error payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "<span class=\\"text-red-400 bold\\">Error</span>: <br><span class=\\"pl-5 text-gray-500\\">test error</span>",
+          "label": "Error",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends an html payload 1`] = `
 Array [
   Object {

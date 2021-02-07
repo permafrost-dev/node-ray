@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-undef */
 
 import { FakeClient } from './TestClasses/FakeClient';
@@ -123,6 +124,26 @@ it('sends a classname payload', () =>
 it('sends a notify payload', () =>
 {
     myRay.notify('hello world');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a date payload', () =>
+{
+    myRay.date(new Date('2018-04-04T16:00:00.000Z'));
+    // @ts-ignore
+    myRay.date(null);
+
+    expect(client.sentPayloads()[0].payloads[0].content.formatted).toBe('2018-04-04 12:00:00');
+    expect(client.sentPayloads()[0].payloads[0].content.timestamp).toBe(1522857600);
+
+    expect(client.sentPayloads()[1].payloads[0].content.formatted).toBe(null);
+    expect(client.sentPayloads()[1].payloads[0].content.timestamp).toBe(null);
+});
+
+it('sends an error payload', () =>
+{
+    myRay.error(new Error('test error'));
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
