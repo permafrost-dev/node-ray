@@ -98,7 +98,7 @@ See [using the package](docs/usage.md).
 | Call | Description |
 | --- | --- |
 | `ray(variable)` | Display a string, array or object |
-| `ray(variable, another, …)` | Ray accepts multiple arguments |
+| `ray(var1, var2, …)` | Ray accepts multiple arguments |
 | `ray(…).blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
 | `ray().clearScreen()` | Clear current screen |
 | `ray().clearAll()` | Clear current and all previous screens |
@@ -107,6 +107,7 @@ See [using the package](docs/usage.md).
 | `ray().disabled()` | Check if Ray is disabled |
 | `ray().enable()` | Enable sending stuff to Ray |
 | `ray().enabled()` | Check if Ray is enabled |
+| `ray().error(err)` | Display information about an Error/Exception |
 | `ray().file(filename)` | Display contents of a file |
 | `ray(…).hide()` | Display something in Ray and make it collapse immediately |
 | `ray().hideApp()` | Programmatically hide the Ray app window |

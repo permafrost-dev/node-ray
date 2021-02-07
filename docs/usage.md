@@ -149,6 +149,14 @@ You can use Ray to display a notification.
 ray().notify('This is my notification');
 ```
 
+### Working with errors
+
+Ray can display information about an `Error` or exception with the `error` method.
+
+```js
+ray().error(new Error('my error message'));
+```
+
 ### Feature demo
 
 Here's a sample script that demonstrates a number of the features, both basic and advanced.
