@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: true
       matrix:
         node-version: [12, 14]
 
@@ -45,4 +46,13 @@ jobs:
 
     - name: Run the tests
       run: npm run test
+
+    - name: Run the tests with coverage
+      run: npm run test -- --coverage --coverageReporters json
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: coverage/coverage-final.json
 
