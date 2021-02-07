@@ -1,26 +1,32 @@
 import prettyFormat from 'pretty-format';
 
+export interface ArgumentConverterResult
+{
+    value: any;
+    isHtml: boolean;
+}
+
 export class ArgumentConverter
 {
-    public static convertToPrimitive(arg: any): any
+    public static convertToPrimitive(arg: any): ArgumentConverterResult
     {
         if (arg === null) {
-            return null;
+            return { value: null, isHtml: false };
         }
 
         if (typeof arg === 'string') {
-            return arg;
+            return { value: arg, isHtml: false };
         }
 
         if (typeof arg === 'number') {
-            return arg;
+            return { value: arg, isHtml: false };
         }
 
         if (typeof arg === 'boolean') {
-            return arg;
+            return { value: arg, isHtml: false };
         }
 
-        return ArgumentConverter.prettyFormatForHtml(arg);
+        return { value: ArgumentConverter.prettyFormatForHtml(arg), isHtml: true };
     }
 
     public static prettyFormatForHtml(arg: any): string
