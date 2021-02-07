@@ -32,7 +32,7 @@ export class ArgumentConverter
             // highlight quoted strings
             .replace(
                 /("[^"]+")/g,
-                '<code style="font-size: 0.8rem!important;" class="bold text-blue-400 p-0">$1</code>'
+                '<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">$1</code>'
             )
             // highlight array contents
             .replace(
@@ -42,16 +42,21 @@ export class ArgumentConverter
             // highlight types like [Function Abc]
             .replace(/^(\[[^\]]+\])$/g, '<code style="font-size: 0.8rem!important;"class="text-gray-500 p-0">$1</code>')
             // highlight object contents
-            .replace(/(\{.+\})/g, '<code style="font-size: 0.8rem!important;" class="text-gray-500 ">$1</code>')
+            .replace(/(\{.+\})/g, '<code style="font-size: 0.8rem!important;" class="text-gray-600 ">$1</code>')
             // highlight keywords
             .replace(
                 /(Array|Object|Function|Circular|Symbol|WeakMap|Map)/g,
-                '<span style="font-size: 0.8rem!important;" class="text-yellow-400">$1</span>'
+                '<span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">$1</span>'
+            )
+            // highlight reserved words
+            .replace(
+                /(true|false|null)/g,
+                '<span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">$1</span>'
             )
             // highlight special chars
             .replace(
                 /(:&nbsp;|[,[\]{}])/g,
-                '<span style="font-size: 0.8rem!important;" class="text-white">$1</span>'
+                '<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">$1</span>'
             );
 
         return `<code style="font-size: 0.8rem!important;">${formatted}</code>`;

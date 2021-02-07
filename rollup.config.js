@@ -39,14 +39,14 @@ const outputUnminified = [
     {
         file: 'dist/index.cjs',
         format: 'cjs',
-        sourcemap: false,
+        sourcemap: !false,
         exports: 'auto',
         plugins: [versionInject]
     },
     {
         file: 'dist/index.mjs',
         format: 'esm',
-        sourcemap: false,
+        sourcemap: !false,
         plugins: [versionInject]
     },
 ];

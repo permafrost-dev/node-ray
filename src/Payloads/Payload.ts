@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
-// import { DefaultOriginFactory } from '../Origin/DefaultOriginFactory';
-import { Origin, OriginData } from '../Origin/Origin';
-import StackTrace from 'stacktrace-js';
+
+import { OriginData } from '../Origin/Origin';
 
 export interface PayloadData
 {
@@ -20,24 +19,15 @@ export abstract class Payload
     public initialized = false;
     public data: PayloadData = { type: '', content: '', origin: { function_name: '', file: '', line_number: 0 } };
 
-    public initialize()
-    {
-        this.initialized = true;
-
-        this.data.type = this.getType();
-        this.data.content = this.getContent();
-        this.data.origin = this.getOrigin().toArray();
-    }
-
     public replaceRemotePathWithLocalPath(filePath: string): string
     {
         if (this.remotePath === null || this.localPath === null) {
             return filePath;
         }
 
-        const pattern = new RegExp('^' + this.remotePath + '');
+        const pattern = new RegExp('^' + this.remotePath);
 
-        return this.localPath.replace(pattern, filePath);
+        return filePath.replace(pattern, this.localPath);
     }
 
     public getContent(): Record<string, unknown>
@@ -48,7 +38,10 @@ export abstract class Payload
     public toArray(): PayloadData
     {
         if (!this.initialized) {
-            this.initialize();
+            this.initialized = true;
+            this.data.type = this.getType();
+            this.data.content = this.getContent();
+            this.data.origin.file = this.replaceRemotePathWithLocalPath(<string>this.data.origin.file);
         }
 
         return this.data;
@@ -57,23 +50,5 @@ export abstract class Payload
     public toJson(): string
     {
         return JSON.stringify(this.toArray());
-    }
-
-    protected getOrigin(): Origin
-    {
-        // const originFactory = new DefaultOriginFactory(); //new this.originFactoryClass();
-        // const origin = originFactory.getOrigin();
-
-        const frame = StackTrace.getSync().filter(frame =>
-        {
-            return frame.getFileName().includes('Ray');
-            //&& frame.getFileName() !== 'Ray.sendRequest';
-        })[1];
-
-        const origin = new Origin(frame?.getFileName() ?? '/test.js', frame?.getLineNumber() ?? 888);
-
-        origin.file = this.replaceRemotePathWithLocalPath(<string>origin.file);
-
-        return origin;
     }
 }

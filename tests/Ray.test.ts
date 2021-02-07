@@ -2,6 +2,8 @@
 
 import { FakeClient } from './TestClasses/FakeClient';
 import { ray, Ray } from './../src/Ray';
+import { NullPayload } from './../src/Payloads/NullPayload';
+import { Request } from './../src/Request';
 
 let client: FakeClient, myRay: Ray;
 
@@ -83,7 +85,7 @@ it('doesn\'t blow up when calling html without a value', () =>
 it('sends an image payload', () =>
 {
     myRay.image('http://localhost/test.png');
-    myRay.image('./TestData/test.txt');
+    myRay.image('./tests/TestData/test.txt');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
@@ -128,6 +130,36 @@ it('sends a file payload', () =>
     myRay.file(__dirname + '/TestData/test.txt');
 
     expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a missing file payload', () =>
+{
+    myRay.file('missing.txt');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('can convert a payload to JSON', () =>
+{
+    const payload = new NullPayload();
+
+    expect(JSON.parse(payload.toJson()).content.label).toBe('Null');
+    expect(JSON.parse(payload.toJson()).content.content).toBe(null);
+});
+
+it('can replace the remote path with the local path', () =>
+{
+    const payload = new NullPayload();
+    payload.remotePath = '/app/files';
+    payload.localPath = '/code/packages';
+
+    const replaced1 = payload.replaceRemotePathWithLocalPath('/app/files/app/test.txt');
+    const replaced2 = payload.replaceRemotePathWithLocalPath('/app/files/abc');
+    const replaced3 = payload.replaceRemotePathWithLocalPath('/other/app/abc');
+
+    expect(replaced1).toBe('/code/packages/app/test.txt');
+    expect(replaced2).toBe('/code/packages/abc');
+    expect(replaced3).toBe('/other/app/abc');
 });
 
 it('sends a raw payload', () =>
@@ -231,6 +263,7 @@ it('sends a remove payload conditionally', () =>
 it('sends a table payload', () =>
 {
     myRay.table([1, 2, { A: 1 }, myRay, true, null], 'table');
+    myRay.table([[3, 4], { B: 2 }, false]);
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
@@ -238,6 +271,9 @@ it('sends a table payload', () =>
 it('sends a custom payload', () =>
 {
     myRay.sendCustom('test 123', 'test');
+    myRay.sendCustom('test 4');
+    myRay.sendCustom('test 5', undefined);
+    myRay.sendCustom('test 5', '');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
@@ -322,4 +358,11 @@ it('clears all counters', () =>
 
     expect(Ray.counters.get('first')).toBe(0);
     expect(Ray.counters.get('second')).toBe(0);
+});
+
+it('can transform a request into JSON', () =>
+{
+    const req = new Request('1-2-3-4', [], [{ test_version: 1.0 }]);
+
+    expect(req.toJson()).toMatchSnapshot();
 });

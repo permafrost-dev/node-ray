@@ -18,6 +18,7 @@ export class FakeClient extends Client
 
             const fn: string = payload.data.origin.file ?? '/test/file.js';
 
+            payload.data.origin.function_name = 'xxxx';
             payload.data.origin.file = fn.replace(this.baseDirectory(), '');
             //payload.data.origin.file = this.convertToUnixPath(payload.data.origin.file);
 

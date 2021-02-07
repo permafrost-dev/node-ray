@@ -27,7 +27,7 @@ export class Client
     public async send(request: Request)
     {
         try {
-            await axios.post(this.getUrlForPath('/'), request.toArray());
+            await axios.post(this.getUrlForPath('/'), request.toArray(), { timeout: 2, httpAgent: 'node-ray/1.0' });
         } catch (err) {
             // ignore all errors, such as when Ray isn't running and we can't connect
         }
@@ -37,12 +37,10 @@ export class Client
     {
         return new Promise(async (resolve, reject) =>
         {
-            //console.log(lockName);
-
             let resp;
 
             try {
-                resp = await axios.get(this.getUrlForPath(`/locks/${lockName}`));
+                resp = await axios.get(this.getUrlForPath(`/locks/${lockName}`), { timeout: 2, httpAgent: 'node-ray/1.0' });
             } catch (err) {
                 // ignore errors, i.e. connection failed
                 return false;

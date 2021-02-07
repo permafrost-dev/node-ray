@@ -32,7 +32,7 @@ import { ShowAppPayload } from './Payloads/ShowAppPayload';
 import { SizePayload } from './Payloads/SizePayload';
 import { TablePayload } from './Payloads/TablePayload';
 import { XmlPayload } from './Payloads/XmlPayload';
-import { Origin, OriginData } from './Origin/Origin';
+import { OriginData } from './Origin/Origin';
 import StackTrace from 'stacktrace-js';
 import PACKAGE_VERSION from './version';
 
@@ -153,21 +153,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         const payload = new HidePayload();
 
         return this.sendRequest(payload);
-    }
-
-    public stopTime(stopwatchName = ''): this
-    {
-        if (stopwatchName === '') {
-            Ray.stopWatches = {};
-
-            return this;
-        }
-
-        if (typeof Ray.stopWatches[stopwatchName] !== 'undefined') {
-            delete Ray.stopWatches[stopwatchName];
-        }
-
-        return this;
     }
 
     public notify(text: string): this
@@ -414,14 +399,14 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return callerFrames.slice(1).shift();
     }
 
-    getOrigin()
-    {
-        const frame = this.getOriginFrame();
+    // getOrigin()
+    // {
+    //     const frame = this.getOriginFrame();
 
-        const name: string | null = <string | null>frame?.getFunctionName();
+    //     const name: string | null = <string | null>frame?.getFunctionName();
 
-        return new Origin(<string | null>frame?.getFileName(), <number | null>frame?.getLineNumber(), name);
-    }
+    //     return new Origin(<string | null>frame?.getFileName(), <number | null>frame?.getLineNumber(), name);
+    // }
 
     getCaller()
     {

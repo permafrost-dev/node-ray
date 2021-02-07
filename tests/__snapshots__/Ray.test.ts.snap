@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`can transform a request into JSON 1`] = `"{\\"uuid\\":\\"1-2-3-4\\",\\"payloads\\":[],\\"meta\\":[{\\"test_version\\":1}]}"`;
+
 exports[`conditionally shows a payload 1`] = `
 Array [
   Object {
@@ -8,8 +10,8 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "remove",
@@ -23,8 +25,8 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "remove",
@@ -46,8 +48,8 @@ Array [
           "label": "HTML",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -64,8 +66,8 @@ Array [
           "label": "HTML",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -87,8 +89,8 @@ Array [
           "label": "Boolean",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -111,8 +113,8 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "log",
@@ -131,8 +133,8 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "clear_all",
@@ -153,8 +155,8 @@ Array [
           "name": "",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "new_screen",
@@ -175,8 +177,8 @@ Array [
           "color": "red",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "color",
@@ -192,8 +194,8 @@ Array [
           "color": "green",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "color",
@@ -209,8 +211,8 @@ Array [
           "color": "orange",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "color",
@@ -226,8 +228,8 @@ Array [
           "color": "red",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "color",
@@ -243,8 +245,8 @@ Array [
           "color": "purple",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "color",
@@ -260,8 +262,8 @@ Array [
           "color": "blue",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "color",
@@ -277,8 +279,8 @@ Array [
           "color": "gray",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "color",
@@ -300,8 +302,62 @@ Array [
           "label": "test",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "test 4",
+          "label": "",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "test 5",
+          "label": "",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "test 5",
+          "label": "",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -323,8 +379,8 @@ Array [
           "label": "test.txt",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -343,8 +399,8 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "hide",
@@ -368,8 +424,31 @@ Array [
           "label": "JSON",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a missing file payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "File not found: '{missing.txt'",
+          "label": "File",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -390,8 +469,8 @@ Array [
           "name": "test 1",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "new_screen",
@@ -412,8 +491,8 @@ Array [
           "value": "hello world",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "notify",
@@ -435,8 +514,8 @@ Array [
           "label": "Null",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -459,8 +538,8 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "log",
@@ -472,8 +551,8 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "log",
@@ -492,8 +571,8 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "remove",
@@ -512,8 +591,8 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "remove",
@@ -527,8 +606,8 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "remove",
@@ -549,8 +628,8 @@ Array [
           "size": "lg",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "size",
@@ -566,8 +645,8 @@ Array [
           "size": "sm",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "size",
@@ -583,8 +662,8 @@ Array [
           "size": "lg",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "size",
@@ -607,8 +686,8 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "log",
@@ -630,15 +709,37 @@ Array [
           "values": Array [
             1,
             2,
-            "<code style=\\"font-size: 0.8rem!important;\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-400\\">Object</span>&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-500 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"A\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>1<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">}</span></code></code>",
-            "<code style=\\"font-size: 0.8rem!important;\\">Ray&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-500 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"settings\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>Settings&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"always_send_raw_values\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>false<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"enable\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>true<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"host\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"localhost\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"local_path\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>null<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"port\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>23517<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"remote_path\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span>null<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">}</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"uuid\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-blue-400 p-0\\">\\"fakeUuid\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-white\\">}</span></code></code>",
+            "<code style=\\"font-size: 0.8rem!important;\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Object</span>&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-600 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"A\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>1<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span></code></code>",
+            "<code style=\\"font-size: 0.8rem!important;\\">Ray&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-600 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"settings\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>Settings&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"always_send_raw_values\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">false</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"enable\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">true</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"host\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"localhost\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"local_path\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">null</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"port\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>23517<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"remote_path\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">null</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"uuid\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"fakeUuid\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span></code></code>",
             true,
             null,
           ],
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "table",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "label": "Table",
+          "values": Array [
+            "<code style=\\"font-size: 0.8rem!important;\\"><code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-500 p-0\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Array</span>&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;3<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;4<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">]</span></code></code>",
+            "<code style=\\"font-size: 0.8rem!important;\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Object</span>&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-600 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"B\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>2<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span></code></code>",
+            false,
+          ],
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "table",
@@ -660,8 +761,8 @@ Array [
           "label": "HTML",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -683,8 +784,8 @@ Array [
           "label": "Image",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -697,12 +798,12 @@ Array [
     "payloads": Array [
       Object {
         "content": Object {
-          "content": "<img src=\\"./TestData/test.txt\\" alt=\\"\\" />",
+          "content": "<img src=\\"file://./tests/TestData/test.txt\\" alt=\\"\\" />",
           "label": "Image",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -723,8 +824,8 @@ Array [
           "value": "\\"{\\\\\\"a\\\\\\":1,\\\\\\"b\\\\\\":2}\\"",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "json_string",
@@ -746,8 +847,8 @@ Array [
           "label": "XML",
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "custom",
@@ -766,8 +867,8 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "show_app",
@@ -781,8 +882,8 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "hide_app",
@@ -805,8 +906,8 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "log",
@@ -829,8 +930,8 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/test.js",
-          "function_name": null,
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
           "line_number": 999,
         },
         "type": "log",

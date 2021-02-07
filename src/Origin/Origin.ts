@@ -1,4 +1,4 @@
-import md5 from 'md5';
+//import md5 from 'md5';
 
 export interface OriginData
 {
@@ -7,6 +7,7 @@ export interface OriginData
     line_number: number | null;
 }
 
+/*
 export class Origin
 {
     public file: string | null;
@@ -36,3 +37,4 @@ export class Origin
         return md5(JSON.stringify(this.toArray()));
     }
 }
+*/
