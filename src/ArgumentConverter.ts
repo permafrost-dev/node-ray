@@ -36,7 +36,7 @@ export class ArgumentConverter
             )
             // highlight array contents
             .replace(
-                /Array(&nbsp;|\s+)+(\[[^\]]+\])/g,
+                /Array(&nbsp;|\s)+(\[[^\]]+\])/g,
                 '<code style="font-size: 0.8rem!important;" class="text-gray-500 p-0">Array$1$2</code>'
             )
             // highlight types like [Function Abc]
