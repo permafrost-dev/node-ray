@@ -368,29 +368,6 @@ Array [
 ]
 `;
 
-exports[`sends a file payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "content": "one,two,three<br>",
-          "label": "test.txt",
-        },
-        "origin": Object {
-          "file": "/src/Ray.ts",
-          "function_name": "xxxx",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
 exports[`sends a hide payload 1`] = `
 Array [
   Object {
@@ -422,29 +399,6 @@ Array [
             "A": 123,
           },
           "label": "JSON",
-        },
-        "origin": Object {
-          "file": "/src/Ray.ts",
-          "function_name": "xxxx",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a missing file payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "content": "File not found: '{missing.txt'",
-          "label": "File",
         },
         "origin": Object {
           "file": "/src/Ray.ts",
@@ -781,24 +735,6 @@ Array [
       Object {
         "content": Object {
           "content": "<img src=\\"http://localhost/test.png\\" alt=\\"\\" />",
-          "label": "Image",
-        },
-        "origin": Object {
-          "file": "/src/Ray.ts",
-          "function_name": "xxxx",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "content": "<img src=\\"file://./tests/TestData/test.txt\\" alt=\\"\\" />",
           "label": "Image",
         },
         "origin": Object {
