@@ -103,10 +103,10 @@ Counter values persist across multiple calls to `ray()`.  Reset all counters wit
 ```js
 ray().count('first');
 ray().count('first');
-console.log(Ray.counters.get('first'); // displays '2'
+console.log(Ray.counters.get('first')); // displays '2'
 
 ray().clearCounters();
-console.log(Ray.counters.get('first'); // displays '0'
+console.log(Ray.counters.get('first')); // displays '0'
 ```
 
 ### Conditionally showing items
