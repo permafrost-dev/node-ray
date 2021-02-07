@@ -21,7 +21,7 @@ export class ImagePayload extends Payload
 
     public getContent(): Record<string, unknown>
     {
-        const location = this.location.replace('"', '\\"');
+        const location = this.location.replace('"', '\\\\"');
 
         return {
             content: `<img src="${location}" alt="" />`,
