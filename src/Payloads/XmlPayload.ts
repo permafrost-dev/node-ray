@@ -1,5 +1,4 @@
 import { Payload } from '../Payloads/Payload';
-import { EOL } from 'os';
 import formatXml from 'xml-formatter';
 import { formatHtmlForDisplay } from '../lib/utils';
 
@@ -47,7 +46,7 @@ export class XmlPayload extends Payload
             indentation: '    ',
             //filter: (node) => node.type !== 'Comment',
             collapseContent: true,
-            lineSeparator: EOL,
+            lineSeparator: "\n",
         });
     }
 }
