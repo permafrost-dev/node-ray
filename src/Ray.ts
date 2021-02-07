@@ -11,7 +11,6 @@ import { Counters } from './Support/Counters';
 import { CreateLockPayload } from './Payloads/CreateLockPayload';
 import { CustomPayload } from './Payloads/CustomPayload';
 import { DecodedJsonPayload } from './Payloads/DecodedJsonPayload';
-import { FileContentsPayload } from './Payloads/FileContentsPayload';
 import { HideAppPayload } from './Payloads/HideAppPayload';
 import { HidePayload } from './Payloads/HidePayload';
 import { HtmlPayload } from './Payloads/HtmlPayload';
@@ -27,14 +26,13 @@ import { RaySizes } from './Concerns/RaySizes';
 import { RemovePayload } from './Payloads/RemovePayload';
 import { Request } from './Request';
 import { Settings } from './Settings/Settings';
-import { SettingsFactory } from './Settings/SettingsFactory';
 import { ShowAppPayload } from './Payloads/ShowAppPayload';
 import { SizePayload } from './Payloads/SizePayload';
 import { TablePayload } from './Payloads/TablePayload';
 import { XmlPayload } from './Payloads/XmlPayload';
 import { OriginData } from './Origin/Origin';
 import StackTrace from 'stacktrace-js';
-import PACKAGE_VERSION from './version';
+import PACKAGE_VERSION from './lib/version';
 import { ErrorPayload } from './Payloads/ErrorPayload';
 
 export type BoolFunction = () => boolean;
@@ -60,7 +58,14 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public static create(client: Client | null = null, uuid: string | null = null): Ray
     {
-        const settings = SettingsFactory.createFromConfigFile();
+        const settings = new Settings({
+            enable: true,
+            host: 'localhost',
+            port: 23517,
+            local_path: null,
+            remote_path: null,
+            always_send_raw_values: false,
+        });
 
         return new this(settings, client, uuid);
     }
@@ -179,9 +184,9 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public file(filename: string): this
     {
-        const payload = new FileContentsPayload(filename);
+        console.error(`file() unsupport on web (${filename})`);
 
-        return this.sendRequest(payload);
+        return this;
     }
 
     public image(location: string): this
@@ -193,11 +198,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public die(status = ''): void
     {
-        if (status.length) {
-            console.error(status);
-        }
-
-        process.exit(-1);
+        throw new Error(`Ray.die() called: ${status ? status : 'no message'}`);
     }
 
     public className(object: any): this

@@ -4,9 +4,10 @@ import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
 import versionInjector from 'rollup-plugin-version-injector';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 
-const sourceMapsEnabled = false;
 
+const sourceMapsEnabled = true;
 
 const outputMinified = [
     {
@@ -34,7 +35,8 @@ export default {
     input: 'src/Ray.ts',
     output: [
         ...outputUnminified,
+        ...outputMinified,
     ],
-    plugins: [nodeResolve(), json(), commonjs(), typescript()],
-    external: [], //'axios', 'find-up', 'md5', 'pretty-format', 'stacktrace-js', 'xml-formatter', 'uuid'
+    plugins: [ commonjs(), nodePolyfills(), nodeResolve(), json(), typescript()],
+    external: ['axios'],
 };

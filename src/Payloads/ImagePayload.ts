@@ -1,7 +1,6 @@
 /* eslint-disable constructor-super */
 
 
-import { existsSync } from 'fs';
 import { Payload } from '../Payloads/Payload';
 
 export class ImagePayload extends Payload
@@ -11,7 +10,6 @@ export class ImagePayload extends Payload
     public constructor(location: string)
     {
         super();
-        //this.initialize();
 
         this.location = location;
     }
@@ -23,11 +21,7 @@ export class ImagePayload extends Payload
 
     public getContent(): Record<string, unknown>
     {
-        if (existsSync(this.location)) {
-            this.location = `file://${this.location}`;
-        }
-
-        const location = this.location.replace('`', '');
+        const location = this.location.replace('"', '\\"');
 
         return {
             content: `<img src="${location}" alt="" />`,

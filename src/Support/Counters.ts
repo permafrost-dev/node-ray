@@ -1,9 +1,11 @@
 import { Ray, ray as rayFunc } from '../Ray';
 
-export class Counters {
+export class Counters
+{
     protected counters: Record<string, any> = {};
 
-    public increment(name: string): any[] {
+    public increment(name: string): any[]
+    {
         if (typeof this.counters[name] === 'undefined') {
             this.counters[name] = [rayFunc(), 0];
         }
@@ -19,7 +21,8 @@ export class Counters {
         return [ray, newTimes];
     }
 
-    public get(name: string): number {
+    public get(name: string): number
+    {
         if (typeof this.counters[name] === 'undefined') {
             return 0;
         }
@@ -27,11 +30,13 @@ export class Counters {
         return this.counters[name][1];
     }
 
-    public clear(): void {
+    public clear(): void
+    {
         this.counters = [];
     }
 
-    public setRay(name: string, ray: Ray): void {
+    public setRay(name: string, ray: Ray): void
+    {
         this.counters[name][0] = ray;
     }
 }

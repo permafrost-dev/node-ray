@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 
 import { FakeClient } from './TestClasses/FakeClient';
-import { ray, Ray } from './../src/Ray';
+import { ray, Ray } from './../src/RayNode';
 import { NullPayload } from './../src/Payloads/NullPayload';
 import { Request } from './../src/Request';
 

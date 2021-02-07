@@ -12,7 +12,7 @@
 # node-ray
 ## Debug your NodeJS code with Ray to fix problems faster
 
-This package can be installed in any NodeJS application to send messages to the [Ray app](https://myray.app).
+This package can be installed in any NodeJS, ES6+, or TypeScript application to send messages to the [Ray app](https://myray.app).
 
 ## Installation
 
@@ -27,6 +27,44 @@ or yarn:
 ```bash
 yarn add node-ray
 ```
+
+## Available environments
+
+`node-ray` offers several variants to allow you to use it in either NodeJS or Browser environments.
+
+### NodeJS
+
+When using in a NodeJS environment (the default), import the package as you would normally:
+
+```js 
+// es module import:
+import { ray } from 'node-ray';
+
+// commonjs import:
+const ray = require('node-ray').ray;
+```
+
+### Browser bundle
+If you're bundling your scripts for use in a Browser environment _(i.e. using webpack)_, import the `/web` variant:
+
+```js 
+// es module import:
+import { ray } from 'node-ray/web';
+
+// commonjs import:
+const ray = require('node-ray/web').ray;
+```
+
+### Browser standalone
+
+If you'd like to use `node-ray` directly in a webpage, you may inject it via a CDN package. The standalone version is bundled with everything _except_ the axios library.
+
+```html
+    <script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
+```
+
+You may access the helper `ray()` method as `Ray.ray()`.
 
 ## Usage
 
@@ -59,6 +97,8 @@ ray().xml('<one>11</one>'); // disabled, data not sent to Ray
 
 ## Configuration
 
+_Note: This section only applies if you are using `node-ray` in the NodeJS environment._
+
 `node-ray` will search for `ray.config.js`.  You should place this file in your project's root directory, similiar to the way `ray.php` is placed in the root directory when using `spatie/ray`.
 
 This is optional and the package will use the default settings if no configuration file is found.
@@ -81,7 +121,7 @@ This package attempts to replicate the entire PHP API for Ray to provide a robus
 
 ## How is this different from `js-ray`?
 
-This is a more complete implementation written in typescript, and its primary use case is for NodeJS projects (the default builds won't work in a browser environment).
+This is a more complete implementation written in typescript, and its primary use case is for NodeJS projects, although it can be used in Browser environments as well.
 
 The codebase was translated to Typescript directly from the original PHP source code of [`spatie/ray`](https://github.com/spatie/ray). 
 
@@ -104,12 +144,13 @@ See [using the package](docs/usage.md).
 | `ray().clearAll()` | Clear current and all previous screens |
 | `ray().className(obj)` | Display the classname for an object |
 | `ray().count(name)` | Count how many times a piece of code is called, with optional name |
+| `ray().die()` | Halt code execution - NodeJS only |
 | `ray().disable()` | Disable sending stuff to Ray |
 | `ray().disabled()` | Check if Ray is disabled |
 | `ray().enable()` | Enable sending stuff to Ray |
 | `ray().enabled()` | Check if Ray is enabled |
 | `ray().error(err)` | Display information about an Error/Exception |
-| `ray().file(filename)` | Display contents of a file |
+| `ray().file(filename)` | Display contents of a file - NodeJS only |
 | `ray(…).hide()` | Display something in Ray and make it collapse immediately |
 | `ray().hideApp()` | Programmatically hide the Ray app window |
 | `ray().html(string)` | Send HTML to Ray | 
@@ -131,6 +172,7 @@ See [using the package](docs/usage.md).
 
 - `npm install`
 - `npm run build:all`
+- `npm run test`
 - `node build/test.js`
 
 ## Testing
