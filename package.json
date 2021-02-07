@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "find-up": "^4.1.0",
+    "find-up": "^5.0.0",
     "md5": "^2.3.0",
     "pretty-format": "^26.6.2",
     "random-int": "^2.0.1",
