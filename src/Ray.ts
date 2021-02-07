@@ -34,6 +34,7 @@ import { OriginData } from './Origin/Origin';
 import StackTrace from 'stacktrace-js';
 import PACKAGE_VERSION from './lib/version';
 import { ErrorPayload } from './Payloads/ErrorPayload';
+import { DatePayload } from './Payloads/DatePayload';
 
 export type BoolFunction = () => boolean;
 
@@ -329,6 +330,13 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public html(html = ''): this
     {
         const payload = new HtmlPayload(html);
+
+        return this.sendRequest(payload);
+    }
+
+    public date(date: Date): this
+    {
+        const payload = new DatePayload(date);
 
         return this.sendRequest(payload);
     }
