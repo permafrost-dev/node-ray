@@ -16,7 +16,17 @@ ray('this is also sent');
 
 ### Working with screens
 
-_TODO: screens section_
+Ray can create or clear new screens of information.
+
+```js
+ray().newScreen();
+
+ray().newScreen('my new screen');
+
+ray().clearScreen();
+
+ray().clearAll();
+```
 
 ### App visibility
 
