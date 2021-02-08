@@ -169,6 +169,12 @@ See [using the package](docs/usage.md).
 | `ray().table([…])` | Display an array of items formatted as a table; Objects and arrays are pretty-printed |
 | `ray().xml(string)` | Send XML to Ray | 
 
+## FAQ
+
+- Can `node-ray` be used with React? _yes, just be sure to import `node-ray/web`_
+
+- Can `node-ray` be used if I'm using webpack? _yes, just be sure to import `node-ray/web`_
+
 ## Development setup
 
 - `npm install`
@@ -187,6 +193,19 @@ To update the test snapshots:
 `npm run test -- -u`
 
 ---
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+
+## Credits
+
+- [Patrick Organ](https://github.com/patinthehat)
+- [All Contributors](../../contributors)
 
 ## License
 
