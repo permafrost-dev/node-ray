@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 
-import
-{
+import {
     usleep,
     sleep,
     encodeHtmlEntities,
@@ -12,8 +11,7 @@ import
     nonCryptoUuidV4,
 } from '../../src/lib/utils';
 
-it.concurrent('sleeps for 0.1 sec', async () =>
-{
+it.concurrent('sleeps for 0.1 sec', async () => {
     const start = new Date().getTime();
     sleep(0.1);
     const finish = new Date().getTime();
@@ -21,8 +19,7 @@ it.concurrent('sleeps for 0.1 sec', async () =>
     expect(Math.floor((finish - start) / 10)).toBe(10);
 });
 
-it.concurrent('sleeps for 100 milliseconds', async () =>
-{
+it.concurrent('sleeps for 100 milliseconds', async () => {
     const start = new Date().getTime();
     usleep(100);
     const finish = new Date().getTime();
@@ -30,25 +27,21 @@ it.concurrent('sleeps for 100 milliseconds', async () =>
     expect(Math.floor((finish - start) / 10)).toBe(10);
 });
 
-it('encodes html entities', async () =>
-{
+it('encodes html entities', async () => {
     expect(encodeHtmlEntities('<test>')).toBe('&lt;test&gt;');
     expect(encodeHtmlEntities('"one & two"')).toBe('&quot;one &amp; two&quot;');
     expect(encodeHtmlEntities("'©'")).toBe('&#39;&copy;&#39;');
 });
 
-it('converts a string of spaces to html entities', async () =>
-{
+it('converts a string of spaces to html entities', async () => {
     expect(spacesToHtmlSpaces('  ')).toBe('&nbsp;&nbsp;');
 });
 
-it('encodes line breaks as html <br> tags', async () =>
-{
+it('encodes line breaks as html <br> tags', async () => {
     expect(encodeNewLinesToHtml('\r\ntest\n')).toBe('<br>test<br>');
 });
 
-it('formats html entities for display', async () =>
-{
+it('formats html entities for display', async () => {
     expect(formatHtmlForDisplay('<em>test</em>', { encodeEntities: true })).toBe(
         '&lt;em&gt;test&lt;/em&gt;'
     );
@@ -60,14 +53,14 @@ it('formats html entities for display', async () =>
     expect(formatHtmlForDisplay('  te\nst\n')).toBe('&nbsp;&nbsp;te<br>st<br>');
 });
 
-it('generates a uuid v4', () =>
-{
+it('generates a uuid v4', () => {
     expect(nonCryptoUuidV4().length).toBeGreaterThanOrEqual(24);
-    expect(nonCryptoUuidV4()).toMatch(/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i);
+    expect(nonCryptoUuidV4()).toMatch(
+        /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
+    );
 });
 
-it('gets the last item in an array', () =>
-{
+it('gets the last item in an array', () => {
     const data = [12, 34, 56, 78];
     const testData = data.slice(0);
 
