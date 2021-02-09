@@ -1,8 +1,8 @@
-import { Payload } from '@/Payloads/Payload';
+import { end } from '../lib/utils';
+import { StopwatchEvent } from '../Stopwatch/Stopwatch';
+import { Payload } from '../Payloads/Payload';
 
-export use Symfony\Component\Stopwatch\StopwatchEvent;
-
-class MeasurePayload extends Payload
+export class MeasurePayload extends Payload
 {
     /** @var string */
     protected name;
@@ -22,22 +22,36 @@ class MeasurePayload extends Payload
     /** @var number */
     protected maxMemoryUsageSinceLastCall = 0;
 
-    public constructor(name: string, StopwatchEvent stopwatchEvent)
+    public constructor(name: string, stopwatchEvent: StopwatchEvent)
     {
+        super();
+
         this.name = name;
 
         this.totalTime = stopwatchEvent.getDuration();
         this.maxMemoryUsageDuringTotalTime = stopwatchEvent.getMemory();
 
-        periods = stopwatchEvent.getPeriods();
+        const periods = stopwatchEvent.getPeriods();
 
-        if (lastPeriod = end(periods)) {
-            this.timeSinceLastCall = lastPeriod.getDuration() ;
-            this.maxMemoryUsageSinceLastCall = lastPeriod.getMemory();
+        //const lastPeriod = end(periods);
+        if (periods.length > 1) {
+            const tempPeriods = periods.slice(0);
+            const lastPeriod = <number>tempPeriods.pop();
+            const prevPeriod = <number>tempPeriods.pop();
+
+            this.timeSinceLastCall = end(periods);
+            this.maxMemoryUsageSinceLastCall = 0;
+
+            console.log('stopwatchEvent.getPreviousDuration()==', stopwatchEvent.getPreviousDuration());
         }
     }
 
-    public concernsNewTimer(): self
+    public getType(): string
+    {
+        return 'measure';
+    }
+
+    public concernsNewTimer(): this
     {
         this.isNewTimer = true;
         this.totalTime = 0;
@@ -48,14 +62,9 @@ class MeasurePayload extends Payload
         return this;
     }
 
-    public getType(): string
+    public getContent(): Record<string, unknown>
     {
-        return 'measure';
-    }
-
-    public getContent(): array
-    {
-        return [
+        return {
             'name': this.name,
             'is_new_timer': this.isNewTimer,
 
@@ -64,6 +73,6 @@ class MeasurePayload extends Payload
 
             'time_since_last_call': this.timeSinceLastCall,
             'max_memory_usage_since_last_call': this.maxMemoryUsageSinceLastCall,
-        ];
+        };
     }
 }

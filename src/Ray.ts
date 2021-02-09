@@ -35,6 +35,8 @@ import StackTrace from 'stacktrace-js';
 import PACKAGE_VERSION from './lib/version';
 import { ErrorPayload } from './Payloads/ErrorPayload';
 import { DatePayload } from './Payloads/DatePayload';
+import { Stopwatch } from './Stopwatch/Stopwatch';
+import { MeasurePayload } from './Payloads/MeasurePayload';
 
 export type BoolFunction = () => boolean;
 
@@ -55,7 +57,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public uuid: string;
 
     // @var \Symfony\Component\Stopwatch\Stopwatch[]
-    public static stopWatches: Record<string, unknown> = {};
+    public static stopWatches: Record<string, Stopwatch> = {};
 
     public static enabled: boolean | null = null;
 
@@ -107,8 +109,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         this.settings = new Settings(Ray.defaultSettings);
 
-        console.log(this.settings);
-
         if (Ray.enabled === null) {
             Ray.enabled = this.settings.enable !== false;
         }
@@ -136,8 +136,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         Ray.defaultSettings.not_defined = false;
 
         Ray.client = new Client(this.defaultSettings.port, this.defaultSettings.host);
-
-        console.log('useDefaultSettings: ', Ray.defaultSettings);
 
         return this;
     }
@@ -374,6 +372,60 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         } while (exists.active);
 
         return this;
+    }
+
+    public stopTime(stopwatchName = ''): this
+    {
+        if (stopwatchName === '') {
+            Ray.stopWatches = {};
+
+            return this;
+        }
+
+        if (typeof Ray.stopWatches[stopwatchName] !== 'undefined') {
+            delete Ray.stopWatches[stopwatchName];
+        }
+
+        return this;
+    }
+
+    public measure(stopwatchName: CallableFunction | string = 'default'): this
+    {
+        if (stopwatchName instanceof Function) {
+            return this.measureClosure(stopwatchName);
+        }
+
+        if (typeof Ray.stopWatches[stopwatchName] === 'undefined') {
+            const stopwatch = new Stopwatch(stopwatchName);
+            Ray.stopWatches[stopwatchName] = stopwatch;
+
+            const event = stopwatch.start(stopwatchName);
+            const payload = new MeasurePayload(stopwatchName, event);
+            payload.concernsNewTimer();
+
+            return this.sendRequest(payload);
+        }
+
+        const stopwatch = Ray.stopWatches[stopwatchName];
+        const event = stopwatch.lap();
+        const payload = new MeasurePayload(stopwatchName, event);
+
+        return this.sendRequest(payload);
+    }
+
+    protected measureClosure(closure: CallableFunction): this
+    {
+        const stopwatch = new Stopwatch('closure');
+
+        stopwatch.start('closure');
+
+        closure();
+
+        const event = stopwatch.stop();
+
+        const payload = new MeasurePayload('closure', event);
+
+        return this.sendRequest(payload);
     }
 
     public xml(xml: string): this

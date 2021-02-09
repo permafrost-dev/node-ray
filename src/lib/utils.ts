@@ -86,3 +86,17 @@ export const nonCryptoUuidV4 = (): string =>
 
     return uuidv4(v4options).toString();
 };
+
+/**
+ * Returns the last item in an array, or false if the array is empty.
+ *
+ * @param arr
+ */
+export const end = (arr: any[]) =>
+{
+    if (arr.length === 0) {
+        return false;
+    }
+
+    return arr[arr.length - 1];
+};

@@ -39,4 +39,9 @@ export class Counters
     {
         this.counters[name][0] = ray;
     }
+
+    public getCounters(): Record<string, any>
+    {
+        return this.counters;
+    }
 }
