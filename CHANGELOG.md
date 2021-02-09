@@ -4,6 +4,12 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.4.1 - 2021-02-07
+
+- change the output filenames to end with `.js`, instead of `.cjs` and `.mjs`
+
+- update readme
+
 ## 1.4.0 - 2021-02-07
 
 - bump `find-up` package version to `5.0`
