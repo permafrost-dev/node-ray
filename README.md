@@ -95,6 +95,18 @@ ray().disable(); // disable sending data to Ray at runtime
 ray().xml('<one>11</one>'); // disabled, data not sent to Ray
 ```
 
+### Using with Laravel Mix
+
+To use `node-ray` with Laravel Mix, include the following in `resources/js/bootstrap.js`:
+
+```js
+const { ray } = require('node-ray/dist/web.cjs.js');
+
+window.ray = ray;
+```
+
+You may then compile as usual _(`npm run dev`)_, and access `ray()` normally within your scripts.
+
 ## Configuration
 
 _Note: This section only applies if you are using `node-ray` in the NodeJS environment._
