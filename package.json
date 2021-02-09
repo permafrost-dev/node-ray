@@ -37,7 +37,8 @@
     "build:node": "rollup --config rollup.config.js",
     "build:web": "rollup --config rollup.web-config.js",
     "build:standalone": "rollup --config rollup.standalone-config.js",
-    "build:all": "npm run build:node && npm run build:web && npm run build:standalone",
+    "build:all": "concurrently npm:build:node npm:build:web npm:build:standalone",
+    "build:dev": "concurrently npm:build:node npm:build:web",
     "preversion": "npm run test",
     "postversion": "npm run build:all"
   },
@@ -52,6 +53,7 @@
     "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
+    "concurrently": "^5.3.0",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-prettier": "^3.2.0",
