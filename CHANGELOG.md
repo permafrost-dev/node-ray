@@ -4,7 +4,7 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
-## 1.4.3 - 2021-02-09
+## 1.4.4 - 2021-02-09
 
 - update `web` variant module
 
