@@ -20,14 +20,14 @@ const versionInject = versionInjector({
 const outputs = {
     minified: options.minified ? [
         {
-            file: 'dist/web.min.cjs',
+            file: 'dist/web.cjs.min.js',
             format: 'cjs',
             plugins: [versionInject, terser()],
             sourcemap: options.sourceMapsEnabled,
             exports: 'auto',
         },
         {
-            file: 'dist/web.min.mjs',
+            file: 'dist/web.esm.min.mjs',
             format: 'esm',
             plugins: [versionInject, terser()],
             sourcemap: options.sourceMapsEnabled,
@@ -35,14 +35,14 @@ const outputs = {
     ] : [],
     unminified: [
         {
-            file: 'dist/web.cjs',
+            file: 'dist/web.cjs.js',
             format: 'cjs',
             sourcemap: options.sourceMapsEnabled,
             exports: 'auto',
             plugins: [versionInject]
         },
         {
-            file: 'dist/web.mjs',
+            file: 'dist/web.esm.js',
             format: 'esm',
             sourcemap:  options.sourceMapsEnabled,
             plugins: [versionInject]

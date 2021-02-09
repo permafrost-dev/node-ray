@@ -12,19 +12,18 @@
   "bugs": {
     "url": "https://github.com/permafrost-dev/node-ray/issues"
   },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.cjs.js",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
     },
     "./web": {
-      "import": "./dist/web.mjs",
-      "require": "./dist/web.cjs"
+      "import": "./dist/web.esm.js",
+      "require": "./dist/web.cjs.js"
     },
     "./standalone": {
-      "import": "./dist/standalone.mjs",
-      "require": "./dist/standalone.cjs"
+      "require": "./dist/standalone.js"
     }
   },
   "scripts": {
