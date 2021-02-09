@@ -25,7 +25,7 @@ import { RayColors } from './Concerns/RayColors';
 import { RaySizes } from './Concerns/RaySizes';
 import { RemovePayload } from './Payloads/RemovePayload';
 import { Request } from './Request';
-import { Settings } from './Settings/Settings';
+import { RaySettings, Settings } from './Settings/Settings';
 import { ShowAppPayload } from './Payloads/ShowAppPayload';
 import { SizePayload } from './Payloads/SizePayload';
 import { TablePayload } from './Payloads/TablePayload';
@@ -44,6 +44,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public settings: Settings;
 
+    public static defaultSettings: RaySettings = { not_defined: true };
+
     protected static client: Client;
 
     public static counters: Counters = new Counters();
@@ -59,14 +61,30 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public static create(client: Client | null = null, uuid: string | null = null): Ray
     {
-        const settings = new Settings({
-            enable: true,
-            host: 'localhost',
-            port: 23517,
-            local_path: null,
-            remote_path: null,
-            always_send_raw_values: false,
-        });
+        if (Ray.defaultSettings.not_defined === true) {
+            Ray.defaultSettings = {
+                enable: true,
+                host: 'localhost',
+                port: 23517,
+                local_path: null,
+                remote_path: null,
+                always_send_raw_values: false,
+                not_defined: false,
+            };
+        }
+
+        const settings = new Settings(Ray.defaultSettings);
+
+        // new Settings(Object.assign({}, {
+        //     enable: true,
+        //     host: 'localhost',
+        //     port: 23517,
+        //     local_path: null,
+        //     remote_path: null,
+        //     always_send_raw_values: false,
+        // }, Ray.defaultSettings));
+
+
 
         return new this(settings, client, uuid);
     }
@@ -75,7 +93,21 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     {
         super();
 
-        this.settings = settings;
+        if (Ray.defaultSettings.not_defined === true) {
+            Ray.defaultSettings = {
+                enable: true,
+                host: 'localhost',
+                port: 23517,
+                local_path: null,
+                remote_path: null,
+                always_send_raw_values: false,
+                not_defined: false,
+            };
+        }
+
+        this.settings = new Settings(Ray.defaultSettings);
+
+        console.log(this.settings);
 
         if (Ray.enabled === null) {
             Ray.enabled = this.settings.enable !== false;
@@ -84,6 +116,30 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         Ray.client = client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
 
         this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
+    }
+
+    public static useDefaultSettings(settings: RaySettings)
+    {
+        if (Ray.defaultSettings.not_defined === true) {
+            Ray.defaultSettings = {
+                enable: true,
+                host: 'localhost',
+                port: 23517,
+                local_path: null,
+                remote_path: null,
+                always_send_raw_values: false,
+                not_defined: false,
+            };
+        }
+
+        Ray.defaultSettings = Object.assign({}, Ray.defaultSettings, settings);
+        Ray.defaultSettings.not_defined = false;
+
+        Ray.client = new Client(this.defaultSettings.port, this.defaultSettings.host);
+
+        console.log('useDefaultSettings: ', Ray.defaultSettings);
+
+        return this;
     }
 
     public enable(): this
