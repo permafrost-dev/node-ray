@@ -20,8 +20,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
 
     - name: Set up NodeJS ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -44,8 +42,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run the tests
-      run: npm run test
+#    - name: Run the tests
+#      run: npm run test
 
     - name: Run the tests with coverage
       run: npm run test -- --coverage --coverageReporters json
