@@ -62,9 +62,25 @@ If you'd like to use `node-ray` directly in a webpage, you may inject it via a C
 ```html
     <script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.js"></script>
+    <script>
+        window.ray = Ray.ray;
+        window.Ray = Ray.Ray;
+    </script>
 ```
 
-You may access the helper `ray()` method as `Ray.ray()`.
+You may access the helper `ray()` method normally.
+
+### Using with Laravel Mix
+
+To use `node-ray` with Laravel Mix, include the following in `resources/js/bootstrap.js`:
+
+```js
+const { ray } = require('node-ray/web');
+
+window.ray = ray;
+```
+
+You may then compile as usual _(`npm run dev`)_. After including `js/app.js` in your view, you may access `ray()` normally within your scripts.
 
 ## Usage
 
@@ -94,18 +110,6 @@ ray().clearAll();
 ray().disable(); // disable sending data to Ray at runtime
 ray().xml('<one>11</one>'); // disabled, data not sent to Ray
 ```
-
-### Using with Laravel Mix
-
-To use `node-ray` with Laravel Mix, include the following in `resources/js/bootstrap.js`:
-
-```js
-const { ray } = require('node-ray/web');
-
-window.ray = ray;
-```
-
-You may then compile as usual _(`npm run dev`)_, and access `ray()` normally within your scripts.
 
 ## Configuration
 
