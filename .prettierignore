@@ -4,3 +4,6 @@ build/*
 *.yml
 *.yaml
 *.ignore
+tests/TestData/*
+*.snap
+tests/__snapshots/
