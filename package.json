@@ -5,6 +5,15 @@
   "license": "MIT",
   "author": "Patrick Organ <patrick@permafrost.dev>",
   "homepage": "https://github.com/permafrost-dev/node-ray",
+  "keywords": [
+    "ray",
+    "nodejs",
+    "typescript",
+    "javascript",
+    "es6",
+    "debug",
+    "dump"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/permafrost-dev/node-ray.git"
