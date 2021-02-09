@@ -4,16 +4,17 @@ import { Client } from '../../src/Client';
 //import { Payload } from '../../src/Payloads/Payload';
 import { Request } from '../../src/Request';
 
-export class FakeClient extends Client {
+export class FakeClient extends Client
+{
     protected sentRequests: any[] = [];
 
-    public async send(request: Request) {
+    public async send(request: Request)
+    {
         const requestProperties: any = request.toArray();
         const payloads: Payload[] = request.payloads;
 
-        payloads.map(payload => {
-            //console.log(payload.data.origin.function_name);
-
+        payloads.map(payload =>
+        {
             payload.toArray();
 
             const fn: string = payload.data.origin.file ?? '/test/file.js';
@@ -23,8 +24,6 @@ export class FakeClient extends Client {
             //payload.data.origin.file = this.convertToUnixPath(payload.data.origin.file);
 
             payload.data.origin.line_number = 999;
-
-            console.log(payload.getContent());
         });
 
         requestProperties.meta = [];
@@ -32,21 +31,25 @@ export class FakeClient extends Client {
         this.sentRequests.push(requestProperties);
     }
 
-    public sentPayloads(): any[] {
+    public sentPayloads(): any[]
+    {
         return this.sentRequests;
     }
 
-    public reset(): this {
+    public reset(): this
+    {
         this.sentRequests = [];
 
         return this;
     }
 
-    protected baseDirectory(): string {
+    protected baseDirectory(): string
+    {
         return __dirname.replace('/tests/TestClasses', '');
     }
 
-    protected convertToUnixPath(path: string): string {
+    protected convertToUnixPath(path: string): string
+    {
         path = path.replace('D:\\a\\ray\\ray', '');
 
         return path.replace(sep, '/');
