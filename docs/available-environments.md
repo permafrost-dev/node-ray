@@ -22,7 +22,7 @@ If you're bundling your scripts for use in a Browser environment _(i.e. using we
 import { ray } from 'node-ray/web';
 
 // commonjs import:
-const ray = require('node-ray/web').ray;
+const { ray } = require('node-ray/web');
 ```
 
 ### Browser standalone
@@ -31,8 +31,10 @@ If you'd like to use `node-ray` directly in a webpage, you may inject it via a C
 
 ```html
     <script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.js"></script>
+    <script>
+        window.ray = Ray.ray;
+        window.Ray = Ray.Ray;
+    </script>
 ```
-
-You may access the helper `ray()` method as `Ray.ray()`.
 
