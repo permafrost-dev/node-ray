@@ -94,7 +94,22 @@ import { ray } from 'node-ray';
 const { ray } = require('node-ray');
 ```
 
+If you need to modify the host or port:
+
 ```js
+// make sure you import the Ray class (capital "R")
+const { Ray, ray } = require('node-ray');
+
+Ray.useDefaultSettings({ host: '127.0.0.1', port: 3000 });
+
+// or just modify the port:
+Ray.useDefaultSettings({ port: 3000 });
+
+// ...and use ray() as normal
+```
+
+```js
+
 ray('a string');
 
 ray(['several', 'arguments'], 'can', {be: provided});
@@ -113,7 +128,9 @@ ray().xml('<one>11</one>'); // disabled, data not sent to Ray
 
 ## Configuration
 
-_Note: This section only applies if you are using `node-ray` in the NodeJS environment._
+### NodeJS config
+
+_Note: This section only applies if you are using `node-ray` in the NodeJS environment, NOT a browser environment._
 
 `node-ray` will search for `ray.config.js`.  You should place this file in your project's root directory, similiar to the way `ray.php` is placed in the root directory when using `spatie/ray`.
 
@@ -130,6 +147,30 @@ module.exports = {
     port: 23517,
 }
 ```
+
+### Browser config
+
+This section only applies if you are using `node-ray` in a browser environment _(webpack, etc.)_.
+
+You can configure `node-ray` by importing the `Ray` class and calling the `useDefaultSettings()` method.
+
+```js
+const { Ray, ray } = require('node-ray');
+
+// set several settings at once:
+Ray.useDefaultSettings({ 
+    host: '192.168.1.20',
+    port: 23517 
+});
+
+// or set individual settings only:
+Ray.useDefaultSettings({ port: 23517 });
+
+// use ray() normally:
+ray().html('<strong>hello world</strong>');
+```
+
+These settings persist across calls to `ray()`, so they only need to be defined once.
 
 ## About
 
