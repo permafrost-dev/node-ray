@@ -1,7 +1,4 @@
+const { Ray, ray } = require('./dist/web.cjs');
 
-import { Ray, ray } from './dist/web.cjs';
-
-export * from './dist/web.cjs';
-
-export default ray;
+module.exports = { Ray, ray }
 
