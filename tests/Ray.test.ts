@@ -6,7 +6,7 @@ import { ray, Ray } from './../src/RayNode';
 import { Ray as BaseRay } from './../src/Ray';
 import { NullPayload } from './../src/Payloads/NullPayload';
 import { Request } from './../src/Request';
-import { end } from '../src/lib/utils';
+import { end, usleep } from '../src/lib/utils';
 
 let client: FakeClient, myRay: Ray, myBaseRay: BaseRay;
 
@@ -377,4 +377,58 @@ it('can transform a request into JSON', () => {
     const req = new Request('1-2-3-4', [], [{ test_version: 1.0 }]);
 
     expect(req.toJson()).toMatchSnapshot();
+});
+
+it('measures the execution time of a closure', async () => {
+    myRay.measure(() => {
+        usleep(200);
+    });
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('measures the execution time of repeated and unnamed calls to measure', async () => {
+    myRay.measure();
+    usleep(200);
+    myRay.measure();
+    usleep(200);
+    myRay.measure();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('measures the execution time of named stopwatches', async () => {
+    myRay.measure('first');
+    usleep(200);
+    myRay.measure('first');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('removes named stopwatches', () => {
+    myRay.measure('mytimer');
+    expect(Ray.stopWatches.mytimer).not.toBeUndefined();
+    myRay.stopTime('mytimer');
+    expect(Ray.stopWatches.mytimer).toBeUndefined();
+});
+
+it('removes all stopwatches', () => {
+    myRay.measure('mytimer1');
+    myRay.measure('mytimer2');
+    expect(Ray.stopWatches.mytimer1).not.toBeUndefined();
+    expect(Ray.stopWatches.mytimer2).not.toBeUndefined();
+    myRay.stopTime();
+    expect(JSON.stringify(Ray.stopWatches)).toBe('{}');
+});
+
+it('pauses code execution', async () => {
+    await myRay.pause();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends an html payload when calling ray() with an object argument', () => {
+    myRay.send({ A: 123, B: [4, 5, 6] });
+
+    expect(client.sentPayloads()).toMatchSnapshot();
 });

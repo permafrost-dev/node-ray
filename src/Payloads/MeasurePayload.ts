@@ -1,5 +1,5 @@
 import { end } from '../lib/utils';
-import { StopwatchEvent } from '../Stopwatch/Stopwatch';
+import { StopwatchEvent } from '../Stopwatch/StopwatchEvent';
 import { Payload } from '../Payloads/Payload';
 
 export class MeasurePayload extends Payload {

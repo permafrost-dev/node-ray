@@ -19,13 +19,33 @@ export class FakeClient extends Client {
             payload.data.origin.function_name = 'xxxx';
             payload.data.origin.file = fn.replace(this.baseDirectory(), '');
             //payload.data.origin.file = this.convertToUnixPath(payload.data.origin.file);
-
             payload.data.origin.line_number = 999;
+
+            if (payload.getType() === 'measure') {
+                payload.data.content.total_time = Math.floor(
+                    payload.data.content.total_time / 10
+                );
+                payload.data.content.time_since_last_call = Math.floor(
+                    payload.data.content.time_since_last_call / 10
+                );
+            }
+
+            if (payload.getType() === 'create_lock') {
+                payload.data.content.name = 'xxxxx';
+            }
         });
 
         requestProperties.meta = [];
 
         this.sentRequests.push(requestProperties);
+    }
+
+    // eslint-disable-next-line no-unused-vars
+    public async lockExists(lockName: string) {
+        // eslint-disable-next-line no-unused-vars
+        return new Promise((resolve, reject) => {
+            resolve({ active: false, stop_exectution: true });
+        });
     }
 
     public sentPayloads(): any[] {

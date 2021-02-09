@@ -78,6 +78,175 @@ Array [
 ]
 `;
 
+exports[`measures the execution time of a closure 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "closure",
+          "time_since_last_call": 0,
+          "total_time": 20,
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`measures the execution time of named stopwatches 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "is_new_timer": true,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "first",
+          "time_since_last_call": 0,
+          "total_time": 0,
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "first",
+          "time_since_last_call": 0,
+          "total_time": 20,
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`measures the execution time of repeated and unnamed calls to measure 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "is_new_timer": true,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "default",
+          "time_since_last_call": 0,
+          "total_time": 0,
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "default",
+          "time_since_last_call": 0,
+          "total_time": 20,
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "default",
+          "time_since_last_call": 20,
+          "total_time": 40,
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`pauses code execution 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "name": "xxxxx",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "create_lock",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends a boolean payload 1`] = `
 Array [
   Object {
@@ -735,6 +904,29 @@ Array [
       Object {
         "content": Object {
           "content": "<em>test</em>",
+          "label": "HTML",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an html payload when calling ray() with an object argument 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "<code style=\\"font-size: 0.8rem!important;\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Object</span>&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-600 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"A\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>123<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"B\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-500 p-0\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Array</span>&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">]</span></code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span></code></code>",
           "label": "HTML",
         },
         "origin": Object {
