@@ -52,7 +52,7 @@ If you're bundling your scripts for use in a Browser environment _(i.e. using we
 import { ray } from 'node-ray/web';
 
 // commonjs import:
-const ray = require('node-ray/web').ray;
+const { ray } = require('node-ray/web');
 ```
 
 ### Browser standalone

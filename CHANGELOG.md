@@ -4,6 +4,12 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.4.3 - 2021-02-09
+
+- update `web` variant module
+
+- update readme
+
 ## 1.4.2 - 2021-02-07
 
 - use `.mjs` extension for esm modules
