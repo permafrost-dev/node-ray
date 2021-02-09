@@ -41,7 +41,6 @@ import { MeasurePayload } from './Payloads/MeasurePayload';
 export type BoolFunction = () => boolean;
 
 export class Ray extends Mixin(RayColors, RaySizes) {
-
     protected static lockCounter = 0;
 
     public settings: Settings;
@@ -61,8 +60,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public static enabled: boolean | null = null;
 
-    public static create(client: Client | null = null, uuid: string | null = null): Ray
-    {
+    public static create(client: Client | null = null, uuid: string | null = null): Ray {
         if (Ray.defaultSettings.not_defined === true) {
             Ray.defaultSettings = {
                 enable: true,
@@ -86,13 +84,14 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         //     always_send_raw_values: false,
         // }, Ray.defaultSettings));
 
-
-
         return new this(settings, client, uuid);
     }
 
-    public constructor(settings: Settings, client: Client | null = null, uuid: string | null = null)
-    {
+    public constructor(
+        settings: Settings,
+        client: Client | null = null,
+        uuid: string | null = null
+    ) {
         super();
 
         if (Ray.defaultSettings.not_defined === true) {
@@ -113,13 +112,13 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             Ray.enabled = this.settings.enable !== false;
         }
 
-        Ray.client = client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
+        Ray.client =
+            client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
 
         this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
     }
 
-    public static useDefaultSettings(settings: RaySettings)
-    {
+    public static useDefaultSettings(settings: RaySettings) {
         if (Ray.defaultSettings.not_defined === true) {
             Ray.defaultSettings = {
                 enable: true,
@@ -140,136 +139,115 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this;
     }
 
-    public enable(): this
-    {
+    public enable(): this {
         Ray.enabled = true;
 
         return this;
     }
 
-    public disable(): this
-    {
+    public disable(): this {
         Ray.enabled = false;
 
         return this;
     }
 
-    public enabled(): boolean
-    {
+    public enabled(): boolean {
         return <boolean>Ray.enabled;
     }
 
-    public disabled(): boolean
-    {
-        return ! <boolean>Ray.enabled;
+    public disabled(): boolean {
+        return !(<boolean>Ray.enabled);
     }
 
-    public static useClient(client: Client): void
-    {
+    public static useClient(client: Client): void {
         this.client = client;
     }
 
-    public newScreen(name = ''): this
-    {
+    public newScreen(name = ''): this {
         const payload = new NewScreenPayload(name);
 
         return this.sendRequest(payload);
     }
 
-    public clearAll(): this
-    {
+    public clearAll(): this {
         const payload = new ClearAllPayload();
 
         return this.sendRequest(payload);
     }
 
-    public clearScreen(): this
-    {
+    public clearScreen(): this {
         return this.newScreen();
     }
 
-    public color(color: string): this
-    {
+    public color(color: string): this {
         const payload = new ColorPayload(color);
 
         return this.sendRequest(payload);
     }
 
-    public size(size: string): this
-    {
+    public size(size: string): this {
         const payload = new SizePayload(size);
 
         return this.sendRequest(payload);
     }
 
-    public remove(): this
-    {
+    public remove(): this {
         const payload = new RemovePayload();
 
         return this.sendRequest(payload);
     }
 
-    public hide(): this
-    {
+    public hide(): this {
         const payload = new HidePayload();
 
         return this.sendRequest(payload);
     }
 
-    public notify(text: string): this
-    {
+    public notify(text: string): this {
         const payload = new NotifyPayload(text);
 
         return this.sendRequest(payload);
     }
 
-    public toJson(...values: any[]): this
-    {
+    public toJson(...values: any[]): this {
         const payloads = values.map(value => new JsonStringPayload(value));
 
         return this.sendRequest(payloads);
     }
 
-    public json(...jsons: string[]): this
-    {
+    public json(...jsons: string[]): this {
         const payloads = jsons.map(json => new DecodedJsonPayload(json));
 
         return this.sendRequest(payloads);
     }
 
-    public file(filename: string): this
-    {
+    public file(filename: string): this {
         console.error(`file() unsupport on web (${filename})`);
 
         return this;
     }
 
-    public image(location: string): this
-    {
+    public image(location: string): this {
         const payload = new ImagePayload(location);
 
         return this.sendRequest(payload);
     }
 
-    public die(status = ''): void
-    {
+    public die(status = ''): void {
         throw new Error(`Ray.die() called: ${status ? status : 'no message'}`);
     }
 
-    public className(object: any): this
-    {
+    public className(object: any): this {
         return this.send(object.constructor.name);
     }
 
-    public error(err: Error): this
-    {
+    public error(err: Error): this {
         const payload = new ErrorPayload(err, 'Error');
 
         return this.sendRequest(payload);
     }
 
-    public showWhen(booleanOrCallable: boolean | BoolFunction): this
-    {
+    public showWhen(booleanOrCallable: boolean | BoolFunction): this {
         if (typeof booleanOrCallable === 'function') {
             booleanOrCallable = (booleanOrCallable as BoolFunction)();
         }
@@ -281,13 +259,11 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this;
     }
 
-    public showIf(booleanOrCallable: boolean | BoolFunction): this
-    {
+    public showIf(booleanOrCallable: boolean | BoolFunction): this {
         return this.showWhen(booleanOrCallable);
     }
 
-    public removeWhen(booleanOrCallable: boolean | BoolFunction): this
-    {
+    public removeWhen(booleanOrCallable: boolean | BoolFunction): this {
         if (typeof booleanOrCallable === 'function') {
             booleanOrCallable = (booleanOrCallable as BoolFunction)();
         }
@@ -299,31 +275,30 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this;
     }
 
-    public removeIf(booleanOrCallable: boolean | BoolFunction): this
-    {
+    public removeIf(booleanOrCallable: boolean | BoolFunction): this {
         return this.removeWhen(booleanOrCallable);
     }
 
-    public ban(): this
-    {
+    public ban(): this {
         return this.send('🕶');
     }
 
-    public charles(): this
-    {
+    public charles(): this {
         return this.send('🎶 🎹 🎷 🕺');
     }
 
-    public table(values: any[], label = 'Table'): this
-    {
+    public table(values: any[], label = 'Table'): this {
         const payload = new TablePayload(values, label);
 
         return this.sendRequest(payload);
     }
 
-    public count(name: string | null = null): this
-    {
-        const fingerprint = md5(`${<string>this.getCaller()?.getFileName()}${this.getCaller()?.getLineNumber()}`);
+    public count(name: string | null = null): this {
+        const fingerprint = md5(
+            `${<string>(
+                this.getCaller()?.getFileName()
+            )}${this.getCaller()?.getLineNumber()}`
+        );
 
         const [ray, times] = Ray.counters.increment(name ?? fingerprint ?? 'none');
 
@@ -340,15 +315,13 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return ray;
     }
 
-    public clearCounters(): this
-    {
+    public clearCounters(): this {
         Ray.counters.clear();
 
         return this;
     }
 
-    public async pause()
-    {
+    public async pause() {
         Ray.lockCounter++;
 
         const lockName = md5(`${new Date().getTime()}-${Ray.lockCounter}`);
@@ -374,8 +347,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this;
     }
 
-    public stopTime(stopwatchName = ''): this
-    {
+    public stopTime(stopwatchName = ''): this {
         if (stopwatchName === '') {
             Ray.stopWatches = {};
 
@@ -389,8 +361,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this;
     }
 
-    public measure(stopwatchName: CallableFunction | string = 'default'): this
-    {
+    public measure(stopwatchName: CallableFunction | string = 'default'): this {
         if (stopwatchName instanceof Function) {
             return this.measureClosure(stopwatchName);
         }
@@ -413,8 +384,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this.sendRequest(payload);
     }
 
-    protected measureClosure(closure: CallableFunction): this
-    {
+    protected measureClosure(closure: CallableFunction): this {
         const stopwatch = new Stopwatch('closure');
 
         stopwatch.start('closure');
@@ -428,29 +398,25 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this.sendRequest(payload);
     }
 
-    public xml(xml: string): this
-    {
+    public xml(xml: string): this {
         const payload = new XmlPayload(xml);
 
         return this.sendRequest(payload);
     }
 
-    public html(html = ''): this
-    {
+    public html(html = ''): this {
         const payload = new HtmlPayload(html);
 
         return this.sendRequest(payload);
     }
 
-    public date(date: Date): this
-    {
+    public date(date: Date): this {
         const payload = new DatePayload(date);
 
         return this.sendRequest(payload);
     }
 
-    public raw(...args: any[]): this
-    {
+    public raw(...args: any[]): this {
         if (!args.length) {
             return this;
         }
@@ -460,8 +426,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this.sendRequest(payloads);
     }
 
-    public send(...args: any[]): this
-    {
+    public send(...args: any[]): this {
         if (!args.length) {
             return this;
         }
@@ -475,39 +440,36 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this.sendRequest(payloads);
     }
 
-    public pass(argument: any): any
-    {
+    public pass(argument: any): any {
         this.send(argument);
 
         return argument;
     }
 
-    public showApp(): this
-    {
+    public showApp(): this {
         const payload = new ShowAppPayload();
 
         return this.sendRequest(payload);
     }
 
-    public hideApp(): this
-    {
+    public hideApp(): this {
         const payload = new HideAppPayload();
 
         return this.sendRequest(payload);
     }
 
-    public sendCustom(content: string, label = ''): this
-    {
+    public sendCustom(content: string, label = ''): this {
         const payload = new CustomPayload(content, label);
 
         return this.sendRequest(payload);
     }
 
-    getOriginFrame()
-    {
+    getOriginFrame() {
         const st = StackTrace.getSync();
 
-        let startFrameIndex = st.findIndex(frame => frame.functionName === 'Ray.sendRequest');
+        let startFrameIndex = st.findIndex(
+            frame => frame.functionName === 'Ray.sendRequest'
+        );
 
         if (startFrameIndex === -1) {
             startFrameIndex = 0;
@@ -524,18 +486,18 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return callerFrames.slice(1).shift();
     }
 
-    getCaller()
-    {
+    getCaller() {
         const st = StackTrace.getSync();
 
-        let startFrameIndex = st.findIndex(frame => frame.functionName === 'Ray.getCaller');
+        let startFrameIndex = st.findIndex(
+            frame => frame.functionName === 'Ray.getCaller'
+        );
 
         if (startFrameIndex === -1) {
             startFrameIndex = 0;
         }
 
-        const callerFrames = st
-            .slice(startFrameIndex);
+        const callerFrames = st.slice(startFrameIndex);
 
         if (callerFrames.length === 1) {
             return callerFrames.shift();
@@ -544,19 +506,17 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return callerFrames.slice(2).shift();
     }
 
-    getOriginData()
-    {
+    getOriginData() {
         const frame = this.getOriginFrame();
 
         return <OriginData>{
             function_name: frame?.getFunctionName(),
             file: frame?.getFileName(),
-            line_number: frame?.getLineNumber()
+            line_number: frame?.getLineNumber(),
         };
     }
 
-    public sendRequest(payloads: Payload | Payload[], meta: any[] = []): this
-    {
+    public sendRequest(payloads: Payload | Payload[], meta: any[] = []): this {
         if (!this.enabled()) {
             return this;
         }
@@ -565,12 +525,15 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             payloads = [payloads];
         }
 
-        const allMeta = Object.assign({}, {
-            node_ray_package_version: PACKAGE_VERSION,
-        }, meta);
+        const allMeta = Object.assign(
+            {},
+            {
+                node_ray_package_version: PACKAGE_VERSION,
+            },
+            meta
+        );
 
-        payloads.forEach(payload =>
-        {
+        payloads.forEach(payload => {
             payload.data.origin = this.getOriginData();
             payload.remotePath = this.settings.remote_path;
             payload.localPath = this.settings.local_path;
@@ -584,7 +547,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     }
 }
 
-export const ray = (...args: any[]) =>
-{
+export const ray = (...args: any[]) => {
     return Ray.create().send(...args);
 };

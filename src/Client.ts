@@ -5,27 +5,23 @@
 import { Request } from './Request';
 import axios from 'axios';
 
-export class Client
-{
+export class Client {
     protected portNumber: number;
     protected host: string;
 
-    public constructor(portNumber = 23517, host = 'localhost')
-    {
+    public constructor(portNumber = 23517, host = 'localhost') {
         this.portNumber = portNumber;
 
         this.host = host;
     }
 
-    protected getUrlForPath(path: string): string
-    {
+    protected getUrlForPath(path: string): string {
         path = path.replace(/^\//, ''); // strip leading slash
 
         return `http://${this.host}:${this.portNumber}/${path}`;
     }
 
-    public async send(request: Request)
-    {
+    public async send(request: Request) {
         try {
             await axios.post(this.getUrlForPath('/'), request.toArray());
         } catch (err) {
@@ -33,10 +29,8 @@ export class Client
         }
     }
 
-    public async lockExists(lockName: string)
-    {
-        return new Promise(async (resolve, reject) =>
-        {
+    public async lockExists(lockName: string) {
+        return new Promise(async (resolve, reject) => {
             let resp;
 
             try {

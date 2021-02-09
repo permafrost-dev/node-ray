@@ -1,15 +1,12 @@
 import dayjs from 'dayjs';
 import { Payload } from '../Payloads/Payload';
 
-
-export class DatePayload extends Payload
-{
+export class DatePayload extends Payload {
     protected date: Date | null;
 
     protected format: string;
 
-    public constructor(date: Date | null, format = 'YYYY-MM-DD hh:mm:ss')
-    {
+    public constructor(date: Date | null, format = 'YYYY-MM-DD hh:mm:ss') {
         super();
 
         this.date = date;
@@ -17,13 +14,11 @@ export class DatePayload extends Payload
         this.format = format;
     }
 
-    public getType(): string
-    {
+    public getType(): string {
         return 'carbon';
     }
 
-    public getContent(): Record<string, string | number | null>
-    {
+    public getContent(): Record<string, string | number | null> {
         return {
             formatted: this.date ? this.getFormatted() : null,
             timestamp: this.date ? this.getTimestamp() : null,
@@ -31,18 +26,15 @@ export class DatePayload extends Payload
         };
     }
 
-    protected getTimestamp(): number
-    {
+    protected getTimestamp(): number {
         return dayjs(this.date?.toISOString()).unix();
     }
 
-    protected getFormatted(): string
-    {
+    protected getFormatted(): string {
         return dayjs(this.date?.toISOString()).format(this.format);
     }
 
-    protected getTimezoneName(): string
-    {
+    protected getTimezoneName(): string {
         if (this.date === null) {
             return '--';
         }

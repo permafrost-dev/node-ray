@@ -2,8 +2,7 @@
 
 import { SettingsFactory } from './../src/Settings/SettingsFactory';
 
-it('can search a path for a config file', () =>
-{
+it('can search a path for a config file', () => {
     const sf1 = new SettingsFactory();
     const sf2 = new SettingsFactory();
 

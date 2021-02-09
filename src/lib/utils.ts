@@ -2,24 +2,20 @@
 
 import randomInt from 'random-int';
 import { v4 as uuidv4 } from 'uuid';
-export interface FormatHtmlOptions
-{
+export interface FormatHtmlOptions {
     encodeEntities: boolean;
 }
 
-export const sleep = (seconds: number) =>
-{
+export const sleep = (seconds: number) => {
     return usleep(seconds * 1000);
 };
 
-export const usleep = (milliseconds: number) =>
-{
+export const usleep = (milliseconds: number) => {
     const start = new Date().getTime();
-    while (new Date().getTime() < start + milliseconds) { }
+    while (new Date().getTime() < start + milliseconds) {}
 };
 
-export const encodeHtmlEntities = (str: string) =>
-{
+export const encodeHtmlEntities = (str: string) => {
     const escapeChars: Record<string, string> = {
         '¢': 'cent',
         '£': 'pound',
@@ -31,7 +27,7 @@ export const encodeHtmlEntities = (str: string) =>
         '>': 'gt',
         '"': 'quot',
         '&': 'amp',
-        '\'': '#39',
+        "'": '#39',
     };
 
     const chars: string[] = Object.keys(escapeChars);
@@ -40,18 +36,18 @@ export const encodeHtmlEntities = (str: string) =>
     return str.replace(regex, m => `&${escapeChars[m]};`);
 };
 
-export const spacesToHtmlSpaces = (spaces: string) =>
-{
+export const spacesToHtmlSpaces = (spaces: string) => {
     return '&nbsp;'.repeat(spaces.length);
 };
 
-export const encodeNewLinesToHtml = (str: string) =>
-{
+export const encodeNewLinesToHtml = (str: string) => {
     return str.replace(/(\r\n|\r|\n)/g, '<br>');
 };
 
-export const formatHtmlForDisplay = (html: string, options: FormatHtmlOptions = { encodeEntities: true }) =>
-{
+export const formatHtmlForDisplay = (
+    html: string,
+    options: FormatHtmlOptions = { encodeEntities: true }
+) => {
     if (options.encodeEntities) {
         html = encodeHtmlEntities(html);
     }
@@ -61,8 +57,7 @@ export const formatHtmlForDisplay = (html: string, options: FormatHtmlOptions = 
     );
 };
 
-export const nonCryptoUuidV4 = (): string =>
-{
+export const nonCryptoUuidV4 = (): string => {
     const v4options = {
         random: [
             randomInt(1, 255),
@@ -92,8 +87,7 @@ export const nonCryptoUuidV4 = (): string =>
  *
  * @param arr
  */
-export const end = (arr: any[]) =>
-{
+export const end = (arr: any[]) => {
     if (arr.length === 0) {
         return false;
     }

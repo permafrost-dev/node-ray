@@ -1,21 +1,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-export class RaySizes
-{
+export class RaySizes {
     /* istanbul ignore next */
-    public size(size: string): this
-    {
+    public size(size: string): this {
         return this;
     }
 
-    public small(): this
-    {
+    public small(): this {
         return this.size('sm');
     }
 
-    public large(): this
-    {
+    public large(): this {
         return this.size('lg');
     }
 }

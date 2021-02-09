@@ -1,15 +1,12 @@
 import prettyFormat from 'pretty-format';
 
-export interface ArgumentConverterResult
-{
+export interface ArgumentConverterResult {
     value: any;
     isHtml: boolean;
 }
 
-export class ArgumentConverter
-{
-    public static convertToPrimitive(arg: any): ArgumentConverterResult
-    {
+export class ArgumentConverter {
+    public static convertToPrimitive(arg: any): ArgumentConverterResult {
         if (arg === null) {
             return { value: null, isHtml: false };
         }
@@ -29,8 +26,7 @@ export class ArgumentConverter
         return { value: ArgumentConverter.prettyFormatForHtml(arg), isHtml: true };
     }
 
-    public static prettyFormatForHtml(arg: any): string
-    {
+    public static prettyFormatForHtml(arg: any): string {
         const formatted = prettyFormat(arg, { indent: 4 })
             // format whitespace for display in html
             .replace(/ /g, '&nbsp;')
@@ -46,9 +42,15 @@ export class ArgumentConverter
                 '<code style="font-size: 0.8rem!important;" class="text-gray-500 p-0">Array$1$2</code>'
             )
             // highlight types like [Function Abc]
-            .replace(/^(\[[^\]]+\])$/g, '<code style="font-size: 0.8rem!important;"class="text-gray-500 p-0">$1</code>')
+            .replace(
+                /^(\[[^\]]+\])$/g,
+                '<code style="font-size: 0.8rem!important;"class="text-gray-500 p-0">$1</code>'
+            )
             // highlight object contents
-            .replace(/(\{.+\})/g, '<code style="font-size: 0.8rem!important;" class="text-gray-600 ">$1</code>')
+            .replace(
+                /(\{.+\})/g,
+                '<code style="font-size: 0.8rem!important;" class="text-gray-600 ">$1</code>'
+            )
             // highlight keywords
             .replace(
                 /(Array|Object|Function|Circular|Symbol|WeakMap|Map)/g,

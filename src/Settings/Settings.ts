@@ -3,8 +3,7 @@
 import { Ray } from './../Ray';
 import { Client } from './../Client';
 
-export interface RaySettings
-{
+export interface RaySettings {
     enable?: boolean;
     host?: string;
     port?: number;
@@ -14,27 +13,22 @@ export interface RaySettings
     not_defined?: boolean;
 }
 
-export class Settings
-{
-    set host(value: string)
-    {
+export class Settings {
+    set host(value: string) {
         this._host = value;
         Ray.useClient(new Client(this.port, this.host));
     }
 
-    get host(): string
-    {
+    get host(): string {
         return this._host;
     }
 
-    set port(value: number)
-    {
+    set port(value: number) {
         this._port = value;
         Ray.useClient(new Client(this.port, this.host));
     }
 
-    get port(): number
-    {
+    get port(): number {
         return this._port;
     }
 
@@ -47,8 +41,7 @@ export class Settings
 
     protected originalSettings: RaySettings;
 
-    constructor(settings: RaySettings)
-    {
+    constructor(settings: RaySettings) {
         this.originalSettings = Object.assign({}, settings);
 
         for (const prop in settings) {
@@ -57,8 +50,7 @@ export class Settings
         }
     }
 
-    public toObject(): RaySettings
-    {
+    public toObject(): RaySettings {
         return this.originalSettings;
     }
 }

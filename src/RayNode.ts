@@ -5,18 +5,14 @@ import { ImagePayload } from './Payloads/ImagePayload';
 import { Ray as BaseRay } from './Ray';
 import { SettingsFactory } from './Settings/SettingsFactory';
 
-export class Ray extends BaseRay
-{
-
-    public static create(client: Client | null = null, uuid: string | null = null): Ray
-    {
+export class Ray extends BaseRay {
+    public static create(client: Client | null = null, uuid: string | null = null): Ray {
         const settings = SettingsFactory.createFromConfigFile();
 
         return new this(settings, client, uuid);
     }
 
-    public die(status = ''): void
-    {
+    public die(status = ''): void {
         if (status.length) {
             console.error(status);
         }
@@ -24,15 +20,13 @@ export class Ray extends BaseRay
         process.exit(-1);
     }
 
-    public file(filename: string): this
-    {
+    public file(filename: string): this {
         const payload = new FileContentsPayload(filename);
 
         return this.sendRequest(payload);
     }
 
-    public image(location: string): this
-    {
+    public image(location: string): this {
         if (existsSync(location)) {
             location = `file://${location}`;
         }
@@ -43,7 +37,6 @@ export class Ray extends BaseRay
     }
 }
 
-export const ray = (...args: any[]) =>
-{
+export const ray = (...args: any[]) => {
     return Ray.create().send(...args);
 };

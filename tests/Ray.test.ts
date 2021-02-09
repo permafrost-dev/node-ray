@@ -11,8 +11,7 @@ import { CustomPayload } from '../src/Payloads/CustomPayload';
 
 let client: FakeClient, myRay: Ray, myBaseRay: BaseRay;
 
-beforeEach(() =>
-{
+beforeEach(() => {
     Ray.defaultSettings = {
         enable: true,
         host: 'localhost',
@@ -40,130 +39,114 @@ beforeEach(() =>
     myBaseRay.clearCounters();
 });
 
-it('sends the ray ban payload', () =>
-{
+it('sends the ray ban payload', () => {
     myRay.ban();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends the ray charles payload', () =>
-{
+it('sends the ray charles payload', () => {
     myRay.charles();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a color payload', () =>
-{
+it('sends a color payload', () => {
     myRay.color('red');
     myRay.green().orange().red().purple().blue().gray();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a size payload', () =>
-{
+it('sends a size payload', () => {
     myRay.size('lg');
     myRay.small().large();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a new screen payload', () =>
-{
+it('sends a new screen payload', () => {
     myRay.newScreen('test 1');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-
-it('sends a clear screen payload', () =>
-{
+it('sends a clear screen payload', () => {
     myRay.clearScreen();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a clear all payload', () =>
-{
+it('sends a clear all payload', () => {
     myRay.clearAll();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends an html payload', () =>
-{
+it('sends an html payload', () => {
     myRay.html('<em>test</em>');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('doesn\'t blow up when calling html without a value', () =>
-{
+it("doesn't blow up when calling html without a value", () => {
     myRay.html('');
     myRay.html();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends an image payload', () =>
-{
+it('sends an image payload', () => {
     myBaseRay.image('http://localhost/test.png');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends an xml payload', () =>
-{
+it('sends an xml payload', () => {
     myRay.xml('<root><abc>1</abc></root>');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a json string payload', () =>
-{
+it('sends a json string payload', () => {
     myRay.json('{"A": 123}');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends an object as json payload', () =>
-{
+it('sends an object as json payload', () => {
     myRay.toJson(JSON.stringify({ a: 1, b: 2 }));
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a classname payload', () =>
-{
+it('sends a classname payload', () => {
     myRay.className(myRay);
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a notify payload', () =>
-{
+it('sends a notify payload', () => {
     myRay.notify('hello world');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a date payload', () =>
-{
+it('sends a date payload', () => {
     myRay.date(new Date('2018-04-04T16:00:00.000Z'));
     // @ts-ignore
     myRay.date(null);
 
-    expect(client.sentPayloads()[0].payloads[0].content.formatted.split(' ')[0]).toBe('2018-04-04');
+    expect(client.sentPayloads()[0].payloads[0].content.formatted.split(' ')[0]).toBe(
+        '2018-04-04'
+    );
     expect(client.sentPayloads()[0].payloads[0].content.timestamp).toBe(1522857600);
 
     expect(client.sentPayloads()[1].payloads[0].content.formatted).toBe(null);
     expect(client.sentPayloads()[1].payloads[0].content.timestamp).toBe(null);
 });
 
-it('sends an error payload', () =>
-{
+it('sends an error payload', () => {
     myRay.error(new Error('test error'));
 
     expect(client.sentPayloads()).toMatchSnapshot();
@@ -184,16 +167,14 @@ it('sends a missing file payload', () =>
 });
 */
 
-it('can convert a payload to JSON', () =>
-{
+it('can convert a payload to JSON', () => {
     const payload = new NullPayload();
 
     expect(JSON.parse(payload.toJson()).content.label).toBe('Null');
     expect(JSON.parse(payload.toJson()).content.content).toBe(null);
 });
 
-it('can replace the remote path with the local path', () =>
-{
+it('can replace the remote path with the local path', () => {
     const payload = new NullPayload();
     payload.remotePath = '/app/files';
     payload.localPath = '/code/packages';
@@ -207,46 +188,39 @@ it('can replace the remote path with the local path', () =>
     expect(replaced3).toBe('/other/app/abc');
 });
 
-it('sends a raw payload', () =>
-{
+it('sends a raw payload', () => {
     myRay.raw('one', 'two');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('doesn\'t blow up when calling raw without any arguments', () =>
-{
+it("doesn't blow up when calling raw without any arguments", () => {
     myRay.raw();
 
     expect(client.sentPayloads().length).toBe(0);
 });
 
-it('doesn\'t blow up when calling send without any arguments', () =>
-{
+it("doesn't blow up when calling send without any arguments", () => {
     myRay.send();
 
     expect(client.sentPayloads().length).toBe(0);
 });
 
-
-it('sends a payload and returns the value', () =>
-{
+it('sends a payload and returns the value', () => {
     const value: any = myRay.pass('test');
 
     expect(client.sentPayloads().length).toBe(1);
     expect(value).toBe('test');
 });
 
-it('sends show and hide app payloads', () =>
-{
+it('sends show and hide app payloads', () => {
     myRay.showApp();
     myRay.hideApp();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('conditionally shows a payload', () =>
-{
+it('conditionally shows a payload', () => {
     myRay.showIf(true);
     myRay.showIf(false);
     myRay.showIf(() => true);
@@ -258,44 +232,37 @@ it('conditionally shows a payload', () =>
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-
-it('sends a null payload', () =>
-{
+it('sends a null payload', () => {
     myRay.send(null);
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a boolean payload', () =>
-{
+it('sends a boolean payload', () => {
     myRay.send(true);
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a string payload', () =>
-{
+it('sends a string payload', () => {
     myRay.send('test');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a hide payload', () =>
-{
+it('sends a hide payload', () => {
     myRay.hide();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a remove payload', () =>
-{
+it('sends a remove payload', () => {
     myRay.remove();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a remove payload conditionally', () =>
-{
+it('sends a remove payload conditionally', () => {
     myRay.removeIf(true);
     myRay.removeIf(false);
     myRay.removeWhen(true);
@@ -305,16 +272,14 @@ it('sends a remove payload conditionally', () =>
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a table payload', () =>
-{
+it('sends a table payload', () => {
     myRay.table([1, 2, { A: 1 }, myRay, true, null], 'table');
     myRay.table([[3, 4], { B: 2 }, false]);
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a custom payload', () =>
-{
+it('sends a custom payload', () => {
     myRay.sendCustom('test 123', 'test');
     myRay.sendCustom('test 4');
     myRay.sendCustom('test 5', undefined);
@@ -323,8 +288,7 @@ it('sends a custom payload', () =>
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('can be disabled', () =>
-{
+it('can be disabled', () => {
     myRay.html('<em>sent</em>');
     myRay.disable();
     myRay.html('<em>not sent</em>');
@@ -332,8 +296,7 @@ it('can be disabled', () =>
     expect(client.sentPayloads().length).toBe(1);
 });
 
-it('returns the correct enabled state', () =>
-{
+it('returns the correct enabled state', () => {
     myRay.disable();
 
     expect(myRay.enabled()).toBe(false);
@@ -344,8 +307,7 @@ it('returns the correct enabled state', () =>
     expect(myRay.disabled()).toBe(false);
 });
 
-it('counts the number of times a piece of code is called', () =>
-{
+it('counts the number of times a piece of code is called', () => {
     for (let i = 0; i < 2; i++) {
         myRay.count('first');
 
@@ -359,18 +321,15 @@ it('counts the number of times a piece of code is called', () =>
     expect(Ray.counters.get('second')).toBe(4);
 });
 
-function myFunc1(r: any)
-{
+function myFunc1(r: any) {
     r.count();
 }
 
-function myFunc2(r: any)
-{
+function myFunc2(r: any) {
     r.count();
 }
 
-it('counts the number of times an unnamed piece of code is called', () =>
-{
+it('counts the number of times an unnamed piece of code is called', () => {
     myRay.enable();
 
     for (let i = 0; i < 2; i++) {
@@ -397,13 +356,11 @@ it('counts the number of times an unnamed piece of code is called', () =>
     //expect(client.sentPayloads()[5].payloads[0].content.content).toBe('Called 4 times.'); // myFunc2
 });
 
-it('returns zero for an unknown named counter value', () =>
-{
+it('returns zero for an unknown named counter value', () => {
     expect(Ray.counters.get('missing')).toBe(0);
 });
 
-it('clears all counters', () =>
-{
+it('clears all counters', () => {
     myRay.count('first');
     myRay.count('first');
     myRay.count('second');
@@ -417,8 +374,7 @@ it('clears all counters', () =>
     expect(Ray.counters.get('second')).toBe(0);
 });
 
-it('can transform a request into JSON', () =>
-{
+it('can transform a request into JSON', () => {
     const req = new Request('1-2-3-4', [], [{ test_version: 1.0 }]);
 
     expect(req.toJson()).toMatchSnapshot();

@@ -7,37 +7,30 @@ import { LogPayload } from './Payloads/LogPayload';
 import { NullPayload } from './Payloads/NullPayload';
 import { Payload } from './Payloads/Payload';
 
-export class PayloadFactory
-{
+export class PayloadFactory {
     protected values: any[];
 
     protected static payloadFinder: Function | null = null;
 
-    public static createForValues(args: any[]): any[]
-    {
+    public static createForValues(args: any[]): any[] {
         return new this(args).getPayloads();
     }
 
-    public static registerPayloadFinder(callable: Function)
-    {
+    public static registerPayloadFinder(callable: Function) {
         this.payloadFinder = callable;
     }
 
-    public constructor(values: any[])
-    {
+    public constructor(values: any[]) {
         this.values = values;
     }
 
-    public getPayloads(): any[]
-    {
-        return this.values.map(value =>
-        {
+    public getPayloads(): any[] {
+        return this.values.map(value => {
             return this.getPayload(value);
         });
     }
 
-    protected getPayload(value: any): Payload
-    {
+    protected getPayload(value: any): Payload {
         // if (this.payloadFinder) {
         //     if ($payload = (static::$payloadFinder)($value)) {
         //         return $payload;

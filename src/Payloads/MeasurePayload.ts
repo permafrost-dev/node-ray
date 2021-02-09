@@ -2,8 +2,7 @@ import { end } from '../lib/utils';
 import { StopwatchEvent } from '../Stopwatch/Stopwatch';
 import { Payload } from '../Payloads/Payload';
 
-export class MeasurePayload extends Payload
-{
+export class MeasurePayload extends Payload {
     /** @var string */
     protected name;
 
@@ -22,8 +21,7 @@ export class MeasurePayload extends Payload
     /** @var number */
     protected maxMemoryUsageSinceLastCall = 0;
 
-    public constructor(name: string, stopwatchEvent: StopwatchEvent)
-    {
+    public constructor(name: string, stopwatchEvent: StopwatchEvent) {
         super();
 
         this.name = name;
@@ -35,24 +33,20 @@ export class MeasurePayload extends Payload
 
         //const lastPeriod = end(periods);
         if (periods.length > 1) {
-            const tempPeriods = periods.slice(0);
-            const lastPeriod = <number>tempPeriods.pop();
-            const prevPeriod = <number>tempPeriods.pop();
+            //const tempPeriods = periods.slice(0);
+            //const lastPeriod = <number>tempPeriods.pop();
+            //const prevPeriod = <number>tempPeriods.pop();
 
             this.timeSinceLastCall = end(periods);
             this.maxMemoryUsageSinceLastCall = 0;
-
-            console.log('stopwatchEvent.getPreviousDuration()==', stopwatchEvent.getPreviousDuration());
         }
     }
 
-    public getType(): string
-    {
+    public getType(): string {
         return 'measure';
     }
 
-    public concernsNewTimer(): this
-    {
+    public concernsNewTimer(): this {
         this.isNewTimer = true;
         this.totalTime = 0;
         this.maxMemoryUsageDuringTotalTime = 0;
@@ -62,17 +56,16 @@ export class MeasurePayload extends Payload
         return this;
     }
 
-    public getContent(): Record<string, unknown>
-    {
+    public getContent(): Record<string, unknown> {
         return {
-            'name': this.name,
-            'is_new_timer': this.isNewTimer,
+            name: this.name,
+            is_new_timer: this.isNewTimer,
 
-            'total_time': this.totalTime,
-            'max_memory_usage_during_total_time': this.maxMemoryUsageDuringTotalTime,
+            total_time: this.totalTime,
+            max_memory_usage_during_total_time: this.maxMemoryUsageDuringTotalTime,
 
-            'time_since_last_call': this.timeSinceLastCall,
-            'max_memory_usage_since_last_call': this.maxMemoryUsageSinceLastCall,
+            time_since_last_call: this.timeSinceLastCall,
+            max_memory_usage_since_last_call: this.maxMemoryUsageSinceLastCall,
         };
     }
 }
