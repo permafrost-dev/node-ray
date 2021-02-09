@@ -17,6 +17,7 @@ const outputMinified = [
         sourcemap: sourceMapsEnabled,
         exports: 'auto',
         name: 'Ray',
+        globals: {'axios': 'axios'},
     },
 ];
 
@@ -28,6 +29,7 @@ const outputUnminified = [
         sourcemap: sourceMapsEnabled,
         exports: 'auto',
         name: 'Ray',
+        globals: {'axios': 'axios'},
     },
 ];
 
