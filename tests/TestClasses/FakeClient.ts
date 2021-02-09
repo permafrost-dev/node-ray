@@ -1,4 +1,4 @@
-import { Payload } from 'dist1.ignore/src/Payloads/Payload';
+import { Payload } from '../../src/Payloads/Payload';
 import { sep } from 'path';
 import { Client } from '../../src/Client';
 //import { Payload } from '../../src/Payloads/Payload';
@@ -8,18 +8,12 @@ export class FakeClient extends Client
 {
     protected sentRequests: any[] = [];
 
-    protected getUrlForPath(path: string): string
-    {
-        return `http://localhost:19990/bad/${path}`;
-    }
-
     public async send(request: Request)
     {
         const requestProperties: any = request.toArray();
         const payloads: Payload[] = request.payloads;
 
-
-        payloads.map((payload: any) =>
+        payloads.map(payload =>
         {
             //console.log(payload.data.origin.function_name);
 
@@ -32,9 +26,13 @@ export class FakeClient extends Client
             //payload.data.origin.file = this.convertToUnixPath(payload.data.origin.file);
 
             payload.data.origin.line_number = 999;
+
+            console.log(payload.getContent());
         });
 
         requestProperties.meta = [];
+
+
 
         this.sentRequests.push(requestProperties);
     }

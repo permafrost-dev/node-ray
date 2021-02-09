@@ -371,15 +371,13 @@ function myFunc2(r: any)
 
 it('counts the number of times an unnamed piece of code is called', () =>
 {
-    const myRay2 = BaseRay.create(client, 'fakeUuid');
-
-    //client2.send(new Request('fakeUuid', [new CustomPayload('test')], []));
+    myRay.enable();
 
     for (let i = 0; i < 2; i++) {
-        myFunc1(myRay2);
+        myRay.count();
 
         for (let j = 0; j < 2; j++) {
-            myFunc2(myRay2);
+            myRay.count();
         }
     }
 
