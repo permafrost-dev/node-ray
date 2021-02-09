@@ -32,6 +32,10 @@
       "import": "./dist/web.esm.mjs",
       "require": "./dist/web.cjs.js"
     },
+    "./node": {
+      "import": "./dist/index.esm.mjs",
+      "require": "./dist/index.cjs.js"
+    },
     "./standalone": {
       "require": "./dist/standalone.js"
     }
