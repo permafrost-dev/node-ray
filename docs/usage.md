@@ -186,6 +186,39 @@ Specifying the format is optional. It uses the [dayjs formatting](https://day.js
 ray().date(new Date(), 'YYYY-MM-DD hh:mm');
 ```
 
+### Measuring performance and memory usage
+
+You can use the `measure` function to display runtime and memory usage. When `measure` is called again, the time between
+this and previous call is also displayed.
+
+```js
+ray().measure();
+
+sleep(1);
+
+ray().measure();
+
+sleep(2);
+
+ray().measure();
+```
+
+![screenshot](/docs/ray/v1/images/measure.jpg)
+
+The `measure` call optionally accepts a callable. Ray will output the time needed to run the callable and the maximum
+memory used.
+
+```js
+const usleep = (milliseconds) => {
+    const start = new Date().getTime();
+    while (new Date().getTime() < start + milliseconds) { }
+};
+
+ray().measure(() => {
+    usleep(5000); // 5 sec
+});
+```
+
 ### Feature demo
 
 Here's a sample script that demonstrates a number of the features, both basic and advanced.

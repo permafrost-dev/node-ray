@@ -214,6 +214,8 @@ See [using the package](docs/usage.md).
 | `ray().html(string)` | Send HTML to Ray | 
 | `ray().image(url)` | Display an image in Ray | 
 | `ray().json([…])` | Send JSON to Ray | 
+| `ray().measure(callable)` | Measure the performance of a callback function |
+| `ray().measure()` | Begin measuring the overall time and elapsed time since previous `measure()` call |
 | `ray().newScreen()` | Start a new screen |
 | `ray().newScreen('title')` | Start a new named screen |
 | `ray(…).notify(message)` | Display a notification |
@@ -223,6 +225,7 @@ See [using the package](docs/usage.md).
 | `ray(…).showIf(true)` | Conditionally show things based on a truthy value or callable  |
 | `ray(…).showWhen(true)` | Conditionally show things based on a truthy value or callable  |
 | `ray(…).small()` | Output text smaller or bigger. Use `large` or `small`|
+| `ray().stopTime(name)` | Removes a named stopwatch if specified, otherwise removes all stopwatches |
 | `ray().table([…])` | Display an array of items formatted as a table; Objects and arrays are pretty-printed |
 | `ray().xml(string)` | Send XML to Ray | 
 

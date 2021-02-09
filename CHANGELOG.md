@@ -4,6 +4,14 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.5.0 - 2021-02-09
+
+- add ability to configure Ray within a Browser environment _(host, port, etc.)_
+
+- add `measure()` method to measure the performance of a callback or interval _(see docs)_
+
+- add `stopTime()` method to remove either a named stopwatch, or all stopwatches if no name is provided
+
 ## 1.4.4 - 2021-02-09
 
 - update `web` variant module
