@@ -32,7 +32,7 @@ const outputs = {
             exports: 'auto',
         },
         {
-            file: 'dist/index.esm.min.js',
+            file: 'dist/index.esm.min.mjs',
             format: 'esm',
             plugins: [versionInject, terser()],
             sourcemap: options.sourceMapsEnabled,
@@ -47,7 +47,7 @@ const outputs = {
             plugins: [versionInject]
         },
         {
-            file: 'dist/index.esm.js',
+            file: 'dist/index.esm.mjs',
             format: 'esm',
             sourcemap: options.sourceMapsEnabled,
             plugins: [versionInject]

@@ -42,7 +42,7 @@ const outputs = {
             plugins: [versionInject]
         },
         {
-            file: 'dist/web.esm.js',
+            file: 'dist/web.esm.mjs',
             format: 'esm',
             sourcemap:  options.sourceMapsEnabled,
             plugins: [versionInject]
