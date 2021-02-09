@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.4.2 - 2021-02-07
+
+- use `.mjs` extension for esm modules
+
 ## 1.4.1 - 2021-02-07
 
 - change the output filenames to end with `.js`, instead of `.cjs` and `.mjs`
