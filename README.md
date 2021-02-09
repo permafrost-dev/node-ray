@@ -75,7 +75,7 @@ The majority of the API from the [original PHP package](https://github.com/spati
 import { ray } from 'node-ray';
 
 // commonjs import:
-const ray = require('node-ray').ray;
+const { ray } = require('node-ray');
 ```
 
 ```js
@@ -100,7 +100,7 @@ ray().xml('<one>11</one>'); // disabled, data not sent to Ray
 To use `node-ray` with Laravel Mix, include the following in `resources/js/bootstrap.js`:
 
 ```js
-const { ray } = require('node-ray/dist/web.cjs.js');
+const { ray } = require('node-ray/web');
 
 window.ray = ray;
 ```
