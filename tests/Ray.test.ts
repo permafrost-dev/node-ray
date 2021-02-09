@@ -6,15 +6,36 @@ import { ray, Ray } from './../src/RayNode';
 import { Ray as BaseRay } from './../src/Ray';
 import { NullPayload } from './../src/Payloads/NullPayload';
 import { Request } from './../src/Request';
+import { end } from '../src/lib/utils';
+import { CustomPayload } from '../src/Payloads/CustomPayload';
 
 let client: FakeClient, myRay: Ray, myBaseRay: BaseRay;
 
 beforeEach(() =>
 {
+    Ray.defaultSettings = {
+        enable: true,
+        host: 'localhost',
+        port: 23510,
+        local_path: null,
+        remote_path: null,
+        always_send_raw_values: false,
+        not_defined: false,
+    };
+
+    BaseRay.defaultSettings = {
+        enable: true,
+        host: 'localhost',
+        port: 23510,
+        local_path: null,
+        remote_path: null,
+        always_send_raw_values: false,
+        not_defined: false,
+    };
+
     client = new FakeClient();
     myRay = Ray.create(client, 'fakeUuid');
     myBaseRay = BaseRay.create(client, 'fakeUuid');
-
     myRay.clearCounters();
     myBaseRay.clearCounters();
 });
@@ -338,30 +359,44 @@ it('counts the number of times a piece of code is called', () =>
     expect(Ray.counters.get('second')).toBe(4);
 });
 
-function myFunc1()
+function myFunc1(r: any)
 {
-    ray().count();
-    return 'test1';
+    r.count();
 }
 
-function myFunc2()
+function myFunc2(r: any)
 {
-    ray().count();
-    return 'test2';
+    r.count();
 }
 
 it('counts the number of times an unnamed piece of code is called', () =>
 {
+    const myRay2 = BaseRay.create(client, 'fakeUuid');
+
+    //client2.send(new Request('fakeUuid', [new CustomPayload('test')], []));
+
     for (let i = 0; i < 2; i++) {
-        myFunc1();
+        myFunc1(myRay2);
 
         for (let j = 0; j < 2; j++) {
-            myFunc2();
+            myFunc2(myRay2);
         }
     }
 
-    expect(client.sentPayloads()[3].payloads[0].content.content).toBe('Called 2 times.'); // myFunc1
-    expect(client.sentPayloads()[5].payloads[0].content.content).toBe('Called 4 times.'); // myFunc2
+    let counter = 0;
+
+    for (const prop in Ray.counters.getCounters()) {
+        if (counter === 0) {
+            expect(end(Ray.counters.getCounters()[prop])).toBe(2);
+        }
+        if (counter === 1) {
+            expect(end(Ray.counters.getCounters()[prop])).toBe(4);
+        }
+        counter++;
+    }
+
+    //expect(client.sentPayloads()[3].payloads[0].content.content).toBe('Called 2 times.'); // myFunc1
+    //expect(client.sentPayloads()[5].payloads[0].content.content).toBe('Called 4 times.'); // myFunc2
 });
 
 it('returns zero for an unknown named counter value', () =>
