@@ -4,6 +4,16 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.6.0 - 2021-02-10
+
+- add `ray().interceptor().intercept()` method to redirect all `console.log()` calls to Ray
+
+- add ConsoleInterceptor class
+
+- ensure all payloads have an origin, fixing an occasional bug caused during bundle creation _(i.e., webpack)_ where payloads were sent but Ray did not display them
+
+- ensure `dayjs` and `stopwatch-node` packages are treated as external packages for the NodeJS and web versions
+
 ## 1.5.3 - 2021-02-09
 
 - add node export variant _('node-ray/node')_
