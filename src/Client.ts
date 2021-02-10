@@ -19,9 +19,9 @@ export class Client {
     }
 
     public isRayAvailable(): boolean {
-        // if (Client.rayState !== null) {
-        //     return Client.rayState;
-        // }
+        if (Client.rayState !== null) {
+            return Client.rayState;
+        }
 
         return true;
     }
@@ -48,7 +48,7 @@ export class Client {
 
         setTimeout(() => {
             Client.rayState = null;
-        }, 5000);
+        }, 20000);
     }
 
     protected getUrlForPath(path: string): string {
@@ -58,9 +58,9 @@ export class Client {
     }
 
     public async send(request: Request) {
-        // if (Client.rayState === null) {
-        //     await this.updateRayAvailabilty();
-        // }
+        if (Client.rayState === null) {
+            await this.updateRayAvailabilty();
+        }
 
         // if (!this.isRayAvailable()) {
         //     return;
@@ -92,9 +92,9 @@ export class Client {
     }
 
     public async lockExists(lockName: string) {
-        // if (Client.rayState === null) {
-        //     await this.updateRayAvailabilty();
-        // }
+        if (Client.rayState === null) {
+            await this.updateRayAvailabilty();
+        }
 
         return new Promise(async (resolve, reject) => {
             // if (!this.isRayAvailable()) {
