@@ -60,6 +60,8 @@ export default {
     external: [
         'axios',
         'find-up',
+        'dayjs',
+        'stopwatch-node', 
         'md5',
         'pretty-format',
         'stacktrace-js',
