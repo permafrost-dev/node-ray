@@ -216,7 +216,7 @@ See [using the package](docs/usage.md).
 | `ray().hideApp()` | Programmatically hide the Ray app window |
 | `ray().html(string)` | Send HTML to Ray | 
 | `ray().image(url)` | Display an image in Ray | 
-| `ray().interceptor() | Access ConsoleInterceptor; call `.intercept()` to show `console.log()` calls in Ray |
+| `ray().interceptor()` | Access ConsoleInterceptor; call `.enable()` to show `console.log()` calls in Ray |
 | `ray().json([…])` | Send JSON to Ray | 
 | `ray().measure(callable)` | Measure the performance of a callback function |
 | `ray().measure()` | Begin measuring the overall time and elapsed time since previous `measure()` call |

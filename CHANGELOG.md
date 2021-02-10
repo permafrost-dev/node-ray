@@ -4,6 +4,15 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.6.2 - 2021-02-10
+
+- change the way client availability status resets to avoid process hanging
+
+- fix ConsoleInterceptor implementation
+
+- change `ConsoleInterceptor.intercept()` and `.reset()` to `.enable()` and `.disable()`
+
+
 ## 1.6.1 - 2021-02-10
 
 - enable client checks to see if the Ray app is running
