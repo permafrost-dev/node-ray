@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sends a missing file payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "File not found: '{missing.txt'",
+          "label": "File",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an existing file payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "one,two,three<br>",
+          "label": "test.txt",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an existing image file payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "<img src=\\"file:///development/packages/ray-node/tests/TestData/test.txt\\" alt=\\"\\" />",
+          "label": "Image",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an image url payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "<img src=\\"http://localhost:35599/test.png\\" alt=\\"\\" />",
+          "label": "Image",
+        },
+        "origin": Object {
+          "file": "/src/Ray.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
