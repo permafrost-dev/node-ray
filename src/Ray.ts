@@ -123,7 +123,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
 
         if (this.settings.intercept_console_log && !this.interceptor().active()) {
-            this.interceptor().intercept();
+            this.interceptor().enable();
         }
     }
 
