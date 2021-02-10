@@ -16,6 +16,12 @@ export class Client {
         this.portNumber = portNumber;
 
         this.host = host;
+
+        this.init();
+    }
+
+    public async init() {
+        await this.updateRayAvailabilty();
     }
 
     public isRayAvailable(): boolean {
