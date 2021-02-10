@@ -4,6 +4,14 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.6.3 - 2021-02-10
+
+- update Ray app availability status as soon as the client is created
+
+- add helper method `Ray.client()`
+
+- add helper method `Client.init()` to force an availability status update
+
 ## 1.6.2 - 2021-02-10
 
 - change the way client availability status resets to avoid process hanging
