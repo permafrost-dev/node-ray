@@ -11,6 +11,7 @@ export interface RaySettings {
     local_path?: string | null;
     always_send_raw_values?: boolean;
     not_defined?: boolean;
+    intercept_console_log?: boolean;
 }
 
 export class Settings {
@@ -38,6 +39,7 @@ export class Settings {
     public remote_path: string | null = null;
     public local_path: string | null = null;
     public always_send_raw_values = false;
+    public intercept_console_log = false;
 
     protected originalSettings: RaySettings;
 

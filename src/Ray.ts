@@ -37,6 +37,7 @@ import { ErrorPayload } from './Payloads/ErrorPayload';
 import { DatePayload } from './Payloads/DatePayload';
 import { Stopwatch } from './Stopwatch/Stopwatch';
 import { MeasurePayload } from './Payloads/MeasurePayload';
+import { ConsoleInterceptor } from './ConsoleInterceptor';
 
 export type BoolFunction = () => boolean;
 
@@ -47,9 +48,11 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public static defaultSettings: RaySettings = { not_defined: true };
 
-    protected static client: Client;
+    public static client: Client;
 
     public static counters: Counters = new Counters();
+
+    public static interceptor: ConsoleInterceptor = new ConsoleInterceptor();
 
     public static fakeUuid: string;
 
@@ -70,6 +73,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 remote_path: null,
                 always_send_raw_values: false,
                 not_defined: false,
+                intercept_console_log: false,
             };
         }
 
@@ -103,6 +107,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 remote_path: null,
                 always_send_raw_values: false,
                 not_defined: false,
+                intercept_console_log: false,
             };
         }
 
@@ -116,6 +121,10 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
 
         this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
+
+        if (this.settings.intercept_console_log && !this.interceptor().active()) {
+            this.interceptor().intercept();
+        }
     }
 
     public static useDefaultSettings(settings: RaySettings) {
@@ -128,6 +137,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 remote_path: null,
                 always_send_raw_values: false,
                 not_defined: false,
+                intercept_console_log: false,
             };
         }
 
@@ -137,6 +147,10 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         Ray.client = new Client(this.defaultSettings.port, this.defaultSettings.host);
 
         return this;
+    }
+
+    public interceptor() {
+        return Ray.interceptor;
     }
 
     public enable(): this {
