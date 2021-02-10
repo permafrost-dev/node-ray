@@ -4,6 +4,12 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.6.1 - 2021-02-10
+
+- enable client checks to see if the Ray app is running
+
+- fix bug where ConsoleInterceptor could access Ray.client before it was created
+
 ## 1.6.0 - 2021-02-10
 
 - add `ray().interceptor().intercept()` method to redirect all `console.log()` calls to Ray
