@@ -43,7 +43,7 @@
   "scripts": {
     "test": "./node_modules/.bin/jest tests --verbose",
     "test:coverage": "./node_modules/.bin/jest tests --coverage",
-    "fmt": "./node_modules/.bin/prettier --config .prettierrc --write 'src/**/*.{js,ts,json}' 'tests/**/*.{js,ts,json}'",
+    "fmt": "./node_modules/.bin/prettier --config .prettierrc --write 'src/**/*.{js,ts,json}' 'tests/**/*.{js,ts,json}' './*.js'",
     "lint": "./node_modules/.bin/eslint --ext ts,js src/",
     "lint:fix": "./node_modules/.bin/eslint --ext ts,js --fix src/",
     "fix": "npm run fmt && npm run lint:fix",
