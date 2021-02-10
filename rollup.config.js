@@ -61,7 +61,7 @@ export default {
         'axios',
         'find-up',
         'dayjs',
-        'stopwatch-node', 
+        'stopwatch-node',
         'md5',
         'pretty-format',
         'stacktrace-js',
