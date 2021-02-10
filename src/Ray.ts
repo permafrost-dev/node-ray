@@ -73,7 +73,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 remote_path: null,
                 always_send_raw_values: false,
                 not_defined: false,
-                intercept_console_log: false,
+                intercept_console_log: true,
             };
         }
 
@@ -107,7 +107,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 remote_path: null,
                 always_send_raw_values: false,
                 not_defined: false,
-                intercept_console_log: false,
             };
         }
 
@@ -137,7 +136,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 remote_path: null,
                 always_send_raw_values: false,
                 not_defined: false,
-                intercept_console_log: false,
             };
         }
 
@@ -149,8 +147,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this;
     }
 
-    public interceptor() {
+    public interceptor(): ConsoleInterceptor {
         return Ray.interceptor;
+    }
+
+    public client(): Client {
+        return Ray.client;
     }
 
     public enable(): this {
