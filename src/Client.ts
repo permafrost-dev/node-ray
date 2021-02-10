@@ -4,8 +4,11 @@
 
 import { Request } from './Request';
 import axios from 'axios';
+import { Payload } from './Payloads/Payload';
 
 export class Client {
+    public static rayState: boolean | null = true;
+
     protected portNumber: number;
     protected host: string;
 
@@ -15,6 +18,39 @@ export class Client {
         this.host = host;
     }
 
+    public isRayAvailable(): boolean {
+        // if (Client.rayState !== null) {
+        //     return Client.rayState;
+        // }
+
+        return true;
+    }
+
+    protected async updateRayAvailabilty() {
+        let result = true;
+
+        try {
+            await axios.get(this.getUrlForPath('/locks/__availabilty_check'), {});
+        } catch (err) {
+            if (err.response) {
+                // 4xx error
+                result = true;
+            } else if (err.request) {
+                // connection error
+                result = false;
+            } else {
+                // error during setup
+                result = false;
+            }
+        } finally {
+            Client.rayState = result;
+        }
+
+        setTimeout(() => {
+            Client.rayState = null;
+        }, 5000);
+    }
+
     protected getUrlForPath(path: string): string {
         path = path.replace(/^\//, ''); // strip leading slash
 
@@ -22,15 +58,49 @@ export class Client {
     }
 
     public async send(request: Request) {
+        // if (Client.rayState === null) {
+        //     await this.updateRayAvailabilty();
+        // }
+
+        // if (!this.isRayAvailable()) {
+        //     return;
+        // }
+
         try {
+            request.payloads = this.ensureAllPayloadsHaveAnOrigin(request.payloads);
+
             await axios.post(this.getUrlForPath('/'), request.toArray());
         } catch (err) {
             // ignore all errors, such as when Ray isn't running and we can't connect
         }
     }
 
+    protected ensureAllPayloadsHaveAnOrigin(payloads: Payload[]) {
+        payloads.forEach(payload => {
+            if (
+                payload.data.origin.file === null ||
+                payload.data.origin.file === '' ||
+                typeof payload.data.origin['file'] === 'undefined'
+            ) {
+                payload.data.origin['file'] = '/unknown-file.js';
+                payload.data.origin['line_number'] = 1;
+                payload.data.origin['function_name'] = 'unknown';
+            }
+        });
+
+        return payloads;
+    }
+
     public async lockExists(lockName: string) {
+        // if (Client.rayState === null) {
+        //     await this.updateRayAvailabilty();
+        // }
+
         return new Promise(async (resolve, reject) => {
+            // if (!this.isRayAvailable()) {
+            //     resolve(false);
+            // }
+
             let resp;
 
             try {
