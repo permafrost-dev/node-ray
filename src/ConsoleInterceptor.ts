@@ -1,31 +1,32 @@
 import { Ray } from './Ray';
 
-export class ConsoleInterceptor {
-    public static active = false;
-    public static consoleLog: any;
+export const consoleLog = console.log.bind({});
 
-    public intercept() {
-        ConsoleInterceptor.active = true;
-        ConsoleInterceptor.consoleLog = console.log;
-
-        console.log = this.wrapper;
+export const consoleWrapper = (...args: any[]) => {
+    if (typeof Ray.client !== 'undefined' && Ray.client.isRayAvailable()) {
+        Ray.create().send(...args);
+        return;
     }
 
-    public reset() {
+    consoleLog(...args);
+};
+
+export class ConsoleInterceptor {
+    public static active = false;
+
+    public enable() {
+        ConsoleInterceptor.active = true;
+
+        console.log = consoleWrapper;
+    }
+
+    public disable() {
         ConsoleInterceptor.active = false;
 
-        console.log = ConsoleInterceptor.consoleLog;
+        console.log = consoleLog;
     }
 
     public active(): boolean {
         return ConsoleInterceptor.active;
-    }
-
-    protected wrapper(...args: any[]) {
-        if (typeof Ray.client !== 'undefined' && Ray.client.isRayAvailable()) {
-            Ray.create().send(...args);
-        }
-
-        ConsoleInterceptor.consoleLog(...args);
     }
 }
