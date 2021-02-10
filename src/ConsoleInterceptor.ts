@@ -22,7 +22,7 @@ export class ConsoleInterceptor {
     }
 
     protected wrapper(...args: any[]) {
-        if (Ray.client.isRayAvailable()) {
+        if (typeof Ray.client !== 'undefined' && Ray.client.isRayAvailable()) {
             Ray.create().send(...args);
         }
 
