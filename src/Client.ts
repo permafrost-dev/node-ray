@@ -19,11 +19,25 @@ export class Client {
     }
 
     public isRayAvailable(): boolean {
+        this.attemptAvailableReset();
+
+        if (Client.rayState === null) {
+            this.updateRayAvailabilty();
+        }
+
         if (Client.rayState !== null) {
             return Client.rayState;
         }
 
         return true;
+    }
+
+    protected attemptAvailableReset() {
+        const sec = Math.floor(new Date().getSeconds() / 5);
+
+        if ([0, 10].includes(sec)) {
+            Client.rayState = null;
+        }
     }
 
     protected async updateRayAvailabilty() {
@@ -45,10 +59,6 @@ export class Client {
         } finally {
             Client.rayState = result;
         }
-
-        setTimeout(() => {
-            Client.rayState = null;
-        }, 20000);
     }
 
     protected getUrlForPath(path: string): string {
@@ -92,9 +102,9 @@ export class Client {
     }
 
     public async lockExists(lockName: string) {
-        if (Client.rayState === null) {
-            await this.updateRayAvailabilty();
-        }
+        // if (Client.rayState === null) {
+        //     await this.updateRayAvailabilty();
+        // }
 
         return new Promise(async (resolve, reject) => {
             // if (!this.isRayAvailable()) {
