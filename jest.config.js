@@ -5,7 +5,14 @@ module.exports = {
         '^.+\\.tsx?$': 'ts-jest',
     },
     testRegex: '(/__test__/.*|/tests/.*|(\\.|/)(test|spec))\\.[tj]sx?$',
-    testPathIgnorePatterns: ['/node_modules/', '/dist/', '/build/', '/coverage/', '/tests/TestClasses/', '/tests/TestData/'],
+    testPathIgnorePatterns: [
+        '/node_modules/',
+        '/dist/',
+        '/build/',
+        '/coverage/',
+        '/tests/TestClasses/',
+        '/tests/TestData/',
+    ],
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
     coverageDirectory: './coverage',
     coverageReporters: ['html-spa', 'text'],
@@ -14,9 +21,8 @@ module.exports = {
         'src/**/*.{ts,js}',
         '!**/build/**',
         '!**/dist/**',
-        "!**/node_modules/**",
+        '!**/node_modules/**',
         '!**/tests/**',
-        "!**/vendor/**",
+        '!**/vendor/**',
     ],
 };
-

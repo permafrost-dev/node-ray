@@ -1,3 +1,3 @@
 const { Ray, ray } = require('./dist/index.cjs');
 
-module.exports = { Ray, ray }
+module.exports = { Ray, ray };

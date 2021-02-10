@@ -16,7 +16,7 @@ const outputMinified = [
         sourcemap: sourceMapsEnabled,
         exports: 'auto',
         name: 'Ray',
-        globals: {'axios': 'axios'},
+        globals: { axios: 'axios' },
     },
 ];
 
@@ -28,19 +28,16 @@ const outputUnminified = [
         sourcemap: sourceMapsEnabled,
         exports: 'auto',
         name: 'Ray',
-        globals: {'axios': 'axios'},
+        globals: { axios: 'axios' },
     },
 ];
 
 export default {
     input: 'src/Ray.ts',
-    output: [
-        ...outputUnminified,
-        ...outputMinified,
-    ],
+    output: [...outputUnminified, ...outputMinified],
     plugins: [
         replace({
-            __buildDate__: () => (new Date()).toISOString(),
+            __buildDate__: () => new Date().toISOString(),
             __buildVersion__: () => require('./package.json').version,
         }),
         commonjs(),
