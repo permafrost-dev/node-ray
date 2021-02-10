@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-useless-catch */
 
-import { FakeClient } from './TestClasses/FakeClient';
 import { Ray as RayNode } from './../src/RayNode';
+import { FakeClientNode } from './TestClasses/FakeClientNode';
 
-let client: FakeClient, myRay: RayNode;
+let client: FakeClientNode, myRay: RayNode;
 
 beforeEach(() => {
     RayNode.defaultSettings = {
@@ -17,7 +17,7 @@ beforeEach(() => {
         not_defined: false,
     };
 
-    client = new FakeClient();
+    client = new FakeClientNode();
     myRay = RayNode.create(client, 'fakeUuid');
     myRay.clearCounters();
 });

@@ -11,7 +11,7 @@ Array [
           "label": "File",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -34,7 +34,7 @@ Array [
           "label": "test.txt",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -53,11 +53,11 @@ Array [
     "payloads": Array [
       Object {
         "content": Object {
-          "content": "<img src=\\"file:///development/packages/ray-node/tests/TestData/test.txt\\" alt=\\"\\" />",
+          "content": "<img src=\\"file:///tests/TestData/test.txt\\" alt=\\"\\" />",
           "label": "Image",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -80,7 +80,7 @@ Array [
           "label": "Image",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "line_number": 999,
         },
