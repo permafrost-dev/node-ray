@@ -357,8 +357,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
             resolve(this);
         });
-
-        return this;
     }
 
     public stopTime(stopwatchName = ''): this {

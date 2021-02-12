@@ -44,10 +44,7 @@ export const encodeNewLinesToHtml = (str: string) => {
     return str.replace(/(\r\n|\r|\n)/g, '<br>');
 };
 
-export const formatHtmlForDisplay = (
-    html: string,
-    options: FormatHtmlOptions = { encodeEntities: true }
-) => {
+export const formatHtmlForDisplay = (html: string, options: FormatHtmlOptions = { encodeEntities: true }) => {
     if (options.encodeEntities) {
         html = encodeHtmlEntities(html);
     }

@@ -18,19 +18,12 @@ export class FakeClientNode extends FakeClient {
             payload.data.origin.line_number = 999;
 
             if (payload.getType() === 'measure') {
-                payload.data.content.total_time = Math.floor(
-                    payload.data.content.total_time / 10
-                );
-                payload.data.content.time_since_last_call = Math.floor(
-                    payload.data.content.time_since_last_call / 10
-                );
+                payload.data.content.total_time = Math.floor(payload.data.content.total_time / 10);
+                payload.data.content.time_since_last_call = Math.floor(payload.data.content.time_since_last_call / 10);
             }
 
             if (payload.data.content.label === 'Image') {
-                payload.data.content.content = payload.data.content.content.replace(
-                    this.baseDirectory(),
-                    ''
-                );
+                payload.data.content.content = payload.data.content.content.replace(this.baseDirectory(), '');
             }
 
             if (payload.getType() === 'create_lock') {

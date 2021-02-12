@@ -57,14 +57,5 @@ export default {
         nodeResolve(),
         typescript(),
     ],
-    external: [
-        'axios',
-        'dayjs',
-        'stopwatch-node',
-        'md5',
-        'pretty-format',
-        'stacktrace-js',
-        'xml-formatter',
-        'uuid',
-    ],
+    external: ['axios', 'dayjs', 'stopwatch-node', 'md5', 'pretty-format', 'stacktrace-js', 'xml-formatter', 'uuid'],
 };

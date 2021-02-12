@@ -42,22 +42,16 @@ it('encodes line breaks as html <br> tags', async () => {
 });
 
 it('formats html entities for display', async () => {
-    expect(formatHtmlForDisplay('<em>test</em>', { encodeEntities: true })).toBe(
-        '&lt;em&gt;test&lt;/em&gt;'
-    );
+    expect(formatHtmlForDisplay('<em>test</em>', { encodeEntities: true })).toBe('&lt;em&gt;test&lt;/em&gt;');
 
-    expect(formatHtmlForDisplay(' <em>test</em>', { encodeEntities: false })).toBe(
-        '&nbsp;<em>test</em>'
-    );
+    expect(formatHtmlForDisplay(' <em>test</em>', { encodeEntities: false })).toBe('&nbsp;<em>test</em>');
 
     expect(formatHtmlForDisplay('  te\nst\n')).toBe('&nbsp;&nbsp;te<br>st<br>');
 });
 
 it('generates a uuid v4', () => {
     expect(nonCryptoUuidV4().length).toBeGreaterThanOrEqual(24);
-    expect(nonCryptoUuidV4()).toMatch(
-        /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
-    );
+    expect(nonCryptoUuidV4()).toMatch(/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i);
 });
 
 it('gets the last item in an array', () => {

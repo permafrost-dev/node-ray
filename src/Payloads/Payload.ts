@@ -40,9 +40,7 @@ export abstract class Payload {
             this.initialized = true;
             this.data.type = this.getType();
             this.data.content = this.getContent();
-            this.data.origin.file = this.replaceRemotePathWithLocalPath(
-                <string>this.data.origin.file
-            );
+            this.data.origin.file = this.replaceRemotePathWithLocalPath(<string>this.data.origin.file);
         }
 
         return this.data;
