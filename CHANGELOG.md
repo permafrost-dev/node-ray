@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.6.4 - unreleased
+
+- update the way `Client` availabilty checks are done to avoid multiple checks in succession
+
 ## 1.6.3 - 2021-02-10
 
 - update Ray app availability status as soon as the client is created
