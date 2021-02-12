@@ -22,12 +22,11 @@ export class FakeClient extends Client {
             payload.data.origin.line_number = 999;
 
             if (payload.getType() === 'measure') {
-                payload.data.content.total_time = Math.floor(
-                    payload.data.content.total_time / 10
-                );
-                payload.data.content.time_since_last_call = Math.floor(
-                    payload.data.content.time_since_last_call / 10
-                );
+                payload.data.content.max_memory_usage_during_total_time = 0;
+                payload.data.content.max_memory_usage_since_last_call = 0;
+
+                payload.data.content.total_time = Math.floor(payload.data.content.total_time / 10);
+                payload.data.content.time_since_last_call = Math.floor(payload.data.content.time_since_last_call / 10);
             }
 
             if (payload.getType() === 'create_lock') {
