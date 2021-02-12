@@ -7,28 +7,19 @@ const usleep = (milliseconds) => {
     while (new Date().getTime() < start + (milliseconds)) {}
 };
 
-function main() {
-
-    ray().measure('main');
+async function main() {
 
 
-    usleep(300);
+    ray('test');
 
-    ray().measure('main');
+    await ray().pause();
 
-    usleep(400);
+        ray().xml('<one><two><three>3333</three></two></one>');
 
-    ray().measure('main');
+        ray('hello world 3!').green();
 
-    usleep(1100);
+        ray().table(['one', 'two', 'three', 'four']);
 
-    ray().measure('main');
-
-    //ray().xml('<one><two><three>3333</three></two></one>');
-
-    //ray('hello world 3!').green();
-
-    //ray().table(['one', 'two', 'three', 'four']);
 }
 
 main();
