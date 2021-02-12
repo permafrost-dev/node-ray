@@ -4,9 +4,13 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
-## 1.6.4 - unreleased
+## 1.7.0 - 2021-02-11
 
 - update the way `Client` availabilty checks are done to avoid multiple checks in succession
+
+- calculate the memory usage for `measure()` when used in NodeJS
+
+- `pause()` now stops or resumes code execution properly
 
 ## 1.6.3 - 2021-02-10
 
