@@ -91,11 +91,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return new this(settings, client, uuid);
     }
 
-    public constructor(
-        settings: Settings,
-        client: Client | null = null,
-        uuid: string | null = null
-    ) {
+    public constructor(settings: Settings, client: Client | null = null, uuid: string | null = null) {
         super();
 
         if (Ray.defaultSettings.not_defined === true) {
@@ -116,8 +112,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             Ray.enabled = this.settings.enable !== false;
         }
 
-        Ray.client =
-            client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
+        Ray.client = client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
 
         this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
 
@@ -310,11 +305,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     }
 
     public count(name: string | null = null): this {
-        const fingerprint = md5(
-            `${<string>(
-                this.getCaller()?.getFileName()
-            )}${this.getCaller()?.getLineNumber()}`
-        );
+        const fingerprint = md5(`${<string>this.getCaller()?.getFileName()}${this.getCaller()?.getLineNumber()}`);
 
         const [ray, times] = Ray.counters.increment(name ?? fingerprint ?? 'none');
 
@@ -383,11 +374,11 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         }
 
         if (typeof Ray.stopWatches[stopwatchName] === 'undefined') {
-            const stopwatch = new Stopwatch(stopwatchName);
+            const stopwatch = this.getStopwatch(stopwatchName);
             Ray.stopWatches[stopwatchName] = stopwatch;
 
             const event = stopwatch.start(stopwatchName);
-            const payload = new MeasurePayload(stopwatchName, event);
+            const payload = this.getMeasurePayload(stopwatchName, event);
             payload.concernsNewTimer();
 
             return this.sendRequest(payload);
@@ -395,13 +386,13 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         const stopwatch = Ray.stopWatches[stopwatchName];
         const event = stopwatch.lap();
-        const payload = new MeasurePayload(stopwatchName, event);
+        const payload = this.getMeasurePayload(stopwatchName, event);
 
         return this.sendRequest(payload);
     }
 
     protected measureClosure(closure: CallableFunction): this {
-        const stopwatch = new Stopwatch('closure');
+        const stopwatch = this.getStopwatch('closure');
 
         stopwatch.start('closure');
 
@@ -409,9 +400,17 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         const event = stopwatch.stop();
 
-        const payload = new MeasurePayload('closure', event);
+        const payload = this.getMeasurePayload('closure', event);
 
         return this.sendRequest(payload);
+    }
+
+    protected getStopwatch(name: string): Stopwatch {
+        return new Stopwatch(name);
+    }
+
+    protected getMeasurePayload(name: string, event: any): any {
+        return new MeasurePayload(name, event);
     }
 
     public xml(xml: string): this {
@@ -483,17 +482,13 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     getOriginFrame() {
         const st = StackTrace.getSync();
 
-        let startFrameIndex = st.findIndex(
-            frame => frame.functionName === 'Ray.sendRequest'
-        );
+        let startFrameIndex = st.findIndex(frame => frame.functionName === 'Ray.sendRequest');
 
         if (startFrameIndex === -1) {
             startFrameIndex = 0;
         }
 
-        const callerFrames = st
-            .slice(startFrameIndex)
-            .filter(frame => frame.functionName?.includes('Ray.'));
+        const callerFrames = st.slice(startFrameIndex).filter(frame => frame.functionName?.includes('Ray.'));
 
         if (callerFrames.length === 1) {
             return callerFrames.shift();
@@ -505,9 +500,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     getCaller() {
         const st = StackTrace.getSync();
 
-        let startFrameIndex = st.findIndex(
-            frame => frame.functionName === 'Ray.getCaller'
-        );
+        let startFrameIndex = st.findIndex(frame => frame.functionName === 'Ray.getCaller');
 
         if (startFrameIndex === -1) {
             startFrameIndex = 0;

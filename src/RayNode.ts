@@ -2,8 +2,10 @@ import { existsSync } from 'fs';
 import { Client } from './Client';
 import { FileContentsPayload } from './Payloads/FileContentsPayload';
 import { ImagePayload } from './Payloads/ImagePayload';
+import { NodeMeasurePayload } from './Payloads/NodeMeasurePayload';
 import { Ray as BaseRay } from './Ray';
 import { SettingsFactory } from './Settings/SettingsFactory';
+import { NodeStopwatch } from './Stopwatch/NodeStopwatch';
 
 export class Ray extends BaseRay {
     public static create(client: Client | null = null, uuid: string | null = null): Ray {
@@ -34,6 +36,14 @@ export class Ray extends BaseRay {
         const payload = new ImagePayload(location);
 
         return this.sendRequest(payload);
+    }
+
+    protected getStopwatch(name: string): NodeStopwatch {
+        return new NodeStopwatch(name);
+    }
+
+    protected getMeasurePayload(name: string, event: any): any {
+        return new NodeMeasurePayload(name, event);
     }
 }
 
