@@ -8,6 +8,7 @@ import { Payload } from './Payloads/Payload';
 
 export class Client {
     public static rayState: boolean | null = true;
+    public static lastRayStateCheck: number | null = null;
 
     protected portNumber: number;
     protected host: string;
@@ -17,7 +18,7 @@ export class Client {
 
         this.host = host;
 
-        this.init();
+        //this.init();
     }
 
     public async init() {
@@ -39,15 +40,19 @@ export class Client {
     }
 
     protected attemptAvailableReset() {
-        const sec = Math.floor(new Date().getSeconds() / 5);
-
-        if ([0, 10].includes(sec)) {
+        if (Client.lastRayStateCheck !== null && new Date().getTime() - Client.lastRayStateCheck >= 30000) {
             Client.rayState = null;
         }
     }
 
     protected async updateRayAvailabilty() {
         let result = true;
+
+        if (Client.lastRayStateCheck !== null && new Date().getTime() - Client.lastRayStateCheck < 30000) {
+            return true;
+        }
+
+        Client.lastRayStateCheck = new Date().getTime();
 
         try {
             await axios.get(this.getUrlForPath('/locks/__availabilty_check'), {});
@@ -74,7 +79,7 @@ export class Client {
     }
 
     public async send(request: Request) {
-        if (Client.rayState === null) {
+        if (Client.rayState === null || Client.lastRayStateCheck === null) {
             await this.updateRayAvailabilty();
         }
 
@@ -108,7 +113,7 @@ export class Client {
     }
 
     public async lockExists(lockName: string) {
-        // if (Client.rayState === null) {
+        // if (Client.rayState === null || Client.lastRayStateCheck === null) {
         //     await this.updateRayAvailabilty();
         // }
 
