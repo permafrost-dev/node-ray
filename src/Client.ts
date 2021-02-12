@@ -113,15 +113,7 @@ export class Client {
     }
 
     public async lockExists(lockName: string) {
-        // if (Client.rayState === null || Client.lastRayStateCheck === null) {
-        //     await this.updateRayAvailabilty();
-        // }
-
         return new Promise(async (resolve, reject) => {
-            // if (!this.isRayAvailable()) {
-            //     resolve(false);
-            // }
-
             let resp;
 
             try {
@@ -131,76 +123,17 @@ export class Client {
                 return false;
             }
 
-            //console.log('resp=', resp);
-
-            //console.log(resp.data.stop_exectution);
-            if (resp.data.stop_execution) {
-                ///console.log(resp.data);
-
-                reject(new Error('stopping execution'));
-
-                //resolve(new Error('stopping execution'));
-            }
-
             if (resp.data.stop_execution) {
                 reject(new Error('stopping execution'));
-            } else {
-                if (typeof resp.data['active'] === 'undefined') {
-                    console.log(resp.data);
-                    resolve(resp.data);
-                } else {
-                    //resolve(resp.data);
-
-                    //console.log(resp.data);
-                    if (resp.data.stop_execution) {
-                        //resolve(new Error('stopping execution'));
-                        //return new Error('abc');
-                        reject(new Error('test'));
-                    } else {
-                        resolve(resp.data);
-                    }
-                }
+                return;
             }
 
-            reject(new Error('test'));
+            if (typeof resp.data['active'] === 'undefined') {
+                resolve(resp.data);
+                return;
+            }
+
+            resolve(resp.data);
         });
-        //}//});
-
-        /*
-        curlHandle = this.getCurlHandleForUrl('get', `locks/${lockName}`);
-        curlError = null;
-
-        try {
-            curlResult = curl_exec(curlHandle);
-
-            if (curl_errno(curlHandle)) {
-                curlError = curl_error(curlHandle);
-            }
-
-            if (curlError) {
-                throw new Exception;
-            }
-
-            if (! curlResult) {
-                return false;
-            }
-
-            response = json_decode(curlResult, true);
-
-            if (response['stop_execution'] ?? false) {
-                throw StopExecutionRequested::make();
-            }
-
-            return response['active'] ?? false;
-        } catch (Exception exception) {
-            if (exception instanceof StopExecutionRequested) {
-                throw exception;
-            }
-        } finally {
-            curl_close(curlHandle);
-        }
-        */
-
-        //return false;
     }
 }

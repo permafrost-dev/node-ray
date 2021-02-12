@@ -336,20 +336,27 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         this.sendRequest(payload);
 
-        let exists: any;
+        // eslint-disable-next-line no-async-promise-executor
+        return new Promise(async (resolve, reject) => {
+            let exists: any;
 
-        do {
-            sleep(1);
-            try {
-                exists = await Ray.client.lockExists(lockName);
-            } catch (err) {
-                return false;
-            }
+            do {
+                sleep(1);
+                try {
+                    exists = await Ray.client.lockExists(lockName);
+                } catch (err) {
+                    reject(err);
+                    return false;
+                }
 
-            if (exists !== true && exists && exists.stop_execution) {
-                return false;
-            }
-        } while (exists.active);
+                if (exists !== true && exists && exists.stop_execution) {
+                    reject(false);
+                    return false;
+                }
+            } while (exists.active);
+
+            resolve(this);
+        });
 
         return this;
     }
