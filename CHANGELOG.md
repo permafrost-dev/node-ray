@@ -4,6 +4,24 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.8.0 - 2021-02-12
+
+- changed `table()` and `TablePayload` to accept either an object or an array, as Ray expects an object for proper row labels to be displayed
+
+- added `trace()` and `TracePayload`
+
+- added `caller()` and `CallerPayload`
+
+- added `event()` and `EventPayload`
+
+- converted original `RemovesRayFrames` PHP trait to TypeScript
+ 
+- fixed `getOriginFrame()`
+
+- fixed `getCaller()`
+
+- the source file and line number are now displayed correctly in the Ray app
+
 ## 1.7.0 - 2021-02-11
 
 - update the way `Client` availabilty checks are done to avoid multiple checks in succession
