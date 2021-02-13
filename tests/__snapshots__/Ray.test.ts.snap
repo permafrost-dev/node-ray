@@ -270,6 +270,34 @@ Array [
 ]
 `;
 
+exports[`sends a caller payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "frame": Object {
+            "class": "Ray",
+            "file_name": "/development/packages/ray-node/src/Ray.ts",
+            "line_number": 387,
+            "method": "caller",
+            "vendor_frame": false,
+          },
+        },
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "caller",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends a classname payload 1`] = `
 Array [
   Object {
@@ -870,6 +898,48 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "label": "Table",
+          "values": Object {
+            "counter": 123,
+            "message": "hello world",
+          },
+        },
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "table",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "label": "Test",
+          "values": Object {
+            "name": "test",
+            "value": 987,
+          },
+        },
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "table",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
 ]
 `;
 
@@ -889,6 +959,31 @@ Array [
           "line_number": 999,
         },
         "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an event payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "class_based_event": false,
+          "event": undefined,
+          "name": "testevent",
+          "payload": "<strong>test</strong>",
+        },
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "line_number": 999,
+        },
+        "type": "event",
       },
     ],
     "uuid": "fakeUuid",

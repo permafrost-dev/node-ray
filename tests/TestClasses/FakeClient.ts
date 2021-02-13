@@ -1,7 +1,6 @@
-import { Payload } from '../../src/Payloads/Payload';
 import { sep } from 'path';
 import { Client } from '../../src/Client';
-//import { Payload } from '../../src/Payloads/Payload';
+import { Payload } from '../../src/Payloads/Payload';
 import { Request } from '../../src/Request';
 
 export class FakeClient extends Client {
@@ -31,6 +30,10 @@ export class FakeClient extends Client {
 
                 payload.data.content.total_time = Math.floor(payload.data.content.total_time / 10);
                 payload.data.content.time_since_last_call = Math.floor(payload.data.content.time_since_last_call / 10);
+            }
+
+            if (payload.getType() === 'caller') {
+                payload.data.content.frame.method = 'caller';
             }
 
             if (payload.getType() === 'create_lock') {

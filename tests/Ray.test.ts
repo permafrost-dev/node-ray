@@ -272,6 +272,8 @@ it('sends a remove payload conditionally', () => {
 it('sends a table payload', () => {
     myRay.table([1, 2, { A: 1 }, myRay, true, null], 'table');
     myRay.table([[3, 4], { B: 2 }, false]);
+    myRay.table({ message: 'hello world', counter: 123 });
+    myRay.table({ name: 'test', value: 987 }, 'Test');
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
@@ -427,6 +429,26 @@ it('pauses code execution', async () => {
 
 it('sends an html payload when calling ray() with an object argument', () => {
     myRay.send({ A: 123, B: [4, 5, 6] });
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends an event payload', () => {
+    myRay.event('testevent', []);
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a caller payload', () => {
+    const func1 = () => {
+        myRay.caller();
+    };
+
+    const func2 = () => {
+        func1();
+    };
+
+    func2();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
