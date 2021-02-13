@@ -2,42 +2,46 @@
 /* eslint-disable no-useless-catch */
 
 import md5 from 'md5';
-import { Mixin } from 'ts-mixer';
-import { nonCryptoUuidV4, sleep } from './lib/utils';
+import PACKAGE_VERSION from './lib/version';
+import StackTrace from 'stacktrace-js';
 import { ClearAllPayload } from './Payloads/ClearAllPayload';
 import { Client } from './Client';
+import { CallerPayload } from './Payloads/CallerPayload';
 import { ColorPayload } from './Payloads/ColorPayload';
+import { ConsoleInterceptor } from './ConsoleInterceptor';
 import { Counters } from './Support/Counters';
 import { CreateLockPayload } from './Payloads/CreateLockPayload';
 import { CustomPayload } from './Payloads/CustomPayload';
+import { DatePayload } from './Payloads/DatePayload';
 import { DecodedJsonPayload } from './Payloads/DecodedJsonPayload';
+import { ErrorPayload } from './Payloads/ErrorPayload';
+import { EventPayload } from './Payloads/EventPayload';
 import { HideAppPayload } from './Payloads/HideAppPayload';
 import { HidePayload } from './Payloads/HidePayload';
 import { HtmlPayload } from './Payloads/HtmlPayload';
 import { ImagePayload } from './Payloads/ImagePayload';
 import { JsonStringPayload } from './Payloads/JsonStringPayload';
 import { LogPayload } from './Payloads/LogPayload';
+import { MeasurePayload } from './Payloads/MeasurePayload';
+import { Mixin } from 'ts-mixer';
 import { NewScreenPayload } from './Payloads/NewScreenPayload';
+import { nonCryptoUuidV4, sleep } from './lib/utils';
 import { NotifyPayload } from './Payloads/NotifyPayload';
+import { OriginData } from './Origin/Origin';
 import { Payload } from './Payloads/Payload';
 import { PayloadFactory } from './PayloadFactory';
 import { RayColors } from './Concerns/RayColors';
+import { RaySettings, Settings } from './Settings/Settings';
 import { RaySizes } from './Concerns/RaySizes';
 import { RemovePayload } from './Payloads/RemovePayload';
+import { RemovesRayFrames } from './Concerns/RemovesRayFrames';
 import { Request } from './Request';
-import { RaySettings, Settings } from './Settings/Settings';
 import { ShowAppPayload } from './Payloads/ShowAppPayload';
 import { SizePayload } from './Payloads/SizePayload';
-import { TablePayload } from './Payloads/TablePayload';
-import { XmlPayload } from './Payloads/XmlPayload';
-import { OriginData } from './Origin/Origin';
-import StackTrace from 'stacktrace-js';
-import PACKAGE_VERSION from './lib/version';
-import { ErrorPayload } from './Payloads/ErrorPayload';
-import { DatePayload } from './Payloads/DatePayload';
 import { Stopwatch } from './Stopwatch/Stopwatch';
-import { MeasurePayload } from './Payloads/MeasurePayload';
-import { ConsoleInterceptor } from './ConsoleInterceptor';
+import { TablePayload } from './Payloads/TablePayload';
+import { TracePayload } from './Payloads/TracePayload';
+import { XmlPayload } from './Payloads/XmlPayload';
 
 export type BoolFunction = () => boolean;
 
@@ -258,6 +262,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this.sendRequest(payload);
     }
 
+    public event(eventName: string, data: any[] = []): this {
+        const payload = new EventPayload(eventName, data);
+
+        return this.sendRequest(payload);
+    }
+
     public showWhen(booleanOrCallable: boolean | BoolFunction): this {
         if (typeof booleanOrCallable === 'function') {
             booleanOrCallable = (booleanOrCallable as BoolFunction)();
@@ -298,7 +308,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this.send('🎶 🎹 🎷 🕺');
     }
 
-    public table(values: any[], label = 'Table'): this {
+    public table(values: Record<string | number, unknown> | any[], label = 'Table'): this {
         const payload = new TablePayload(values, label);
 
         return this.sendRequest(payload);
@@ -371,6 +381,27 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         }
 
         return this;
+    }
+
+    public caller(): this {
+        const backtrace = StackTrace.getSync();
+
+        const payload = new CallerPayload(backtrace);
+
+        return this.sendRequest(payload);
+    }
+
+    public trace(): this {
+        //startingFromFrame: CallableFunction | null = null
+        const backtrace = StackTrace.getSync();
+
+        const payload = new TracePayload(backtrace);
+
+        // if (startingFromFrame) {
+        //     $backtrace->startingFromFrame($startingFromFrame);
+        // }
+
+        return this.sendRequest(payload);
     }
 
     public measure(stopwatchName: CallableFunction | string = 'default'): this {
@@ -487,25 +518,23 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     getOriginFrame() {
         const st = StackTrace.getSync();
 
-        let startFrameIndex = st.findIndex(frame => frame.functionName === 'Ray.sendRequest');
+        let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.sendRequest'));
 
         if (startFrameIndex === -1) {
             startFrameIndex = 0;
         }
 
-        const callerFrames = st.slice(startFrameIndex).filter(frame => frame.functionName?.includes('Ray.'));
+        const callerFrames = RemovesRayFrames.removeRayFrames(
+            st.slice(startFrameIndex).filter(frame => !frame.functionName?.includes('Ray.'))
+        );
 
-        if (callerFrames.length === 1) {
-            return callerFrames.shift();
-        }
-
-        return callerFrames.slice(1).shift();
+        return callerFrames.slice(0).shift();
     }
 
     getCaller() {
         const st = StackTrace.getSync();
 
-        let startFrameIndex = st.findIndex(frame => frame.functionName === 'Ray.getCaller');
+        let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.getCaller'));
 
         if (startFrameIndex === -1) {
             startFrameIndex = 0;
