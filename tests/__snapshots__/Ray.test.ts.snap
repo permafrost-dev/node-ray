@@ -10,7 +10,7 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -25,7 +25,7 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -48,7 +48,7 @@ Array [
           "label": "HTML",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -66,7 +66,7 @@ Array [
           "label": "HTML",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -93,7 +93,7 @@ Array [
           "total_time": 20,
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -120,7 +120,7 @@ Array [
           "total_time": 0,
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -142,7 +142,7 @@ Array [
           "total_time": 20,
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -169,7 +169,7 @@ Array [
           "total_time": 0,
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -191,7 +191,7 @@ Array [
           "total_time": 20,
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -213,7 +213,7 @@ Array [
           "total_time": 40,
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -235,7 +235,7 @@ Array [
           "name": "xxxxx",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/node_modules/tslib/tslib.js",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -258,7 +258,7 @@ Array [
           "label": "Boolean",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -282,7 +282,7 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -302,7 +302,7 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -324,7 +324,7 @@ Array [
           "name": "",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -346,7 +346,7 @@ Array [
           "color": "red",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -363,7 +363,7 @@ Array [
           "color": "green",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -380,7 +380,7 @@ Array [
           "color": "orange",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -397,7 +397,7 @@ Array [
           "color": "red",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -414,7 +414,7 @@ Array [
           "color": "purple",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -431,7 +431,7 @@ Array [
           "color": "blue",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -448,7 +448,7 @@ Array [
           "color": "gray",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -471,7 +471,7 @@ Array [
           "label": "test",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -489,7 +489,7 @@ Array [
           "label": "",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -507,7 +507,7 @@ Array [
           "label": "",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -525,7 +525,7 @@ Array [
           "label": "",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -545,7 +545,7 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -570,7 +570,7 @@ Array [
           "label": "JSON",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -592,7 +592,7 @@ Array [
           "name": "test 1",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -614,7 +614,7 @@ Array [
           "value": "hello world",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -637,7 +637,7 @@ Array [
           "label": "Null",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -661,7 +661,7 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -674,7 +674,7 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -694,7 +694,7 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -714,7 +714,7 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -729,7 +729,7 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -751,7 +751,7 @@ Array [
           "size": "lg",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -768,7 +768,7 @@ Array [
           "size": "sm",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -785,7 +785,7 @@ Array [
           "size": "lg",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -809,7 +809,7 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -839,7 +839,7 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -861,7 +861,7 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -884,7 +884,7 @@ Array [
           "label": "Error",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -907,7 +907,7 @@ Array [
           "label": "HTML",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -930,7 +930,7 @@ Array [
           "label": "HTML",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -953,7 +953,7 @@ Array [
           "label": "Image",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -975,7 +975,7 @@ Array [
           "value": "\\"{\\\\\\"a\\\\\\":1,\\\\\\"b\\\\\\":2}\\"",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -998,7 +998,7 @@ Array [
           "label": "XML",
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -1018,7 +1018,7 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -1033,7 +1033,7 @@ Array [
       Object {
         "content": Object {},
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -1057,7 +1057,7 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
@@ -1081,7 +1081,7 @@ Array [
           ],
         },
         "origin": Object {
-          "file": "/src/Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
