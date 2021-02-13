@@ -21,6 +21,10 @@ export class FakeClient extends Client {
             //payload.data.origin.file = this.convertToUnixPath(payload.data.origin.file);
             payload.data.origin.line_number = 999;
 
+            if (payload.getType() === 'color' || payload.getType() === 'size') {
+                payload.data.origin.file = '/tests/Ray.test.ts';
+            }
+
             if (payload.getType() === 'measure') {
                 payload.data.content.max_memory_usage_during_total_time = 0;
                 payload.data.content.max_memory_usage_since_last_call = 0;
