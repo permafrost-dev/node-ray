@@ -200,6 +200,7 @@ See [using the package](docs/usage.md).
 | `ray(variable)` | Display a string, array or object |
 | `ray(var1, var2, …)` | Ray accepts multiple arguments |
 | `ray(…).blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
+| `ray().caller()` | Show the calling class and method |
 | `ray().clearScreen()` | Clear current screen |
 | `ray().clearAll()` | Clear current and all previous screens |
 | `ray().className(obj)` | Display the classname for an object |
@@ -211,6 +212,7 @@ See [using the package](docs/usage.md).
 | `ray().enable()` | Enable sending stuff to Ray |
 | `ray().enabled()` | Check if Ray is enabled |
 | `ray().error(err)` | Display information about an Error/Exception |
+| `ray().event(name, data)` | Display information about an event with optional data |
 | `ray().file(filename)` | Display contents of a file - NodeJS only |
 | `ray(…).hide()` | Display something in Ray and make it collapse immediately |
 | `ray().hideApp()` | Programmatically hide the Ray app window |
@@ -230,7 +232,8 @@ See [using the package](docs/usage.md).
 | `ray(…).showWhen(true)` | Conditionally show things based on a truthy value or callable  |
 | `ray(…).small()` | Output text smaller or bigger. Use `large` or `small`|
 | `ray().stopTime(name)` | Removes a named stopwatch if specified, otherwise removes all stopwatches |
-| `ray().table([…])` | Display an array of items formatted as a table; Objects and arrays are pretty-printed |
+| `ray().table(…)` | Display an array or an object formatted as a table; Objects and arrays are pretty-printed |
+| `ray().trace()` | Display a stack trace |
 | `ray().xml(string)` | Send XML to Ray | 
 
 ## FAQ
