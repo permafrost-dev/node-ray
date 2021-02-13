@@ -7,18 +7,35 @@ const usleep = (milliseconds) => {
     while (new Date().getTime() < start + (milliseconds)) {}
 };
 
+class TestOne {
+    abc() {
+        this.def();
+    }
+
+    def() {
+        this.ghi();
+    }
+
+    ghi() {
+        ray('hello').blue();
+        const closure = () => {
+            ray().trace();
+        };
+
+        closure();
+    }
+}
+
 async function main() {
 
 
-    ray('test');
-
-    await ray().pause();
-
-        ray().xml('<one><two><three>3333</three></two></one>');
-
         ray('hello world 3!').green();
 
-        ray().table(['one', 'two', 'three', 'four']);
+        //ray().table(['one', 'two', 'three', 'four']);
+
+        const myclass = new TestOne();
+
+        myclass.abc();
 
 }
 
