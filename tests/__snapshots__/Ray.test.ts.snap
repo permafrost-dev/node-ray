@@ -279,14 +279,14 @@ Array [
         "content": Object {
           "frame": Object {
             "class": "Ray",
-            "file_name": "/development/packages/ray-node/src/Ray.ts",
+            "file_name": "Ray.ts",
             "line_number": 387,
             "method": "caller",
             "vendor_frame": false,
           },
         },
         "origin": Object {
-          "file": "Ray.ts",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },
