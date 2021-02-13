@@ -286,7 +286,7 @@ Array [
           },
         },
         "origin": Object {
-          "file": "/tests/Ray.test.ts",
+          "file": "Ray.ts",
           "function_name": "xxxx",
           "line_number": 999,
         },

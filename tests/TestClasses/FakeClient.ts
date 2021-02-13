@@ -33,6 +33,7 @@ export class FakeClient extends Client {
             }
 
             if (payload.getType() === 'caller') {
+                payload.data.origin.file = 'Ray.ts';
                 payload.data.content.frame.method = 'caller';
             }
 
