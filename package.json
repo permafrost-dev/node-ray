@@ -94,6 +94,7 @@
     "random-int": "^2.0.1",
     "stacktrace-js": "^2.0.2",
     "stopwatch-node": "^1.1.0",
+    "tslib": "^2.1.0",
     "uuid": "^8.3.2",
     "xml-formatter": "^2.4.0"
   },
