@@ -151,6 +151,8 @@ module.exports = {
 }
 ```
 
+When running `node-ray` within a NodeJS environment, you may set the environment variable `NODE_ENV` to "production" or "staging" to disable sending data to Ray from calls to `ray()`.
+
 ### Browser config
 
 This section only applies if you are using `node-ray` in a browser environment _(webpack, etc.)_.
