@@ -4,6 +4,12 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.9.0 - 2021-03-01
+
+- don't `await` calls to `updateRayAvailabilty()` in `send()` _(resolves #7 & #8)_
+
+- don't send data to Ray when `NODE_ENV` is set to "production" or "staging" _(resolves #15)_
+
 ## 1.8.4 - 2021-03-01
 
 - update rollup config
