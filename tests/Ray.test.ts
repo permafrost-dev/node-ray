@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
 import { FakeClient } from './TestClasses/FakeClient';
@@ -320,13 +321,13 @@ it('counts the number of times a piece of code is called', () => {
     expect(Ray.counters.get('second')).toBe(4);
 });
 
-function myFunc1(r: any) {
-    r.count();
-}
+// function myFunc1(r: any) {
+//     r.count();
+// }
 
-function myFunc2(r: any) {
-    r.count();
-}
+// function myFunc2(r: any) {
+//     r.count();
+// }
 
 it('counts the number of times an unnamed piece of code is called', () => {
     myRay.enable();
@@ -451,4 +452,22 @@ it('sends a caller payload', () => {
     func2();
 
     expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it("doesn't send data when in production environment", () => {
+    myRay.send('test 1');
+    process.env.NODE_ENV = 'production';
+    myRay.send('test 2');
+    process.env.NODE_ENV = 'development';
+
+    expect(client.sentPayloads().length).toBe(1);
+});
+
+it("doesn't send data when in staging environment", () => {
+    myRay.send('test 1');
+    process.env.NODE_ENV = 'staging';
+    myRay.send('test 2');
+    process.env.NODE_ENV = 'development';
+
+    expect(client.sentPayloads().length).toBe(1);
 });
