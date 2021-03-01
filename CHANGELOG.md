@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.8.1 - 2021-03-01
+
+- change plugins used by pretty-format package to DOM only
+
 ## 1.8.0 - 2021-02-12
 
 - changed `table()` and `TablePayload` to accept either an object or an array, as Ray expects an object for proper row labels to be displayed
