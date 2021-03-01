@@ -1,4 +1,4 @@
-import { format as prettyFormat } from '@permafrost-dev/pretty-format';
+import prettyFormat from '@permafrost-dev/pretty-format';
 
 export interface ArgumentConverterResult {
     value: any;
