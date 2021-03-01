@@ -1,6 +1,6 @@
 {
   "name": "node-ray",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Debug NodeJS with Ray to fix problems faster",
   "license": "MIT",
   "author": "Patrick Organ <patrick@permafrost.dev>",
