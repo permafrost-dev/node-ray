@@ -1,4 +1,6 @@
 import prettyFormat from 'pretty-format';
+const PrettyFormatPluginDomCollection = require('pretty-format/build/plugins/DOMCollection');
+const PrettyFormatPluginDomElement = require('pretty-format/build/plugins/DOMElement');
 
 export interface ArgumentConverterResult {
     value: any;
@@ -27,7 +29,10 @@ export class ArgumentConverter {
     }
 
     public static prettyFormatForHtml(arg: any): string {
-        const formatted = prettyFormat(arg, { indent: 4 })
+        const formatted = prettyFormat(arg, {
+            plugins: [PrettyFormatPluginDomCollection, PrettyFormatPluginDomElement],
+            indent: 4,
+        })
             // format whitespace for display in html
             .replace(/ /g, '&nbsp;')
             .replace(/\r\n|\r|\n/g, '<br>')
