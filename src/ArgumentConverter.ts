@@ -1,6 +1,4 @@
-import prettyFormat from 'pretty-format';
-const PrettyFormatPluginDomCollection = require('pretty-format/build/plugins/DOMCollection');
-const PrettyFormatPluginDomElement = require('pretty-format/build/plugins/DOMElement');
+import { format as prettyFormat } from '@permafrost-dev/pretty-format';
 
 export interface ArgumentConverterResult {
     value: any;
@@ -30,7 +28,6 @@ export class ArgumentConverter {
 
     public static prettyFormatForHtml(arg: any): string {
         const formatted = prettyFormat(arg, {
-            plugins: [PrettyFormatPluginDomCollection, PrettyFormatPluginDomElement],
             indent: 4,
         })
             // format whitespace for display in html
