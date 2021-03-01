@@ -57,5 +57,5 @@ export default {
         nodeResolve(),
         typescript(),
     ],
-    external: ['axios', 'find-up', 'dayjs', 'stopwatch-node', 'md5', 'pretty-format', 'stacktrace-js', 'xml-formatter', 'uuid'],
+    external: ['axios', 'find-up', 'dayjs', 'stopwatch-node', 'md5', '@permafrost-dev/pretty-format', 'stacktrace-js', 'xml-formatter', 'uuid'],
 };
