@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.8.2 - 2021-03-01
+
+- add `tslib` package
+
 ## 1.8.1 - 2021-03-01
 
 - change plugins used by pretty-format package to DOM only
