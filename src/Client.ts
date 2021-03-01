@@ -80,7 +80,7 @@ export class Client {
 
     public async send(request: Request) {
         if (Client.rayState === null || Client.lastRayStateCheck === null) {
-            await this.updateRayAvailabilty();
+            this.updateRayAvailabilty();
         }
 
         // if (!this.isRayAvailable()) {
