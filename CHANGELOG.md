@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.8.4 - 2021-03-01
+
+- update rollup config
+
 ## 1.8.3 - 2021-03-01
 
 - use `@permafrost-dev/pretty-format` package instead of `pretty-format`
