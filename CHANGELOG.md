@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.9.1 - 2021-03-02
+
+- bump package versions: `concurrently` to `6.0.0`, `eslint-config-prettier` to `8.1.0`
+
 ## 1.9.0 - 2021-03-01
 
 - don't `await` calls to `updateRayAvailabilty()` in `send()` _(resolves #7 & #8)_
