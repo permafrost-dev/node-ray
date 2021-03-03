@@ -3,26 +3,31 @@
 /* eslint-disable no-undef */
 
 import { FakeClient } from './TestClasses/FakeClient';
-import { ray, Ray } from './../src/RayNode';
-import { Ray as BaseRay } from './../src/Ray';
+//import { Ray as NodeRay } from './../src/RayNode';
+import { Ray } from './../src/Ray';
 import { NullPayload } from './../src/Payloads/NullPayload';
 import { Request } from './../src/Request';
 import { end, usleep } from '../src/lib/utils';
+import { Hostname } from '../src/Origin/Hostname';
 
-let client: FakeClient, myRay: Ray, myBaseRay: BaseRay;
+type BaseRay = Ray;
+
+let client: FakeClient, myRay: Ray, myBaseRay: Ray;
 
 beforeEach(() => {
-    Ray.defaultSettings = {
-        enable: true,
-        host: 'localhost',
-        port: 23510,
-        local_path: null,
-        remote_path: null,
-        always_send_raw_values: false,
-        not_defined: false,
-    };
+    Hostname.set('fake-hostname');
 
-    BaseRay.defaultSettings = {
+    // NodeRay.defaultSettings = {
+    //     enable: true,
+    //     host: 'localhost',
+    //     port: 23510,
+    //     local_path: null,
+    //     remote_path: null,
+    //     always_send_raw_values: false,
+    //     not_defined: false,
+    // };
+
+    Ray.defaultSettings = {
         enable: true,
         host: 'localhost',
         port: 23510,
@@ -34,7 +39,7 @@ beforeEach(() => {
 
     client = new FakeClient();
     myRay = Ray.create(client, 'fakeUuid');
-    myBaseRay = BaseRay.create(client, 'fakeUuid');
+    myBaseRay = Ray.create(client, 'fakeUuid');
     myRay.clearCounters();
     myBaseRay.clearCounters();
 });
@@ -481,22 +486,4 @@ it('sends a caller payload', () => {
     func2();
 
     expect(client.sentPayloads()).toMatchSnapshot();
-});
-
-it("doesn't send data when in production environment", () => {
-    myRay.send('test 1');
-    process.env.NODE_ENV = 'production';
-    myRay.send('test 2');
-    process.env.NODE_ENV = 'development';
-
-    expect(client.sentPayloads().length).toBe(1);
-});
-
-it("doesn't send data when in staging environment", () => {
-    myRay.send('test 1');
-    process.env.NODE_ENV = 'staging';
-    myRay.send('test 2');
-    process.env.NODE_ENV = 'development';
-
-    expect(client.sentPayloads().length).toBe(1);
 });

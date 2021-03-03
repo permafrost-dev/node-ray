@@ -12,6 +12,7 @@ Array [
         "origin": Object {
           "file": "/test/file.js",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "remove",
@@ -27,6 +28,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "remove",
@@ -50,6 +52,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -68,6 +71,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -95,6 +99,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "measure",
@@ -122,6 +127,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "measure",
@@ -144,6 +150,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "measure",
@@ -171,6 +178,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "measure",
@@ -193,6 +201,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "measure",
@@ -215,6 +224,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "measure",
@@ -237,6 +247,7 @@ Array [
         "origin": Object {
           "file": "/node_modules/tslib/tslib.js",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "create_lock",
@@ -260,6 +271,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -280,7 +292,7 @@ Array [
           "frame": Object {
             "class": "Ray",
             "file_name": "Ray.ts",
-            "line_number": 394,
+            "line_number": 395,
             "method": "caller",
             "vendor_frame": false,
           },
@@ -288,6 +300,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "caller",
@@ -312,6 +325,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "log",
@@ -332,6 +346,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "clear_all",
@@ -354,6 +369,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "new_screen",
@@ -376,6 +392,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "color",
@@ -393,6 +410,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "color",
@@ -410,6 +428,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "color",
@@ -427,6 +446,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "color",
@@ -444,6 +464,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "color",
@@ -461,6 +482,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "color",
@@ -478,6 +500,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "color",
@@ -501,6 +524,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -519,6 +543,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -537,6 +562,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -555,6 +581,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -575,6 +602,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "hide",
@@ -600,6 +628,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -622,6 +651,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "new_screen",
@@ -644,6 +674,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "notify",
@@ -667,6 +698,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -691,6 +723,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "log",
@@ -704,6 +737,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "log",
@@ -724,6 +758,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "remove",
@@ -744,6 +779,7 @@ Array [
         "origin": Object {
           "file": "/test/file.js",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "remove",
@@ -759,6 +795,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "remove",
@@ -781,6 +818,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "size",
@@ -798,6 +836,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "size",
@@ -815,6 +854,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "size",
@@ -839,6 +879,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "log",
@@ -869,6 +910,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "table",
@@ -891,6 +933,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "table",
@@ -912,6 +955,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "table",
@@ -933,6 +977,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "table",
@@ -956,6 +1001,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -981,6 +1027,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "event",
@@ -1047,6 +1094,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "exception",
@@ -1117,6 +1165,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "exception",
@@ -1140,6 +1189,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -1163,6 +1213,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -1186,6 +1237,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -1208,6 +1260,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "json_string",
@@ -1231,6 +1284,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "custom",
@@ -1251,6 +1305,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "show_app",
@@ -1266,6 +1321,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "hide_app",
@@ -1290,6 +1346,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "log",
@@ -1314,6 +1371,7 @@ Array [
         "origin": Object {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
+          "hostname": "fake-hostname",
           "line_number": 999,
         },
         "type": "log",

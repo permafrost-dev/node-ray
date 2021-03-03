@@ -19,6 +19,7 @@ import { EventPayload } from './Payloads/EventPayload';
 import { ExceptionPayload } from './Payloads/ExceptionPayload';
 import { HideAppPayload } from './Payloads/HideAppPayload';
 import { HidePayload } from './Payloads/HidePayload';
+import { Hostname } from './Origin/Hostname';
 import { HtmlPayload } from './Payloads/HtmlPayload';
 import { ImagePayload } from './Payloads/ImagePayload';
 import { JsonStringPayload } from './Payloads/JsonStringPayload';
@@ -563,6 +564,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             function_name: frame?.getFunctionName(),
             file: frame?.getFileName(),
             line_number: frame?.getLineNumber(),
+            hostname: Hostname.get(),
         };
     }
 

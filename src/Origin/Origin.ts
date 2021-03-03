@@ -4,6 +4,7 @@ export interface OriginData {
     function_name: string | null;
     file: string | null;
     line_number: number | null;
+    hostname: string | null;
 }
 
 /*
