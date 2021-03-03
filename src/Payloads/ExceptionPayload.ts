@@ -49,7 +49,7 @@ export class ExceptionPayload extends Payload {
                     class: className,
                     method: methodName,
                     vendor_frame: frame.getFileName().includes('node_modules'),
-                    snippet: '',
+                    snippet: [],
                 };
             })
             .filter((obj: any) => obj.class !== 'Ray' && obj.method !== 'exception');
