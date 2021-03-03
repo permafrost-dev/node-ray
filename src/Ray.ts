@@ -16,6 +16,7 @@ import { DatePayload } from './Payloads/DatePayload';
 import { DecodedJsonPayload } from './Payloads/DecodedJsonPayload';
 import { ErrorPayload } from './Payloads/ErrorPayload';
 import { EventPayload } from './Payloads/EventPayload';
+import { ExceptionPayload } from './Payloads/ExceptionPayload';
 import { HideAppPayload } from './Payloads/HideAppPayload';
 import { HidePayload } from './Payloads/HidePayload';
 import { HtmlPayload } from './Payloads/HtmlPayload';
@@ -264,6 +265,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public event(eventName: string, data: any[] = []): this {
         const payload = new EventPayload(eventName, data);
+
+        return this.sendRequest(payload);
+    }
+
+    public exception(err: Error, meta: Record<string, unknown> = {}): this {
+        const payload = new ExceptionPayload(err, meta);
 
         return this.sendRequest(payload);
     }

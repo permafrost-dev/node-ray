@@ -40,6 +40,14 @@ export class FakeClient extends Client {
             if (payload.getType() === 'create_lock') {
                 payload.data.content.name = 'xxxxx';
             }
+
+            if (payload.getType() === 'exception') {
+                payload.data.content.frames = payload.data.content.frames.map((frame: any) => {
+                    frame.line_number = 999;
+                    frame.file_name = frame.file_name.replace(this.baseDirectory(), '');
+                    return frame;
+                });
+            }
         });
 
         requestProperties.meta = [];
