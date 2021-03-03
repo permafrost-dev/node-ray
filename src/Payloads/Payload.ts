@@ -18,7 +18,7 @@ export abstract class Payload {
     public data: PayloadData = {
         type: '',
         content: '',
-        origin: { function_name: '', file: '', line_number: 0 },
+        origin: { function_name: '', file: '', line_number: 0, hostname: 'remote' },
     };
 
     public replaceRemotePathWithLocalPath(filePath: string): string {
