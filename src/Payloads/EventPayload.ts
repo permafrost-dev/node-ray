@@ -21,8 +21,8 @@ export class EventPayload extends Payload {
         return {
             name: this.eventName,
             event: this.payload[0],
-            payload: '<strong>test</strong>', //this.payload, //ArgumentConverter.convertToPrimitive(this.payload).value,
-            class_based_event: false,
+            payload: ArgumentConverter.convertToPrimitive(this.payload).value,
+            class_based_event: true,
         };
     }
 }
