@@ -160,7 +160,7 @@ This section only applies if you are using `node-ray` in a browser environment _
 You can configure `node-ray` by importing the `Ray` class and calling the `useDefaultSettings()` method.
 
 ```js
-const { Ray, ray } = require('node-ray');
+const { Ray, ray } = require('node-ray/web');
 
 // set several settings at once:
 Ray.useDefaultSettings({ 
@@ -215,6 +215,7 @@ See [using the package](docs/usage.md).
 | `ray().enabled()` | Check if Ray is enabled |
 | `ray().error(err)` | Display information about an Error/Exception |
 | `ray().event(name, data)` | Display information about an event with optional data |
+| `ray().exception(err)` | Display extended information and stack trace for an Error/Exception |
 | `ray().file(filename)` | Display contents of a file - NodeJS only |
 | `ray(…).hide()` | Display something in Ray and make it collapse immediately |
 | `ray().hideApp()` | Programmatically hide the Ray app window |
