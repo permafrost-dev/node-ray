@@ -4,6 +4,12 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.10.1 - 2021-03-06
+
+- fix `exception()` causing an error in Ray
+
+- fix error in `RemovesRayFrames.isRayFrame()` when filename of a frame could not be found
+
 ## 1.10.0 - 2021-03-03
 
 - add `exception()` method
