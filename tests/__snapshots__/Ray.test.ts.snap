@@ -1052,7 +1052,7 @@ Array [
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
               "method": "<anonymous>",
-              "snippet": "",
+              "snippet": Array [],
               "vendor_frame": false,
             },
             Object {
@@ -1060,7 +1060,7 @@ Array [
               "file_name": "/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js",
               "line_number": 999,
               "method": "asyncJestTest",
-              "snippet": "",
+              "snippet": Array [],
               "vendor_frame": true,
             },
             Object {
@@ -1068,7 +1068,7 @@ Array [
               "file_name": "/node_modules/jest-jasmine2/build/queueRunner.js",
               "line_number": 999,
               "method": "unknown",
-              "snippet": "",
+              "snippet": Array [],
               "vendor_frame": true,
             },
             Object {
@@ -1076,7 +1076,7 @@ Array [
               "file_name": "/node_modules/jest-jasmine2/build/queueRunner.js",
               "line_number": 999,
               "method": "mapper",
-              "snippet": "",
+              "snippet": Array [],
               "vendor_frame": true,
             },
             Object {
@@ -1084,7 +1084,7 @@ Array [
               "file_name": "/node_modules/jest-jasmine2/build/queueRunner.js",
               "line_number": 999,
               "method": "unknown",
-              "snippet": "",
+              "snippet": Array [],
               "vendor_frame": true,
             },
           ],
@@ -1119,7 +1119,7 @@ Array [
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
               "method": "<anonymous>",
-              "snippet": "",
+              "snippet": Array [],
               "vendor_frame": false,
             },
             Object {
@@ -1127,7 +1127,7 @@ Array [
               "file_name": "/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js",
               "line_number": 999,
               "method": "asyncJestTest",
-              "snippet": "",
+              "snippet": Array [],
               "vendor_frame": true,
             },
             Object {
@@ -1135,7 +1135,7 @@ Array [
               "file_name": "/node_modules/jest-jasmine2/build/queueRunner.js",
               "line_number": 999,
               "method": "unknown",
-              "snippet": "",
+              "snippet": Array [],
               "vendor_frame": true,
             },
             Object {
@@ -1143,7 +1143,7 @@ Array [
               "file_name": "/node_modules/jest-jasmine2/build/queueRunner.js",
               "line_number": 999,
               "method": "mapper",
-              "snippet": "",
+              "snippet": Array [],
               "vendor_frame": true,
             },
             Object {
@@ -1151,7 +1151,7 @@ Array [
               "file_name": "/node_modules/jest-jasmine2/build/queueRunner.js",
               "line_number": 999,
               "method": "unknown",
-              "snippet": "",
+              "snippet": Array [],
               "vendor_frame": true,
             },
           ],
