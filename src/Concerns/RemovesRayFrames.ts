@@ -11,7 +11,7 @@ export class RemovesRayFrames {
 
     protected static isRayFrame(frame: StackFrame): boolean {
         for (const rayNamespace of this.rayNamespaces()) {
-            if (frame.getFileName().includes(rayNamespace)) {
+            if (frame.fileName?.includes(rayNamespace)) {
                 return true;
             }
         }
@@ -20,7 +20,7 @@ export class RemovesRayFrames {
     }
 
     protected static isNodeFrame(frame: StackFrame): boolean {
-        return frame.getFileName().indexOf('node:') === 0;
+        return frame.fileName?.indexOf('node:') === 0;
     }
 
     protected static rayNamespaces(): string[] {
