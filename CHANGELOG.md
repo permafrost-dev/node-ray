@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.11.0 - 2021-03-10
+
+- allow specifying `scheme` in the configuration to allow using https in certain circumstances
+
 ## 1.10.1 - 2021-03-06
 
 - fix `exception()` causing an error in Ray
