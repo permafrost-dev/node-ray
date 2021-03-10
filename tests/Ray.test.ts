@@ -44,6 +44,23 @@ beforeEach(() => {
     myBaseRay.clearCounters();
 });
 
+it('allows setting the url scheme to https', () => {
+    client = new FakeClient(3000, 'otherhost', 'https');
+    myRay = Ray.create(client, 'fakeUuid');
+
+    myRay.send('test https request');
+
+    expect(client.requestedUrls()[0]).toContain('https://');
+    expect(client.requestedUrls()).toMatchSnapshot();
+});
+
+it('allows defaults to the http url scheme', () => {
+    myRay.send('test http request');
+
+    expect(client.requestedUrls()[0]).toContain('http://');
+    expect(client.requestedUrls()).toMatchSnapshot();
+});
+
 it('sends the ray ban payload', () => {
     myRay.ban();
 

@@ -7,6 +7,7 @@ export interface RaySettings {
     enable?: boolean;
     host?: string;
     port?: number;
+    scheme?: string;
     remote_path?: string | null;
     local_path?: string | null;
     always_send_raw_values?: boolean;
@@ -17,7 +18,7 @@ export interface RaySettings {
 export class Settings {
     set host(value: string) {
         this._host = value;
-        Ray.useClient(new Client(this.port, this.host));
+        Ray.useClient(new Client(this.port, this.host, this.scheme));
     }
 
     get host(): string {
@@ -26,16 +27,26 @@ export class Settings {
 
     set port(value: number) {
         this._port = value;
-        Ray.useClient(new Client(this.port, this.host));
+        Ray.useClient(new Client(this.port, this.host, this.scheme));
     }
 
     get port(): number {
         return this._port;
     }
 
+    get scheme(): string {
+        return this._scheme;
+    }
+
+    set scheme(value: string) {
+        this._scheme = value;
+        Ray.useClient(new Client(this.port, this.host, this.scheme));
+    }
+
     public enable = true;
     protected _host = 'localhost';
     protected _port = 23517;
+    protected _scheme = 'http';
     public remote_path: string | null = null;
     public local_path: string | null = null;
     public always_send_raw_values = false;

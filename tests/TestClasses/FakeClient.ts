@@ -5,6 +5,7 @@ import { Request } from '../../src/Request';
 
 export class FakeClient extends Client {
     protected sentRequests: any[] = [];
+    protected requestedUrlList: string[] = [];
 
     public async send(request: Request) {
         const requestProperties: any = request.toArray();
@@ -53,6 +54,7 @@ export class FakeClient extends Client {
         requestProperties.meta = [];
 
         this.sentRequests.push(requestProperties);
+        this.requestedUrlList.push(this.getUrlForPath('/'));
     }
 
     // eslint-disable-next-line no-unused-vars
@@ -65,6 +67,10 @@ export class FakeClient extends Client {
 
     public sentPayloads(): any[] {
         return this.sentRequests;
+    }
+
+    public requestedUrls(): string[] {
+        return this.requestedUrlList;
     }
 
     public reset(): this {

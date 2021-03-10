@@ -12,11 +12,14 @@ export class Client {
 
     protected portNumber: number;
     protected host: string;
+    protected scheme = 'http';
 
-    public constructor(portNumber = 23517, host = 'localhost') {
+    public constructor(portNumber = 23517, host = 'localhost', scheme = 'http') {
         this.portNumber = portNumber;
 
         this.host = host;
+
+        this.scheme = scheme;
 
         //this.init();
     }
@@ -75,7 +78,7 @@ export class Client {
     protected getUrlForPath(path: string): string {
         path = path.replace(/^\//, ''); // strip leading slash
 
-        return `http://${this.host}:${this.portNumber}/${path}`;
+        return `${this.scheme ?? 'http'}://${this.host}:${this.portNumber}/${path}`;
     }
 
     public async send(request: Request) {
