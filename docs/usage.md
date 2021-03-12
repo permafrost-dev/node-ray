@@ -219,6 +219,21 @@ ray().measure(() => {
 });
 ```
 
+
+### Adding custom methods
+
+You can add custom methods to the `Ray` class with the `macro()` method:
+
+```js
+// make sure the function isn't an arrow function!
+
+ray().macro('uppercase', function(str) { 
+    return str.toUpperCase(); 
+});
+
+ray().uppercase('this is uppercase text');
+```
+
 ### Feature demo
 
 Here's a sample script that demonstrates a number of the features, both basic and advanced.

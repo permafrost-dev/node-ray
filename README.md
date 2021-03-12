@@ -221,9 +221,11 @@ See [using the package](docs/usage.md).
 | `ray(…).hide()` | Display something in Ray and make it collapse immediately |
 | `ray().hideApp()` | Programmatically hide the Ray app window |
 | `ray().html(string)` | Send HTML to Ray | 
+| `ray().htmlMarkup(string)` | Display syntax-highlighted HTML code in Ray | 
 | `ray().image(url)` | Display an image in Ray | 
 | `ray().interceptor()` | Access ConsoleInterceptor; call `.enable()` to show `console.log()` calls in Ray |
 | `ray().json([…])` | Send JSON to Ray | 
+| `ray().macro(name, callable)` | Add a custom method to the Ray class. make sure not to use an arrow function if returning `this` |
 | `ray().measure(callable)` | Measure the performance of a callback function |
 | `ray().measure()` | Begin measuring the overall time and elapsed time since previous `measure()` call |
 | `ray().newScreen()` | Start a new screen |
