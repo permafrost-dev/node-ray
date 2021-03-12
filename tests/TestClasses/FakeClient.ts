@@ -36,6 +36,7 @@ export class FakeClient extends Client {
             if (payload.getType() === 'caller') {
                 payload.data.content.frame.file_name = 'Ray.ts';
                 payload.data.content.frame.method = 'caller';
+                payload.data.content.frame.line_number = 999;
             }
 
             if (payload.getType() === 'create_lock') {

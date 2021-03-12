@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-undef */
 /* eslint-disable no-useless-catch */
 
@@ -44,6 +45,7 @@ import { Stopwatch } from './Stopwatch/Stopwatch';
 import { TablePayload } from './Payloads/TablePayload';
 import { TracePayload } from './Payloads/TracePayload';
 import { XmlPayload } from './Payloads/XmlPayload';
+import { HtmlMarkupPayload, HtmlMarkupOptions } from './Payloads/HtmlMarkupPayload';
 
 export type BoolFunction = () => boolean;
 
@@ -68,6 +70,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public static stopWatches: Record<string, Stopwatch> = {};
 
     public static enabled: boolean | null = null;
+
+    [macroName: string]: any;
 
     public static create(client: Client | null = null, uuid: string | null = null): Ray {
         if (Ray.defaultSettings.not_defined === true) {
@@ -516,6 +520,18 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public hideApp(): this {
         const payload = new HideAppPayload();
+
+        return this.sendRequest(payload);
+    }
+
+    public macro(name: string, handler: CallableFunction): this {
+        this[name] = handler.bind(this);
+
+        return this;
+    }
+
+    public htmlMarkup(html: string, options: HtmlMarkupOptions = {}): this {
+        const payload = new HtmlMarkupPayload(html, options);
 
         return this.sendRequest(payload);
     }

@@ -504,3 +504,18 @@ it('sends a caller payload', () => {
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
+
+it('allows setting macro functions', () => {
+    const testOneCalls: any[] = [];
+
+    myRay.macro('testOne', function (a: any) {
+        testOneCalls.push(a);
+
+        // @ts-ignore
+        return this;
+    });
+
+    expect(myRay.testOne(1)).toBe(myRay);
+    expect(testOneCalls.length).toStrictEqual(1);
+    expect(testOneCalls[0]).toBe(1);
+});
