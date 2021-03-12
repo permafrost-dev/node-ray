@@ -4,6 +4,12 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.12.0 - 2021-03-12
+
+- add `htmlMarkup(content)` method that displays a syntax-highlighted string of html _(instead of rendering it)_
+
+- add `macro(name, callable)` method that allows adding custom methods onto the Ray class
+
 ## 1.11.0 - 2021-03-10
 
 - allow specifying `scheme` in the configuration to allow using https in certain circumstances
