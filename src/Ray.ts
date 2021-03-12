@@ -71,6 +71,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public static enabled: boolean | null = null;
 
+    public static macros: Record<string, unknown> = {};
+
     [macroName: string]: any;
 
     public static create(client: Client | null = null, uuid: string | null = null): Ray {
@@ -131,6 +133,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         if (this.settings.intercept_console_log && !this.interceptor().active()) {
             this.interceptor().enable();
         }
+
+        this.loadMacros();
     }
 
     public static useDefaultSettings(settings: RaySettings) {
@@ -151,6 +155,15 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         Ray.defaultSettings.not_defined = false;
 
         Ray.client = new Client(this.defaultSettings.port, this.defaultSettings.host);
+
+        return this;
+    }
+
+    protected loadMacros(): this {
+        for (const name in Ray.macros) {
+            const handler: any = Ray.macros[name];
+            this[name] = handler.bind(this);
+        }
 
         return this;
     }
@@ -525,6 +538,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     }
 
     public macro(name: string, handler: CallableFunction): this {
+        Ray.macros[name] = handler;
+
         this[name] = handler.bind(this);
 
         return this;
