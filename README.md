@@ -233,6 +233,9 @@ See [using the package](docs/usage.md).
 | `ray(…).notify(message)` | Display a notification |
 | `ray(…).pass(variable)` | Display something in Ray and return the value instead of a Ray instance |
 | `ray().pause()` | Pause code execution within your code; must be called using `await` |
+| `ray(…).remove()` | Remove an item from Ray   |
+| `ray(…).removeIf(true)` | Conditionally remove an item based on a truthy value or callable   |
+| `ray(…).removeWhen(true)` | Conditionally remove an item based on a truthy value or callable   |
 | `ray().showApp()` | Programmatically show the Ray app window |
 | `ray(…).showIf(true)` | Conditionally show things based on a truthy value or callable  |
 | `ray(…).showWhen(true)` | Conditionally show things based on a truthy value or callable  |
