@@ -61,7 +61,7 @@ If you'd like to use `node-ray` directly in a webpage, you may inject it via a C
 
 ```html
     <script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
     <script>
         window.ray = Ray.ray;
         window.Ray = Ray.Ray;
