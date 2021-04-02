@@ -3,6 +3,7 @@
 import { Ray } from './../Ray';
 import { Client } from './../Client';
 
+export type RayEnabledCallback = () => boolean;
 export interface RaySettings {
     enable?: boolean;
     host?: string;
@@ -13,6 +14,7 @@ export interface RaySettings {
     always_send_raw_values?: boolean;
     not_defined?: boolean;
     intercept_console_log?: boolean;
+    enabled_callback?: RayEnabledCallback | null;
 }
 
 export class Settings {
@@ -51,6 +53,7 @@ export class Settings {
     public local_path: string | null = null;
     public always_send_raw_values = false;
     public intercept_console_log = false;
+    public enabled_callback: RayEnabledCallback | null = null;
 
     protected originalSettings: RaySettings;
 

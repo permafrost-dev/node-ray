@@ -329,6 +329,25 @@ it('returns the correct enabled state', () => {
     expect(myRay.disabled()).toBe(false);
 });
 
+it('returns the correct enabled state when using the enabled_callback setting', () => {
+    myRay.enable();
+    myRay.settings.enabled_callback = () => false;
+
+    expect(myRay.enabled()).toBe(false);
+    expect(myRay.disabled()).toBe(true);
+
+    myRay.settings.enabled_callback = () => true;
+
+    expect(myRay.enabled()).toBe(true);
+    expect(myRay.disabled()).toBe(false);
+
+    myRay.disable();
+    myRay.settings.enabled_callback = () => false;
+
+    expect(myRay.enabled()).toBe(false);
+    expect(myRay.disabled()).toBe(true);
+});
+
 it('counts the number of times a piece of code is called', () => {
     for (let i = 0; i < 2; i++) {
         myRay.count('first');

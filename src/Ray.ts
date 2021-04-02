@@ -87,6 +87,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 always_send_raw_values: false,
                 not_defined: false,
                 intercept_console_log: true,
+                enabled_callback: null,
             };
         }
 
@@ -116,6 +117,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 local_path: null,
                 remote_path: null,
                 always_send_raw_values: false,
+                enabled_callback: null,
                 not_defined: false,
             };
         }
@@ -147,6 +149,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 local_path: null,
                 remote_path: null,
                 always_send_raw_values: false,
+                enabled_callback: null,
                 not_defined: false,
             };
         }
@@ -189,11 +192,16 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     }
 
     public enabled(): boolean {
+        if (typeof this.settings.enabled_callback === 'function') {
+            // @ts-ignore
+            return <boolean>Ray.enabled && this.settings.enabled_callback();
+        }
+
         return <boolean>Ray.enabled;
     }
 
     public disabled(): boolean {
-        return !(<boolean>Ray.enabled);
+        return !this.enabled();
     }
 
     public static useClient(client: Client): void {
