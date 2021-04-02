@@ -50,9 +50,12 @@ export default {
     output: [...outputs.unminified, ...outputs.minified],
     plugins: [
         replace({
-            __buildDate__: () => new Date().toISOString(),
-            __buildVersion__: () => require('./package.json').version,
-        }),
+            values: {
+                __buildDate__: () => new Date().toISOString(),
+                __buildVersion__: () => require('./package.json').version,
+            },
+            preventAssignment: true,
+        }), 
         commonjs(),
         nodeResolve(),
         typescript(),
