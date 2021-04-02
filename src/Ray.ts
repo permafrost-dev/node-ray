@@ -88,6 +88,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 not_defined: false,
                 intercept_console_log: true,
                 enabled_callback: null,
+                sending_payload_callback: null,
+                sent_payload_callback: null,
             };
         }
 
@@ -118,6 +120,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 remote_path: null,
                 always_send_raw_values: false,
                 enabled_callback: null,
+                sending_payload_callback: null,
+                sent_payload_callback: null,
                 not_defined: false,
             };
         }
@@ -150,6 +154,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 remote_path: null,
                 always_send_raw_values: false,
                 enabled_callback: null,
+                sending_payload_callback: null,
+                sent_payload_callback: null,
                 not_defined: false,
             };
         }
@@ -633,9 +639,17 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             payload.localPath = this.settings.local_path;
         });
 
+        if (this.settings.sending_payload_callback !== null) {
+            this.settings.sending_payload_callback(new Ray(this.settings, this.client(), this.uuid), payloads);
+        }
+
         const request = new Request(this.uuid, payloads, allMeta);
 
         Ray.client?.send(request);
+
+        if (this.settings.sent_payload_callback !== null) {
+            this.settings.sent_payload_callback(new Ray(this.settings, this.client(), this.uuid));
+        }
 
         return this;
     }

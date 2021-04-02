@@ -2,8 +2,12 @@
 
 import { Ray } from './../Ray';
 import { Client } from './../Client';
+import { Payload } from '@/Payloads/Payload';
 
 export type RayEnabledCallback = () => boolean;
+export type RayAfterPayloadSentCallback = (rayInstance: Ray) => void; // eslint-disable-line no-unused-vars
+export type RayBeforePayloadSentCallback = (rayInstance: Ray, payloads: Payload[]) => void; // eslint-disable-line no-unused-vars
+
 export interface RaySettings {
     enable?: boolean;
     host?: string;
@@ -15,6 +19,8 @@ export interface RaySettings {
     not_defined?: boolean;
     intercept_console_log?: boolean;
     enabled_callback?: RayEnabledCallback | null;
+    sent_payload_callback?: RayAfterPayloadSentCallback | null;
+    sending_payload_callback?: RayBeforePayloadSentCallback | null;
 }
 
 export class Settings {
@@ -54,6 +60,8 @@ export class Settings {
     public always_send_raw_values = false;
     public intercept_console_log = false;
     public enabled_callback: RayEnabledCallback | null = null;
+    public sent_payload_callback: RayAfterPayloadSentCallback | null = null;
+    public sending_payload_callback: RayBeforePayloadSentCallback | null = null;
 
     protected originalSettings: RaySettings;
 

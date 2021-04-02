@@ -9,6 +9,7 @@ import { NullPayload } from './../src/Payloads/NullPayload';
 import { Request } from './../src/Request';
 import { end, usleep } from '../src/lib/utils';
 import { Hostname } from '../src/Origin/Hostname';
+import { ray } from 'dist/index.cjs';
 
 type BaseRay = Ray;
 
@@ -537,4 +538,66 @@ it('allows setting macro functions', () => {
     expect(myRay.testOne(1)).toBe(myRay);
     expect(testOneCalls.length).toStrictEqual(1);
     expect(testOneCalls[0]).toBe(1);
+});
+
+it('calls the sending payload callback before sending payloads', () => {
+    let callbackFired = false;
+
+    myRay.settings.sending_payload_callback = r => {
+        callbackFired = true;
+    };
+
+    expect(callbackFired).toBeFalsy();
+
+    myRay.html('<strong>test</strong>');
+
+    expect(callbackFired).toBeTruthy();
+});
+
+it('can send payloads from the sending payload callback', () => {
+    myRay.settings.sending_payload_callback = r => {
+        r.html('sent before the main payload');
+    };
+
+    myRay.html('<strong>test</strong>');
+
+    expect(client.sentPayloads().length).toBe(2);
+    expect(client.sentPayloads()[0].payloads[0].content.content).toBe('sent before the main payload');
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('can modify payloads from the sending payload callback', () => {
+    myRay.settings.sending_payload_callback = (r, p) => {
+        // @ts-ignore
+        p[0].date = new Date('2020-01-01T16:00:00.000Z');
+    };
+
+    myRay.date(new Date('2018-04-04T16:00:00.000Z'));
+
+    expect(client.sentPayloads()[0].payloads[0].content.formatted.split(' ')[0]).toBe('2020-01-01');
+});
+
+it('calls the sent payload callback', () => {
+    let callbackFired = false;
+
+    myRay.settings.sent_payload_callback = r => {
+        callbackFired = true;
+    };
+
+    expect(callbackFired).toBeFalsy();
+
+    myRay.html('<strong>test</strong>');
+
+    expect(callbackFired).toBeTruthy();
+});
+
+it('can send additional payloads from the sent payload callback', () => {
+    myRay.settings.sent_payload_callback = r => {
+        r.purple();
+    };
+
+    myRay.html('<strong>test</strong>');
+
+    expect(client.sentPayloads().length).toBe(2);
+    expect(client.sentPayloads()).toMatchSnapshot();
 });
