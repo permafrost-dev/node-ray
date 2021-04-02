@@ -4,6 +4,11 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.13.0 - 2021-04-02
+
+- add `enabled_callback` setting for determining the enabled state in a dynamic way
+- add `sending_payload_callback` and `sent_payload_callback` settings
+
 ## 1.12.0 - 2021-03-12
 
 - add `htmlMarkup(content)` method that displays a syntax-highlighted string of html _(instead of rendering it)_
