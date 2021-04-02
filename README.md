@@ -154,7 +154,19 @@ module.exports = {
     // the 'enable' setting is also considered when using this setting.
     enabled_callback: () => {
         return functionThatReturnsABoolean();
-    }
+    },
+    
+    sending_payload_callback: (rayInstance, payloads) => {
+        rayInstance.html('this is sent before every payload');
+        if (payloads[0].getType() === 'custom') {
+            payloads[0].data.content.content = 'payloads can be modified here';
+        }
+    },
+    
+    sent_payload_callback: (rayInstance) => {
+        // automatically make all payloads sent to Ray green.
+        rayInstance.green();
+    },
 }
 ```
 
@@ -194,6 +206,12 @@ If you provide a callback for the `enabled_callback` setting _(a function that r
 If either or both conditions are `false`, then no payloads will be sent to Ray.
 
 You may set the `enabled_callback` setting to null or leave it undefined to only consider the `enable` setting _(which is the default)_.
+
+### Sending/sent payload callbacks
+
+You can specify the `sending_payload_callback` or `sent_payload_callback` settings to trigger a callback before _(sending)_ or after _(sent)_ a payload is sent.
+
+This is useful if you need to send additional payloads or modify sent all payloads _(i.e., changing the color)_.
 
 ## About
 
