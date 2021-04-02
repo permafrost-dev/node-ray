@@ -9,7 +9,6 @@ import { NullPayload } from './../src/Payloads/NullPayload';
 import { Request } from './../src/Request';
 import { end, usleep } from '../src/lib/utils';
 import { Hostname } from '../src/Origin/Hostname';
-import { ray } from 'dist/index.cjs';
 
 type BaseRay = Ray;
 
