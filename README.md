@@ -149,6 +149,12 @@ module.exports = {
 
     // calls to console.log() are redirected to Ray
     intercept_console_log: true,
+    
+    // determine the enabled state using the specified callback
+    // the 'enable' setting is also considered when using this setting.
+    enabled_callback: () => {
+        return functionThatReturnsABoolean();
+    }
 }
 ```
 
@@ -177,6 +183,17 @@ ray().html('<strong>hello world</strong>');
 ```
 
 These settings persist across calls to `ray()`, so they only need to be defined once.
+
+### Enabled state
+
+If you provide a callback for the `enabled_callback` setting _(a function that returns a boolean)_, payloads will only be sent to ray if:
+
+- the `enable` setting is set to `true`.
+- the callback returns a value of `true`.
+
+If either or both conditions are `false`, then no payloads will be sent to Ray.
+
+You may set the `enabled_callback` setting to null or leave it undefined to only consider the `enable` setting _(which is the default)_.
 
 ## About
 
