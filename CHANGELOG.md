@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.13.1 - 2021-05-27
+
+- fix `intercept_console_log` to default to `false` when calling `create()`
+
 ## 1.13.0 - 2021-04-02
 
 - add `enabled_callback` setting for determining the enabled state in a dynamic way
