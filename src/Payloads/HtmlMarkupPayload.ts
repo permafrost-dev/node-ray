@@ -57,8 +57,8 @@ export class HtmlMarkupPayload extends Payload {
         return markup
             .replace(/&quot;/g, '"') // unescape quotes
             .replace(/="([^"]+)"/g, `=<span style='color:#16A34A;'>&quot;$1&quot;</span>`) // attribute values
-            .replace(/(&lt;[A-Za-z\d\-]+)(\s|&nbsp;|&gt;)/g, '<span style="color:#1D4ED8;">$1</span>$2') // open tags
-            .replace(/(&lt;\/[A-Za-z\d\-]+)(&gt;)/g, '<span style="color:#1D4ED8;">$1$2</span>'); // close tags
+            .replace(/(&lt;[A-Za-z\d-]+)(\s|&nbsp;|&gt;)/g, '<span style="color:#1D4ED8;">$1</span>$2') // open tags
+            .replace(/(&lt;\/[A-Za-z\d-]+)(&gt;)/g, '<span style="color:#1D4ED8;">$1$2</span>'); // close tags
 
         // return markup
         // .replace(/(<\w+)/g, '<span style="color:blue;">$1</span>')
