@@ -53,6 +53,7 @@ export class ExceptionPayload extends Payload {
                 };
             })
             .filter((obj: any) => !obj.file_name.startsWith('node:'))
+            .filter((obj: any) => !obj.file_name.includes('jest-circus'))
             .filter((obj: any) => obj.class !== 'Ray' && obj.method !== 'exception');
     }
 }
