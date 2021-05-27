@@ -52,6 +52,7 @@ export class ExceptionPayload extends Payload {
                     snippet: [],
                 };
             })
+            .filter((obj: any) => !obj.file_name.startsWith('node:'))
             .filter((obj: any) => obj.class !== 'Ray' && obj.method !== 'exception');
     }
 }
