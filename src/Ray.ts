@@ -86,7 +86,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 remote_path: null,
                 always_send_raw_values: false,
                 not_defined: false,
-                intercept_console_log: true,
+                intercept_console_log: false,
                 enabled_callback: null,
                 sending_payload_callback: null,
                 sent_payload_callback: null,
@@ -94,15 +94,6 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         }
 
         const settings = new Settings(Ray.defaultSettings);
-
-        // new Settings(Object.assign({}, {
-        //     enable: true,
-        //     host: 'localhost',
-        //     port: 23517,
-        //     local_path: null,
-        //     remote_path: null,
-        //     always_send_raw_values: false,
-        // }, Ray.defaultSettings));
 
         return new this(settings, client, uuid);
     }
