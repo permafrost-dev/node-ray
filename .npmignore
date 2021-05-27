@@ -4,6 +4,7 @@
 /build
 /coverage
 /node_modules
+/scripts
 /src
 /tests
 .editorconfig
