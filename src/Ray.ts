@@ -52,6 +52,8 @@ export type BoolFunction = () => boolean;
 export class Ray extends Mixin(RayColors, RaySizes) {
     protected static lockCounter = 0;
 
+    protected inCallback = false;
+
     public settings: Settings;
 
     public static defaultSettings: RaySettings = { not_defined: true };
@@ -98,7 +100,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return new this(settings, client, uuid);
     }
 
-    public constructor(settings: Settings, client: Client | null = null, uuid: string | null = null) {
+    public constructor(settings: Settings, client: Client | null = null, uuid: string | null = null, inCallback = false) {
         super();
 
         if (Ray.defaultSettings.not_defined === true) {
@@ -117,6 +119,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             };
         }
 
+        this.inCallback = inCallback;
         this.settings = new Settings(Ray.defaultSettings);
 
         if (Ray.enabled === null) {
@@ -630,16 +633,24 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             payload.localPath = this.settings.local_path;
         });
 
-        if (this.settings.sending_payload_callback !== null) {
-            this.settings.sending_payload_callback(new Ray(this.settings, this.client(), this.uuid), payloads);
+        if (this.settings.sending_payload_callback !== null && !this.inCallback) {
+            this.inCallback = true;
+
+            this.settings.sending_payload_callback(new Ray(this.settings, this.client(), this.uuid, true), payloads);
+
+            this.inCallback = false;
         }
 
         const request = new Request(this.uuid, payloads, allMeta);
 
         Ray.client?.send(request);
 
-        if (this.settings.sent_payload_callback !== null) {
-            this.settings.sent_payload_callback(new Ray(this.settings, this.client(), this.uuid));
+        if (this.settings.sent_payload_callback !== null && !this.inCallback) {
+            this.inCallback = true;
+
+            this.settings.sent_payload_callback(this);
+
+            this.inCallback = false;
         }
 
         return this;
