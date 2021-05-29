@@ -4,6 +4,11 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.14.0 - 2021-05-28
+
+- intercepting `console.log()` messages now sends the message to both Ray and `console.log`.
+- fix issue where using `sent_payload_callback` caused a stack overflow.
+
 ## 1.13.1 - 2021-05-27
 
 - fix `intercept_console_log` to default to `false` when calling `create()`
