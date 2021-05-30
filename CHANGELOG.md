@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.15.0 - 2021-05-30
+
+- add `text()` method
+
 ## 1.14.0 - 2021-05-28
 
 - intercepting `console.log()` messages now sends the message to both Ray and `console.log`.

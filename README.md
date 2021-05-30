@@ -278,12 +278,15 @@ See [using the package](docs/usage.md).
 | `ray(…).small()` | Output text smaller or bigger. Use `large` or `small`|
 | `ray().stopTime(name)` | Removes a named stopwatch if specified, otherwise removes all stopwatches |
 | `ray().table(…)` | Display an array or an object formatted as a table; Objects and arrays are pretty-printed |
+| `ray().text(string)` | Display raw text in Ray while preserving whitespace formatting |
 | `ray().trace()` | Display a stack trace |
 | `ray().xml(string)` | Send XML to Ray | 
 
 ## FAQ
 
-- Can `node-ray` be used with React? _yes, just be sure to import `node-ray/web`_
+- Is `node-ray` only for NodeJS? _Not at all! It can be used in a web environment with javascript as well._
+
+- Can `node-ray` be used with React/Vue? _yes, just be sure to import `node-ray/web`_
 
 - Can `node-ray` be used if I'm using webpack? _yes, just be sure to import `node-ray/web`_
 
