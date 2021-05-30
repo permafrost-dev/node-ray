@@ -46,6 +46,7 @@ import { TablePayload } from './Payloads/TablePayload';
 import { TracePayload } from './Payloads/TracePayload';
 import { XmlPayload } from './Payloads/XmlPayload';
 import { HtmlMarkupPayload, HtmlMarkupOptions } from './Payloads/HtmlMarkupPayload';
+import { TextPayload } from './Payloads/TextPayload';
 
 export type BoolFunction = () => boolean;
 
@@ -493,6 +494,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public html(html = ''): this {
         const payload = new HtmlPayload(html);
+
+        return this.sendRequest(payload);
+    }
+
+    public text(text = ''): this {
+        const payload = new TextPayload(text);
 
         return this.sendRequest(payload);
     }
