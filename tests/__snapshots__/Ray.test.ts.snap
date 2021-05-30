@@ -1085,6 +1085,49 @@ Array [
 ]
 `;
 
+exports[`sends a text payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "test 1",
+          "label": "Text",
+        },
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "content": "&lt;em&gt;test 2&lt;/em&gt;",
+          "label": "Text",
+        },
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends an error payload 1`] = `
 Array [
   Object {

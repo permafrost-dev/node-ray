@@ -1,5 +1,5 @@
 import { Payload } from '../Payloads/Payload';
-import { formatHtmlForDisplay } from '@/lib/utils';
+import { formatHtmlForDisplay } from '../lib/utils';
 
 export class TextPayload extends Payload {
     public constructor(protected text: string) { // eslint-disable-line no-unused-vars

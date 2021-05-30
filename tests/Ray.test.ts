@@ -118,6 +118,13 @@ it("doesn't blow up when calling html without a value", () => {
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
+it('sends a text payload', () => {
+    myRay.text('test 1');
+    myRay.text('<em>test 2</em>');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
 it('sends an image payload', () => {
     myBaseRay.image('http://localhost/test.png');
 
