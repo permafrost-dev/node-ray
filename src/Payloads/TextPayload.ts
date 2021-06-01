@@ -2,7 +2,8 @@ import { Payload } from '../Payloads/Payload';
 import { formatHtmlForDisplay } from '../lib/utils';
 
 export class TextPayload extends Payload {
-    public constructor(protected text: string) { // eslint-disable-line no-unused-vars
+    // eslint-disable-next-line no-unused-vars
+    public constructor(protected text: string) {
         super();
     }
 
@@ -18,6 +19,6 @@ export class TextPayload extends Payload {
     }
 
     protected formatContent() {
-        return formatHtmlForDisplay(this.text, { encodeEntities: true })
+        return formatHtmlForDisplay(this.text, { encodeEntities: true });
     }
 }

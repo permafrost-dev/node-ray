@@ -42,7 +42,7 @@ export default {
                 __buildVersion__: () => require('./package.json').version,
             },
             preventAssignment: true,
-        }),        
+        }),
         commonjs(),
         nodePolyfills(),
         nodeResolve(),
