@@ -105,7 +105,7 @@
         "dayjs": "^1.10.4",
         "find-up": "^5.0.0",
         "md5": "^2.3.0",
-        "random-int": "^2.0.1",
+        "random-int": "^3.0.0",
         "stacktrace-js": "^2.0.2",
         "stopwatch-node": "^1.1.0",
         "tslib": "^2.1.0",
