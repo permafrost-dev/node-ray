@@ -156,11 +156,10 @@ module.exports = {
     enabled_callback: () => {
         return functionThatReturnsABoolean();
     },
-    
+        
     sending_payload_callback: (rayInstance, payloads) => {
-        rayInstance.html('this is sent before every payload');
         if (payloads[0].getType() === 'custom') {
-            payloads[0].data.content.content = 'payloads can be modified here';
+            payloads[0].html += ' <strong>- modified!</strong>';
         }
     },
     
