@@ -79,7 +79,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     [macroName: string]: any;
 
-    public static rateLimiter: RateLimiter = RateLimiter.disabled();
+    public static _rateLimiter: RateLimiter = RateLimiter.disabled();
 
     public static create(client: Client | null = null, uuid: string | null = null): Ray {
         if (Ray.defaultSettings.not_defined === true) {
@@ -132,7 +132,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         Ray.client = client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
 
-        Ray.rateLimiter = Ray.rateLimiter ?? RateLimiter.disabled();
+        Ray._rateLimiter = Ray._rateLimiter ?? RateLimiter.disabled();
 
         this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
 
@@ -631,7 +631,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             payloads = [payloads];
         }
 
-        if (Ray.rateLimiter.isMaxReached() || Ray.rateLimiter.isMaxPerSecondReached()) {
+        if (this.rateLimiter().isMaxReached() || this.rateLimiter().isMaxPerSecondReached()) {
             this.notifyWhenRateLimitReached();
 
             return this;
@@ -663,7 +663,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         Ray.client?.send(request);
 
-        Ray.rateLimiter.hit();
+        this.rateLimiter().hit();
 
         if (this.settings.sent_payload_callback !== null && !this.inCallback) {
             this.inCallback = true;
@@ -676,12 +676,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this;
     }
 
-    public getRateLimiter(): RateLimiter {
-        return Ray.rateLimiter;
+    public rateLimiter(): RateLimiter {
+        return Ray._rateLimiter;
     }
 
     protected notifyWhenRateLimitReached(): void {
-        if (this.getRateLimiter().isNotified()) {
+        if (this.rateLimiter().isNotified()) {
             return;
         }
 
@@ -690,7 +690,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         Ray.client.send(request);
 
-        Ray.rateLimiter.notify();
+        this.rateLimiter().notify();
     }
 }
 

@@ -609,7 +609,7 @@ it('can send additional payloads from the sent payload callback', () => {
 });
 
 it('cannot call when rate limit max has been reached', () => {
-    myRay.getRateLimiter().clear().max(1);
+    myRay.rateLimiter().clear().max(1);
 
     myRay.text('this can pass');
     myRay.text('this cannot pass, but triggers a warning call');
