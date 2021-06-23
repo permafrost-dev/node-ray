@@ -42,6 +42,7 @@ beforeEach(() => {
     myBaseRay = Ray.create(client, 'fakeUuid');
     myRay.clearCounters();
     myBaseRay.clearCounters();
+    myRay.rateLimiter().clear();
 });
 
 it('allows setting the url scheme to https', () => {
