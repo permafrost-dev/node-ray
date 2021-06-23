@@ -42,6 +42,7 @@ beforeEach(() => {
     myBaseRay = Ray.create(client, 'fakeUuid');
     myRay.clearCounters();
     myBaseRay.clearCounters();
+    myRay.rateLimiter().clear();
 });
 
 it('allows setting the url scheme to https', () => {
@@ -606,4 +607,15 @@ it('can send additional payloads from the sent payload callback', () => {
 
     expect(client.sentPayloads().length).toBe(2);
     expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('cannot call when rate limit max has been reached', () => {
+    myRay.rateLimiter().clear().max(1);
+
+    myRay.text('this can pass');
+    myRay.text('this cannot pass, but triggers a warning call');
+    myRay.text('this cannot pass');
+
+    expect(client.sentPayloads().length).toBe(2);
+    expect(client.sentPayloads()[1]['payloads'][0]['content']['content']).toBe('Rate limit has been reached...');
 });

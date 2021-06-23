@@ -47,6 +47,7 @@ import { TracePayload } from './Payloads/TracePayload';
 import { XmlPayload } from './Payloads/XmlPayload';
 import { HtmlMarkupPayload, HtmlMarkupOptions } from './Payloads/HtmlMarkupPayload';
 import { TextPayload } from './Payloads/TextPayload';
+import { RateLimiter } from './Support/RateLimiter';
 
 export type BoolFunction = () => boolean;
 
@@ -77,6 +78,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public static macros: Record<string, unknown> = {};
 
     [macroName: string]: any;
+
+    public static _rateLimiter: RateLimiter = RateLimiter.disabled();
 
     public static create(client: Client | null = null, uuid: string | null = null): Ray {
         if (Ray.defaultSettings.not_defined === true) {
@@ -128,6 +131,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         }
 
         Ray.client = client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
+
+        Ray._rateLimiter = Ray._rateLimiter ?? RateLimiter.disabled();
 
         this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
 
@@ -626,6 +631,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             payloads = [payloads];
         }
 
+        if (this.rateLimiter().isMaxReached() || this.rateLimiter().isMaxPerSecondReached()) {
+            this.notifyWhenRateLimitReached();
+
+            return this;
+        }
+
         const allMeta = Object.assign(
             {},
             {
@@ -652,6 +663,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
         Ray.client?.send(request);
 
+        this.rateLimiter().hit();
+
         if (this.settings.sent_payload_callback !== null && !this.inCallback) {
             this.inCallback = true;
 
@@ -661,6 +674,23 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         }
 
         return this;
+    }
+
+    public rateLimiter(): RateLimiter {
+        return Ray._rateLimiter;
+    }
+
+    protected notifyWhenRateLimitReached(): void {
+        if (this.rateLimiter().isNotified()) {
+            return;
+        }
+
+        const customPayload = new CustomPayload('Rate limit has been reached...', 'Rate limit');
+        const request = new Request(this.uuid, [customPayload], []);
+
+        Ray.client.send(request);
+
+        this.rateLimiter().notify();
     }
 }
 
