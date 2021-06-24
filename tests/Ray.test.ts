@@ -700,7 +700,7 @@ it('can conditionally send payloads using if with a truthy conditional and witho
     expect(client.sentPayloads().length).toBe(5);
 });
 
-it('can conditionally send payloads using when with a callable conditional param', () => {
+it('can conditionally send payloads using if with a callable conditional param', () => {
     for (let i = 0; i < 10; i++) {
         getNewRay()
             .if(() => i < 5)
@@ -710,7 +710,7 @@ it('can conditionally send payloads using when with a callable conditional param
     expect(client.sentPayloads().length).toBe(5);
 });
 
-it('can conditionally send payloads using when with a callback', () => {
+it('can conditionally send payloads using if with a callback', () => {
     getNewRay().if(true, function ($ray) {
         $ray.text('one');
     });
@@ -722,7 +722,7 @@ it('can conditionally send payloads using when with a callback', () => {
     expect(client.sentPayloads().length).toBe(1);
 });
 
-it('can chain method calls when using when with a callback and a false condition', () => {
+it('can chain method calls when using if with a callback and a false condition', () => {
     getNewRay()
         .if(false, ray => ray.text('one').green())
         .text('two')
@@ -735,7 +735,7 @@ it('can chain method calls when using when with a callback and a false condition
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('can chain multiple when calls with callbacks together', () => {
+it('can chain multiple if calls with callbacks together', () => {
     getNewRay()
         .text('test')
         .if(true, function (ray) {
