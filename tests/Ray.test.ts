@@ -689,3 +689,65 @@ it('sends a payload once while allowing calls to limit', () => {
 
     expect(client.sentPayloads().length).toBe(6);
 });
+
+it('can conditionally send payloads using if with a truthy conditional and without a callback', () => {
+    for (let i = 0; i < 10; i++) {
+        getNewRay()
+            .if(i < 5)
+            .text(`value: ${i}`);
+    }
+
+    expect(client.sentPayloads().length).toBe(5);
+});
+
+it('can conditionally send payloads using if with a callable conditional param', () => {
+    for (let i = 0; i < 10; i++) {
+        getNewRay()
+            .if(() => i < 5)
+            .text(`value: ${i}`);
+    }
+
+    expect(client.sentPayloads().length).toBe(5);
+});
+
+it('can conditionally send payloads using if with a callback', () => {
+    getNewRay().if(true, function ($ray) {
+        $ray.text('one');
+    });
+
+    getNewRay().if(false, function ($ray) {
+        $ray.text('two');
+    });
+
+    expect(client.sentPayloads().length).toBe(1);
+});
+
+it('can chain method calls when using if with a callback and a false condition', () => {
+    getNewRay()
+        .if(false, ray => ray.text('one').green())
+        .text('two')
+        .blue();
+
+    getNewRay()
+        .text('three')
+        .if(false, ray => ray.green());
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('can chain multiple if calls with callbacks together', () => {
+    getNewRay()
+        .text('test')
+        .if(true, function (ray) {
+            ray.green();
+        })
+        .if(false, function (ray) {
+            ray.text('text modified');
+        })
+        .if(true, function (ray) {
+            ray.large();
+        })
+        .hide();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});

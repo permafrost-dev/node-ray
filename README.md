@@ -257,6 +257,7 @@ See [using the package](docs/usage.md).
 | `ray().hideApp()` | Programmatically hide the Ray app window |
 | `ray().html(string)` | Send HTML to Ray | 
 | `ray().htmlMarkup(string)` | Display syntax-highlighted HTML code in Ray | 
+| `ray()->if(true, callback)` | Conditionally show things based on a truthy value or callable, optionally calling the callback with a `ray` argument |
 | `ray().image(url)` | Display an image in Ray | 
 | `ray().interceptor()` | Access ConsoleInterceptor; call `.enable()` to show `console.log()` calls in Ray |
 | `ray().json([…])` | Send JSON to Ray | 

@@ -82,6 +82,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public limitOrigin: OriginData | null = null;
 
+    public canSendPayload = true;
+
     [macroName: string]: any;
 
     public static _rateLimiter: RateLimiter = RateLimiter.disabled();
@@ -576,6 +578,22 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this.sendRequest(payload);
     }
 
+    public if(boolOrCallable: CallableFunction | boolean, callback: CallableFunction | null = null): this {
+        if (typeof boolOrCallable === 'function') {
+            boolOrCallable = <boolean>boolOrCallable();
+        }
+
+        if (boolOrCallable && callback !== null) {
+            callback(this);
+        }
+
+        if (callback === null) {
+            this.canSendPayload = boolOrCallable;
+        }
+
+        return this;
+    }
+
     public limit(count: number): this {
         const frame = this.getOriginFrame();
 
@@ -663,6 +681,10 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public sendRequest(payloads: Payload | Payload[], meta: any[] = []): this {
         if (!this.enabled()) {
+            return this;
+        }
+
+        if (!this.canSendPayload) {
             return this;
         }
 
