@@ -12,7 +12,7 @@ Array [
 ]
 `;
 
-exports[`can chain method calls when using when with a callback and a false condition 1`] = `
+exports[`can chain method calls when using if with a callback and a false condition 1`] = `
 Array [
   Object {
     "meta": Array [],
@@ -73,7 +73,7 @@ Array [
 ]
 `;
 
-exports[`can chain multiple when calls with callbacks together 1`] = `
+exports[`can chain multiple if calls with callbacks together 1`] = `
 Array [
   Object {
     "meta": Array [],
