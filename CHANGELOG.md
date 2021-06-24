@@ -4,10 +4,11 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
-## 1.16.0 - unreleased
+## 1.16.0 - 2021-06-24
 
 - add `limit()` method
 - add `once()` method
+- add `if()` method
 - add rate limiting
 
 ## 1.15.0 - 2021-05-30
