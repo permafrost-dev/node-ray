@@ -267,6 +267,7 @@ See [using the package](docs/usage.md).
 | `ray().newScreen()` | Start a new screen |
 | `ray().newScreen('title')` | Start a new named screen |
 | `ray(…).notify(message)` | Display a notification |
+| `ray().once(arg1, …)` | Only send a payload once when in a loop |
 | `ray(…).pass(variable)` | Display something in Ray and return the value instead of a Ray instance |
 | `ray().pause()` | Pause code execution within your code; must be called using `await` |
 | `ray(…).remove()` | Remove an item from Ray   |

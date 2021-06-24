@@ -591,6 +591,25 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this;
     }
 
+    public once(...args: any[]): this {
+        const frame = this.getOriginFrame();
+
+        this.limitOrigin = <OriginData>{
+            function_name: frame?.getFunctionName(),
+            file: frame?.getFileName(),
+            line_number: frame?.getLineNumber(),
+            hostname: Hostname.get(),
+        };
+
+        Ray.limiters.initialize(this.limitOrigin, 1);
+
+        if (args.length > 0) {
+            return this.send(...args);
+        }
+
+        return this;
+    }
+
     public sendCustom(content: string, label = ''): this {
         const payload = new CustomPayload(content, label);
 
