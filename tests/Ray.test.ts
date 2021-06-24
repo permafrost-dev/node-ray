@@ -14,6 +14,15 @@ type BaseRay = Ray;
 
 let client: FakeClient, myRay: Ray, myBaseRay: Ray;
 
+function getNewRay(): Ray {
+    const result = Ray.create(client, 'fakeUuid');
+
+    result.clearCounters();
+    result.rateLimiter().clear();
+
+    return result;
+}
+
 beforeEach(() => {
     Hostname.set('fake-hostname');
 
@@ -618,4 +627,38 @@ it('cannot call when rate limit max has been reached', () => {
 
     expect(client.sentPayloads().length).toBe(2);
     expect(client.sentPayloads()[1]['payloads'][0]['content']['content']).toBe('Rate limit has been reached...');
+});
+
+it('can limit the number of payloads sent from a loop', () => {
+    const limit = 5;
+
+    for (let i = 0; i < 10; i++) {
+        getNewRay().limit(limit).send(`limited loop iteration ${i}`);
+    }
+
+    expect(client.sentPayloads().length).toBe(limit);
+});
+
+it('only limits the number of payloads sent from the line that calls limit', () => {
+    const limit = 5;
+    const iterations = 10;
+
+    for (let i = 0; i < iterations; i++) {
+        getNewRay().limit(limit).send(`limited loop iteration ${i}`);
+        getNewRay().send(`unlimited loop iteration ${i}`);
+    }
+
+    expect(client.sentPayloads().length).toBe(limit + iterations);
+});
+
+it('can handle multiple consecutive calls to limit', () => {
+    const limit = 2;
+
+    for (let i = 0; i < 10; i++) {
+        getNewRay().limit(limit).send(`limited loop A iteration ${i}`);
+
+        getNewRay().limit(limit).send(`limited loop B iteration ${i}`);
+    }
+
+    expect(client.sentPayloads()).toMatchSnapshot();
 });
