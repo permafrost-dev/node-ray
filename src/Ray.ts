@@ -48,6 +48,7 @@ import { XmlPayload } from './Payloads/XmlPayload';
 import { HtmlMarkupPayload, HtmlMarkupOptions } from './Payloads/HtmlMarkupPayload';
 import { TextPayload } from './Payloads/TextPayload';
 import { RateLimiter } from './Support/RateLimiter';
+import { Limiters } from './Support/Limiters';
 
 export type BoolFunction = () => boolean;
 
@@ -64,6 +65,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public static counters: Counters = new Counters();
 
+    public static limiters: Limiters = new Limiters();
+
     public static interceptor: ConsoleInterceptor = new ConsoleInterceptor();
 
     public static fakeUuid: string;
@@ -76,6 +79,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public static enabled: boolean | null = null;
 
     public static macros: Record<string, unknown> = {};
+
+    public limitOrigin: OriginData | null = null;
 
     [macroName: string]: any;
 
@@ -571,6 +576,21 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this.sendRequest(payload);
     }
 
+    public limit(count: number): this {
+        const frame = this.getOriginFrame();
+
+        this.limitOrigin = <OriginData>{
+            function_name: frame?.getFunctionName(),
+            file: frame?.getFileName(),
+            line_number: frame?.getLineNumber(),
+            hostname: Hostname.get(),
+        };
+
+        Ray.limiters.initialize(this.limitOrigin, count);
+
+        return this;
+    }
+
     public sendCustom(content: string, label = ''): this {
         const payload = new CustomPayload(content, label);
 
@@ -625,6 +645,14 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public sendRequest(payloads: Payload | Payload[], meta: any[] = []): this {
         if (!this.enabled()) {
             return this;
+        }
+
+        if (this.limitOrigin !== null) {
+            if (!Ray.limiters.canSendPayload(this.limitOrigin)) {
+                return this;
+            }
+
+            Ray.limiters.increment(this.limitOrigin);
         }
 
         if (!Array.isArray(payloads)) {
