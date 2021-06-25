@@ -302,7 +302,11 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public error(err: Error): this {
         const payload = new ErrorPayload(err, 'Error');
 
-        return this.sendRequest(payload);
+        this.sendRequest(payload);
+
+        this.red();
+
+        return this;
     }
 
     public event(eventName: string, data: any[] = []): this {
@@ -314,7 +318,11 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public exception(err: Error, meta: Record<string, unknown> = {}): this {
         const payload = new ExceptionPayload(err, meta);
 
-        return this.sendRequest(payload);
+        this.sendRequest(payload);
+
+        this.red();
+
+        return this;
     }
 
     public showWhen(booleanOrCallable: boolean | BoolFunction): this {
