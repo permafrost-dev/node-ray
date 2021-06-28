@@ -1371,6 +1371,24 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "color": "red",
+        },
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
 ]
 `;
 
@@ -1432,6 +1450,24 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "color": "red",
+        },
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
 ]
 `;
 
@@ -1467,6 +1503,24 @@ Array [
           "line_number": 999,
         },
         "type": "exception",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "color": "red",
+        },
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "color",
       },
     ],
     "uuid": "fakeUuid",
