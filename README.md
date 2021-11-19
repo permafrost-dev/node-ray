@@ -260,7 +260,8 @@ See [using the package](docs/usage.md).
 | `ray()->if(true, callback)` | Conditionally show things based on a truthy value or callable, optionally calling the callback with a `ray` argument |
 | `ray().image(url)` | Display an image in Ray | 
 | `ray().interceptor()` | Access ConsoleInterceptor; call `.enable()` to show `console.log()` calls in Ray |
-| `ray().json([…])` | Send JSON to Ray | 
+| `ray().json([…])` | Send JSON to Ray |
+| `ray().label(string)` | Add a text label to the payload |
 | `ray().limit(N).…` | Limit the number of payloads that can be sent to Ray to N; used for debugging within loops |
 | `ray().macro(name, callable)` | Add a custom method to the Ray class. make sure not to use an arrow function if returning `this` |
 | `ray().measure(callable)` | Measure the performance of a callback function |

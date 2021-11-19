@@ -4,6 +4,10 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.17.0 - 2021-11-19
+
+- add `label()` method
+
 ## 1.16.0 - 2021-06-24
 
 - add `limit()` method
