@@ -958,6 +958,29 @@ Array [
 ]
 `;
 
+exports[`sends a label payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {
+          "label": "test-123",
+        },
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "label",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends a new screen payload 1`] = `
 Array [
   Object {

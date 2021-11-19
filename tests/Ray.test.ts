@@ -90,6 +90,12 @@ it('sends a color payload', () => {
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
+it('sends a label payload', () => {
+    myRay.label('test-123');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
 it('sends a size payload', () => {
     myRay.size('lg');
     myRay.small().large();

@@ -49,6 +49,7 @@ import { HtmlMarkupPayload, HtmlMarkupOptions } from './Payloads/HtmlMarkupPaylo
 import { TextPayload } from './Payloads/TextPayload';
 import { RateLimiter } from './Support/RateLimiter';
 import { Limiters } from './Support/Limiters';
+import { LabelPayload } from './Payloads/LabelPayload';
 
 export type BoolFunction = () => boolean;
 
@@ -239,6 +240,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public color(color: string): this {
         const payload = new ColorPayload(color);
+
+        return this.sendRequest(payload);
+    }
+
+    public label(label: string): this {
+        const payload = new LabelPayload(label);
 
         return this.sendRequest(payload);
     }
