@@ -26,7 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Get yarn cache directory path
+    - name: Get npm cache directory path
       id: npm-cache-dir-path
       run: echo "::set-output name=dir::$(npm config get cache)"
 
