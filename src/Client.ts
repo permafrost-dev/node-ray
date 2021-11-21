@@ -60,10 +60,10 @@ export class Client {
         try {
             await axios.get(this.getUrlForPath('/locks/__availabilty_check'), {});
         } catch (err) {
-            if (err.response) {
+            if ((<any>err).response) {
                 // 4xx error
                 result = true;
-            } else if (err.request) {
+            } else if ((<any>err).request) {
                 // connection error
                 result = false;
             } else {
