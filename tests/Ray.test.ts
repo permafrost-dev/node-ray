@@ -763,3 +763,10 @@ it('sends a separator payload', () => {
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
+
+it('sends a screen color payload', () => {
+    myRay.screenColor('red');
+    myRay.screenColor('green');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
