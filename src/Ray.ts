@@ -50,6 +50,8 @@ import { TextPayload } from './Payloads/TextPayload';
 import { RateLimiter } from './Support/RateLimiter';
 import { Limiters } from './Support/Limiters';
 import { LabelPayload } from './Payloads/LabelPayload';
+import { SeparatorPayload } from './Payloads/SeparatorPayload';
+import { ScreenColorPayload } from './Payloads/ScreenColorPayload';
 
 export type BoolFunction = () => boolean;
 
@@ -63,6 +65,8 @@ export class Ray extends Mixin(RayColors, RaySizes) {
     public static defaultSettings: RaySettings = { not_defined: true };
 
     public static client: Client;
+
+    public static projectName = '';
 
     public static counters: Counters = new Counters();
 
@@ -222,6 +226,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         this.client = client;
     }
 
+    public project(projectName: string): this {
+        Ray.projectName = projectName;
+
+        return this;
+    }
+
     public newScreen(name = ''): this {
         const payload = new NewScreenPayload(name);
 
@@ -240,6 +250,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public color(color: string): this {
         const payload = new ColorPayload(color);
+
+        return this.sendRequest(payload);
+    }
+
+    public screenColor(color: string): this {
+        const payload = new ScreenColorPayload(color);
 
         return this.sendRequest(payload);
     }
@@ -513,6 +529,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return new MeasurePayload(name, event);
     }
 
+    public separator(): this {
+        const payload = new SeparatorPayload();
+
+        return this.sendRequest(payload);
+    }
+
     public xml(xml: string): this {
         const payload = new XmlPayload(xml);
 
@@ -725,6 +747,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
             {},
             {
                 node_ray_package_version: PACKAGE_VERSION,
+                project_name: Ray.projectName,
             },
             meta
         );

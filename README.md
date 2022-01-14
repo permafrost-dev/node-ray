@@ -37,7 +37,7 @@ yarn add node-ray
 
 When using in a NodeJS environment (the default), import the package as you would normally:
 
-```js 
+```js
 // es module import:
 import { ray } from 'node-ray';
 
@@ -48,7 +48,7 @@ const ray = require('node-ray').ray;
 ### Browser bundle
 If you're bundling your scripts for use in a Browser environment _(i.e. using webpack)_, import the `/web` variant:
 
-```js 
+```js
 // es module import:
 import { ray } from 'node-ray/web';
 
@@ -87,7 +87,7 @@ You may then compile as usual _(`npm run dev`)_. After including `js/app.js` in 
 
 The majority of the API from the [original PHP package](https://github.com/spatie/ray) is supported.  See the [api reference](https://spatie.be/docs/ray/v1/usage/reference) for more information.
 
-```js 
+```js
 // es module import:
 import { ray } from 'node-ray';
 
@@ -150,19 +150,19 @@ module.exports = {
 
     // calls to console.log() are redirected to Ray
     intercept_console_log: true,
-    
+
     // determine the enabled state using the specified callback
     // the 'enable' setting is also considered when using this setting.
     enabled_callback: () => {
         return functionThatReturnsABoolean();
     },
-        
+
     sending_payload_callback: (rayInstance, payloads) => {
         if (payloads[0].getType() === 'custom') {
             payloads[0].html += ' <strong>- modified!</strong>';
         }
     },
-    
+
     sent_payload_callback: (rayInstance) => {
         // automatically make all payloads sent to Ray green.
         rayInstance.green();
@@ -182,9 +182,9 @@ You can configure `node-ray` by importing the `Ray` class and calling the `useDe
 const { Ray, ray } = require('node-ray/web');
 
 // set several settings at once:
-Ray.useDefaultSettings({ 
+Ray.useDefaultSettings({
     host: '192.168.1.20',
-    port: 23517 
+    port: 23517
 });
 
 // or set individual settings only:
@@ -221,7 +221,7 @@ This package attempts to replicate the entire PHP API for Ray to provide a robus
 
 This is a more complete implementation written in typescript, and its primary use case is for NodeJS projects, although it can be used in Browser environments as well.
 
-The codebase was translated to Typescript directly from the original PHP source code of [`spatie/ray`](https://github.com/spatie/ray). 
+The codebase was translated to Typescript directly from the original PHP source code of [`spatie/ray`](https://github.com/spatie/ray).
 
 As a result, `node-ray` supports the majority of features that exist in the original package; [`js-ray`](https://github.com/m1guelpf/ray-js) does not.
 
@@ -243,7 +243,7 @@ See [using the package](docs/usage.md).
 | `ray().clearAll()` | Clear current and all previous screens |
 | `ray().className(obj)` | Display the classname for an object |
 | `ray().count(name)` | Count how many times a piece of code is called, with optional name |
-| `ray().date(date, format)` | Display a formatted date, the timezone, and its timestamp | 
+| `ray().date(date, format)` | Display a formatted date, the timezone, and its timestamp |
 | `ray().die()` | Halt code execution - NodeJS only |
 | `ray().disable()` | Disable sending stuff to Ray |
 | `ray().disabled()` | Check if Ray is disabled |
@@ -255,10 +255,10 @@ See [using the package](docs/usage.md).
 | `ray().file(filename)` | Display contents of a file - NodeJS only |
 | `ray(…).hide()` | Display something in Ray and make it collapse immediately |
 | `ray().hideApp()` | Programmatically hide the Ray app window |
-| `ray().html(string)` | Send HTML to Ray | 
-| `ray().htmlMarkup(string)` | Display syntax-highlighted HTML code in Ray | 
+| `ray().html(string)` | Send HTML to Ray |
+| `ray().htmlMarkup(string)` | Display syntax-highlighted HTML code in Ray |
 | `ray()->if(true, callback)` | Conditionally show things based on a truthy value or callable, optionally calling the callback with a `ray` argument |
-| `ray().image(url)` | Display an image in Ray | 
+| `ray().image(url)` | Display an image in Ray |
 | `ray().interceptor()` | Access ConsoleInterceptor; call `.enable()` to show `console.log()` calls in Ray |
 | `ray().json([…])` | Send JSON to Ray |
 | `ray().label(string)` | Add a text label to the payload |
@@ -272,9 +272,12 @@ See [using the package](docs/usage.md).
 | `ray().once(arg1, …)` | Only send a payload once when in a loop |
 | `ray(…).pass(variable)` | Display something in Ray and return the value instead of a Ray instance |
 | `ray().pause()` | Pause code execution within your code; must be called using `await` |
+| `ray().projectName(name)` | Change the active project name |
 | `ray(…).remove()` | Remove an item from Ray   |
 | `ray(…).removeIf(true)` | Conditionally remove an item based on a truthy value or callable   |
 | `ray(…).removeWhen(true)` | Conditionally remove an item based on a truthy value or callable   |
+| `ray(…).screenColor(color)` | Changes the screen color to the specified color |
+| `ray(…).separator()` | Display a separator |
 | `ray().showApp()` | Programmatically show the Ray app window |
 | `ray(…).showIf(true)` | Conditionally show things based on a truthy value or callable  |
 | `ray(…).showWhen(true)` | Conditionally show things based on a truthy value or callable  |
@@ -283,7 +286,7 @@ See [using the package](docs/usage.md).
 | `ray().table(…)` | Display an array or an object formatted as a table; Objects and arrays are pretty-printed |
 | `ray().text(string)` | Display raw text in Ray while preserving whitespace formatting |
 | `ray().trace()` | Display a stack trace |
-| `ray().xml(string)` | Send XML to Ray | 
+| `ray().xml(string)` | Send XML to Ray |
 
 ## FAQ
 
