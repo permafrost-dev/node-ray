@@ -4,6 +4,15 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
+## 1.18.0 - 2022-01-14
+
+- update dependencies
+- add `separator()` method
+- add `projectName()` method
+- add `screenColor()` method
+- add `withCredentials = false` setting (#49)
+
+
 ## 1.17.0 - 2021-11-19
 
 - add `label()` method
