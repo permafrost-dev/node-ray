@@ -50,6 +50,7 @@ import { TextPayload } from './Payloads/TextPayload';
 import { RateLimiter } from './Support/RateLimiter';
 import { Limiters } from './Support/Limiters';
 import { LabelPayload } from './Payloads/LabelPayload';
+import { SeparatorPayload } from './Payloads/SeparatorPayload';
 
 export type BoolFunction = () => boolean;
 
@@ -511,6 +512,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     protected getMeasurePayload(name: string, event: any): any {
         return new MeasurePayload(name, event);
+    }
+
+    public separator(): this {
+        const payload = new SeparatorPayload();
+
+        return this.sendRequest(payload);
     }
 
     public xml(xml: string): this {
