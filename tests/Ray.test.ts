@@ -757,3 +757,9 @@ it('can chain multiple if calls with callbacks together', () => {
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
+
+it('sends a separator payload', () => {
+    myRay.separator();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});

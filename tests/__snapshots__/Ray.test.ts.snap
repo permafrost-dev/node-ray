@@ -1148,6 +1148,27 @@ Array [
 ]
 `;
 
+exports[`sends a separator payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "separator",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends a size payload 1`] = `
 Array [
   Object {
