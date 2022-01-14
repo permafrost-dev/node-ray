@@ -272,10 +272,12 @@ See [using the package](docs/usage.md).
 | `ray().once(arg1, …)` | Only send a payload once when in a loop |
 | `ray(…).pass(variable)` | Display something in Ray and return the value instead of a Ray instance |
 | `ray().pause()` | Pause code execution within your code; must be called using `await` |
+| `ray().projectName(name)` | Change the active project name |
 | `ray(…).remove()` | Remove an item from Ray   |
 | `ray(…).removeIf(true)` | Conditionally remove an item based on a truthy value or callable   |
 | `ray(…).removeWhen(true)` | Conditionally remove an item based on a truthy value or callable   |
-| `ray().separator()` | Display a separator |
+| `ray(…).screenColor(color)` | Changes the screen color to the specified color |
+| `ray(…).separator()` | Display a separator |
 | `ray().showApp()` | Programmatically show the Ray app window |
 | `ray(…).showIf(true)` | Conditionally show things based on a truthy value or callable  |
 | `ray(…).showWhen(true)` | Conditionally show things based on a truthy value or callable  |
