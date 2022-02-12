@@ -83,7 +83,7 @@
         "@types/uuid": "^8.3.4",
         "@typescript-eslint/eslint-plugin": "^4.33.0",
         "@typescript-eslint/parser": "^4.33.0",
-        "concurrently": "^6.5.1",
+        "concurrently": "^7.0.0",
         "dts-bundle-generator": "^5.9.0",
         "eslint": "^7.32.0",
         "husky": "^7.0.4",
@@ -99,7 +99,7 @@
     },
     "dependencies": {
         "@permafrost-dev/pretty-format": "^1.1.0",
-        "axios": "^0.24.0",
+        "axios": "^0.25.0",
         "dayjs": "^1.10.7",
         "find-up": "^5.0.0",
         "md5": "^2.3.0",
