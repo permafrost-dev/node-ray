@@ -20,3 +20,4 @@ updates:
     commit-message:
       prefix: "npm"
       include: "scope"
+    open-pull-requests-limit: 10
