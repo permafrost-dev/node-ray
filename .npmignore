@@ -12,6 +12,7 @@
 .eslintrc.js
 .prettierignore
 .prettierrc
+prettier.config.js
 jest.config.js
 package-lock.json
 SECURITY.md
