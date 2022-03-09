@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 import { RaySettings, Settings } from './Settings';
-import findUp from 'find-up';
+import { findUpSync } from 'find-up';
 
 const settingsFactoryCache: Record<string, string> = {};
 
@@ -46,7 +46,7 @@ export class SettingsFactory {
     }
 
     protected searchConfigFilesOnDisk(configDirectory: string | null = null): string {
-        const configFn = findUp.sync('ray.config.js', {
+        const configFn = findUpSync('ray.config.js', {
             type: 'file',
             cwd: configDirectory ?? process.cwd(),
         });
