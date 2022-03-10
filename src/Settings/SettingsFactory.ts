@@ -1,7 +1,8 @@
 import { existsSync } from 'fs';
 import { RaySettings, Settings } from './Settings';
-import { findUpSync } from 'find-up';
+import findUp from 'find-up';
 
+const findUpSync = findUp.sync;
 const settingsFactoryCache: Record<string, string> = {};
 
 export class SettingsFactory {

@@ -1,7 +1,8 @@
 /* eslint-disable no-empty */
 
-import randomInt from 'random-int';
+import randomInteger from 'random-int';
 import { v4 as uuidv4 } from 'uuid';
+
 export interface FormatHtmlOptions {
     encodeEntities: boolean;
 }
@@ -50,29 +51,29 @@ export const formatHtmlForDisplay = (html: string, options: FormatHtmlOptions = 
     }
 
     return encodeNewLinesToHtml(
-        html.replace(/^(\s+)/gm, m => `${spacesToHtmlSpaces(m)}`) // preserve indentation spaces
+        html.replace(/^(\s+)/gm, m => `${spacesToHtmlSpaces(m)}`), // preserve indentation spaces
     );
 };
 
 export const nonCryptoUuidV4 = (): string => {
     const v4options = {
         random: [
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
-            randomInt(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
+            randomInteger(1, 255),
         ],
     };
 
