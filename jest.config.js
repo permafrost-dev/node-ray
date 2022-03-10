@@ -10,9 +10,10 @@ module.exports = {
     transform: {
         '^.+\\.tsx?$': 'ts-jest',
     },
+
     extensionsToTreatAsEsm: ['.ts'],
     testRegex: '(/__test__/.*|/tests/.*|(\\.|/)(test|spec))\\.[tj]sx?$',
-    testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+    testPathIgnorePatterns: ['/node_modules/', '/dist/', '/tests/TestData/', '/tests/TestClasses/'],
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
     moduleNameMapper: pathsToModuleNameMapper(tsConfigPaths, { prefix: `${__dirname}/` }),
 
