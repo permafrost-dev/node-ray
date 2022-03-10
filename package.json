@@ -105,7 +105,7 @@
         "@permafrost-dev/pretty-format": "^1.1.0",
         "axios": "^0.26.0",
         "dayjs": "^1.10.8",
-        "find-up": "^5.0.0",
+        "find-up": "^6.3.0",
         "md5": "^2.3.0",
         "random-int": "^2.0",
         "stacktrace-js": "^2.0.2",
