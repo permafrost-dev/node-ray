@@ -5,7 +5,7 @@ on:
     branches:
       - main
   pull_request:
-  
+
 jobs:
   tests:
 
@@ -18,12 +18,12 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 1
-        
+
     - name: Set up NodeJS ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
 
@@ -47,7 +47,7 @@ jobs:
 #      run: npm run test
 
     - name: Run the tests with coverage
-      run: npm run test -- --coverage --coverageReporters json
+      run: node_modules/.bin/jest tests -- --coverage --coverageReporters json
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
