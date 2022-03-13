@@ -11,7 +11,7 @@
 </p>
 
 # node-ray
-## Debug your NodeJS code with Ray to fix problems faster
+## Debug NodeJS code with Ray to fix problems faster
 
 This package can be installed in any NodeJS, ES6+, or TypeScript application to send messages to the [Ray app](https://myray.app).
 
@@ -46,7 +46,7 @@ const ray = require('node-ray').ray;
 ```
 
 ### Browser bundle
-If you're bundling your scripts for use in a Browser environment _(i.e. using webpack)_, import the `/web` variant:
+When bundling scripts for use in a Browser environment _(i.e., using webpack)_, import the `/web` variant:
 
 ```js
 // es module import:
@@ -58,7 +58,7 @@ const { ray } = require('node-ray/web');
 
 ### Browser standalone
 
-If you'd like to use `node-ray` directly in a webpage, you may inject it via a CDN package. The standalone version is bundled with everything _except_ the axios library.
+`node-ray` may be directly used within a web page via a script tag. The standalone version includes everything _except_ the axios library.
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>
@@ -69,9 +69,9 @@ If you'd like to use `node-ray` directly in a webpage, you may inject it via a C
 </script>
 ```
 
-You may access the helper `ray()` method normally.
+The `ray()` helper method is now accessible in any context.
 
-### Using with Laravel Mix
+### Laravel Mix
 
 To use `node-ray` with Laravel Mix, include the following in `resources/js/bootstrap.js`:
 
@@ -81,11 +81,11 @@ const { ray } = require('node-ray/web');
 window.ray = ray;
 ```
 
-You may then compile as usual _(`npm run dev`)_. After including `js/app.js` in your view, you may access `ray()` normally within your scripts.
+Compile the bundle _(`npm run dev`)_as usual. After including `js/app.js` in your view, you may access `ray()` within your scripts.
 
 ## Usage
 
-The majority of the API from the [original PHP package](https://github.com/spatie/ray) is supported.  See the [api reference](https://spatie.be/docs/ray/v1/usage/reference) for more information.
+Most of the API from the [original PHP package](https://github.com/spatie/ray) is supported. See the [api reference](https://spatie.be/docs/ray/v1/usage/reference) for more information.
 
 ```js
 // es module import:
@@ -95,7 +95,7 @@ import { ray } from 'node-ray';
 const { ray } = require('node-ray');
 ```
 
-If you need to modify the host or port:
+To modify the host or port:
 
 ```js
 // make sure you import the Ray class (capital "R")
@@ -110,7 +110,6 @@ Ray.useDefaultSettings({ port: 3000 });
 ```
 
 ```js
-
 ray('a string');
 
 ray(['several', 'arguments'], 'can', {be: provided});
@@ -124,6 +123,7 @@ ray().image('https://placekitten.com/200/300');
 ray().clearAll();
 
 ray().disable(); // disable sending data to Ray at runtime
+
 ray().xml('<one>11</one>'); // disabled, data not sent to Ray
 ```
 
@@ -131,11 +131,11 @@ ray().xml('<one>11</one>'); // disabled, data not sent to Ray
 
 ### NodeJS config
 
-_Note: This section only applies if you are using `node-ray` in the NodeJS environment, NOT a browser environment._
+_Note: This section only applies when using `node-ray` in the NodeJS environment, NOT a browser environment._
 
-`node-ray` will search for `ray.config.js`.  You should place this file in your project's root directory, similiar to the way `ray.php` is placed in the root directory when using `spatie/ray`.
+`node-ray` will search for `ray.config.js`, which should be in the project's root directory.
 
-This is optional and the package will use the default settings if no configuration file is found.
+Using a configuration file is optional, and the package will use the default settings if no configuration file is specified.
 
 _Example:_
 
@@ -174,7 +174,7 @@ When running `node-ray` within a NodeJS environment, you may set the environment
 
 ### Browser config
 
-This section only applies if you are using `node-ray` in a browser environment _(webpack, etc.)_.
+This section only applies within a browser environment _(i.e., webpack)_.
 
 You can configure `node-ray` by importing the `Ray` class and calling the `useDefaultSettings()` method.
 
@@ -198,20 +198,20 @@ These settings persist across calls to `ray()`, so they only need to be defined 
 
 ### Enabled state
 
-If you provide a callback for the `enabled_callback` setting _(a function that returns a boolean)_, payloads will only be sent to ray if:
+If providing a callback for the `enabled_callback` setting _(a function that returns a boolean)_, payloads will only be sent to Ray if:
 
 - the `enable` setting is set to `true`.
 - the callback returns a value of `true`.
 
-If either or both conditions are `false`, then no payloads will be sent to Ray.
+If either condition is `false`, then no payloads will be sent to Ray.
 
-You may set the `enabled_callback` setting to null or leave it undefined to only consider the `enable` setting _(which is the default)_.
+Set the `enabled_callback` setting to `null` or leave it `undefined` to consider the `enable` setting _(the default)_.
 
 ### Sending/sent payload callbacks
 
-You can specify the `sending_payload_callback` or `sent_payload_callback` settings to trigger a callback before _(sending)_ or after _(sent)_ a payload is sent.
+Specify the `sending_payload_callback` or `sent_payload_callback` settings to trigger a callback before _(sending)_ or after _(sent)_ sending a payload.
 
-This is useful if you need to send additional payloads or modify sent all payloads _(i.e., changing the color)_.
+This feature is helpful when sending additional payloads or modifying all payloads _(i.e., changing the color)_.
 
 ## About
 
@@ -219,13 +219,13 @@ This package attempts to replicate the entire PHP API for Ray to provide a robus
 
 ## How is this different from `js-ray`?
 
-This is a more complete implementation written in typescript, and its primary use case is for NodeJS projects, although it can be used in Browser environments as well.
+This package is a more comprehensive implementation written in Typescript, and its primary use case is for NodeJS projects, although it also works within browser environments.
 
-The codebase was translated to Typescript directly from the original PHP source code of [`spatie/ray`](https://github.com/spatie/ray).
+The codebase was translated to Typescript directly from [`spatie/ray`](https://github.com/spatie/ray).
 
-As a result, `node-ray` supports the majority of features that exist in the original package; [`js-ray`](https://github.com/m1guelpf/ray-js) does not.
+As a result, `node-ray` implements most features in the original package; [`js-ray`](https://github.com/m1guelpf/ray-js) does not.
 
-We did draw some inspiration for portions of the code from [`js-ray`](https://github.com/m1guelpf/ray-js), however.
+However, we did draw some inspiration for portions of the code from [`js-ray`](https://github.com/m1guelpf/ray-js).
 
 ## Using the package
 
@@ -292,9 +292,9 @@ See [using the package](docs/usage.md).
 
 - Is `node-ray` only for NodeJS? _Not at all! It can be used in a web environment with javascript as well._
 
-- Can `node-ray` be used with React/Vue? _yes, just be sure to import `node-ray/web`_
+- Can `node-ray` be used with React/Vue? _yes, be sure to import `node-ray/web`_
 
-- Can `node-ray` be used if I'm using webpack? _yes, just be sure to import `node-ray/web`_
+- Can `node-ray` be used if I am using webpack? _yes, be sure to import `node-ray/web`_
 
 ## Development setup
 
@@ -315,7 +315,7 @@ See [using the package](docs/usage.md).
 
 ## Testing
 
-`node-ray` uses Jest for unit tests.  To run the test suite:
+`node-ray` uses Jest for unit tests. To run the test suite:
 
 `npm run test`
 
