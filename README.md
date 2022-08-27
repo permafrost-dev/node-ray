@@ -6,7 +6,10 @@
 </p>
 
 <p align="center">
-    <img src="https://shields.io/npm/v/node-ray" alt="npm version"> <img src="https://shields.io/github/license/permafrost-dev/node-ray" alt="license"> <img src="https://github.com/permafrost-dev/node-ray/workflows/Run%20Tests/badge.svg" alt="test status"> <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graph/badge.svg?token=YW2BTKSNEO"/><br>
+    <img src="https://shields.io/npm/v/node-ray" alt="npm version"> <img src="https://shields.io/github/license/permafrost-dev/node-ray" alt="license"> <img src="https://github.com/permafrost-dev/node-ray/workflows/Run%20Tests/badge.svg" alt="test status"><br>
+    <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graph/badge.svg?token=YW2BTKSNEO"/>
+    <img src="https://api.codeclimate.com/v1/badges/388b390f6a330a25de2f/maintainability" />
+    <br>
     <img src="https://img.shields.io/npm/dt/node-ray.svg" alt="npm downloads"> <img src="https://data.jsdelivr.com/v1/package/npm/node-ray/badge?style=rounded" alt="cdn downloads">
 </p>
 
