@@ -6,10 +6,10 @@ import md5 from 'md5';
 import PACKAGE_VERSION from './lib/version';
 import StackTrace from 'stacktrace-js';
 import { ClearAllPayload } from './Payloads/ClearAllPayload';
-import { ConfettiPayload } from './Payloads/ConfettiPayload';
 import { Client } from './Client';
 import { CallerPayload } from './Payloads/CallerPayload';
 import { ColorPayload } from './Payloads/ColorPayload';
+import { ConfettiPayload } from './Payloads/ConfettiPayload';
 import { ConsoleInterceptor } from './ConsoleInterceptor';
 import { Counters } from './Support/Counters';
 import { CreateLockPayload } from './Payloads/CreateLockPayload';
@@ -245,18 +245,18 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         return this.sendRequest(payload);
     }
 
-    public confetti(): this {
-        const payload = new ConfettiPayload();
-
-        return this.sendRequest(payload);
-    }
-
     public clearScreen(): this {
         return this.newScreen();
     }
 
     public color(color: string): this {
         const payload = new ColorPayload(color);
+
+        return this.sendRequest(payload);
+    }
+
+    public confetti(): this {
+        const payload = new ConfettiPayload();
 
         return this.sendRequest(payload);
     }
