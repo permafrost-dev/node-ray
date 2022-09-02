@@ -6,6 +6,7 @@ import md5 from 'md5';
 import PACKAGE_VERSION from './lib/version';
 import StackTrace from 'stacktrace-js';
 import { ClearAllPayload } from './Payloads/ClearAllPayload';
+import { ConfettiPayload } from './Payloads/ConfettiPayload';
 import { Client } from './Client';
 import { CallerPayload } from './Payloads/CallerPayload';
 import { ColorPayload } from './Payloads/ColorPayload';
@@ -240,6 +241,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public clearAll(): this {
         const payload = new ClearAllPayload();
+
+        return this.sendRequest(payload);
+    }
+
+    public confetti(): this {
+        const payload = new ConfettiPayload();
 
         return this.sendRequest(payload);
     }
@@ -681,7 +688,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         }
 
         const callerFrames = RemovesRayFrames.removeRayFrames(
-            st.slice(startFrameIndex).filter(frame => !frame.functionName?.includes('Ray.'))
+            st.slice(startFrameIndex).filter(frame => !frame.functionName?.includes('Ray.')),
         );
 
         return callerFrames.slice(0).shift();
@@ -749,7 +756,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 node_ray_package_version: PACKAGE_VERSION,
                 project_name: Ray.projectName,
             },
-            meta
+            meta,
         );
 
         payloads.forEach(payload => {

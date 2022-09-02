@@ -121,6 +121,12 @@ it('sends a clear all payload', () => {
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
+it('sends a confetti payload', () => {
+    myRay.confetti();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
 it('sends an html payload', () => {
     myRay.html('<em>test</em>');
 
