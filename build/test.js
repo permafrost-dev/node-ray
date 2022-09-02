@@ -37,6 +37,7 @@ async function main() {
 
         myclass.abc();
 
+        ray().confetti();
 }
 
 main();
