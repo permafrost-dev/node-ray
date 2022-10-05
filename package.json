@@ -103,7 +103,7 @@
     },
     "dependencies": {
         "@permafrost-dev/pretty-format": "^1.1.0",
-        "axios": "^0.27.0",
+        "axios": "^1.0.0",
         "dayjs": "^1.11.0",
         "find-up": "^5.0.0",
         "md5": "^2.3.0",
