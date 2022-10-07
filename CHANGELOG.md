@@ -4,7 +4,7 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
-## 1.19.1 - 2022-10-07
+## 1.19.2 - 2022-10-07
 
 - add `confetti` support (#102)
 - update dependencies
