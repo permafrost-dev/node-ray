@@ -676,6 +676,27 @@ Array [
 ]
 `;
 
+exports[`sends a confetti payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "confetti",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends a clear screen payload 1`] = `
 Array [
   Object {
@@ -823,6 +844,27 @@ Array [
           "line_number": 999,
         },
         "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a confetti payload 1`] = `
+Array [
+  Object {
+    "meta": Array [],
+    "payloads": Array [
+      Object {
+        "content": Object {},
+        "origin": Object {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "confetti",
       },
     ],
     "uuid": "fakeUuid",

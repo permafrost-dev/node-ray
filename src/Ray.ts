@@ -9,6 +9,7 @@ import { ClearAllPayload } from './Payloads/ClearAllPayload';
 import { Client } from './Client';
 import { CallerPayload } from './Payloads/CallerPayload';
 import { ColorPayload } from './Payloads/ColorPayload';
+import { ConfettiPayload } from './Payloads/ConfettiPayload';
 import { ConsoleInterceptor } from './ConsoleInterceptor';
 import { Counters } from './Support/Counters';
 import { CreateLockPayload } from './Payloads/CreateLockPayload';
@@ -250,6 +251,12 @@ export class Ray extends Mixin(RayColors, RaySizes) {
 
     public color(color: string): this {
         const payload = new ColorPayload(color);
+
+        return this.sendRequest(payload);
+    }
+
+    public confetti(): this {
+        const payload = new ConfettiPayload();
 
         return this.sendRequest(payload);
     }
@@ -681,7 +688,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
         }
 
         const callerFrames = RemovesRayFrames.removeRayFrames(
-            st.slice(startFrameIndex).filter(frame => !frame.functionName?.includes('Ray.'))
+            st.slice(startFrameIndex).filter(frame => !frame.functionName?.includes('Ray.')),
         );
 
         return callerFrames.slice(0).shift();
@@ -749,7 +756,7 @@ export class Ray extends Mixin(RayColors, RaySizes) {
                 node_ray_package_version: PACKAGE_VERSION,
                 project_name: Ray.projectName,
             },
-            meta
+            meta,
         );
 
         payloads.forEach(payload => {
