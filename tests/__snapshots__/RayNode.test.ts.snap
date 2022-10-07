@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`sends a missing file payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "File not found: '{missing.txt'",
           "label": "File",
         },
-        "origin": Object {
+        "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -25,16 +25,16 @@ Array [
 `;
 
 exports[`sends an existing file payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "one,two,three<br>",
           "label": "test.txt",
         },
-        "origin": Object {
+        "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -49,16 +49,16 @@ Array [
 `;
 
 exports[`sends an existing image file payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "content": "<img src=\\"file:///tests/TestData/test.txt\\" alt=\\"\\" />",
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<img src="file:///tests/TestData/test.txt" alt="" />",
           "label": "Image",
         },
-        "origin": Object {
+        "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -73,16 +73,16 @@ Array [
 `;
 
 exports[`sends an image url payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "content": "<img src=\\"http://localhost:35599/test.png\\" alt=\\"\\" />",
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<img src="http://localhost:35599/test.png" alt="" />",
           "label": "Image",
         },
-        "origin": Object {
+        "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",

@@ -1,28 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`allows defaults to the http url scheme 1`] = `
-Array [
+[
   "http://localhost:23517/",
 ]
 `;
 
 exports[`allows setting the url scheme to https 1`] = `
-Array [
+[
   "https://otherhost:3000/",
 ]
 `;
 
 exports[`can chain method calls when using if with a callback and a false condition 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "two",
           "label": "Text",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -33,14 +33,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "blue",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -51,15 +51,15 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "three",
           "label": "Text",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -74,16 +74,16 @@ Array [
 `;
 
 exports[`can chain multiple if calls with callbacks together 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "test",
           "label": "Text",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -94,14 +94,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "green",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -112,14 +112,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "size": "lg",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -130,12 +130,12 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -150,17 +150,17 @@ Array [
 `;
 
 exports[`can handle multiple consecutive calls to limit 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "values": Array [
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
             "limited loop A iteration 0",
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -171,16 +171,16 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "values": Array [
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
             "limited loop B iteration 0",
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -191,16 +191,16 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "values": Array [
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
             "limited loop A iteration 1",
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -211,16 +211,16 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "values": Array [
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
             "limited loop B iteration 1",
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -235,16 +235,16 @@ Array [
 `;
 
 exports[`can send additional payloads from the sent payload callback 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "<strong>test</strong>",
           "label": "HTML",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -255,14 +255,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "purple",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -277,17 +277,17 @@ Array [
 `;
 
 exports[`can send payloads from the sending payload callback 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "sent before the main payload",
           "label": "HTML",
         },
-        "origin": Object {
-          "file": "/test/file.js",
+        "origin": {
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -297,15 +297,15 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "<strong>test</strong>",
           "label": "HTML",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -319,17 +319,17 @@ Array [
 ]
 `;
 
-exports[`can transform a request into JSON 1`] = `"{\\"uuid\\":\\"1-2-3-4\\",\\"payloads\\":[],\\"meta\\":[{\\"test_version\\":1}]}"`;
+exports[`can transform a request into JSON 1`] = `"{"uuid":"1-2-3-4","payloads":[],"meta":[{"test_version":1}]}"`;
 
 exports[`conditionally shows a payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
-          "file": "/test/file.js",
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -339,12 +339,12 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -359,16 +359,16 @@ Array [
 `;
 
 exports[`doesn't blow up when calling html without a value 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "",
           "label": "HTML",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -379,15 +379,15 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "",
           "label": "HTML",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -402,12 +402,12 @@ Array [
 `;
 
 exports[`measures the execution time of a closure 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "is_new_timer": false,
           "max_memory_usage_during_total_time": 0,
           "max_memory_usage_since_last_call": 0,
@@ -415,7 +415,7 @@ Array [
           "time_since_last_call": 0,
           "total_time": 20,
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -430,12 +430,12 @@ Array [
 `;
 
 exports[`measures the execution time of named stopwatches 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "is_new_timer": true,
           "max_memory_usage_during_total_time": 0,
           "max_memory_usage_since_last_call": 0,
@@ -443,7 +443,7 @@ Array [
           "time_since_last_call": 0,
           "total_time": 0,
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -454,11 +454,11 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "is_new_timer": false,
           "max_memory_usage_during_total_time": 0,
           "max_memory_usage_since_last_call": 0,
@@ -466,7 +466,7 @@ Array [
           "time_since_last_call": 0,
           "total_time": 20,
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -481,12 +481,12 @@ Array [
 `;
 
 exports[`measures the execution time of repeated and unnamed calls to measure 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "is_new_timer": true,
           "max_memory_usage_during_total_time": 0,
           "max_memory_usage_since_last_call": 0,
@@ -494,7 +494,7 @@ Array [
           "time_since_last_call": 0,
           "total_time": 0,
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -505,11 +505,11 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "is_new_timer": false,
           "max_memory_usage_during_total_time": 0,
           "max_memory_usage_since_last_call": 0,
@@ -517,7 +517,7 @@ Array [
           "time_since_last_call": 0,
           "total_time": 20,
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -528,11 +528,11 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "is_new_timer": false,
           "max_memory_usage_during_total_time": 0,
           "max_memory_usage_since_last_call": 0,
@@ -540,7 +540,7 @@ Array [
           "time_since_last_call": 20,
           "total_time": 40,
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -555,15 +555,15 @@ Array [
 `;
 
 exports[`pauses code execution 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "name": "xxxxx",
         },
-        "origin": Object {
+        "origin": {
           "file": "/node_modules/tslib/tslib.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -578,16 +578,16 @@ Array [
 `;
 
 exports[`sends a boolean payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": true,
           "label": "Boolean",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -602,13 +602,13 @@ Array [
 `;
 
 exports[`sends a caller payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "frame": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "frame": {
             "class": "Ray",
             "file_name": "Ray.ts",
             "line_number": 999,
@@ -616,7 +616,7 @@ Array [
             "vendor_frame": false,
           },
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -631,17 +631,17 @@ Array [
 `;
 
 exports[`sends a classname payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "values": Array [
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
             "Ray",
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -656,13 +656,13 @@ Array [
 `;
 
 exports[`sends a clear all payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -676,37 +676,16 @@ Array [
 ]
 `;
 
-exports[`sends a confetti payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "confetti",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
 exports[`sends a clear screen payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "name": "",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -721,15 +700,15 @@ Array [
 `;
 
 exports[`sends a color payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "red",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -740,14 +719,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "green",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -758,14 +737,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "orange",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -776,14 +755,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "red",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -794,14 +773,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "purple",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -812,14 +791,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "blue",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -830,14 +809,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "gray",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -852,13 +831,13 @@ Array [
 `;
 
 exports[`sends a confetti payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -873,16 +852,16 @@ Array [
 `;
 
 exports[`sends a custom payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "test 123",
           "label": "test",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -893,15 +872,15 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "test 4",
           "label": "",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -912,15 +891,15 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "test 5",
           "label": "",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -931,15 +910,15 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "test 5",
           "label": "",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -954,13 +933,13 @@ Array [
 `;
 
 exports[`sends a hide payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -975,18 +954,18 @@ Array [
 `;
 
 exports[`sends a json string payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": {
             "A": 123,
           },
           "label": "JSON",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1001,15 +980,15 @@ Array [
 `;
 
 exports[`sends a label payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "label": "test-123",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1024,15 +1003,15 @@ Array [
 `;
 
 exports[`sends a new screen payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "name": "test 1",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1047,15 +1026,15 @@ Array [
 `;
 
 exports[`sends a notify payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "value": "hello world",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1070,16 +1049,16 @@ Array [
 `;
 
 exports[`sends a null payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": null,
           "label": "Null",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1094,17 +1073,17 @@ Array [
 `;
 
 exports[`sends a raw payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "values": Array [
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
             "one",
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1112,13 +1091,13 @@ Array [
         },
         "type": "log",
       },
-      Object {
-        "content": Object {
-          "values": Array [
+      {
+        "content": {
+          "values": [
             "two",
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1133,13 +1112,13 @@ Array [
 `;
 
 exports[`sends a remove payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1154,14 +1133,14 @@ Array [
 `;
 
 exports[`sends a remove payload conditionally 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
-          "file": "/test/file.js",
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1171,12 +1150,12 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1191,15 +1170,15 @@ Array [
 `;
 
 exports[`sends a screen color payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "red",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1210,14 +1189,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "green",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1232,13 +1211,13 @@ Array [
 `;
 
 exports[`sends a separator payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1253,15 +1232,15 @@ Array [
 `;
 
 exports[`sends a size payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "size": "lg",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1272,14 +1251,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "size": "sm",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1290,14 +1269,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "size": "lg",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1312,17 +1291,17 @@ Array [
 `;
 
 exports[`sends a string payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "values": Array [
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
             "test",
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1337,23 +1316,23 @@ Array [
 `;
 
 exports[`sends a table payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "label": "table",
-          "values": Array [
+          "values": [
             1,
             2,
-            "<code style=\\"font-size: 0.8rem!important;\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Object</span>&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-600 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"A\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>1<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span></code></code>",
-            "<code style=\\"font-size: 0.8rem!important;\\">Ray&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-600 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"canSendPayload\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">true</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"inCallback\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">false</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"limitOrigin\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">null</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"settings\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>Settings&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"_host\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"localhost\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"_port\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>23510<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"_scheme\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"http\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"always_send_raw_values\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">false</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"enable\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">true</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"enabled_callback\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">null</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"intercept_console_log\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">false</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"local_path\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">null</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"not_defined\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">false</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"originalSettings\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Object</span>&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"always_send_raw_values\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">false</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"enable\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">true</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"host\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"localhost\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"local_path\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">null</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"not_defined\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">false</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"port\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>23510<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"remote_path\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">null</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"remote_path\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">null</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"sending_payload_callback\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">null</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"sent_payload_callback\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-indigo-600 bold\\">null</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"uuid\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"fakeUuid\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span></code></code>",
+            "<code style="font-size: 0.8rem!important;"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600 "><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>1<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span></code></code>",
+            "<code style="font-size: 0.8rem!important;">Ray&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600 "><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"canSendPayload"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">true</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"inCallback"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"limitOrigin"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"settings"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>Settings&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_host"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"localhost"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_port"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>23510<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_scheme"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"http"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"always_send_raw_values"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enable"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">true</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enabled_callback"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"intercept_console_log"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"local_path"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"not_defined"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"originalSettings"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Object</span>&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"always_send_raw_values"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enable"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">true</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"host"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"localhost"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"local_path"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"not_defined"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"port"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>23510<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"remote_path"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"remote_path"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"sending_payload_callback"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"sent_payload_callback"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"uuid"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"fakeUuid"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span></code></code>",
             true,
             null,
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1364,19 +1343,19 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "label": "Table",
-          "values": Array [
-            "<code style=\\"font-size: 0.8rem!important;\\"><code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-500 p-0\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Array</span>&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;3<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;4<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">]</span></code></code>",
-            "<code style=\\"font-size: 0.8rem!important;\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Object</span>&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-600 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"B\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>2<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span></code></code>",
+          "values": [
+            "<code style="font-size: 0.8rem!important;"><code style="font-size: 0.8rem!important;" class="text-gray-500 p-0"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;3<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;4<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">]</span></code></code>",
+            "<code style="font-size: 0.8rem!important;"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600 "><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"B"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>2<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span></code></code>",
             false,
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1387,18 +1366,18 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "label": "Table",
-          "values": Object {
+          "values": {
             "counter": 123,
             "message": "hello world",
           },
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1409,18 +1388,18 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "label": "Test",
-          "values": Object {
+          "values": {
             "name": "test",
             "value": 987,
           },
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1435,16 +1414,16 @@ Array [
 `;
 
 exports[`sends a text payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "test 1",
           "label": "Text",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1455,15 +1434,15 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "&lt;em&gt;test 2&lt;/em&gt;",
           "label": "Text",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1478,16 +1457,16 @@ Array [
 `;
 
 exports[`sends an error payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "content": "<span class=\\"text-red-400 bold\\">Error</span>: <br><span class=\\"pl-5 text-gray-500\\">test error</span>",
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<span class="text-red-400 bold">Error</span>: <br><span class="pl-5 text-gray-500">test error</span>",
           "label": "Error",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1498,14 +1477,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "red",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1520,18 +1499,18 @@ Array [
 `;
 
 exports[`sends an event payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "class_based_event": true,
           "event": undefined,
           "name": "testevent",
-          "payload": "<code style=\\"font-size: 0.8rem!important;\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Array</span>&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">[</span><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">]</span></code>",
+          "payload": "<code style="font-size: 0.8rem!important;"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">[</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">]</span></code>",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1546,27 +1525,51 @@ Array [
 `;
 
 exports[`sends an exception payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "class": "Error",
-          "frames": Array [
-            Object {
+          "frames": [
+            {
               "class": "Object",
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
               "method": "<anonymous>",
-              "snippet": Array [],
+              "snippet": [],
               "vendor_frame": false,
+            },
+            {
+              "class": "unknown",
+              "file_name": "/node_modules/jest-runner/build/runTest.js",
+              "line_number": 999,
+              "method": "runTestInternal",
+              "snippet": [],
+              "vendor_frame": true,
+            },
+            {
+              "class": "unknown",
+              "file_name": "/node_modules/jest-runner/build/runTest.js",
+              "line_number": 999,
+              "method": "runTest",
+              "snippet": [],
+              "vendor_frame": true,
+            },
+            {
+              "class": "Object",
+              "file_name": "/node_modules/jest-runner/build/testWorker.js",
+              "line_number": 999,
+              "method": "worker",
+              "snippet": [],
+              "vendor_frame": true,
             },
           ],
           "message": "test",
-          "meta": Object {},
+          "meta": {},
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1577,14 +1580,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "red",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1599,31 +1602,55 @@ Array [
 `;
 
 exports[`sends an exception payload with metadata 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "class": "Error",
-          "frames": Array [
-            Object {
+          "frames": [
+            {
               "class": "Object",
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
               "method": "<anonymous>",
-              "snippet": Array [],
+              "snippet": [],
               "vendor_frame": false,
+            },
+            {
+              "class": "unknown",
+              "file_name": "/node_modules/jest-runner/build/runTest.js",
+              "line_number": 999,
+              "method": "runTestInternal",
+              "snippet": [],
+              "vendor_frame": true,
+            },
+            {
+              "class": "unknown",
+              "file_name": "/node_modules/jest-runner/build/runTest.js",
+              "line_number": 999,
+              "method": "runTest",
+              "snippet": [],
+              "vendor_frame": true,
+            },
+            {
+              "class": "Object",
+              "file_name": "/node_modules/jest-runner/build/testWorker.js",
+              "line_number": 999,
+              "method": "worker",
+              "snippet": [],
+              "vendor_frame": true,
             },
           ],
           "message": "test",
-          "meta": Object {
+          "meta": {
             "one": 1,
             "ten": 10,
             "twentyThree": 23,
           },
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1634,14 +1661,14 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "color": "red",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1656,16 +1683,16 @@ Array [
 `;
 
 exports[`sends an html payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "<em>test</em>",
           "label": "HTML",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1680,16 +1707,16 @@ Array [
 `;
 
 exports[`sends an html payload when calling ray() with an object argument 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "content": "<code style=\\"font-size: 0.8rem!important;\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Object</span>&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-600 \\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"A\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span>123<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style=\\"font-size: 0.8rem!important;\\" class=\\"bold text-green-600 p-0\\">\\"B\\"</code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">:&nbsp;</span><code style=\\"font-size: 0.8rem!important;\\" class=\\"text-gray-500 p-0\\"><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-yellow-600 bold\\">Array</span>&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">]</span></code><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">,</span><br><span style=\\"font-size: 0.8rem!important;\\" class=\\"text-orange-400 bold\\">}</span></code></code>",
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<code style="font-size: 0.8rem!important;"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600 "><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>123<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"B"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="text-gray-500 p-0"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">]</span></code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span></code></code>",
           "label": "HTML",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1704,16 +1731,16 @@ Array [
 `;
 
 exports[`sends an image payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "content": "<img src=\\"http://localhost/test.png\\" alt=\\"\\" />",
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<img src="http://localhost/test.png" alt="" />",
           "label": "Image",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1728,15 +1755,15 @@ Array [
 `;
 
 exports[`sends an object as json payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "value": "\\"{\\\\\\"a\\\\\\":1,\\\\\\"b\\\\\\":2}\\"",
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "value": ""{\\"a\\":1,\\"b\\":2}"",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1751,16 +1778,16 @@ Array [
 `;
 
 exports[`sends an xml payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
           "content": "&lt;root&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;abc&gt;1&lt;/abc&gt;<br>&lt;/root&gt;",
           "label": "XML",
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1775,13 +1802,13 @@ Array [
 `;
 
 exports[`sends show and hide app payloads 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1792,12 +1819,12 @@ Array [
     ],
     "uuid": "fakeUuid",
   },
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {},
-        "origin": Object {
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1812,17 +1839,17 @@ Array [
 `;
 
 exports[`sends the ray ban payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "values": Array [
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
             "🕶",
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
@@ -1837,17 +1864,17 @@ Array [
 `;
 
 exports[`sends the ray charles payload 1`] = `
-Array [
-  Object {
-    "meta": Array [],
-    "payloads": Array [
-      Object {
-        "content": Object {
-          "values": Array [
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
             "🎶 🎹 🎷 🕺",
           ],
         },
-        "origin": Object {
+        "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
