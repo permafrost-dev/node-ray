@@ -87,7 +87,7 @@
         "@typescript-eslint/eslint-plugin": "^5.39.0",
         "@typescript-eslint/parser": "^5.39.0",
         "concurrently": "^7.4.0",
-        "dts-bundle-generator": "^6.13.0",
+        "dts-bundle-generator": "^7.0.0",
         "eslint": "^8.24.0",
         "husky": "^8.0.1",
         "is-ci": "^3.0.1",
