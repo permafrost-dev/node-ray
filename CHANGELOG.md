@@ -4,7 +4,7 @@ All notable changes to `permafrost-dev/node-ray` will be documented in this file
 
 ---
 
-## 1.19.3 - 2022-12-01
+## 1.19.4 - 2022-12-01
 
 - update dependencies and builds
 
