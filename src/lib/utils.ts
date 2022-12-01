@@ -1,7 +1,19 @@
 /* eslint-disable no-empty */
 
-import randomInteger from 'random-int';
 import { v4 as uuidv4 } from 'uuid';
+
+export function randomInteger(minimum, maximum) {
+    if (maximum === undefined) {
+        maximum = minimum;
+        minimum = 0;
+    }
+
+    if (typeof minimum !== 'number' || typeof maximum !== 'number') {
+        throw new TypeError('Expected all arguments to be numbers');
+    }
+
+    return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
+}
 
 export interface FormatHtmlOptions {
     encodeEntities: boolean;
