@@ -1,6 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
 import nodePolyfills from 'rollup-plugin-node-polyfills';
@@ -39,7 +39,7 @@ export default {
         replace({
             values: {
                 __buildDate__: () => new Date().toISOString(),
-                __buildVersion__: () => require('./package.json').version,
+                //__buildVersion__: () => require('./package.json').version,
             },
             preventAssignment: true,
         }),
