@@ -111,7 +111,7 @@
         "stopwatch-node": "^1.1.0",
         "tslib": "^2.4.1",
         "uuid": "^9.0.0",
-        "xml-formatter": "^2.6.1"
+        "xml-formatter": "^3.0.1"
     },
     "engines": {
         "node": ">=14.0.0"
