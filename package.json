@@ -102,7 +102,7 @@
         "typescript": "^4.9"
     },
     "dependencies": {
-        "@permafrost-dev/pretty-format": "^1.1.0",
+        "@permafrost-dev/pretty-format": "^1.1.1",
         "axios": "^1.2.0",
         "dayjs": "^1.11.6",
         "find-up": "^5.0",
