@@ -421,9 +421,6 @@ it('counts the number of times an unnamed piece of code is called', () => {
         }
         counter++;
     }
-
-    //expect(client.sentPayloads()[3].payloads[0].content.content).toBe('Called 2 times.'); // myFunc1
-    //expect(client.sentPayloads()[5].payloads[0].content.content).toBe('Called 4 times.'); // myFunc2
 });
 
 it('returns zero for an unknown named counter value', () => {
