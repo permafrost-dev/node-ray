@@ -1,4 +1,4 @@
-import { format as prettyFormat } from '@permafrost-dev/pretty-format';
+import prettyFormat from '@permafrost-dev/pretty-format';
 
 export interface ArgumentConverterResult {
     value: any;
@@ -38,7 +38,7 @@ export class ArgumentConverter {
             // highlight array contents
             .replace(
                 /Array(&nbsp;|\s)+(\[[^\]]+\])/g,
-                '<code style="font-size: 0.8rem!important;" class="text-gray-500 p-0">Array$1$2</code>'
+                '<code style="font-size: 0.8rem!important;" class="text-gray-500 p-0">Array$1$2</code>',
             )
             // highlight types like [Function Abc]
             .replace(/^(\[[^\]]+\])$/g, '<code style="font-size: 0.8rem!important;"class="text-gray-500 p-0">$1</code>')
@@ -47,7 +47,7 @@ export class ArgumentConverter {
             // highlight keywords
             .replace(
                 /(Array|Object|Function|Circular|Symbol|WeakMap|Map)/g,
-                '<span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">$1</span>'
+                '<span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">$1</span>',
             )
             // highlight reserved words
             .replace(/(true|false|null)/g, '<span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">$1</span>')
