@@ -107,7 +107,7 @@
         "dayjs": "^1.11.6",
         "find-up": "^5.0",
         "md5": "^2.3.0",
-        "stacktrace-js": "^1.0",
+        "stacktrace-js": "^2.0",
         "stopwatch-node": "^1.1.0",
         "tslib": "^2.4.1",
         "uuid": "^9.0.0",
