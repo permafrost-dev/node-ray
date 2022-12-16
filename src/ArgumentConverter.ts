@@ -1,4 +1,6 @@
-import prettyFormat from '@permafrost-dev/pretty-format';
+const { format } = require('@permafrost-dev/pretty-format');
+
+const prettyFormat = format;
 
 export interface ArgumentConverterResult {
     value: any;
