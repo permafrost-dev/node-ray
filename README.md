@@ -11,6 +11,7 @@
     <img src="https://api.codeclimate.com/v1/badges/388b390f6a330a25de2f/maintainability" />
     <br>
     <img src="https://img.shields.io/npm/dt/node-ray.svg" alt="npm downloads"> <img src="https://data.jsdelivr.com/v1/package/npm/node-ray/badge?style=rounded" alt="cdn downloads">
+    <!--img src="https://bestpractices.coreinfrastructure.org/projects/6837/badge" alt="best practices"-->
 </p>
 
 # node-ray
