@@ -6,12 +6,19 @@
 </p>
 
 <p align="center">
-    <img src="https://shields.io/npm/v/node-ray" alt="npm version"> <img src="https://shields.io/github/license/permafrost-dev/node-ray" alt="license"> <img src="https://github.com/permafrost-dev/node-ray/workflows/Run%20Tests/badge.svg" alt="test status"><br>
-    <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graph/badge.svg?token=YW2BTKSNEO"/>
-    <img src="https://api.codeclimate.com/v1/badges/388b390f6a330a25de2f/maintainability" />
+    <img src="https://img.shields.io/github/actions/workflow/status/permafrost-dev/node-ray/run-tests.yml?branch=main&label=tests&logo=github&style=flat-square" alt="test status">
+    <img src="https://shields.io/npm/v/node-ray?style=flat-square" alt="npm version">
+    <img src="https://shields.io/github/license/permafrost-dev/node-ray?style=flat-square" alt="license">
     <br>
-    <img src="https://img.shields.io/npm/dt/node-ray.svg" alt="npm downloads"> <img src="https://data.jsdelivr.com/v1/package/npm/node-ray/badge?style=rounded" alt="cdn downloads">
-    <!--img src="https://bestpractices.coreinfrastructure.org/projects/6837/badge" alt="best practices"-->
+    <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graph/badge.svg?token=YW2BTKSNEO"/>
+    <img alt="tech debt" src="https://img.shields.io/codeclimate/tech-debt/permafrost-dev/node-ray?label=tech%20debt&logo=codeclimate&style=flat-square">
+    <img src="https://img.shields.io/codeclimate/maintainability/permafrost-dev/node-ray?logo=codeclimate&style=flat-square" /> 
+    <br>
+    <br>
+    <img src="https://bestpractices.coreinfrastructure.org/projects/6837/badge" alt="best practuices">
+    <br>
+    <img src="https://img.shields.io/npm/dt/node-ray.svg?style=flat-square" alt="npm downloads">
+    <img src="https://data.jsdelivr.com/v1/package/npm/node-ray/badge?style=flat-square" alt="cdn downloads">
 </p>
 
 # node-ray
