@@ -10,7 +10,7 @@
     <img src="https://shields.io/npm/v/node-ray?style=flat-square" alt="npm version">
     <img src="https://shields.io/github/license/permafrost-dev/node-ray?style=flat-square" alt="license">
     <br>
-    <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graph/badge.svg?token=YW2BTKSNEO"/>
+    <img alt="Codecov" src="https://img.shields.io/codecov/c/github/permafrost-dev/node-ray?color=%234c1&label=coverage&logo=codecov&logoColor=%23ef6f6f&style=flat-square&token=YW2BTKSNEO" alt="codecov">
     <img alt="tech debt" src="https://img.shields.io/codeclimate/tech-debt/permafrost-dev/node-ray?label=tech%20debt&logo=codeclimate&style=flat-square">
     <img src="https://img.shields.io/codeclimate/maintainability/permafrost-dev/node-ray?logo=codeclimate&style=flat-square" /> 
     <br>
@@ -18,8 +18,9 @@
     <img src="https://bestpractices.coreinfrastructure.org/projects/6837/badge" alt="best practuices">
     <img src="https://badgen.net/github/dependabot/permafrost-dev/node-ray?style=flat-square" alt="dependabot status">
     <br>
-    <img src="https://img.shields.io/npm/dt/node-ray.svg?style=flat-square" alt="npm downloads">
-    <img src="https://data.jsdelivr.com/v1/package/npm/node-ray/badge?style=flat-square" alt="cdn downloads">
+    <img src="https://img.shields.io/npm/dt/node-ray.svg?style=flat-square&logo=npm&logoColor=white" alt="npm downloads">
+    <img alt="jsDelivr hits (npm)" src="https://img.shields.io/jsdelivr/npm/hm/node-ray?logo=jsdelivr&logoColor=%23fff&style=flat-square">
+    <!--img src="https://data.jsdelivr.com/v1/package/npm/node-ray/badge?style=flat-square" alt="cdn downloads"-->
 </p>
 
 # node-ray
