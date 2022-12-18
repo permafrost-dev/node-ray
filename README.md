@@ -16,6 +16,7 @@
     <br>
     <br>
     <img src="https://bestpractices.coreinfrastructure.org/projects/6837/badge" alt="best practuices">
+    <img src="https://badgen.net/github/dependabot/permafrost-dev/node-ray?style=flat-square" alt="dependabot status">
     <br>
     <img src="https://img.shields.io/npm/dt/node-ray.svg?style=flat-square" alt="npm downloads">
     <img src="https://data.jsdelivr.com/v1/package/npm/node-ray/badge?style=flat-square" alt="cdn downloads">
