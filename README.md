@@ -46,6 +46,10 @@ yarn add node-ray
 
 `node-ray` offers several variants to allow you to use it in either NodeJS or Browser environments.
 
+>If you're using NextJs/React, take a look at [permafrost-dev/react-ray](https://github.com/permafrost-dev/react-ray).
+>
+>If you're using Vue, check out [permafrost-dev/vue-ray](https://github.com/permafrost-dev/vue-ray).
+
 ### NodeJS
 
 When using in a NodeJS environment (the default), import the package as you would normally:
