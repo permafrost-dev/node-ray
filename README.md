@@ -24,9 +24,9 @@
 </p>
 
 # node-ray
-## Debug NodeJS code with Ray to fix problems faster
+### The official javascript, TypeScript, and NodeJS integration for Ray. 
 
-This package can be installed in any NodeJS, ES6+, or TypeScript application to send messages to the [Ray app](https://myray.app).
+The package can be installed in any NodeJS, ES6+, or TypeScript application to send messages to the [Ray app](https://myray.app).
 
 ## Installation
 
