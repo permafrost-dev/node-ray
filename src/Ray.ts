@@ -53,10 +53,11 @@ import { Limiters } from './Support/Limiters';
 import { LabelPayload } from './Payloads/LabelPayload';
 import { SeparatorPayload } from './Payloads/SeparatorPayload';
 import { ScreenColorPayload } from './Payloads/ScreenColorPayload';
+import { RayScreenColors } from '@/Concerns/RayScreenColors';
 
 export type BoolFunction = () => boolean;
 
-export class Ray extends Mixin(RayColors, RaySizes) {
+export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     protected static lockCounter = 0;
 
     protected inCallback = false;
