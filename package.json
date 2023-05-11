@@ -60,6 +60,7 @@
         "build:dev": "concurrently npm:build:node npm:build:web",
         "preversion": "npm run test",
         "postversion": "npm run build:all && npm run build:dts",
+        "version": "auto-changelog -p -o CHANGELOG.md --hide-credit --release-summary --hide-empty-releases --sort-commits date-desc && git add CHANGELOG.md",
         "prepare": "is-ci || husky install"
     },
     "lint-staged": {
@@ -87,6 +88,7 @@
         "@types/uuid": "^9.0.1",
         "@typescript-eslint/eslint-plugin": "^5.59.2",
         "@typescript-eslint/parser": "^5.59.2",
+        "auto-changelog": "^2.4.0",
         "concurrently": "^8.0.1",
         "dts-bundle-generator": "^8.0.1",
         "eslint": "^8.40.0",
