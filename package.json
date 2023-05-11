@@ -30,11 +30,13 @@
         },
         "./web": {
             "import": "./dist/web.esm.mjs",
-            "require": "./dist/web.cjs.js"
+            "require": "./dist/web.cjs.js",
+            "types": "./dist/web.d.ts"
         },
         "./node": {
             "import": "./dist/index.esm.mjs",
-            "require": "./dist/index.cjs.js"
+            "require": "./dist/index.cjs.js",
+            "types": "./dist/index.d.ts"
         },
         "./standalone": {
             "require": "./dist/standalone.js"
