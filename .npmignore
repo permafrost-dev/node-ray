@@ -21,3 +21,4 @@ tsconfig.json
 _*.txt
 *.ignore
 rollup.*.js
+.eslintignore
