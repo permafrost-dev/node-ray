@@ -83,7 +83,17 @@ const { ray } = require('node-ray/web');
 </script>
 ```
 
-The `ray()` helper method is now accessible in any context.
+As of version `1.19.7`, you may use the `Ray.standalone()` method instead of manually assigning properties to the `window` global object.  `Ray.standalone()` is simply a wrapper around the above method to provide a better developer experience as well as more succinct and readable code:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
+<script>
+    Ray.standalone(window);
+</script>
+```
+
+Regardless of the method used for initialization, the `ray()` helper function and the `Ray` class will now available in all scopes via the global window object.
 
 ### Laravel Mix
 
