@@ -58,11 +58,11 @@ import { RayScreenColors } from '@/Concerns/RayScreenColors';
 import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
 
 const md5 = require('md5');
-require('stacktrace-js');
+//require('stacktrace-js');
 
-const getSync = StackTrace.getSync;
+import getSync = StackTrace.getSync;
 
-const stNamespace = StackTrace; // eslint-disable-line @typescript-eslint/no-unused-vars
+//const stNamespace = StackTrace; // eslint-disable-line @typescript-eslint/no-unused-vars
 
 export type BoolFunction = () => boolean;
 
