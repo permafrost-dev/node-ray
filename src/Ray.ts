@@ -54,6 +54,7 @@ import { LabelPayload } from './Payloads/LabelPayload';
 import { SeparatorPayload } from './Payloads/SeparatorPayload';
 import { ScreenColorPayload } from './Payloads/ScreenColorPayload';
 import { RayScreenColors } from '@/Concerns/RayScreenColors';
+import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
 
 export type BoolFunction = () => boolean;
 
@@ -356,6 +357,9 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this;
     }
 
+    /**
+     * @deprecated Use `if` instead of this method
+     */
     public showWhen(booleanOrCallable: boolean | BoolFunction): this {
         if (typeof booleanOrCallable === 'function') {
             booleanOrCallable = (booleanOrCallable as BoolFunction)();
@@ -368,10 +372,16 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this;
     }
 
+    /**
+     * @deprecated Use `if` instead of this method
+     */
     public showIf(booleanOrCallable: boolean | BoolFunction): this {
         return this.showWhen(booleanOrCallable);
     }
 
+    /**
+     * @deprecated Use `if` instead of this method
+     */
     public removeWhen(booleanOrCallable: boolean | BoolFunction): this {
         if (typeof booleanOrCallable === 'function') {
             booleanOrCallable = (booleanOrCallable as BoolFunction)();
@@ -384,6 +394,9 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this;
     }
 
+    /**
+     * @deprecated Use `if` instead of this method
+     */
     public removeIf(booleanOrCallable: boolean | BoolFunction): this {
         return this.removeWhen(booleanOrCallable);
     }
@@ -619,6 +632,12 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public htmlMarkup(html: string, options: HtmlMarkupOptions = {}): this {
         const payload = new HtmlMarkupPayload(html, options);
+
+        return this.sendRequest(payload);
+    }
+
+    public nodeinfo(...properties: string[]): this {
+        const payload = new NodeInfoPayload(...properties);
 
         return this.sendRequest(payload);
     }
