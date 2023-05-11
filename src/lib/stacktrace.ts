@@ -65,7 +65,7 @@ export const StackTrace = {
 
     fromError: function StackTrace$$fromError(error, opts) {
         opts = _merge(_options, opts);
-        const gps = new StackTraceGPS(opts);
+        const gps = new StackTraceGPS.default(opts);
         return new Promise(
             function (resolve) {
                 const stackframes = _filtered(ErrorStackParser.parse(error), opts.filter);
