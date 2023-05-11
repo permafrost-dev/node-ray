@@ -1,8 +1,5 @@
 <p align="center">
-    <img src="https://static.permafrost.dev/images/node-ray/node-ray-logo.png" alt="node-ray" height="200" style="block">
-    <br><br>
-    <code style="font-size:3.0rem;"><strong>node-ray</strong></code>
-    <br><br>
+    <img src="https://repository-images.githubusercontent.com/336133471/01ea1b91-c6bb-4fae-a9a6-94e3fb661f85" alt="node-ray" height="450" style="block">
 </p>
 
 <p align="center">
