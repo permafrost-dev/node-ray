@@ -60,7 +60,7 @@ import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
 const md5 = require('md5');
 require('stacktrace-js');
 
-const getSync = globalThis.StackTrace.getSync;
+const getSync = StackTrace.getSync;
 
 const stNamespace = StackTrace; // eslint-disable-line @typescript-eslint/no-unused-vars
 

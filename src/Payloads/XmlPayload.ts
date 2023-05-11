@@ -2,7 +2,7 @@ import { Payload } from '../Payloads/Payload';
 // import formatXml from 'xml-formatter/dist/esm/index';
 import { formatHtmlForDisplay } from '../lib/utils';
 
-const formatXml = require('xml-formatter').default;
+const formatXml = require('xml-formatter');
 
 export class XmlPayload extends Payload {
     protected value: string;

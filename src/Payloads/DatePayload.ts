@@ -1,4 +1,4 @@
-import dayjs from 'dayjs/esm/index';
+import * as dayjs from 'dayjs';
 import { Payload } from '../Payloads/Payload';
 
 export class DatePayload extends Payload {
@@ -27,11 +27,11 @@ export class DatePayload extends Payload {
     }
 
     protected getTimestamp(): number {
-        return dayjs(this.date?.toISOString()).unix();
+        return dayjs.default(this.date?.toISOString()).unix();
     }
 
     protected getFormatted(): string {
-        return dayjs(this.date?.toISOString()).format(this.format);
+        return dayjs.default(this.date?.toISOString()).format(this.format);
     }
 
     protected getTimezoneName(): string {
