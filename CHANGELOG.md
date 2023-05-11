@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.19.8](https://github.com/permafrost-dev/node-ray/compare/v1.19.7...v1.19.8)
+
+- Refactor Ray.ts to import getSync instead of requiring itThe commit message is: "Import getSync instead of requiring it in Ray.ts" [`acc468b`](https://github.com/permafrost-dev/node-ray/commit/acc468b94d819bb4d5619293f7c4cee0d5c85865)
+
 #### [v1.19.7](https://github.com/permafrost-dev/node-ray/compare/v1.19.6...v1.19.7)
+
+> 11 May 2023
 
 - fix import issues and broken tests [`b028e0b`](https://github.com/permafrost-dev/node-ray/commit/b028e0b319e49410045a3af49f2d6fcc9b7e7390)
 - code cleanup [`522134f`](https://github.com/permafrost-dev/node-ray/commit/522134f8d4dfdd906541f7c4d9a66b3ee605834d)
