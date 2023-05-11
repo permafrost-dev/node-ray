@@ -831,3 +831,10 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 export const ray = (...args: any[]) => {
     return Ray.create().send(...args);
 };
+
+export const standalone = windowObject => {
+    if (typeof windowObject !== 'undefined') {
+        windowObject['ray'] = ray;
+        windowObject['Ray'] = Ray;
+    }
+};
