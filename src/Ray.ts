@@ -5,7 +5,7 @@
 
 //import * as md5lib from 'md5';
 import PACKAGE_VERSION from './lib/version';
-import * as StackTrace from 'stacktrace-js';
+import { StackTrace } from '@/lib/stacktrace';
 import { ClearAllPayload } from './Payloads/ClearAllPayload';
 import { Client } from './Client';
 import { CallerPayload } from './Payloads/CallerPayload';
@@ -58,11 +58,8 @@ import { RayScreenColors } from '@/Concerns/RayScreenColors';
 import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
 
 const md5 = require('md5');
-//require('stacktrace-js');
 
-import getSync = StackTrace.getSync;
-
-//const stNamespace = StackTrace; // eslint-disable-line @typescript-eslint/no-unused-vars
+const getSync = StackTrace.getSync;
 
 export type BoolFunction = () => boolean;
 
@@ -493,7 +490,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     public caller(): this {
-        const backtrace = getSync();
+        const backtrace = getSync({});
 
         const payload = new CallerPayload(backtrace);
 
@@ -502,7 +499,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public trace(): this {
         //startingFromFrame: CallableFunction | null = null
-        const backtrace = getSync();
+        const backtrace = getSync({});
 
         const payload = new TracePayload(backtrace);
 
@@ -707,7 +704,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     getOriginFrame() {
-        const st = getSync();
+        const st = getSync({});
 
         let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.sendRequest'));
 
@@ -723,7 +720,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     getCaller() {
-        const st = getSync();
+        const st = getSync({});
 
         let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.getCaller'));
 

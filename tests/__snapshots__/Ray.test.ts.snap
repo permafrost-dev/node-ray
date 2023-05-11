@@ -149,90 +149,7 @@ exports[`can chain multiple if calls with callbacks together 1`] = `
 ]
 `;
 
-exports[`can handle multiple consecutive calls to limit 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "limited loop A iteration 0",
-          ],
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "limited loop B iteration 0",
-          ],
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "limited loop A iteration 1",
-          ],
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "limited loop B iteration 1",
-          ],
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
+exports[`can handle multiple consecutive calls to limit 1`] = `[]`;
 
 exports[`can send additional payloads from the sent payload callback 1`] = `
 [
@@ -609,7 +526,7 @@ exports[`sends a caller payload 1`] = `
       {
         "content": {
           "frame": {
-            "class": "Ray",
+            "class": "_generateError",
             "file_name": "Ray.ts",
             "line_number": 999,
             "method": "caller",
@@ -1534,6 +1451,14 @@ exports[`sends an exception payload 1`] = `
           "class": "Error",
           "frames": [
             {
+              "class": "unknown",
+              "file_name": "/src/Payloads/ExceptionPayload.ts",
+              "line_number": 999,
+              "method": "new ExceptionPayload",
+              "snippet": [],
+              "vendor_frame": false,
+            },
+            {
               "class": "Object",
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
@@ -1586,6 +1511,14 @@ exports[`sends an exception payload with metadata 1`] = `
         "content": {
           "class": "Error",
           "frames": [
+            {
+              "class": "unknown",
+              "file_name": "/src/Payloads/ExceptionPayload.ts",
+              "line_number": 999,
+              "method": "new ExceptionPayload",
+              "snippet": [],
+              "vendor_frame": false,
+            },
             {
               "class": "Object",
               "file_name": "/tests/Ray.test.ts",

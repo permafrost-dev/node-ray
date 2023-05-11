@@ -1,6 +1,7 @@
 import { Payload } from '../Payloads/Payload';
 //import * as StackTrace from 'stacktrace-js/dist/stacktrace-with-promises-and-json-polyfills';
-const StackTrace = require('stacktrace-js');
+import { StackTrace } from '@/lib/stacktrace';
+import StackFrame from 'stackframe';
 
 export class ExceptionPayload extends Payload {
     protected exception: Error;
@@ -8,12 +9,12 @@ export class ExceptionPayload extends Payload {
     protected meta = {};
 
     // eslint-disable-next-line no-undef
-    protected stack: StackTrace.StackFrame[];
+    protected stack: StackFrame[];
 
     public constructor(exception: Error, meta: Record<string, unknown> = {}) {
         super();
 
-        this.stack = StackTrace.getSync();
+        this.stack = StackTrace.getSync({});
 
         this.exception = exception;
 
@@ -46,11 +47,11 @@ export class ExceptionPayload extends Payload {
                 }
 
                 return {
-                    file_name: this.replaceRemotePathWithLocalPath(frame.getFileName()),
+                    file_name: this.replaceRemotePathWithLocalPath(frame.getFileName() ?? ''),
                     line_number: frame.getLineNumber(),
                     class: className,
                     method: methodName,
-                    vendor_frame: frame.getFileName().includes('node_modules'),
+                    vendor_frame: frame.getFileName()?.includes('node_modules'),
                     snippet: [],
                 };
             })

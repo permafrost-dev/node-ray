@@ -1,6 +1,4 @@
-import StackTrace from 'stacktrace-js';
-
-type StackFrame = StackTrace.StackFrame;
+import StackFrame from 'stackframe';
 
 export class RemovesRayFrames {
     public static removeRayFrames(frames: StackFrame[]): StackFrame[] {

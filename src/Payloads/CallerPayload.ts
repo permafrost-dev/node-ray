@@ -1,6 +1,6 @@
 import { Payload } from '../Payloads/Payload';
 import { RemovesRayFrames } from '../Concerns/RemovesRayFrames';
-import { StackFrame } from 'stacktrace-js';
+import StackFrame from 'stackframe';
 
 export class CallerPayload extends Payload {
     protected frames;
@@ -21,18 +21,18 @@ export class CallerPayload extends Payload {
         /** @var Frame frame */
         const frame: StackFrame = frames[0];
 
-        const funcNameParts = frame.getFunctionName().replace('Proxy.', '').split('.').slice(0);
+        const funcNameParts = frame?.getFunctionName()?.replace('Proxy.', '').split('.').slice(0);
 
-        const className = funcNameParts.length ? funcNameParts.shift() : '';
-        const methodName = funcNameParts.join('.');
+        const className = funcNameParts?.length ? funcNameParts.shift() : '';
+        const methodName = funcNameParts?.join('.') ?? '';
 
         return {
             frame: {
-                file_name: this.replaceRemotePathWithLocalPath(frame.getFileName()),
+                file_name: this.replaceRemotePathWithLocalPath(frame.getFileName() ?? ''),
                 line_number: frame.getLineNumber(),
                 class: className,
                 method: methodName,
-                vendor_frame: frame.getFileName().includes('node_modules'),
+                vendor_frame: frame.getFileName()?.includes('node_modules') ?? false,
             },
         };
     }
