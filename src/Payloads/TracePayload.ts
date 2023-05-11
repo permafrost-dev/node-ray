@@ -1,6 +1,6 @@
 import { Payload } from './Payload';
 import { RemovesRayFrames } from '../Concerns/RemovesRayFrames';
-import { StackFrame } from 'stacktrace-js';
+import StackFrame from 'stackframe';
 
 export class TracePayload extends Payload {
     /** @var array */
@@ -34,16 +34,17 @@ export class TracePayload extends Payload {
 
     public getContent(): Record<string, unknown> {
         let frames = this.frames.map(frame => {
-            const funcNameParts = frame.getFunctionName().replace('Proxy.', '').split('.').slice(0);
-            const className = funcNameParts.length ? funcNameParts.shift() : '';
-            const methodName = funcNameParts.join('.');
+            const funcNameParts = frame.getFunctionName()?.replace('Proxy.', '').split('.').slice(0);
+
+            const className = funcNameParts?.length ? funcNameParts.shift() : '';
+            const methodName = funcNameParts?.join('.') ?? '';
 
             return {
-                file_name: this.replaceRemotePathWithLocalPath(frame.getFileName()),
+                file_name: this.replaceRemotePathWithLocalPath(frame.getFileName() ?? ''),
                 line_number: frame.getLineNumber(),
                 class: className,
                 method: methodName,
-                vendor_frame: frame.getFileName().includes('node_modules'),
+                vendor_frame: frame.getFileName()?.includes('node_modules'),
             };
         });
 
