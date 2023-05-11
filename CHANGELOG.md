@@ -2,7 +2,18 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.19.9](https://github.com/permafrost-dev/node-ray/compare/v1.19.8...v1.19.9)
+
+Stackframes fix
+
+- Stackframes fix [`#172`](https://github.com/permafrost-dev/node-ray/pull/172)
+- wip [`b47760a`](https://github.com/permafrost-dev/node-ray/commit/b47760a2223770bd3d53b06fc23703ef11012008)
+- Refactor CallerPayload.ts to handle null function names and file names [`553a2d8`](https://github.com/permafrost-dev/node-ray/commit/553a2d8cfe0a309fd8265477e4037e059398c1d2)
+- fix/disable broken tests, update snapshots [`4bd4fd3`](https://github.com/permafrost-dev/node-ray/commit/4bd4fd364f6f28218d5904399f1a1c96f79f385d)
+
 #### [v1.19.8](https://github.com/permafrost-dev/node-ray/compare/v1.19.7...v1.19.8)
+
+> 11 May 2023
 
 - Refactor Ray.ts to import getSync instead of requiring itThe commit message is: "Import getSync instead of requiring it in Ray.ts" [`acc468b`](https://github.com/permafrost-dev/node-ray/commit/acc468b94d819bb4d5619293f7c4cee0d5c85865)
 
