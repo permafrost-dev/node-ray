@@ -7,11 +7,11 @@ function _capitalize(str) {
     return str.charAt(0).toUpperCase() + str.substring(1);
 }
 
-function _getter(p) {
-    return function () {
-        // @ts-ignore
-        return this[p];
-    };
+function _getter(t, p): any {
+    // return function () {
+    // @ts-ignore
+    return t[p];
+    // };
 }
 
 const booleanProps = ['isConstructor', 'isEval', 'isNative', 'isToplevel'];
@@ -25,6 +25,15 @@ const props = booleanProps.concat(numericProps, stringProps, arrayProps, objectP
 export class StackFrame {
     args = [];
     evalOrigin = {};
+    fileName = '';
+    functionName = '';
+    isConstructor = false;
+    isEval = false;
+    isNative = false;
+    isToplevel = false;
+    lineNumber = 0;
+    source = '';
+    columnNumber = 0;
 
     constructor(obj) {
         if (!obj) return;
@@ -88,19 +97,19 @@ export class StackFrame {
     }
 
     getFileName() {
-        return _getter('fileName');
+        return _getter(this, 'fileName') as string;
     }
     getLineNumber() {
-        return _getter('lineNumber');
+        return _getter(this, 'lineNumber') as number;
     }
     getColumnNumber() {
-        return _getter('columnNumber');
+        return _getter(this, 'columnNumber') as number;
     }
     getFunctionName() {
-        return _getter('functionName');
+        return _getter(this, 'functionName') as string;
     }
     getIsEval() {
-        return _getter('isEval');
+        return _getter(this, 'isEval');
     }
 
     fromString(str) {
