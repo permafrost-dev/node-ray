@@ -2,9 +2,15 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.19.10](https://github.com/permafrost-dev/node-ray/compare/v1.19.9...v1.19.10)
+
+- fix bugs [`244a569`](https://github.com/permafrost-dev/node-ray/commit/244a5698cb067eacb11fadd87d9ed0d1a3a03613)
+- wip [`d046da7`](https://github.com/permafrost-dev/node-ray/commit/d046da719368bc3cae963227e4d50a293ebf6a13)
+- wip [`d424c0e`](https://github.com/permafrost-dev/node-ray/commit/d424c0e03c5797b26f0ce90efc185f203d07777f)
+
 #### [v1.19.9](https://github.com/permafrost-dev/node-ray/compare/v1.19.8...v1.19.9)
 
-Stackframes fix
+> 11 May 2023
 
 - Stackframes fix [`#172`](https://github.com/permafrost-dev/node-ray/pull/172)
 - wip [`b47760a`](https://github.com/permafrost-dev/node-ray/commit/b47760a2223770bd3d53b06fc23703ef11012008)
