@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-undef */
 /* eslint-disable no-useless-catch */
 
-import md5 from 'md5';
+//import * as md5lib from 'md5';
 import PACKAGE_VERSION from './lib/version';
-import StackTrace from 'stacktrace-js';
+import * as StackTrace from 'stacktrace-js';
 import { ClearAllPayload } from './Payloads/ClearAllPayload';
 import { Client } from './Client';
 import { CallerPayload } from './Payloads/CallerPayload';
@@ -55,6 +56,13 @@ import { SeparatorPayload } from './Payloads/SeparatorPayload';
 import { ScreenColorPayload } from './Payloads/ScreenColorPayload';
 import { RayScreenColors } from '@/Concerns/RayScreenColors';
 import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
+
+const md5 = require('md5');
+require('stacktrace-js');
+
+const getSync = globalThis.StackTrace.getSync;
+
+const stNamespace = StackTrace; // eslint-disable-line @typescript-eslint/no-unused-vars
 
 export type BoolFunction = () => boolean;
 
@@ -485,7 +493,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     public caller(): this {
-        const backtrace = StackTrace.getSync();
+        const backtrace = getSync();
 
         const payload = new CallerPayload(backtrace);
 
@@ -494,7 +502,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public trace(): this {
         //startingFromFrame: CallableFunction | null = null
-        const backtrace = StackTrace.getSync();
+        const backtrace = getSync();
 
         const payload = new TracePayload(backtrace);
 
@@ -699,7 +707,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     getOriginFrame() {
-        const st = StackTrace.getSync();
+        const st = getSync();
 
         let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.sendRequest'));
 
@@ -715,7 +723,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     getCaller() {
-        const st = StackTrace.getSync();
+        const st = getSync();
 
         let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.getCaller'));
 

@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import dayjs from 'dayjs/esm/index';
 import { Payload } from '../Payloads/Payload';
 
 export class DatePayload extends Payload {

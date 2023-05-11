@@ -1,6 +1,8 @@
 import { Payload } from '../Payloads/Payload';
-import formatXml from 'xml-formatter';
+// import formatXml from 'xml-formatter';
 import { formatHtmlForDisplay } from '../lib/utils';
+
+const formatXml = require('xml-formatter').default;
 
 export type HtmlMarkupHighlightTypes = 'tailwindcss' | 'none';
 export interface HtmlMarkupOptions {

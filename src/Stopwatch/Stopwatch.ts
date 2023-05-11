@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 
-import { StopWatch as StopwatchNode } from 'stopwatch-node';
+//import * as StopWatches from 'stopwatch-node/dist/stopwatch';
 import { StopwatchEvent } from './StopwatchEvent';
 
+const StopWatchNode = require('stopwatch-node');
+
 export class Stopwatch {
-    protected sw: StopwatchNode;
+    protected sw: typeof StopWatchNode;
     public name: string | undefined;
     public laps: number[] = [];
     public startedAt: number = 0;
@@ -12,7 +14,7 @@ export class Stopwatch {
 
     constructor(name: string | undefined = undefined) {
         this.name = name;
-        this.sw = new StopwatchNode(name);
+        this.sw = new StopWatchNode(name);
         this.laps = [];
         this.startedAt = 0;
         this.endedAt = 0;
@@ -20,7 +22,7 @@ export class Stopwatch {
 
     protected initialize(name: string | undefined) {
         this.name = name;
-        this.sw = new StopwatchNode(name);
+        this.sw = new StopWatchNode(name);
         this.laps = [];
         this.startedAt = 0;
         this.endedAt = 0;

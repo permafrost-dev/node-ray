@@ -1,8 +1,9 @@
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 //import { terser } from 'rollup-plugin-terser';
-import typescript from '@rollup/plugin-typescript';
+import json from '@rollup/plugin-json';
 import replace from '@rollup/plugin-replace';
+import typescript from '@rollup/plugin-typescript';
 
 const options = {
     sourceMapsEnabled: !true,
@@ -58,6 +59,7 @@ export default {
         }),
         commonjs(),
         nodeResolve(),
+        json(),
         typescript(),
     ],
     external: [

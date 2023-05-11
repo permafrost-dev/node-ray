@@ -1,9 +1,11 @@
-import commonjs from '@rollup/plugin-commonjs';
+//import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
-import nodePolyfills from 'rollup-plugin-node-polyfills';
+//import nodePolyfills from 'rollup-plugin-node-polyfills';
+import nodePolyfills from 'rollup-plugin-polyfill-node';
+
 import replace from '@rollup/plugin-replace';
 
 const sourceMapsEnabled = true;
@@ -38,12 +40,12 @@ export default {
     plugins: [
         replace({
             values: {
-                __buildDate__: () => new Date().toISOString(),
+                // __buildDate__: () => new Date().toISOString(),
                 //__buildVersion__: () => require('./package.json').version,
             },
             preventAssignment: true,
         }),
-        commonjs(),
+        //commonjs(),
         nodePolyfills(),
         nodeResolve(),
         json(),

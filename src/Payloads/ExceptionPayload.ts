@@ -1,11 +1,13 @@
 import { Payload } from '../Payloads/Payload';
-import StackTrace from 'stacktrace-js';
+//import * as StackTrace from 'stacktrace-js/dist/stacktrace-with-promises-and-json-polyfills';
+const StackTrace = require('stacktrace-js');
 
 export class ExceptionPayload extends Payload {
     protected exception: Error;
 
     protected meta = {};
 
+    // eslint-disable-next-line no-undef
     protected stack: StackTrace.StackFrame[];
 
     public constructor(exception: Error, meta: Record<string, unknown> = {}) {
