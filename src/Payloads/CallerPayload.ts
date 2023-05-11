@@ -1,6 +1,6 @@
 import { Payload } from '../Payloads/Payload';
 import { RemovesRayFrames } from '../Concerns/RemovesRayFrames';
-import StackFrame from 'stackframe';
+import StackFrame from '@/lib/stackframe';
 
 export class CallerPayload extends Payload {
     protected frames;

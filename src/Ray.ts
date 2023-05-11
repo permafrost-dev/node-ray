@@ -666,13 +666,14 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     public limit(count: number): this {
         const frame = this.getOriginFrame();
 
-        this.limitOrigin = <OriginData>{
+        this.limitOrigin = <any>{
             function_name: frame?.getFunctionName(),
             file: frame?.getFileName(),
             line_number: frame?.getLineNumber(),
             hostname: Hostname.get(),
         };
 
+        // @ts-ignore
         Ray.limiters.initialize(this.limitOrigin, count);
 
         return this;
@@ -681,13 +682,14 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     public once(...args: any[]): this {
         const frame = this.getOriginFrame();
 
-        this.limitOrigin = <OriginData>{
+        this.limitOrigin = <any>{
             function_name: frame?.getFunctionName(),
             file: frame?.getFileName(),
             line_number: frame?.getLineNumber(),
             hostname: Hostname.get(),
         };
 
+        // @ts-ignore
         Ray.limiters.initialize(this.limitOrigin, 1);
 
         if (args.length > 0) {
@@ -740,7 +742,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     getOriginData() {
         const frame = this.getOriginFrame();
 
-        return <OriginData>{
+        return <any>{
             function_name: frame?.getFunctionName(),
             file: frame?.getFileName(),
             line_number: frame?.getLineNumber(),
@@ -830,6 +832,13 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         Ray.client.send(request);
 
         this.rateLimiter().notify();
+    }
+
+    standalone(windowObject) {
+        if (typeof windowObject !== 'undefined') {
+            windowObject['ray'] = ray;
+            windowObject['Ray'] = Ray;
+        }
     }
 }
 

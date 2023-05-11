@@ -1,4 +1,4 @@
-import StackFrame from 'stackframe';
+import StackFrame from '@/lib/stackframe';
 
 export class RemovesRayFrames {
     public static removeRayFrames(frames: StackFrame[]): StackFrame[] {

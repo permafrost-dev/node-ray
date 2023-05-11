@@ -1,0 +1,134 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// function _isNumber(n) {
+//     return !isNaN(parseFloat(n)) && isFinite(n);
+// }
+
+function _capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.substring(1);
+}
+
+function _getter(p) {
+    return function () {
+        // @ts-ignore
+        return this[p];
+    };
+}
+
+const booleanProps = ['isConstructor', 'isEval', 'isNative', 'isToplevel'];
+const numericProps = ['columnNumber', 'lineNumber'];
+const stringProps = ['fileName', 'functionName', 'source'];
+const arrayProps = ['args'];
+const objectProps = ['evalOrigin'];
+
+const props = booleanProps.concat(numericProps, stringProps, arrayProps, objectProps);
+
+export class StackFrame {
+    args = [];
+    evalOrigin = {};
+
+    constructor(obj) {
+        if (!obj) return;
+        for (let i = 0; i < props.length; i++) {
+            if (obj[props[i]] !== undefined) {
+                this['set' + _capitalize(props[i])](obj[props[i]]);
+            }
+        }
+
+        // for (let i = 0; i < booleanProps.length; i++) {
+        //     StackFrame.prototype['get' + _capitalize(booleanProps[i])] = _getter(booleanProps[i]);
+        //     StackFrame.prototype['set' + _capitalize(booleanProps[i])] = (function (p) {
+        //         return function (v) {
+        //             // @ts-ignore
+        //             this[p] = Boolean(v);
+        //         };
+        //     })(booleanProps[i]);
+        // }
+    }
+
+    getArgs() {
+        return this.args;
+    }
+
+    setArgs(v) {
+        if (Object.prototype.toString.call(v) !== '[object Array]') {
+            throw new TypeError('Args must be an Array');
+        }
+        this.args = v;
+    }
+
+    getEvalOrigin() {
+        return this.evalOrigin;
+    }
+
+    setEvalOrigin(v) {
+        if (v instanceof StackFrame) {
+            this.evalOrigin = v;
+        } else if (v instanceof Object) {
+            this.evalOrigin = new StackFrame(v);
+        } else {
+            throw new TypeError('Eval Origin must be an Object or StackFrame');
+        }
+    }
+
+    toString() {
+        const fileName = this.getFileName() || '';
+        const lineNumber = this.getLineNumber() || '';
+        const columnNumber = this.getColumnNumber() || '';
+        const functionName = this.getFunctionName() || '';
+        if (this.getIsEval()) {
+            if (fileName) {
+                return '[eval] (' + fileName + ':' + lineNumber + ':' + columnNumber + ')';
+            }
+            return '[eval]:' + lineNumber + ':' + columnNumber;
+        }
+        if (functionName) {
+            return functionName + ' (' + fileName + ':' + lineNumber + ':' + columnNumber + ')';
+        }
+        return fileName + ':' + lineNumber + ':' + columnNumber;
+    }
+
+    getFileName() {
+        return _getter('fileName');
+    }
+    getLineNumber() {
+        return _getter('lineNumber');
+    }
+    getColumnNumber() {
+        return _getter('columnNumber');
+    }
+    getFunctionName() {
+        return _getter('functionName');
+    }
+    getIsEval() {
+        return _getter('isEval');
+    }
+
+    fromString(str) {
+        const argsStartIndex = str.indexOf('(');
+        const argsEndIndex = str.lastIndexOf(')');
+
+        const functionName = str.substring(0, argsStartIndex);
+        const args = str.substring(argsStartIndex + 1, argsEndIndex).split(',');
+        const locationString = str.substring(argsEndIndex + 1);
+
+        let fileName = '',
+            lineNumber = '',
+            columnNumber = '';
+        if (locationString.indexOf('@') === 0) {
+            const parts = /@(.+?)(?::(\d+))?(?::(\d+))?$/.exec(locationString) || [];
+            fileName = parts[1];
+            lineNumber = parts[2];
+            columnNumber = parts[3];
+        }
+
+        return new StackFrame({
+            functionName: functionName,
+            args: args || undefined,
+            fileName: fileName,
+            lineNumber: lineNumber || undefined,
+            columnNumber: columnNumber || undefined,
+        });
+    }
+}
+
+export default StackFrame;

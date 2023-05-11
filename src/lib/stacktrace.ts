@@ -1,7 +1,7 @@
-import ErrorStackParser from 'error-stack-parser';
-import StackGenerator from 'stack-generator';
-import StackTraceGPS from 'stacktrace-gps';
-import StackFrame from 'stackframe';
+import * as ErrorStackParser from 'error-stack-parser';
+import StackGenerator from '@/lib/StackGenerator';
+import * as StackTraceGPS from 'stacktrace-gps';
+import StackFrame from '@/lib/stackframe';
 
 const _options = {
     filter: function (stackframe) {

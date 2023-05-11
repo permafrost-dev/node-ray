@@ -45,7 +45,7 @@ export default {
             },
             preventAssignment: true,
         }),
-        //commonjs(),
+        // commonjs(),
         nodePolyfills(),
         nodeResolve(),
         json(),
