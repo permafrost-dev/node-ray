@@ -283,6 +283,7 @@ See [using the package](docs/usage.md).
 | `ray().measure()` | Begin measuring the overall time and elapsed time since previous `measure()` call |
 | `ray().newScreen()` | Start a new screen |
 | `ray().newScreen('title')` | Start a new named screen |
+| `ray().nodeinfo()` | Display statistics about node, such as the v8 version and memory usage (NodeJS only) |
 | `ray(…).notify(message)` | Display a notification |
 | `ray().once(arg1, …)` | Only send a payload once when in a loop |
 | `ray(…).pass(variable)` | Display something in Ray and return the value instead of a Ray instance |
