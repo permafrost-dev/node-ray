@@ -2,7 +2,15 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.19.7](https://github.com/permafrost-dev/node-ray/compare/v1.19.6...v1.19.7)
+
+- fix import issues and broken tests [`b028e0b`](https://github.com/permafrost-dev/node-ray/commit/b028e0b319e49410045a3af49f2d6fcc9b7e7390)
+- code cleanup [`522134f`](https://github.com/permafrost-dev/node-ray/commit/522134f8d4dfdd906541f7c4d9a66b3ee605834d)
+- Add option to use Ray.standalone() method for initialization in README.md [`84ed00b`](https://github.com/permafrost-dev/node-ray/commit/84ed00ba7daca099cfa1378f781697c26b9f8562)
+
 #### [v1.19.6](https://github.com/permafrost-dev/node-ray/compare/v1.19.5...v1.19.6)
+
+> 11 May 2023
 
 - Add TypeScript declaration files for web and node builds [`5b3d844`](https://github.com/permafrost-dev/node-ray/commit/5b3d844b11d32c2c1a350577f4a9622070e6690d)
 - add eslintignore file [`c4a09bb`](https://github.com/permafrost-dev/node-ray/commit/c4a09bb50a839fb564bfe0cb344ebeec6cf74de2)
