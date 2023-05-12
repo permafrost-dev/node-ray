@@ -93,7 +93,7 @@ class Builder {
                     ...buildConfig.constants,
                 },
                 entryPoints: [buildConfig.entry],
-                external: ['axios'],
+                external: [],
                 format: buildConfig.format,
                 keepNames: true,
                 logLevel: 'silent',
