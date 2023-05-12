@@ -58,7 +58,7 @@ export default {
             preventAssignment: true,
         }),
         commonjs({
-            requireReturnsDefault: 'auto',
+            //requireReturnsDefault: 'auto',
         }),
         nodeResolve(),
         json(),

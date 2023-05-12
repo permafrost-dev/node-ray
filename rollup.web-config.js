@@ -39,6 +39,7 @@ const outputs = {
             file: 'dist/web.esm.mjs',
             format: 'esm',
             sourcemap: options.sourceMapsEnabled,
+            exports: 'auto',
             plugins: [],
         },
     ],
@@ -56,7 +57,9 @@ export default {
             },
             preventAssignment: true,
         }),
-        commonjs(),
+        commonjs({
+            requireReturnsDefault: 'auto',
+        }),
         nodeResolve(),
         typescript(),
     ],
