@@ -2,7 +2,15 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.20.5](https://github.com/permafrost-dev/node-ray/compare/v1.20.4...v1.20.5)
+
+- Update build-library.js and Ray.tsRemoved axios from external dependencies on build-library.js and added import statement for Client on Ray.ts [`db62c8b`](https://github.com/permafrost-dev/node-ray/commit/db62c8b130f725ba801d51ffe07f729bfbfc7719)
+- Update README.md [`f514618`](https://github.com/permafrost-dev/node-ray/commit/f51461866d257e347fad359a23dad997c3e245bd)
+- Update README.md [`36995cb`](https://github.com/permafrost-dev/node-ray/commit/36995cbe69196bcb5b56e45263fa89d1f6334fe1)
+
 #### [v1.20.4](https://github.com/permafrost-dev/node-ray/compare/v1.20.3...v1.20.4)
+
+> 12 May 2023
 
 - wip [`2f5b542`](https://github.com/permafrost-dev/node-ray/commit/2f5b5429579429b8f749757bcf06efe21a0bb0df)
 - Add standalone library support and update Client.ts [`6bf14db`](https://github.com/permafrost-dev/node-ray/commit/6bf14dbeeceb94552cfbaa6e3d2ff03027f4fa86)
