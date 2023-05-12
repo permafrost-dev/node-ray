@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.20.4](https://github.com/permafrost-dev/node-ray/compare/v1.20.3...v1.20.4)
+
+- wip [`2f5b542`](https://github.com/permafrost-dev/node-ray/commit/2f5b5429579429b8f749757bcf06efe21a0bb0df)
+- Add standalone library support and update Client.ts [`6bf14db`](https://github.com/permafrost-dev/node-ray/commit/6bf14dbeeceb94552cfbaa6e3d2ff03027f4fa86)
+
 #### [v1.20.3](https://github.com/permafrost-dev/node-ray/compare/v1.20.2...v1.20.3)
+
+> 12 May 2023
 
 - Comment out Ray setup code to avoid duplicate initialization [`9996157`](https://github.com/permafrost-dev/node-ray/commit/9996157ee83673405021f51ecff316fbd6c1c601)
 - wip [`aaa15ec`](https://github.com/permafrost-dev/node-ray/commit/aaa15eca81f1901f8f0ab0bf85af7a3d5fa4b0c1)
