@@ -5,9 +5,8 @@
 
 // @ts-ignore
 const BUILDING_STANDALONE_LIB = typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_LIB__ === 'true';
-1;
 
-//import * as md5lib from 'md5';
+import * as md5lib from 'md5';
 import { RayScreenColors } from '@/Concerns/RayScreenColors';
 import { StackTrace } from '@/lib/stacktrace';
 import { Mixin } from 'ts-mixer';
@@ -60,7 +59,8 @@ import { nonCryptoUuidV4, sleep } from './lib/utils';
 import PACKAGE_VERSION from './lib/version';
 import { Client } from './Client';
 
-const md5 = require('md5');
+// const md5 = require('md5');
+const md5 = md5lib.default;
 
 const getSync = StackTrace.getSync;
 
@@ -871,5 +871,5 @@ function standaloneInitialization() {
 }
 
 //if (BUILDING_STANDALONE_LIB) {
-standaloneInitialization();
+// standaloneInitialization();
 //}

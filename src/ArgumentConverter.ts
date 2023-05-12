@@ -1,7 +1,6 @@
-const pf = require('@permafrost-dev/pretty-format');
-// import * as format from '@permafrost-dev/pretty-format';
+import { format } from '@permafrost-dev/pretty-format';
 
-const prettyFormat = pf.format;
+const prettyFormat = format;
 
 export interface ArgumentConverterResult {
     value: any;
@@ -30,9 +29,7 @@ export class ArgumentConverter {
     }
 
     public static prettyFormatForHtml(arg: any): string {
-        const formatted = prettyFormat(arg, {
-            indent: 4,
-        })
+        const formatted = prettyFormat(arg, { indent: '    ' } as any, '    ', 10, [], false)
             // format whitespace for display in html
             .replace(/ /g, '&nbsp;')
             .replace(/\r\n|\r|\n/g, '<br>')
