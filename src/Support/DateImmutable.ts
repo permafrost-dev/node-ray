@@ -1,6 +1,5 @@
-import { Dayjs } from 'dayjs';
-
-const dayjs = (...args) => new Dayjs(...args);
+/* eslint-disable no-unused-vars */
+import dayjs, * as dayjsNs from 'dayjs';
 
 interface DateImmutableModifyPart {
     value: number;

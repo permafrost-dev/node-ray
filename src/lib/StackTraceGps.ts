@@ -3,14 +3,14 @@
 /* eslint-disable no-undef */
 import * as SourceMapConsumer from 'source-map';
 import StackFrame from '@/lib/stackframe';
-import axios, { AxiosResponse } from 'axios';
+//import axios, { AxiosResponse } from 'axios';
 
 // const { SourceMapConsumer } = require('source-map');
 
 function _xdr(url: string): Promise<string> {
-    return axios
+    return globalThis.axios
         .get(url)
-        .then((response: AxiosResponse) => {
+        .then((response: any) => {
             if ((response.status >= 200 && response.status < 300) || (url.substr(0, 7) === 'file://' && response.data)) {
                 return response.data;
             } else {

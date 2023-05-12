@@ -1,4 +1,4 @@
-//import commonjs from '@rollup/plugin-commonjs';
+import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
@@ -48,6 +48,10 @@ export default {
         // commonjs(),
         nodePolyfills(),
         nodeResolve(),
+        commonjs({
+            include: /node_modules/,
+            requireReturnsDefault: 'auto', // <---- this solves default issue
+        }),
         json(),
         typescript(),
     ],
