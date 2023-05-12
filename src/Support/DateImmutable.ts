@@ -1,4 +1,6 @@
-import * as dayjs from 'dayjs';
+import { Dayjs } from 'dayjs';
+
+const dayjs = (...args) => new Dayjs(...args);
 
 interface DateImmutableModifyPart {
     value: number;
@@ -10,7 +12,7 @@ export class DateImmutable {
     public dateTs: number;
 
     public get date() {
-        return dayjs.default(this.dateStr).toDate();
+        return dayjs(this.dateStr).toDate();
     }
 
     public set date(value: Date) {
@@ -45,7 +47,7 @@ export class DateImmutable {
             idx++;
         }
 
-        let tempDate = dayjs.default(this.getTimestamp() * 1000);
+        let tempDate = dayjs(this.getTimestamp() * 1000);
 
         parts.forEach(part => {
             tempDate = tempDate.add(part.value * 1000);
