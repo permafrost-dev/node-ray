@@ -60,7 +60,6 @@
         "build:dts": "concurrently npm:build:dts:index npm:build:dts:web",
         "build:all": "concurrently npm:build:node npm:build:web",
         "build:dev": "concurrently npm:build:node npm:build:web",
-        "preversion": "npm run test",
         "postversion": "npm run build:all && npm run build:dts",
         "version": "auto-changelog -p -o CHANGELOG.md --hide-credit --release-summary --hide-empty-releases --sort-commits date-desc && git add CHANGELOG.md",
         "prepare": "is-ci || husky install"
