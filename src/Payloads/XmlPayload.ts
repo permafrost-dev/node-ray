@@ -1,6 +1,9 @@
 import { Payload } from '../Payloads/Payload';
-import formatXml from 'xml-formatter/dist/esm/index';
+//import formatXml from 'xml-formatter/dist/esm/index';
 import { formatHtmlForDisplay } from '../lib/utils';
+import * as xmlfmt from 'xml-formatter';
+
+const formatXml = xmlfmt.default;
 
 // const formatXml = require('xml-formatter');
 
