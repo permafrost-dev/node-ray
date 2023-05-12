@@ -66,7 +66,7 @@ export type BoolFunction = () => boolean;
 
 let Client: any;
 async function initialize() {
-    Client = await import(BUILDING_STANDALONE_LIB ? './ClientStandalone.js' : './Client.js');
+    Client = await import(BUILDING_STANDALONE_LIB ? './ClientStandalone' : './Client');
     // .then((module) => Client = module.default);
 }
 
