@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable no-undef */
 /* eslint-disable no-async-promise-executor */
+// @ts-nocheck
 
 import { Request } from './Request';
-import axios from 'axios';
+//import axios from 'axios';
 import { Payload } from './Payloads/Payload';
 
-export class Client {
+export class ClientStandalone {
     public static rayState: boolean | null = true;
     public static lastRayStateCheck: number | null = null;
 
@@ -138,3 +141,5 @@ export class Client {
         });
     }
 }
+
+export default ClientStandalone;

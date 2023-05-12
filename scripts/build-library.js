@@ -45,6 +45,19 @@ const buildConfigs = [
             version: 14,
         },
     },
+    {
+        basePath: `${__dirname}/..`,
+        bundle: true,
+        constants: {},
+        entry: 'src/Ray.ts',
+        format: 'iife',
+        minify: true,
+        outfile: 'dist/standalone.min.js',
+        platform: {
+            name: 'browser',
+            version: 14,
+        },
+    },
 ];
 
 class Builder {
@@ -76,6 +89,7 @@ class Builder {
                 define: {
                     __APP_VERSION__: `'${require(realpathSync(`${buildConfig.basePath}/package.json`, { encoding: 'utf-8' })).version}'`,
                     __COMPILED_AT__: `'${new Date().toUTCString()}'`,
+                    __BUILDING_STANDALONE_LIB__: 'true',
                     ...buildConfig.constants,
                 },
                 entryPoints: [buildConfig.entry],

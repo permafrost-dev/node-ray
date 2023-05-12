@@ -3,11 +3,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-useless-catch */
 
+// @ts-ignore
+const BUILDING_STANDALONE_LIB = typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_LIB__ === 'true';
+
 //import * as md5lib from 'md5';
 import { RayScreenColors } from '@/Concerns/RayScreenColors';
 import { StackTrace } from '@/lib/stacktrace';
 import { Mixin } from 'ts-mixer';
-import { Client } from './Client';
 import { RayColors } from './Concerns/RayColors';
 import { RaySizes } from './Concerns/RaySizes';
 import { RemovesRayFrames } from './Concerns/RemovesRayFrames';
@@ -62,6 +64,14 @@ const getSync = StackTrace.getSync;
 
 export type BoolFunction = () => boolean;
 
+let Client: any;
+async function initialize() {
+    Client = await import(BUILDING_STANDALONE_LIB ? './ClientStandalone.js' : './Client.js');
+    // .then((module) => Client = module.default);
+}
+
+initialize();
+
 export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     protected static lockCounter = 0;
 
@@ -71,6 +81,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public static defaultSettings: RaySettings = { not_defined: true };
 
+    // @ts-ignore
     public static client: Client;
 
     public static projectName = '';
@@ -100,7 +111,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public static _rateLimiter: RateLimiter = RateLimiter.disabled();
 
-    public static create(client: Client | null = null, uuid: string | null = null): Ray {
+    public static create(client: typeof Client | null = null, uuid: string | null = null): Ray {
         if (Ray.defaultSettings.not_defined === true) {
             Ray.defaultSettings = {
                 enable: true,
@@ -123,7 +134,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return new this(settings, client, uuid);
     }
 
-    public constructor(settings: Settings, client: Client | null = null, uuid: string | null = null, inCallback = false) {
+    public constructor(settings: Settings, client: typeof Client | null = null, uuid: string | null = null, inCallback = false) {
         super();
 
         if (Ray.defaultSettings.not_defined === true) {
@@ -200,7 +211,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return Ray.interceptor;
     }
 
-    public client(): Client {
+    public client(): typeof Client {
         return Ray.client;
     }
 
@@ -229,7 +240,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return !this.enabled();
     }
 
-    public static useClient(client: Client): void {
+    public static useClient(client: typeof Client): void {
         this.client = client;
     }
 
@@ -846,9 +857,17 @@ export const standalone = windowObject => {
     }
 };
 
-// window['Ray'] = {
-//     ray,
-//     Ray,
-// };
+function standaloneInitialization() {
+    if (typeof globalThis['window'] !== 'undefined') {
+        window['Ray'] = {
+            ray,
+            Ray,
+        };
 
-// window['rayInit'] = standalone;
+        window['rayInit'] = standalone;
+    }
+}
+
+if (BUILDING_STANDALONE_LIB) {
+    standaloneInitialization();
+}

@@ -1,8 +1,10 @@
 /* eslint-disable no-async-promise-executor */
 
-import { Request } from './Request';
+//use Spatie\Ray\Exceptions\StopExecutionRequested;
+
+import { Request } from '@/Request';
 import axios from 'axios';
-import { Payload } from './Payloads/Payload';
+import { Payload } from '@/Payloads/Payload';
 
 export class Client {
     public static rayState: boolean | null = true;
