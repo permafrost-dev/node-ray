@@ -846,9 +846,9 @@ export const standalone = windowObject => {
     }
 };
 
-window['Ray'] = {
-    ray,
-    Ray,
-};
+// window['Ray'] = {
+//     ray,
+//     Ray,
+// };
 
-window['rayInit'] = standalone;
+// window['rayInit'] = standalone;
