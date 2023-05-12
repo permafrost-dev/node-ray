@@ -9,6 +9,7 @@ import { NodeStopwatch } from './Stopwatch/NodeStopwatch';
 import { PayloadFactory } from './PayloadFactory';
 import { OriginData } from './Origin/Origin';
 import { HostnameNode } from './Origin/HostnameNode';
+import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
 
 export class Ray extends BaseRay {
     public static create(client: Client | null = null, uuid: string | null = null): Ray {
@@ -47,6 +48,12 @@ export class Ray extends BaseRay {
 
     protected getMeasurePayload(name: string, event: any): any {
         return new NodeMeasurePayload(name, event);
+    }
+
+    public nodeinfo(...properties: string[]): this {
+        const payload = new NodeInfoPayload(...properties);
+
+        return this.sendRequest(payload);
     }
 
     getOriginData() {

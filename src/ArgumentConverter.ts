@@ -1,6 +1,7 @@
-const { format } = require('@permafrost-dev/pretty-format');
+const pf = require('@permafrost-dev/pretty-format');
+// import * as format from '@permafrost-dev/pretty-format';
 
-const prettyFormat = format;
+const prettyFormat = pf.format;
 
 export interface ArgumentConverterResult {
     value: any;

@@ -4,15 +4,21 @@
 /* eslint-disable no-useless-catch */
 
 //import * as md5lib from 'md5';
-import PACKAGE_VERSION from './lib/version';
+import { RayScreenColors } from '@/Concerns/RayScreenColors';
 import { StackTrace } from '@/lib/stacktrace';
-import { ClearAllPayload } from './Payloads/ClearAllPayload';
+import { Mixin } from 'ts-mixer';
 import { Client } from './Client';
+import { RayColors } from './Concerns/RayColors';
+import { RaySizes } from './Concerns/RaySizes';
+import { RemovesRayFrames } from './Concerns/RemovesRayFrames';
+import { ConsoleInterceptor } from './ConsoleInterceptor';
+import { Hostname } from './Origin/Hostname';
+import { OriginData } from './Origin/Origin';
+import { PayloadFactory } from './PayloadFactory';
 import { CallerPayload } from './Payloads/CallerPayload';
+import { ClearAllPayload } from './Payloads/ClearAllPayload';
 import { ColorPayload } from './Payloads/ColorPayload';
 import { ConfettiPayload } from './Payloads/ConfettiPayload';
-import { ConsoleInterceptor } from './ConsoleInterceptor';
-import { Counters } from './Support/Counters';
 import { CreateLockPayload } from './Payloads/CreateLockPayload';
 import { CustomPayload } from './Payloads/CustomPayload';
 import { DatePayload } from './Payloads/DatePayload';
@@ -22,40 +28,33 @@ import { EventPayload } from './Payloads/EventPayload';
 import { ExceptionPayload } from './Payloads/ExceptionPayload';
 import { HideAppPayload } from './Payloads/HideAppPayload';
 import { HidePayload } from './Payloads/HidePayload';
-import { Hostname } from './Origin/Hostname';
+import { HtmlMarkupOptions, HtmlMarkupPayload } from './Payloads/HtmlMarkupPayload';
 import { HtmlPayload } from './Payloads/HtmlPayload';
 import { ImagePayload } from './Payloads/ImagePayload';
 import { JsonStringPayload } from './Payloads/JsonStringPayload';
+import { LabelPayload } from './Payloads/LabelPayload';
 import { LogPayload } from './Payloads/LogPayload';
 import { MeasurePayload } from './Payloads/MeasurePayload';
-import { Mixin } from 'ts-mixer';
 import { NewScreenPayload } from './Payloads/NewScreenPayload';
-import { nonCryptoUuidV4, sleep } from './lib/utils';
 import { NotifyPayload } from './Payloads/NotifyPayload';
-import { OriginData } from './Origin/Origin';
 import { Payload } from './Payloads/Payload';
-import { PayloadFactory } from './PayloadFactory';
-import { RayColors } from './Concerns/RayColors';
-import { RaySettings, Settings } from './Settings/Settings';
-import { RaySizes } from './Concerns/RaySizes';
 import { RemovePayload } from './Payloads/RemovePayload';
-import { RemovesRayFrames } from './Concerns/RemovesRayFrames';
-import { Request } from './Request';
+import { ScreenColorPayload } from './Payloads/ScreenColorPayload';
+import { SeparatorPayload } from './Payloads/SeparatorPayload';
 import { ShowAppPayload } from './Payloads/ShowAppPayload';
 import { SizePayload } from './Payloads/SizePayload';
-import { Stopwatch } from './Stopwatch/Stopwatch';
 import { TablePayload } from './Payloads/TablePayload';
+import { TextPayload } from './Payloads/TextPayload';
 import { TracePayload } from './Payloads/TracePayload';
 import { XmlPayload } from './Payloads/XmlPayload';
-import { HtmlMarkupPayload, HtmlMarkupOptions } from './Payloads/HtmlMarkupPayload';
-import { TextPayload } from './Payloads/TextPayload';
-import { RateLimiter } from './Support/RateLimiter';
+import { Request } from './Request';
+import { RaySettings, Settings } from './Settings/Settings';
+import { Stopwatch } from './Stopwatch/Stopwatch';
+import { Counters } from './Support/Counters';
 import { Limiters } from './Support/Limiters';
-import { LabelPayload } from './Payloads/LabelPayload';
-import { SeparatorPayload } from './Payloads/SeparatorPayload';
-import { ScreenColorPayload } from './Payloads/ScreenColorPayload';
-import { RayScreenColors } from '@/Concerns/RayScreenColors';
-import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
+import { RateLimiter } from './Support/RateLimiter';
+import { nonCryptoUuidV4, sleep } from './lib/utils';
+import PACKAGE_VERSION from './lib/version';
 
 const md5 = require('md5');
 
@@ -641,12 +640,6 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this.sendRequest(payload);
     }
 
-    public nodeinfo(...properties: string[]): this {
-        const payload = new NodeInfoPayload(...properties);
-
-        return this.sendRequest(payload);
-    }
-
     public if(boolOrCallable: CallableFunction | boolean, callback: CallableFunction | null = null): this {
         if (typeof boolOrCallable === 'function') {
             boolOrCallable = <boolean>boolOrCallable();
@@ -852,3 +845,10 @@ export const standalone = windowObject => {
         windowObject['Ray'] = Ray;
     }
 };
+
+window['Ray'] = {
+    ray,
+    Ray,
+};
+
+window['rayInit'] = standalone;
