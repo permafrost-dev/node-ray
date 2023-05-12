@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.20.2](https://github.com/permafrost-dev/node-ray/compare/v1.20.1...v1.20.2)
+
+- Fix commonjs default issue, update target and module to ES2015 in tsconfig, and remove axios import from StackTraceGps [`732112c`](https://github.com/permafrost-dev/node-ray/commit/732112c74ff4f8f3bc8b5a3fe12649107ad3fc0a)
+- Refactor DateImmutable.ts to use Dayjs constructor directlyThis commit updates the DateImmutable.ts file to use the Dayjs constructor directly instead of importing the module and then using a default export [`9a3ec95`](https://github.com/permafrost-dev/node-ray/commit/9a3ec951c0c1314a27df9b5aae3c40700e4c022c)
+
 #### [v1.20.1](https://github.com/permafrost-dev/node-ray/compare/v1.20.0...v1.20.1)
+
+> 11 May 2023
 
 - Refactor StackTraceGps module to import source-map library properly [`30ba2a7`](https://github.com/permafrost-dev/node-ray/commit/30ba2a77c68d0b94a37102bf220c590a64ff5e03)
 - update snapshots [`e03cbbc`](https://github.com/permafrost-dev/node-ray/commit/e03cbbc97733966f1b49ff79a49a6917bf563a40)
