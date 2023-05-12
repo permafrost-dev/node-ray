@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-//import SourceMapConsumer from 'source-map/dist/source-map';
+import * as SourceMapConsumer from 'source-map';
 import StackFrame from '@/lib/stackframe';
 import axios, { AxiosResponse } from 'axios';
 
-const { SourceMapConsumer } = require('source-map');
+// const { SourceMapConsumer } = require('source-map');
 
 function _xdr(url: string): Promise<string> {
     return axios
@@ -106,7 +106,7 @@ function _findSourceMappingURL(source: string): string {
 
 function _extractLocationInfoFromSourceMapSource(
     stackframe: StackFrame,
-    sourceMapConsumer: typeof SourceMapConsumer,
+    sourceMapConsumer: SourceMapConsumer.SourceMapConsumer,
     sourceCache: Record<string, string>,
 ): Promise<StackFrame> {
     return new Promise((resolve, reject) => {
@@ -138,14 +138,14 @@ function _extractLocationInfoFromSourceMapSource(
 
 export class StackTraceGPS {
     private sourceCache: Record<string, string>;
-    private sourceMapConsumerCache: Record<string, Promise<typeof SourceMapConsumer>>;
+    private sourceMapConsumerCache: Record<string, Promise<SourceMapConsumer.SourceMapConsumer>>;
     private ajax: (url: string) => Promise<string>;
     private _atob: (b64str: string) => string;
 
     constructor(
         public opts: {
             sourceCache?: Record<string, string>;
-            sourceMapConsumerCache?: Record<string, Promise<typeof SourceMapConsumer>>;
+            sourceMapConsumerCache?: Record<string, Promise<SourceMapConsumer.SourceMapConsumer>>;
             offline?: boolean;
             ajax?: (url: string) => Promise<string>;
             atob?: (b64str: string) => string;
@@ -191,13 +191,13 @@ export class StackTraceGPS {
         });
     }
 
-    private _getSourceMapConsumer(sourceMappingURL: string, defaultSourceRoot: string): Promise<typeof SourceMapConsumer> {
-        return new Promise<typeof SourceMapConsumer>(resolve => {
+    private _getSourceMapConsumer(sourceMappingURL: string, defaultSourceRoot: string): Promise<SourceMapConsumer.SourceMapConsumer> {
+        return new Promise<SourceMapConsumer.SourceMapConsumer>(resolve => {
             // @ts-ignore
             if (this.sourceMapConsumerCache[sourceMappingURL]) {
                 resolve(this.sourceMapConsumerCache[sourceMappingURL]);
             } else {
-                const sourceMapConsumerPromise = new Promise<typeof SourceMapConsumer>((resolve, reject) => {
+                const sourceMapConsumerPromise = new Promise<SourceMapConsumer.SourceMapConsumer>((resolve, reject) => {
                     this._get(sourceMappingURL)
                         .then((sourceMapSource: any) => {
                             if (typeof sourceMapSource === 'string') {
@@ -206,7 +206,7 @@ export class StackTraceGPS {
                             if (typeof sourceMapSource.sourceRoot === 'undefined') {
                                 sourceMapSource.sourceRoot = defaultSourceRoot;
                             }
-                            resolve(new SourceMapConsumer(sourceMapSource));
+                            resolve(new SourceMapConsumer.SourceMapConsumer(sourceMapSource));
                         })
                         .catch(reject);
                 });
