@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.20.9](https://github.com/permafrost-dev/node-ray/compare/v1.20.9...v1.20.9)
+
+- wip [`881abe2`](https://github.com/permafrost-dev/node-ray/commit/881abe27a075b8b684f0ab15cb5d02315e8d10d9)
+
 #### [v1.20.9](https://github.com/permafrost-dev/node-ray/compare/v1.20.8...v1.20.9)
+
+> 12 May 2023
 
 - fixes [`add5d2e`](https://github.com/permafrost-dev/node-ray/commit/add5d2e79b1532c3d3aefff09a222347b88d3cf5)
 
