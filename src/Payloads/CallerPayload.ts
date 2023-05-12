@@ -19,20 +19,20 @@ export class CallerPayload extends Payload {
         const frames = this.frames.slice(0);
 
         /** @var Frame frame */
-        const frame: StackFrame = frames[0];
+        const frame: StackFrame = frames[0] || null;
 
-        const funcNameParts = frame?.getFunctionName()?.replace('Proxy.', '').split('.').slice(0);
+        const funcNameParts = frame?.getFunctionName()?.replace('Proxy.', '')?.split('.')?.slice(0);
 
         const className = funcNameParts?.length ? funcNameParts.shift() : '';
         const methodName = funcNameParts?.join('.') ?? '';
 
         return {
             frame: {
-                file_name: this.replaceRemotePathWithLocalPath(frame.getFileName() ?? ''),
-                line_number: frame.getLineNumber(),
+                file_name: this.replaceRemotePathWithLocalPath(frame?.getFileName() ?? ''),
+                line_number: frame?.getLineNumber() || 0,
                 class: className,
                 method: methodName,
-                vendor_frame: frame.getFileName()?.includes('node_modules') ?? false,
+                vendor_frame: frame?.getFileName()?.includes('node_modules') ?? false,
             },
         };
     }

@@ -2,7 +2,11 @@ import StackFrame from '@/lib/stackframe';
 
 export class RemovesRayFrames {
     public static removeRayFrames(frames: StackFrame[]): StackFrame[] {
-        const result = frames.filter(frame => !RemovesRayFrames.isRayFrame(frame) && !RemovesRayFrames.isNodeFrame(frame));
+        const result = frames
+            .filter(frame => !RemovesRayFrames.isRayFrame(frame) && !RemovesRayFrames.isNodeFrame(frame))
+            .filter(frame => {
+                return !(!frame.fileName || !frame.functionName || !frame.source);
+            });
 
         return result;
     }

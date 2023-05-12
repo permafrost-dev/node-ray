@@ -23,7 +23,7 @@ exports[`can chain method calls when using if with a callback and a false condit
           "label": "Text",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -60,7 +60,7 @@ exports[`can chain method calls when using if with a callback and a false condit
           "label": "Text",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -84,7 +84,7 @@ exports[`can chain multiple if calls with callbacks together 1`] = `
           "label": "Text",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -136,7 +136,7 @@ exports[`can chain multiple if calls with callbacks together 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -162,7 +162,7 @@ exports[`can send additional payloads from the sent payload callback 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -204,7 +204,7 @@ exports[`can send payloads from the sending payload callback 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -223,7 +223,7 @@ exports[`can send payloads from the sending payload callback 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -246,7 +246,7 @@ exports[`conditionally shows a payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -262,7 +262,7 @@ exports[`conditionally shows a payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -286,7 +286,7 @@ exports[`doesn't blow up when calling html without a value 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -305,7 +305,7 @@ exports[`doesn't blow up when calling html without a value 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -333,7 +333,7 @@ exports[`measures the execution time of a closure 1`] = `
           "total_time": 20,
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -361,7 +361,7 @@ exports[`measures the execution time of named stopwatches 1`] = `
           "total_time": 0,
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -384,7 +384,7 @@ exports[`measures the execution time of named stopwatches 1`] = `
           "total_time": 20,
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -412,7 +412,7 @@ exports[`measures the execution time of repeated and unnamed calls to measure 1`
           "total_time": 0,
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -435,7 +435,7 @@ exports[`measures the execution time of repeated and unnamed calls to measure 1`
           "total_time": 20,
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -458,7 +458,7 @@ exports[`measures the execution time of repeated and unnamed calls to measure 1`
           "total_time": 40,
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -481,7 +481,7 @@ exports[`pauses code execution 1`] = `
           "name": "xxxxx",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -505,7 +505,7 @@ exports[`sends a boolean payload 1`] = `
           "label": "Boolean",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -534,7 +534,7 @@ exports[`sends a caller payload 1`] = `
           },
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -559,7 +559,7 @@ exports[`sends a classname payload 1`] = `
           ],
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -580,7 +580,7 @@ exports[`sends a clear all payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -603,7 +603,7 @@ exports[`sends a clear screen payload 1`] = `
           "name": "",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -755,7 +755,7 @@ exports[`sends a confetti payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -779,7 +779,7 @@ exports[`sends a custom payload 1`] = `
           "label": "test",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -798,7 +798,7 @@ exports[`sends a custom payload 1`] = `
           "label": "",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -817,7 +817,7 @@ exports[`sends a custom payload 1`] = `
           "label": "",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -836,7 +836,7 @@ exports[`sends a custom payload 1`] = `
           "label": "",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -857,7 +857,7 @@ exports[`sends a hide payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -883,7 +883,7 @@ exports[`sends a json string payload 1`] = `
           "label": "JSON",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -906,7 +906,7 @@ exports[`sends a label payload 1`] = `
           "label": "test-123",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -929,7 +929,7 @@ exports[`sends a new screen payload 1`] = `
           "name": "test 1",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -952,7 +952,7 @@ exports[`sends a notify payload 1`] = `
           "value": "hello world",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -976,7 +976,7 @@ exports[`sends a null payload 1`] = `
           "label": "Null",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1001,7 +1001,7 @@ exports[`sends a raw payload 1`] = `
           ],
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1015,7 +1015,7 @@ exports[`sends a raw payload 1`] = `
           ],
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1036,7 +1036,7 @@ exports[`sends a remove payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1057,7 +1057,7 @@ exports[`sends a remove payload conditionally 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1073,7 +1073,7 @@ exports[`sends a remove payload conditionally 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1096,7 +1096,7 @@ exports[`sends a screen color payload 1`] = `
           "color": "red",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1114,7 +1114,7 @@ exports[`sends a screen color payload 1`] = `
           "color": "green",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1135,7 +1135,7 @@ exports[`sends a separator payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1219,7 +1219,7 @@ exports[`sends a string payload 1`] = `
           ],
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1250,7 +1250,7 @@ exports[`sends a table payload 1`] = `
           ],
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1273,7 +1273,7 @@ exports[`sends a table payload 1`] = `
           ],
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1295,7 +1295,7 @@ exports[`sends a table payload 1`] = `
           },
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1317,7 +1317,7 @@ exports[`sends a table payload 1`] = `
           },
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1341,7 +1341,7 @@ exports[`sends a text payload 1`] = `
           "label": "Text",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1360,7 +1360,7 @@ exports[`sends a text payload 1`] = `
           "label": "Text",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1384,7 +1384,7 @@ exports[`sends an error payload 1`] = `
           "label": "Error",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1428,7 +1428,7 @@ exports[`sends an event payload 1`] = `
           "payload": "<code style="font-size: 0.8rem!important;"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">[</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">]</span></code>",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1583,7 +1583,7 @@ exports[`sends an exception payload 1`] = `
           "meta": {},
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1760,7 +1760,7 @@ exports[`sends an exception payload with metadata 1`] = `
           },
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1802,7 +1802,7 @@ exports[`sends an html payload 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1826,7 +1826,7 @@ exports[`sends an html payload when calling ray() with an object argument 1`] = 
           "label": "HTML",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1850,7 +1850,7 @@ exports[`sends an image payload 1`] = `
           "label": "Image",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1873,7 +1873,7 @@ exports[`sends an object as json payload 1`] = `
           "value": ""{\\"a\\":1,\\"b\\":2}"",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1897,7 +1897,7 @@ exports[`sends an xml payload 1`] = `
           "label": "XML",
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1918,7 +1918,7 @@ exports[`sends show and hide app payloads 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1934,7 +1934,7 @@ exports[`sends show and hide app payloads 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1959,7 +1959,7 @@ exports[`sends the ray ban payload 1`] = `
           ],
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
@@ -1984,7 +1984,7 @@ exports[`sends the ray charles payload 1`] = `
           ],
         },
         "origin": {
-          "file": "",
+          "file": "/test/file.js",
           "function_name": "xxxx",
           "hostname": "fake-hostname",
           "line_number": 999,
