@@ -2,7 +2,15 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.20.7](https://github.com/permafrost-dev/node-ray/compare/v1.20.6...v1.20.7)
+
+- Update README.md [`450a7d3`](https://github.com/permafrost-dev/node-ray/commit/450a7d30e413ba266008d83de2fa6f21b872dbab)
+- Remove unnecessary line in package.json preversion script [`7c83962`](https://github.com/permafrost-dev/node-ray/commit/7c83962cf0a2c142212ad1e94de2d2e423915b11)
+- fixes [`2e5b54b`](https://github.com/permafrost-dev/node-ray/commit/2e5b54b309b32bf6db033079663e52831a889442)
+
 #### [v1.20.6](https://github.com/permafrost-dev/node-ray/compare/v1.20.5...v1.20.6)
+
+> 12 May 2023
 
 - Remove unnecessary line in package.json preversion script [`c4c87bc`](https://github.com/permafrost-dev/node-ray/commit/c4c87bc265d06e8725cff201dda1de1e84f71088)
 - fixes [`dfa9333`](https://github.com/permafrost-dev/node-ray/commit/dfa9333b24e59a56ea693aec05d4d9c4d052de41)
