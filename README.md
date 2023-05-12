@@ -72,7 +72,11 @@ const { ray } = require('node-ray/web');
 
 ### Browser standalone
 
-`node-ray` may be directly used within a web page via a script tag. The standalone version includes everything _except_ the axios library.
+> **Important Note** - As of version `1.20.6`, you should no longer include `axios` as a separate `<script>` tag.
+> 
+> It is now included in the standalone build.
+
+`node-ray` may be directly used within a web page via a script tag. The standalone version includes all required libraries, **including** axios.
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
@@ -85,10 +89,8 @@ const { ray } = require('node-ray/web');
 
 As of version `1.20.3`, you may use the `rayInit()` method instead of manually assigning properties to the `window` global object.  `rayInit()` is simply a wrapper around the above method to provide a better developer experience as well as more succinct and readable code:
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>-->
-
 ```html
-<script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
 <script>
     rayInit(window);
     ray('hello world');
