@@ -37,14 +37,8 @@ export class StackFrame {
 
     constructor(obj) {
         if (!obj) return;
-        for (let i = 0; i < props.length; i++) {
-            if (obj[props[i]] !== undefined) {
-                this['set' + _capitalize(props[i])](obj[props[i]]);
-            }
-        }
-
         // for (let i = 0; i < booleanProps.length; i++) {
-        //     StackFrame.prototype['get' + _capitalize(booleanProps[i])] = _getter(booleanProps[i]);
+        //     //StackFrame.prototype['get' + _capitalize(booleanProps[i])] = _getter(booleanProps[i]);
         //     StackFrame.prototype['set' + _capitalize(booleanProps[i])] = (function (p) {
         //         return function (v) {
         //             // @ts-ignore
@@ -52,6 +46,16 @@ export class StackFrame {
         //         };
         //     })(booleanProps[i]);
         // }
+
+        for (let i = 0; i < props.length; i++) {
+            if (obj[props[i]] !== undefined) {
+                const fn = StackFrame.prototype['set' + _capitalize(props[i])];
+                if (typeof fn === 'function') {
+                    // this['set' + _capitalize(props[i])](obj[props[i]]);
+                    fn.call(this, obj[props[i]]);
+                }
+            }
+        }
     }
 
     getArgs() {
@@ -97,7 +101,7 @@ export class StackFrame {
     }
 
     getFileName() {
-        return _getter(this, 'fileName') as string;
+        return this.fileName;
     }
     getLineNumber() {
         return _getter(this, 'lineNumber') as number;
