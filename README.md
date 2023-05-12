@@ -88,7 +88,7 @@ As of version `1.20.3`, you may use the `rayInit()` method instead of manually a
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>
-<script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.js"></script>
 <script>
     rayInit(window);
     ray('hello world');
