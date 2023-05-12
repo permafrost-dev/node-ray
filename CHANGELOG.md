@@ -2,7 +2,15 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.20.1](https://github.com/permafrost-dev/node-ray/compare/v1.20.0...v1.20.1)
+
+- Refactor StackTraceGps module to import source-map library properly [`30ba2a7`](https://github.com/permafrost-dev/node-ray/commit/30ba2a77c68d0b94a37102bf220c590a64ff5e03)
+- update snapshots [`e03cbbc`](https://github.com/permafrost-dev/node-ray/commit/e03cbbc97733966f1b49ff79a49a6917bf563a40)
+- disable tests that break on github actions [`2c52479`](https://github.com/permafrost-dev/node-ray/commit/2c52479d45a881527696d18745d3077ec1b587fa)
+
 #### [v1.20.0](https://github.com/permafrost-dev/node-ray/compare/v1.19.10...v1.20.0)
+
+> 11 May 2023
 
 - fix tests, update snapshots, misc fixes [`e8eab3b`](https://github.com/permafrost-dev/node-ray/commit/e8eab3ba8f5cf44db9fb5cfee601b3348c800a40)
 - continue fixing stacktraces [`1d9a38b`](https://github.com/permafrost-dev/node-ray/commit/1d9a38bdedc971abcf918fa5e69d470204eb0f44)
