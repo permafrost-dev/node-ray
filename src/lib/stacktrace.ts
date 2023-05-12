@@ -1,6 +1,6 @@
-import * as ErrorStackParser from 'error-stack-parser';
+import ErrorStackParser from '@/lib/ErrorStackParser';
 import StackGenerator from '@/lib/StackGenerator';
-import * as StackTraceGPS from 'stacktrace-gps';
+import StackTraceGPS from '@/lib/StackTraceGps';
 import StackFrame from '@/lib/stackframe';
 
 const _options = {
@@ -65,7 +65,7 @@ export const StackTrace = {
 
     fromError: function StackTrace$$fromError(error, opts) {
         opts = _merge(_options, opts);
-        const gps = new StackTraceGPS.default(opts);
+        const gps = new StackTraceGPS(opts);
         return new Promise(
             function (resolve) {
                 const stackframes = _filtered(ErrorStackParser.parse(error), opts.filter);
