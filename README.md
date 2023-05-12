@@ -82,8 +82,9 @@ const { ray } = require('node-ray/web');
     window.Ray = Ray.Ray;
 </script>
 ```
+#### Recommended Standalone Initialization
 
-As of version `1.19.10`, you may use the `rayInit()` method instead of manually assigning properties to the `window` global object.  `rayInit()` is simply a wrapper around the above method to provide a better developer experience as well as more succinct and readable code:
+As of version `1.20.3`, you may use the `rayInit()` method instead of manually assigning properties to the `window` global object.  `rayInit()` is simply a wrapper around the above method to provide a better developer experience as well as more succinct and readable code:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>
