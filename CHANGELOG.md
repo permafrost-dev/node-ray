@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.20.9](https://github.com/permafrost-dev/node-ray/compare/v1.20.8...v1.20.9)
+
+- fixes [`add5d2e`](https://github.com/permafrost-dev/node-ray/commit/add5d2e79b1532c3d3aefff09a222347b88d3cf5)
+
 #### [v1.20.8](https://github.com/permafrost-dev/node-ray/compare/v1.20.7...v1.20.8)
+
+> 12 May 2023
 
 - Add @permafrost-dev/pretty-format package and remove exports property on esm output in rollup.config.js [`acf45f8`](https://github.com/permafrost-dev/node-ray/commit/acf45f844ab4025f2a81f99de3ef00cb509f7b66)
 
