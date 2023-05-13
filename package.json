@@ -107,7 +107,7 @@
         "typescript": "^5.0.4"
     },
     "dependencies": {
-        "@permafrost-dev/pretty-format": "^1.1.4",
+        "@permafrost-dev/pretty-format": "^1.1.5",
         "axios": "^1.4.0",
         "dayjs": "^1.11.7",
         "error-stack-parser": "^2.1.4",
