@@ -24,6 +24,7 @@ const outputs = {
                 file: 'dist/index.esm.min.mjs',
                 format: 'esm',
                 plugins: [],
+                exports: 'auto',
                 sourcemap: options.sourceMapsEnabled,
             },
         ]
@@ -33,7 +34,7 @@ const outputs = {
             file: 'dist/index.cjs.js',
             format: 'cjs',
             sourcemap: options.sourceMapsEnabled,
-            exports: 'auto',
+            exports: 'named',
             plugins: [],
         },
         {
@@ -59,7 +60,7 @@ export default {
             preventAssignment: true,
         }),
         commonjs({
-            requireReturnsDefault: 'auto',
+            //requireReturnsDefault: 'auto',
         }),
         nodeResolve(),
         json(),

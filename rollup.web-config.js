@@ -5,7 +5,7 @@ import typescript from '@rollup/plugin-typescript';
 import replace from '@rollup/plugin-replace';
 
 const options = {
-    sourceMapsEnabled: !true,
+    sourceMapsEnabled: true,
     minified: false,
 };
 
@@ -23,6 +23,7 @@ const outputs = {
                 file: 'dist/web.esm.min.mjs',
                 format: 'esm',
                 plugins: [],
+                exports: 'auto',
                 sourcemap: options.sourceMapsEnabled,
             },
         ]
@@ -32,7 +33,7 @@ const outputs = {
             file: 'dist/web.cjs.js',
             format: 'cjs',
             sourcemap: options.sourceMapsEnabled,
-            exports: 'auto',
+            exports: 'named',
             plugins: [],
         },
         {
@@ -58,7 +59,7 @@ export default {
             preventAssignment: true,
         }),
         commonjs({
-            requireReturnsDefault: 'auto',
+            //requireReturnsDefault: 'auto',
         }),
         nodeResolve(),
         typescript(),
