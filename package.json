@@ -59,7 +59,7 @@
         "build:dts:web:gen": "./node_modules/.bin/dts-bundle-generator -o ./dist/web.d.ts ./src/Ray.ts",
         "build:dts:web": "node ./scripts/generate-web-ts-declaration.js",
         "build:dts": "concurrently npm:build:dts:index npm:build:dts:web",
-        "build:all": "npm run build",
+        "build:all": "npm run build && npm run build:standalone",
         "build:dev": "npm run build",
         "postversion": "npm run build:all && npm run build:dts",
         "version": "auto-changelog -p -o CHANGELOG.md --hide-credit --release-summary --hide-empty-releases --sort-commits date-desc && git add CHANGELOG.md",
