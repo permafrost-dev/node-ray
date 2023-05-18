@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.20.11](https://github.com/permafrost-dev/node-ray/compare/v1.20.10...v1.20.11)
+
+- add build standalone script to build:all [`378daa9`](https://github.com/permafrost-dev/node-ray/commit/378daa94e149e5fef8277b8a2ee292a28ed0675d)
+
 #### [v1.20.10](https://github.com/permafrost-dev/node-ray/compare/v1.20.9...v1.20.10)
+
+> 18 May 2023
 
 - Change library build method [`#174`](https://github.com/permafrost-dev/node-ray/pull/174)
 - Remove import statement for standalone module in package.json [`bc1e5f9`](https://github.com/permafrost-dev/node-ray/commit/bc1e5f93f91930209de818cda05607f874d5731f)
