@@ -40,7 +40,6 @@
             "types": "./dist/index.d.ts"
         },
         "./standalone": {
-            "import": "./dist/standalone.mjs",
             "require": "./dist/standalone.js"
         }
     },
