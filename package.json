@@ -26,7 +26,8 @@
     "exports": {
         ".": {
             "import": "./dist/index.esm.mjs",
-            "require": "./dist/index.cjs.js"
+            "require": "./dist/index.cjs.js",
+            "types": "./dist/index.d.ts"
         },
         "./web": {
             "import": "./dist/web.esm.mjs",
@@ -39,6 +40,7 @@
             "types": "./dist/index.d.ts"
         },
         "./standalone": {
+            "import": "./dist/standalone.mjs",
             "require": "./dist/standalone.js"
         }
     },
