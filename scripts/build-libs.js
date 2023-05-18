@@ -13,10 +13,10 @@ const buildConfigs = [
         entry: 'src/Ray.ts',
         format: 'cjs',
         minify: false,
-        outfile: 'dist/test-index.cs.js',
+        outfile: 'dist/web.cjs.js',
         platform: {
-            name: 'node',
-            version: 14,
+            name: 'browser',
+            version: 'chrome70',
         },
     },
     {
@@ -26,10 +26,36 @@ const buildConfigs = [
         entry: 'src/Ray.ts',
         format: 'esm',
         minify: false,
-        outfile: 'dist/test-index.esm.mjs',
+        outfile: 'dist/web.esm.mjs',
+        platform: {
+            name: 'browser',
+            version: 'chrome70',
+        },
+    },
+    {
+        basePath: `${__dirname}/..`,
+        bundle: true,
+        constants: {},
+        entry: 'src/RayNode.ts',
+        format: 'cjs',
+        minify: false,
+        outfile: 'dist/index.cjs.js',
         platform: {
             name: 'node',
-            version: 14,
+            version: 'node14',
+        },
+    },
+    {
+        basePath: `${__dirname}/..`,
+        bundle: true,
+        constants: {},
+        entry: 'src/RayNode.ts',
+        format: 'esm',
+        minify: false,
+        outfile: 'dist/index.esm.mjs',
+        platform: {
+            name: 'node',
+            version: 'node14',
         },
     },
 ];
@@ -54,7 +80,18 @@ class Builder {
 
         buildConfigs.forEach(buildConfig => {
             // get names of package dependencies so they can be marked as external
-            const dependencyNames = Object.keys(require(`${buildConfig.basePath}/package.json`)['dependencies'] || []);
+            const dependencyNames = [
+                'axios',
+                'dayjs',
+                'stopwatch-node',
+                'md5',
+                '@permafrost-dev/pretty-format',
+                'stacktrace-js',
+                'xml-formatter',
+                'uuid',
+                'find-up',
+            ];
+            //Object.keys(require(`${buildConfig.basePath}/package.json`)['dependencies'] || []);
 
             const result = esbuild.buildSync({
                 absWorkingDir: buildConfig.basePath,
@@ -74,7 +111,7 @@ class Builder {
                 minify: buildConfig.minify || this.config.minify,
                 outfile: buildConfig.outfile,
                 platform: buildConfig.platform.name,
-                target: `es2015`,
+                target: buildConfig.platform.version,
                 treeShaking: false,
             });
 
