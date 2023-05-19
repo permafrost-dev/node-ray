@@ -118,6 +118,18 @@ window.ray = ray;
 
 Compile the bundle _(`npm run dev`)_as usual. After including `js/app.js` in your view, you may access `ray()` within your scripts.
 
+### Laravel + Vite
+
+To use `node-ray` with Laravel + Vite, include the following in `resources/js/bootstrap.js`:
+
+```js
+import { ray } from 'node-ray/web';
+
+window.ray = ray;
+```
+
+`ray()` is immediately available to other scripts such as `app.js`, however note that `window.ray()` is NOT immediately available in `<script>` tags embedded in the view.
+
 ## Usage
 
 Most of the API from the [original PHP package](https://github.com/spatie/ray) is supported. See the [api reference](https://spatie.be/docs/ray/v1/usage/reference) for more information.
