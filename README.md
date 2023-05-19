@@ -27,9 +27,9 @@ The package can be installed in any NodeJS, ES6+, or TypeScript application to s
 
 <br>
 
-> **It is recommended that you immediately update to v1.20.6 or higher.**
+> **It is recommended that you immediately update to v1.20.11 or higher.**
 > 
-> **Versions 1.19.6 through 1.20.5 are broken and will not function correctly.**
+> **Versions 1.19.6 through 1.20.10 are broken and will not function correctly.**
 
 
 ## Installation
