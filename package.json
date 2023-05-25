@@ -115,7 +115,6 @@
         "find-up": "^5.0",
         "md5": "^2.3.0",
         "stacktrace-gps": "^3.1.2",
-        "stopwatch-node": "^1.1.0",
         "tslib": "^2.5.0",
         "uuid": "^9.0.0",
         "xml-formatter": "^3.3.2"
