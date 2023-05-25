@@ -501,34 +501,34 @@ it('sends an html payload when calling ray() with an object argument', () => {
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-// it('sends an exception payload', () => {
-//     let err;
-//     try {
-//         err = new Error('test');
-//         throw err;
-//     } catch (e) {
-//         err = e;
-//     }
+it('sends an exception payload', () => {
+    let err;
+    try {
+        err = new Error('test');
+        throw err;
+    } catch (e) {
+        err = e;
+    }
 
-//     myRay.exception(err, {});
+    myRay.exception(err, {});
 
-//     expect(client.sentPayloads()).toMatchSnapshot();
-// });
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
 
-// it('sends an exception payload with metadata', () => {
-//     let err;
+it('sends an exception payload with metadata', () => {
+    let err;
 
-//     try {
-//         err = new Error('test');
-//         throw err;
-//     } catch (e) {
-//         err = e;
-//     }
+    try {
+        err = new Error('test');
+        throw err;
+    } catch (e) {
+        err = e;
+    }
 
-//     myRay.exception(err, { one: 1, ten: 10, twentyThree: 23 });
+    myRay.exception(err, { one: 1, ten: 10, twentyThree: 23 });
 
-//     expect(client.sentPayloads()).toMatchSnapshot();
-// });
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
 
 it('sends an event payload', () => {
     myRay.event('testevent', []);

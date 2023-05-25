@@ -1441,6 +1441,116 @@ exports[`sends an event payload 1`] = `
 ]
 `;
 
+exports[`sends an exception payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "class": "Error",
+          "frames": [
+            {
+              "class": "Object",
+              "file_name": "/tests/Ray.test.ts",
+              "line_number": 999,
+              "method": "<anonymous>",
+              "snippet": [],
+              "vendor_frame": false,
+            },
+          ],
+          "message": "test",
+          "meta": {},
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "exception",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an exception payload with metadata 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "class": "Error",
+          "frames": [
+            {
+              "class": "Object",
+              "file_name": "/tests/Ray.test.ts",
+              "line_number": 999,
+              "method": "<anonymous>",
+              "snippet": [],
+              "vendor_frame": false,
+            },
+          ],
+          "message": "test",
+          "meta": {
+            "one": 1,
+            "ten": 10,
+            "twentyThree": 23,
+          },
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "exception",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends an html payload 1`] = `
 [
   {
