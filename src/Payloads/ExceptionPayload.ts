@@ -1,7 +1,7 @@
 import { Payload } from '../Payloads/Payload';
 //import * as StackTrace from 'stacktrace-js/dist/stacktrace-with-promises-and-json-polyfills';
 import { StackTrace } from '@/lib/stacktrace';
-import StackFrame from 'stackframe';
+import { StackFrame } from 'stacktrace-js';
 
 export class ExceptionPayload extends Payload {
     protected exception: Error;

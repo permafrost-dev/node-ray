@@ -1,4 +1,4 @@
-import StackFrame from '@/lib/stackframe';
+import { StackFrame } from 'stacktrace-js';
 
 export class RemovesRayFrames {
     public static removeRayFrames(frames: StackFrame[]): StackFrame[] {

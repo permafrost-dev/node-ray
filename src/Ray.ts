@@ -8,7 +8,7 @@ const BUILDING_STANDALONE_LIB = typeof __BUILDING_STANDALONE_LIB__ !== 'undefine
 
 import * as md5lib from 'md5';
 import { RayScreenColors } from '@/Concerns/RayScreenColors';
-import { StackTrace } from '@/lib/stacktrace';
+import * as StackTrace from 'stacktrace-js';
 import { Mixin } from 'ts-mixer';
 import { RayColors } from './Concerns/RayColors';
 import { RaySizes } from './Concerns/RaySizes';
