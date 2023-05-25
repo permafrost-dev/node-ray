@@ -7,9 +7,9 @@ import { end } from '../lib/utils';
 export class NodeStopwatch extends Stopwatch {
     public memoryLaps: number[] = [];
 
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     public start(name: string | undefined): NodeStopwatchEvent {
         this.startedAt = new Date().getTime();
-        this.sw.start(name);
 
         return new NodeStopwatchEvent(this);
     }
@@ -29,7 +29,6 @@ export class NodeStopwatch extends Stopwatch {
     }
 
     public stop(): NodeStopwatchEvent {
-        this.sw.stop();
         this.endedAt = new Date().getTime();
 
         const duration = this.endedAt - this.startedAt;
