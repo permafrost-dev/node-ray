@@ -1,6 +1,6 @@
 import { Payload } from './Payload';
 import { RemovesRayFrames } from '../Concerns/RemovesRayFrames';
-import StackFrame from '@/lib/stackframe';
+import { StackFrame } from 'stacktrace-js';
 
 export class TracePayload extends Payload {
     /** @var array */
