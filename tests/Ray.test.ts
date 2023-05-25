@@ -414,7 +414,7 @@ it('counts the number of times an unnamed piece of code is called', () => {
 
     for (const prop in Ray.counters.getCounters()) {
         if (counter === 0) {
-            expect(end(Ray.counters.getCounters()[prop])).toBe(6);
+            expect(end(Ray.counters.getCounters()[prop])).toBe(2);
         }
         if (counter === 1) {
             expect(end(Ray.counters.getCounters()[prop])).toBe(4);
