@@ -670,7 +670,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     public limit(count: number): this {
-        const frame = this.getOriginFrame();
+        const frame = this.getCaller();
 
         this.limitOrigin = <any>{
             function_name: frame?.getFunctionName(),
@@ -686,7 +686,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     public once(...args: any[]): this {
-        const frame = this.getOriginFrame();
+        const frame = this.getCaller();
 
         this.limitOrigin = <any>{
             function_name: frame?.getFunctionName(),
