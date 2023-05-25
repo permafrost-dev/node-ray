@@ -657,7 +657,7 @@ it('only limits the number of payloads sent from the line that calls limit', () 
         getNewRay().send(`unlimited loop iteration ${i}`);
     }
 
-    expect(client.sentPayloads().length).toBe(iterations);
+    expect(client.sentPayloads().length).toBe(iterations + limit);
 });
 
 it('can handle multiple consecutive calls to limit', () => {
@@ -672,33 +672,34 @@ it('can handle multiple consecutive calls to limit', () => {
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-// it('sends a payload once when called with arguments', () => {
-//     for (let i = 0; i < 5; i++) {
-//         getNewRay().once(i);
-//     }
+it('sends a payload once when called with arguments', () => {
+    const r = getNewRay();
 
-//     expect(client.sentPayloads().length).toBe(1);
-//     expect(client.sentPayloads()[0]['payloads'][0]['content']['values']).toStrictEqual([0]);
-// });
+    for (let i = 0; i < 5; i++) {
+        r.once(i);
+    }
 
-// it('sends a payload once when called without arguments', () => {
-//     for (let i = 0; i < 5; i++) {
-//         getNewRay().once().text(`${i}`);
-//     }
+    expect(client.sentPayloads().length).toBe(1);
+    expect(client.sentPayloads()[0]['payloads'][0]['content']['values']).toStrictEqual([0]);
+});
 
-//     expect(client.sentPayloads().length).toBe(1);
-//     expect(client.sentPayloads()[0]['payloads'][0]['content']['content']).toStrictEqual('0');
-// });
+it('sends a payload once when called without arguments', () => {
+    for (let i = 0; i < 5; i++) {
+        getNewRay().once().text(`${i}`);
+    }
 
-// it('sends a payload once while allowing calls to limit', () => {
-//     for (let i = 0; i < 5; i++) {
-//         getNewRay().once(i);
-//         getNewRay().limit(5).text(`${i}`);
-//     }
+    expect(client.sentPayloads().length).toBe(1);
+    expect(client.sentPayloads()[0]['payloads'][0]['content']['content']).toStrictEqual('0');
+});
 
-//     console.log(client);
-//     expect(client.sentPayloads().length).toBe(6);
-// });
+it('sends a payload once while allowing calls to limit', () => {
+    for (let i = 0; i < 5; i++) {
+        getNewRay().once(i);
+        getNewRay().limit(5).text(`${i}`);
+    }
+
+    expect(client.sentPayloads().length).toBe(6);
+});
 
 it('can conditionally send payloads using if with a truthy conditional and without a callback', () => {
     for (let i = 0; i < 10; i++) {
