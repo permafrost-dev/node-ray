@@ -1,7 +1,5 @@
 import { Payload } from '../Payloads/Payload';
-//import * as StackTrace from 'stacktrace-js/dist/stacktrace-with-promises-and-json-polyfills';
-import { StackTrace } from '@/lib/stacktrace';
-import { StackFrame } from 'stacktrace-js';
+import * as StackTrace from 'stacktrace-js';
 
 export class ExceptionPayload extends Payload {
     protected exception: Error;
@@ -9,7 +7,7 @@ export class ExceptionPayload extends Payload {
     protected meta = {};
 
     // eslint-disable-next-line no-undef
-    protected stack: StackFrame[];
+    protected stack: StackTrace.StackFrame[];
 
     public constructor(exception: Error, meta: Record<string, unknown> = {}) {
         super();
