@@ -355,8 +355,6 @@ See [using the package](docs/usage.md).
 ## Code Coverage Details
 
 <p align="center">
-    <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graphs/commits.svg" height="100" alt="codecov graph" />
-    <br>
     <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graphs/sunburst.svg" height="175" alt="codecov graph" />
     <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graphs/icicle.svg" width="400" alt="codecov graph" />
 </p>
