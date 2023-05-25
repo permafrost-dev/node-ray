@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 
-import * as StopWatches from 'stopwatch-node/dist/stopwatch';
 import { StopwatchEvent } from './StopwatchEvent';
 
 export class Stopwatch {
-    protected sw: StopWatches.StopWatch;
     public name: string | undefined;
     public laps: number[] = [];
     public startedAt: number = 0;
@@ -12,7 +10,6 @@ export class Stopwatch {
 
     constructor(name: string | undefined = undefined) {
         this.name = name;
-        this.sw = new StopWatches.StopWatch(name);
         this.laps = [];
         this.startedAt = 0;
         this.endedAt = 0;
@@ -20,15 +17,14 @@ export class Stopwatch {
 
     protected initialize(name: string | undefined) {
         this.name = name;
-        this.sw = new StopWatches.StopWatch(name);
         this.laps = [];
         this.startedAt = 0;
         this.endedAt = 0;
     }
 
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     public start(name: string | undefined): StopwatchEvent {
         this.startedAt = new Date().getTime();
-        this.sw.start(name);
 
         return new StopwatchEvent(this);
     }
@@ -43,7 +39,6 @@ export class Stopwatch {
     }
 
     public stop(): StopwatchEvent {
-        this.sw.stop();
         this.endedAt = new Date().getTime();
 
         const duration = this.endedAt - this.startedAt;
