@@ -2,7 +2,20 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v1.21.0](https://github.com/permafrost-dev/node-ray/compare/v1.20.11...v1.21.0)
+
+Fix stack frames
+
+- Fix stack frames [`#179`](https://github.com/permafrost-dev/node-ray/pull/179)
+- Fix issue 176 [`#178`](https://github.com/permafrost-dev/node-ray/pull/178)
+- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.1 [`#177`](https://github.com/permafrost-dev/node-ray/pull/177)
+- fix broken test [`ba12666`](https://github.com/permafrost-dev/node-ray/commit/ba126664e2812bb5c22d5626692312e6ab024824)
+- Fix stack trace frames filtering in Ray class [`74a955a`](https://github.com/permafrost-dev/node-ray/commit/74a955a09cedd8a937fe74bb1b42ccb2b76c14f7)
+- Refactor RemovesRayFrames to simplify filter logic and handle additional ray namespaces [`8a5f841`](https://github.com/permafrost-dev/node-ray/commit/8a5f841b1567219ad8562fc5d1e61db0277b8fde)
+
 #### [v1.20.11](https://github.com/permafrost-dev/node-ray/compare/v1.20.10...v1.20.11)
+
+> 18 May 2023
 
 - add build standalone script to build:all [`378daa9`](https://github.com/permafrost-dev/node-ray/commit/378daa94e149e5fef8277b8a2ee292a28ed0675d)
 
