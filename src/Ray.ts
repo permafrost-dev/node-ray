@@ -720,9 +720,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
             startFrameIndex = 0;
         }
 
-        const callerFrames = RemovesRayFrames.removeRayFrames(
-            st.slice(startFrameIndex).filter(frame => !frame.functionName?.includes('Ray.')),
-        );
+        const callerFrames = RemovesRayFrames.removeRayFrames(st.slice(startFrameIndex));
 
         return callerFrames.slice(0).shift();
     }
