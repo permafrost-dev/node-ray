@@ -85,7 +85,7 @@
         "auto-changelog": "^2.4.0",
         "concurrently": "^8.0.1",
         "dts-bundle-generator": "^8.0.1",
-        "esbuild": "^0.17.18",
+        "esbuild": "^0.18.3",
         "eslint": "^8.40.0",
         "husky": "^8.0.3",
         "is-ci": "^3.0.1",
