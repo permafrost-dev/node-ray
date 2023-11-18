@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        node-version: [14, 16, 18]
+        node-version: [16, 18, 20]
 
     steps:
     - name: Checkout repository
@@ -42,9 +42,6 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
-#    - name: Run the tests
-#      run: npm run test
 
     - name: Run the tests with coverage
       run: node_modules/.bin/jest tests -- --coverage --coverageReporters json
