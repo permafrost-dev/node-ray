@@ -84,7 +84,7 @@
         "@typescript-eslint/parser": "^5.59.2",
         "auto-changelog": "^2.4.0",
         "concurrently": "^8.0.1",
-        "dts-bundle-generator": "^8.0.1",
+        "dts-bundle-generator": "^9.0.0",
         "esbuild": "^0.19.3",
         "eslint": "^8.40.0",
         "husky": "^8.0.3",
