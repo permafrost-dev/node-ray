@@ -81,7 +81,7 @@
         "@types/node": "^20.11.17",
         "@types/uuid": "^9.0.8",
         "@typescript-eslint/eslint-plugin": "^6.21.0",
-        "@typescript-eslint/parser": "^6.21.0",
+        "@typescript-eslint/parser": "^7.1.0",
         "auto-changelog": "^2.4.0",
         "concurrently": "^8.2.2",
         "dts-bundle-generator": "^9.3.1",
