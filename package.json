@@ -21,12 +21,12 @@
     "type": "module",
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
-    "typings": "./dist/node.d.ts",
+    "typings": "./dist/index.d.ts",
     "exports": {
         ".": {
             "import": "./dist/index.js",
             "require": "./dist/index.cjs",
-            "types": "./dist/node.d.ts"
+            "types": "./dist/index.d.ts"
         },
         "./web": {
             "import": "./dist/web.js",
