@@ -34,9 +34,10 @@ comment:
 
 ignore:
   - "build/"
+  - "dist/"
+  - "scripts/"
   - ".eslintrc.cjs"
   - ".eslintrc.js"
   - "prettier.config.cjs"
   - "prettier.config.js"
-  - "jest.config.js"
-  - "vite.config.js"
+  - "jest.config.cjs"
