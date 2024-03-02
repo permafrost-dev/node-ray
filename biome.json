@@ -42,6 +42,7 @@
             },
             "suspicious": {
                 "noAssignInExpressions": "off",
+                "noAsyncPromiseExecutor": "warn",
                 "noExplicitAny": "off",
                 "noDoubleEquals": "warn",
                 "noImplicitAnyLet": "off"

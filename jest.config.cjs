@@ -10,6 +10,11 @@ module.exports = {
     transform: {
         '^.+\\.tsx?$': 'ts-jest',
     },
+    globals: {
+        'ts-jest': {
+            useESM: true,
+        },
+    },
     extensionsToTreatAsEsm: ['.ts'],
     testRegex: '(/__test__/.*|/tests/.*|(\\.|/)(test|spec))\\.[tj]sx?$',
     testPathIgnorePatterns: ['/build/', '/node_modules/', '/dist/', '/tests/TestData/', '/tests/TestClasses/'],

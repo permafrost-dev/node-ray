@@ -7,7 +7,8 @@ module.exports = {
     env: {
         node: true,
         browser: false,
-        commonjs: true,
+        // commonjs: true,
+        es6: true,
     },
     settings: {},
     extends: ['plugin:@typescript-eslint/recommended', 'eslint:recommended'],
@@ -17,7 +18,9 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
         // 'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
         indent: ['error', 4, { SwitchCase: 1 }],
+        'no-useless-catch': 'off',
     },
 };
