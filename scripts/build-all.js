@@ -3,7 +3,7 @@
  * ESBuild is used to transpile and bundle the source files.
  */
 import esbuild from 'esbuild';
-import { execSync } from 'node:child_process';
+import { exec } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -193,26 +193,36 @@ class TypeGenerator {
         const contents = await readFile(new URL('../package.json', import.meta.url));
         const pkg = JSON.parse(contents);
 
-        await Promise.all([this.buildTypes(pkg, 'node', 'src/RayNode.ts'), this.buildTypes(pkg, 'web', 'src/Ray.ts')]);
+        console.log('Generating typescript declarations...');
+
+        await Promise.all([
+            this.buildTypes(pkg, 'index', 'src/RayNode.ts'),
+            this.buildTypes(pkg, 'node', 'src/RayNode.ts'),
+            this.buildTypes(pkg, 'web', 'src/Ray.ts'),
+        ]);
     }
 
     async buildTypes(pkg, moduleName, entryFile) {
         const relativeTargetFile = `${globalConfig.outDir}/${moduleName}.d.ts`;
         const targetFile = `${globalConfig.basePath}/${relativeTargetFile}`;
-        const fullModuleName = `${pkg.name}/${moduleName}`;
+        const fullModuleName = moduleName === 'index' ? pkg.name : `${pkg.name}/${moduleName}`;
 
-        execSync(`node ./node_modules/.bin/dts-bundle-generator -o ./${globalConfig.outDir}/${moduleName}.d.ts ./${entryFile}`, {
-            cwd: globalConfig.basePath,
-            encoding: 'utf-8',
-            stdio: 'inherit',
-        });
+        exec(
+            `node ./node_modules/.bin/dts-bundle-generator -o ./${globalConfig.outDir}/${moduleName}.d.ts ./${entryFile}`,
+            {
+                cwd: globalConfig.basePath,
+                encoding: 'utf-8',
+                stdio: 'inherit',
+            },
+            async () => {
+                const contents = await readFile(targetFile, { encoding: 'utf-8' });
+                const newContents = moduleName !== 'index' ? `declare module '${fullModuleName}' {\n${contents}\n}` : contents;
 
-        const contents = await readFile(targetFile, { encoding: 'utf-8' });
-        const newContents = `declare module '${fullModuleName}' {\n${contents}\n}`;
+                await writeFile(targetFile, newContents, { encoding: 'utf-8' });
 
-        await writeFile(targetFile, newContents, { encoding: 'utf-8' });
-
-        console.log(`Generated typescript declaration for module '${fullModuleName}' in '${relativeTargetFile}'.`);
+                console.log(`Generated typescript declaration for module '${fullModuleName}' in '${relativeTargetFile}'.`);
+            },
+        );
     }
 }
 
