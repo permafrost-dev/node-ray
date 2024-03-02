@@ -8,12 +8,7 @@ module.exports = {
     preset: 'ts-jest/presets/js-with-ts',
     testEnvironment: 'node',
     transform: {
-        '^.+\\.tsx?$': 'ts-jest',
-    },
-    globals: {
-        'ts-jest': {
-            useESM: true,
-        },
+        '^.+\\.tsx?$': ['ts-jest', { useESM: true }],
     },
     extensionsToTreatAsEsm: ['.ts'],
     testRegex: '(/__test__/.*|/tests/.*|(\\.|/)(test|spec))\\.[tj]sx?$',
@@ -30,6 +25,5 @@ module.exports = {
         '!**/dist/**',
         '!**/node_modules/**',
         '!**/tests/**',
-        '!**/vendor/**',
     ],
 };

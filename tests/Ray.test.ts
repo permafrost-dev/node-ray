@@ -403,16 +403,16 @@ it('counts the number of times an unnamed piece of code is called', async () => 
     myRay.enable();
 
     for (let i = 0; i < 2; i++) {
-        await myRay.count();
+        myRay.count();
 
         for (let j = 0; j < 2; j++) {
-            await myRay.count();
+            myRay.count();
         }
     }
 
     let counter = 0;
 
-    for (const prop in Ray.counters.getCounters()) {
+    for (const prop of Object.keys(Ray.counters.getCounters())) {
         if (counter === 0) {
             expect(end(Ray.counters.getCounters()[prop])).toBe(2);
         }

@@ -38,7 +38,7 @@ jobs:
       run: bun install
 
     - name: Run the tests with coverage
-      run: node_modules/.bin/jest tests -- --coverage --coverageReporters json
+      run: npm run test
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4

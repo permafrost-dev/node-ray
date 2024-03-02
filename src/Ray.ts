@@ -815,7 +815,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return Ray._rateLimiter;
     }
 
-    protected notifyWhenRateLimitReached(): void {
+    protected async notifyWhenRateLimitReached() {
         if (this.rateLimiter().isNotified()) {
             return;
         }
@@ -823,7 +823,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         const customPayload = new CustomPayload('Rate limit has been reached...', 'Rate limit');
         const request = new Request(this.uuid, [customPayload], []);
 
-        Ray.client.send(request);
+        await Ray.client.send(request);
 
         this.rateLimiter().notify();
     }
