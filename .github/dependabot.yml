@@ -21,3 +21,5 @@ updates:
       prefix: "npm"
       include: "scope"
     open-pull-requests-limit: 10
+    labels:
+      - "dependencies"

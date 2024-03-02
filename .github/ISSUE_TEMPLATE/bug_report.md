@@ -30,8 +30,8 @@ If applicable, add screenshots to help explain your problem.
 **Environment (please complete the following information):**
 
  - OS: [e.g. iOS]
- - NodeJS Version [e.g. 14.4]
- - Language & Version [e.g. Typescript 4.1]
+ - NodeJS Version [e.g. 18.1.0]
+ - Language & Version [e.g. Typescript 5.0]
 
 **Additional context**
 
