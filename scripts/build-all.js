@@ -105,7 +105,7 @@ class Builder {
                 bundle: buildConfig.bundle,
                 define: {
                     __COMPILED_AT__: `'${new Date().toUTCString()}'`,
-                    __BUILDING_STANDALONE_LIB__: buildConfig.standalone ? '"true"' : '"false"',
+                    __BUILDING_STANDALONE_LIB__: buildConfig.standalone ? 'true' : 'false',
                 },
                 entryPoints: [buildConfig.entry],
                 external: getDependencyNames(buildConfig.standalone),

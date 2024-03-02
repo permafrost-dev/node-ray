@@ -868,11 +868,12 @@ function standaloneInitialization() {
 }
 
 // @ts-ignore
-if (typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_LIB__ === 'true') {
+if (typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_LIB__) {
     try {
         if (typeof window['ray'] === 'undefined') {
             window['ray'] = ray;
             window['Ray'] = Ray;
+            window['rayInit'] = standalone;
         }
     } catch (e) {
         //
