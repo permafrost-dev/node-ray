@@ -3,9 +3,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-useless-catch */
 
-// @ts-ignore
-const BUILDING_STANDALONE_LIB = typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_LIB__ === 'true';
-
 import * as md5lib from 'md5';
 import { RayScreenColors } from '@/Concerns/RayScreenColors';
 import * as StackTrace from 'stacktrace-js';
@@ -857,6 +854,8 @@ export const standalone = windowObject => {
     }
 };
 
+//function for on document ready:
+
 function standaloneInitialization() {
     if (typeof globalThis['window'] !== 'undefined') {
         window['Ray'] = {
@@ -868,6 +867,16 @@ function standaloneInitialization() {
     }
 }
 
-//if (BUILDING_STANDALONE_LIB) {
-// standaloneInitialization();
-//}
+// @ts-ignore
+if (typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_LIB__ === 'true') {
+    try {
+        if (typeof window['ray'] === 'undefined') {
+            window['ray'] = ray;
+            window['Ray'] = Ray;
+        }
+    } catch (e) {
+        //
+    }
+
+    standaloneInitialization();
+}
