@@ -1,65 +1,58 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-undef */
-/* eslint-disable no-useless-catch */
 
-import * as md5lib from 'md5';
+import { Client } from '@/Client';
+import { RayColors } from '@/Concerns/RayColors';
 import { RayScreenColors } from '@/Concerns/RayScreenColors';
-import * as StackTrace from 'stacktrace-js';
+import { RaySizes } from '@/Concerns/RaySizes';
+import { RemovesRayFrames } from '@/Concerns/RemovesRayFrames';
+import { ConsoleInterceptor } from '@/ConsoleInterceptor';
+import { Hostname } from '@/Origin/Hostname';
+import { OriginData } from '@/Origin/Origin';
+import { PayloadFactory } from '@/PayloadFactory';
+import { CallerPayload } from '@/Payloads/CallerPayload';
+import { ClearAllPayload } from '@/Payloads/ClearAllPayload';
+import { ColorPayload } from '@/Payloads/ColorPayload';
+import { ConfettiPayload } from '@/Payloads/ConfettiPayload';
+import { CreateLockPayload } from '@/Payloads/CreateLockPayload';
+import { CustomPayload } from '@/Payloads/CustomPayload';
+import { DatePayload } from '@/Payloads/DatePayload';
+import { DecodedJsonPayload } from '@/Payloads/DecodedJsonPayload';
+import { ErrorPayload } from '@/Payloads/ErrorPayload';
+import { EventPayload } from '@/Payloads/EventPayload';
+import { ExceptionPayload } from '@/Payloads/ExceptionPayload';
+import { HideAppPayload } from '@/Payloads/HideAppPayload';
+import { HidePayload } from '@/Payloads/HidePayload';
+import { HtmlMarkupOptions, HtmlMarkupPayload } from '@/Payloads/HtmlMarkupPayload';
+import { HtmlPayload } from '@/Payloads/HtmlPayload';
+import { ImagePayload } from '@/Payloads/ImagePayload';
+import { JsonStringPayload } from '@/Payloads/JsonStringPayload';
+import { LabelPayload } from '@/Payloads/LabelPayload';
+import { LogPayload } from '@/Payloads/LogPayload';
+import { MeasurePayload } from '@/Payloads/MeasurePayload';
+import { NewScreenPayload } from '@/Payloads/NewScreenPayload';
+import { NotifyPayload } from '@/Payloads/NotifyPayload';
+import { Payload } from '@/Payloads/Payload';
+import { RemovePayload } from '@/Payloads/RemovePayload';
+import { ScreenColorPayload } from '@/Payloads/ScreenColorPayload';
+import { SeparatorPayload } from '@/Payloads/SeparatorPayload';
+import { ShowAppPayload } from '@/Payloads/ShowAppPayload';
+import { SizePayload } from '@/Payloads/SizePayload';
+import { TablePayload } from '@/Payloads/TablePayload';
+import { TextPayload } from '@/Payloads/TextPayload';
+import { TracePayload } from '@/Payloads/TracePayload';
+import { XmlPayload } from '@/Payloads/XmlPayload';
+import { Request } from '@/Request';
+import { RaySettings, Settings } from '@/Settings/Settings';
+import { Stopwatch } from '@/Stopwatch/Stopwatch';
+import { Counters } from '@/Support/Counters';
+import { Limiters } from '@/Support/Limiters';
+import { RateLimiter } from '@/Support/RateLimiter';
+import { nonCryptoUuidV4, sleep } from '@/lib/utils';
+import PACKAGE_VERSION from '@/lib/version';
+import md5 from 'md5';
+import Stacktrace from 'stacktrace-js';
 import { Mixin } from 'ts-mixer';
-import { RayColors } from './Concerns/RayColors';
-import { RaySizes } from './Concerns/RaySizes';
-import { RemovesRayFrames } from './Concerns/RemovesRayFrames';
-import { ConsoleInterceptor } from './ConsoleInterceptor';
-import { Hostname } from './Origin/Hostname';
-import { OriginData } from './Origin/Origin';
-import { PayloadFactory } from './PayloadFactory';
-import { CallerPayload } from './Payloads/CallerPayload';
-import { ClearAllPayload } from './Payloads/ClearAllPayload';
-import { ColorPayload } from './Payloads/ColorPayload';
-import { ConfettiPayload } from './Payloads/ConfettiPayload';
-import { CreateLockPayload } from './Payloads/CreateLockPayload';
-import { CustomPayload } from './Payloads/CustomPayload';
-import { DatePayload } from './Payloads/DatePayload';
-import { DecodedJsonPayload } from './Payloads/DecodedJsonPayload';
-import { ErrorPayload } from './Payloads/ErrorPayload';
-import { EventPayload } from './Payloads/EventPayload';
-import { ExceptionPayload } from './Payloads/ExceptionPayload';
-import { HideAppPayload } from './Payloads/HideAppPayload';
-import { HidePayload } from './Payloads/HidePayload';
-import { HtmlMarkupOptions, HtmlMarkupPayload } from './Payloads/HtmlMarkupPayload';
-import { HtmlPayload } from './Payloads/HtmlPayload';
-import { ImagePayload } from './Payloads/ImagePayload';
-import { JsonStringPayload } from './Payloads/JsonStringPayload';
-import { LabelPayload } from './Payloads/LabelPayload';
-import { LogPayload } from './Payloads/LogPayload';
-import { MeasurePayload } from './Payloads/MeasurePayload';
-import { NewScreenPayload } from './Payloads/NewScreenPayload';
-import { NotifyPayload } from './Payloads/NotifyPayload';
-import { Payload } from './Payloads/Payload';
-import { RemovePayload } from './Payloads/RemovePayload';
-import { ScreenColorPayload } from './Payloads/ScreenColorPayload';
-import { SeparatorPayload } from './Payloads/SeparatorPayload';
-import { ShowAppPayload } from './Payloads/ShowAppPayload';
-import { SizePayload } from './Payloads/SizePayload';
-import { TablePayload } from './Payloads/TablePayload';
-import { TextPayload } from './Payloads/TextPayload';
-import { TracePayload } from './Payloads/TracePayload';
-import { XmlPayload } from './Payloads/XmlPayload';
-import { Request } from './Request';
-import { RaySettings, Settings } from './Settings/Settings';
-import { Stopwatch } from './Stopwatch/Stopwatch';
-import { Counters } from './Support/Counters';
-import { Limiters } from './Support/Limiters';
-import { RateLimiter } from './Support/RateLimiter';
-import { nonCryptoUuidV4, sleep } from './lib/utils';
-import PACKAGE_VERSION from './lib/version';
-import { Client } from './Client';
-
-// const md5 = require('md5');
-const md5 = md5lib.default;
-
-const getSync = StackTrace.getSync;
 
 export type BoolFunction = () => boolean;
 
@@ -110,7 +103,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public static _rateLimiter: RateLimiter = RateLimiter.disabled();
 
-    public static create(client: Client | null = null, uuid: string | null = null): Ray {
+    public static async create(client: Client | null = null, uuid: string | null = null): Promise<Ray> {
         if (Ray.defaultSettings.not_defined === true) {
             Ray.defaultSettings = {
                 enable: true,
@@ -429,12 +422,12 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this.sendRequest(payload);
     }
 
-    public count(name: string | null = null): this {
+    public async count(name: string | null = null): Promise<Ray> {
         const fingerprint = md5(`${<string>this.getCaller()?.getFileName()}${this.getCaller()?.getLineNumber()}`);
 
-        const [ray, times] = Ray.counters.increment(name ?? fingerprint ?? 'none');
+        const [r, times] = await Ray.counters.increment(name ?? fingerprint ?? 'none');
 
-        let message = `Called `;
+        let message = 'Called ';
 
         if (name) {
             message += `'${name}' `;
@@ -442,9 +435,9 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
         message += `${times} ${times === 1 ? 'time' : 'times'}.`;
 
-        ray.sendCustom(message, 'Count');
+        r.sendCustom(message, 'Count');
 
-        return ray;
+        return r;
     }
 
     public clearCounters(): this {
@@ -499,7 +492,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     public caller(): this {
-        const backtrace = getSync({});
+        const backtrace = Stacktrace.getSync({});
 
         const payload = new CallerPayload(backtrace);
 
@@ -508,7 +501,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public trace(): this {
         //startingFromFrame: CallableFunction | null = null
-        const backtrace = getSync({});
+        const backtrace = Stacktrace.getSync({});
 
         const payload = new TracePayload(backtrace);
 
@@ -709,7 +702,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     getOriginFrame() {
-        const st = getSync({});
+        const st = Stacktrace.getSync({});
 
         let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.sendRequest'));
 
@@ -723,7 +716,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     getCaller() {
-        const st = getSync({});
+        const st = Stacktrace.getSync({});
 
         let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.getCaller'));
 
@@ -835,49 +828,33 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         this.rateLimiter().notify();
     }
 
-    standalone(windowObject) {
+    standalone(windowObject: any) {
         if (typeof windowObject !== 'undefined') {
-            windowObject['ray'] = ray;
-            windowObject['Ray'] = Ray;
+            windowObject.ray = ray;
+            windowObject.Ray = Ray;
         }
     }
 }
 
 export const ray = (...args: any[]) => {
-    return Ray.create().send(...args);
+    return Ray.create().then(r => r.send(...args));
 };
 
 export const standalone = windowObject => {
     if (typeof windowObject !== 'undefined') {
-        windowObject['ray'] = ray;
-        windowObject['Ray'] = Ray;
+        windowObject.ray = ray;
+        windowObject.Ray = Ray;
     }
 };
-
-//function for on document ready:
-
-function standaloneInitialization() {
-    if (typeof globalThis['window'] !== 'undefined') {
-        window['Ray'] = {
-            ray,
-            Ray,
-        };
-
-        window['rayInit'] = standalone;
-    }
-}
 
 // @ts-ignore
 if (typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_LIB__) {
     try {
-        if (typeof window['ray'] === 'undefined') {
-            window['ray'] = ray;
-            window['Ray'] = Ray;
-            window['rayInit'] = standalone;
-        }
+        const win: any = window;
+        win.ray = ray;
+        win.Ray = Ray;
+        win.rayInit = standalone;
     } catch (e) {
         //
     }
-
-    standaloneInitialization();
 }

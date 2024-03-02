@@ -55,7 +55,7 @@ exports[`sends an existing image file payload 1`] = `
     "payloads": [
       {
         "content": {
-          "content": "<img src="file:///tests/TestData/test.txt" alt="" />",
+          "content": "<img src="file://tests/TestData/test.txt" alt="" />",
           "label": "Image",
         },
         "origin": {

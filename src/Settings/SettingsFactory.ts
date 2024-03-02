@@ -1,8 +1,16 @@
-import { existsSync } from 'fs';
+import { stat } from 'node:fs/promises';
 import { RaySettings, Settings } from './Settings';
-import findUp from 'find-up';
+import { findUp } from 'find-up';
 
-const findUpSync = findUp.findUpSync;
+const exists = async (file: string): Promise<boolean> => {
+    try {
+        const s = await stat(file);
+        return s.isDirectory() || s.isFile() || s.isSymbolicLink();
+    } catch {
+        return false;
+    }
+};
+
 const settingsFactoryCache: Record<string, string> = {};
 
 export class SettingsFactory {
@@ -10,23 +18,24 @@ export class SettingsFactory {
         return settingsFactoryCache;
     }
 
-    public static createFromConfigFile(configDirectory: string | null = null): Settings {
-        const settingValues = new this().getSettingsFromConfigFile(configDirectory);
+    public static async createFromConfigFile(configDirectory: string | null = null): Promise<Settings> {
+        const settingValues = await new this().getSettingsFromConfigFile(configDirectory);
 
         return new Settings(settingValues);
     }
 
-    public getSettingsFromConfigFile(configDirectory: string | null = null): RaySettings {
-        const configFilePath = this.searchConfigFiles(configDirectory);
+    public async getSettingsFromConfigFile(configDirectory: string | null = null) {
+        const configFilePath = await this.searchConfigFiles(configDirectory);
 
-        if (!existsSync(configFilePath)) {
+        if (!(await exists(configFilePath))) {
             return {};
         }
 
         let options;
 
         try {
-            options = require(configFilePath);
+            options = await import(configFilePath);
+            options = options.default || options;
         } catch (err) {
             // error loading config
         }
@@ -34,28 +43,24 @@ export class SettingsFactory {
         return options as RaySettings;
     }
 
-    protected searchConfigFiles(configDirectory: string | null = null): string {
+    protected async searchConfigFiles(configDirectory: string | null = null): Promise<string> {
         if (configDirectory === null) {
             configDirectory = '';
         }
 
         if (typeof this.cache[configDirectory] === 'undefined') {
-            this.cache[configDirectory] = this.searchConfigFilesOnDisk(configDirectory);
+            this.cache[configDirectory] = await this.searchConfigFilesOnDisk(configDirectory);
         }
 
         return this.cache[configDirectory];
     }
 
-    protected searchConfigFilesOnDisk(configDirectory: string | null = null): string {
-        const configFn = findUpSync('ray.config.js', {
+    protected async searchConfigFilesOnDisk(configDirectory: string | null = null): Promise<string> {
+        const configFn = await findUp('ray.config.js', {
             type: 'file',
             cwd: configDirectory ?? process.cwd(),
         });
 
-        if (configFn) {
-            return configFn;
-        }
-
-        return '';
+        return configFn ? configFn : '';
     }
 }

@@ -2,6 +2,8 @@ import { sep } from 'path';
 import { Client } from '../../src/Client';
 import { Payload } from '../../src/Payloads/Payload';
 import { Request } from '../../src/Request';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 export class FakeClient extends Client {
     protected sentRequests: any[] = [];
@@ -63,8 +65,7 @@ export class FakeClient extends Client {
 
     // eslint-disable-next-line no-unused-vars
     public async lockExists(lockName: string) {
-        // eslint-disable-next-line no-unused-vars
-        return new Promise((resolve, reject) => {
+        return new Promise(resolve => {
             resolve({ active: false, stop_exectution: true });
         });
     }
@@ -84,7 +85,9 @@ export class FakeClient extends Client {
     }
 
     protected baseDirectory(): string {
-        return __dirname.replace('/tests/TestClasses', '');
+        const thisDir = resolve(dirname(fileURLToPath(import.meta.url)), '.');
+
+        return thisDir.replace('/tests/TestClasses', '');
     }
 
     protected convertToUnixPath(path: string): string {

@@ -4,7 +4,7 @@ export const consoleLog = console.log.bind({});
 
 export const consoleWrapper = (...args: any[]) => {
     if (typeof Ray.client !== 'undefined' && Ray.client.isRayAvailable()) {
-        Ray.create().send(...args);
+        Ray.create().then(r => r.send(...args));
     }
 
     consoleLog(...args);

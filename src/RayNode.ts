@@ -12,8 +12,8 @@ import { HostnameNode } from './Origin/HostnameNode';
 import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
 
 export class Ray extends BaseRay {
-    public static create(client: Client | null = null, uuid: string | null = null): Ray {
-        const settings = SettingsFactory.createFromConfigFile();
+    public static async create(client: Client | null = null, uuid: string | null = null): Promise<Ray> {
+        const settings = await SettingsFactory.createFromConfigFile();
 
         return new this(settings, client, uuid);
     }
@@ -92,5 +92,5 @@ export class Ray extends BaseRay {
 }
 
 export const ray = (...args: any[]) => {
-    return Ray.create().send(...args);
+    return Ray.create().then(r => r.send(...args));
 };

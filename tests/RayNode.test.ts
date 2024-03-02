@@ -8,7 +8,7 @@ import { FakeClientNode } from './TestClasses/FakeClientNode';
 
 let client: FakeClientNode, myRay: RayNode;
 
-beforeEach(() => {
+beforeEach(async () => {
     Hostname.set('fake-hostname');
     HostnameNode.set('fake-hostname');
 
@@ -23,12 +23,12 @@ beforeEach(() => {
     };
 
     client = new FakeClientNode();
-    myRay = RayNode.create(client, 'fakeUuid');
+    myRay = await RayNode.create(client, 'fakeUuid');
     myRay.clearCounters();
 });
 
 it('sends an existing file payload', () => {
-    myRay.file(`${__dirname}/TestData/test.txt`);
+    myRay.file(`tests/TestData/test.txt`);
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
@@ -40,7 +40,7 @@ it('sends a missing file payload', () => {
 });
 
 it('sends an existing image file payload', () => {
-    myRay.image(`${__dirname}/TestData/test.txt`);
+    myRay.image(`tests/TestData/test.txt`);
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });

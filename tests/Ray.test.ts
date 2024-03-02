@@ -14,8 +14,8 @@ type BaseRay = Ray;
 
 let client: FakeClient, myRay: Ray, myBaseRay: Ray;
 
-function getNewRay(): Ray {
-    const result = Ray.create(client, 'fakeUuid');
+async function getNewRay(): Promise<Ray> {
+    const result = await Ray.create(client, 'fakeUuid');
 
     result.clearCounters();
     result.rateLimiter().clear();
@@ -23,7 +23,7 @@ function getNewRay(): Ray {
     return result;
 }
 
-beforeEach(() => {
+beforeEach(async () => {
     Hostname.set('fake-hostname');
 
     // NodeRay.defaultSettings = {
@@ -47,16 +47,16 @@ beforeEach(() => {
     };
 
     client = new FakeClient();
-    myRay = Ray.create(client, 'fakeUuid');
-    myBaseRay = Ray.create(client, 'fakeUuid');
+    myRay = await Ray.create(client, 'fakeUuid');
+    myBaseRay = await Ray.create(client, 'fakeUuid');
     myRay.clearCounters();
     myBaseRay.clearCounters();
     myRay.rateLimiter().clear();
 });
 
-it('allows setting the url scheme to https', () => {
+it('allows setting the url scheme to https', async () => {
     client = new FakeClient(3000, 'otherhost', 'https');
-    myRay = Ray.create(client, 'fakeUuid');
+    myRay = await Ray.create(client, 'fakeUuid');
 
     myRay.send('test https request');
 
@@ -377,13 +377,13 @@ it('returns the correct enabled state when using the enabled_callback setting', 
     expect(myRay.disabled()).toBe(true);
 });
 
-it('counts the number of times a piece of code is called', () => {
+it('counts the number of times a piece of code is called', async () => {
     for (let i = 0; i < 2; i++) {
-        myRay.count('first');
+        await myRay.count('first');
 
         for (let j = 0; j < 2; j++) {
-            myRay.count('first');
-            myRay.count('second');
+            await myRay.count('first');
+            await myRay.count('second');
         }
     }
 
@@ -399,14 +399,14 @@ it('counts the number of times a piece of code is called', () => {
 //     r.count();
 // }
 
-it('counts the number of times an unnamed piece of code is called', () => {
+it('counts the number of times an unnamed piece of code is called', async () => {
     myRay.enable();
 
     for (let i = 0; i < 2; i++) {
-        myRay.count();
+        await myRay.count();
 
         for (let j = 0; j < 2; j++) {
-            myRay.count();
+            await myRay.count();
         }
     }
 
@@ -427,10 +427,10 @@ it('returns zero for an unknown named counter value', () => {
     expect(Ray.counters.get('missing')).toBe(0);
 });
 
-it('clears all counters', () => {
-    myRay.count('first');
-    myRay.count('first');
-    myRay.count('second');
+it('clears all counters', async () => {
+    await myRay.count('first');
+    await myRay.count('first');
+    await myRay.count('second');
 
     expect(Ray.counters.get('first')).toBe(2);
     expect(Ray.counters.get('second')).toBe(1);
@@ -638,42 +638,41 @@ it('cannot call when rate limit max has been reached', () => {
     expect(client.sentPayloads()[1]['payloads'][0]['content']['content']).toBe('Rate limit has been reached...');
 });
 
-it('can limit the number of payloads sent from a loop', () => {
+it('can limit the number of payloads sent from a loop', async () => {
     const limit = 5;
 
     for (let i = 0; i < 10; i++) {
-        getNewRay().limit(limit).send(`limited loop iteration ${i}`);
+        (await getNewRay()).limit(limit).send(`limited loop iteration ${i}`);
     }
 
     expect(client.sentPayloads().length).toBe(limit);
 });
 
-it('only limits the number of payloads sent from the line that calls limit', () => {
+it('only limits the number of payloads sent from the line that calls limit', async () => {
     const limit = 5;
     const iterations = 10;
 
     for (let i = 0; i < iterations; i++) {
-        getNewRay().limit(limit).send(`limited loop iteration ${i}`);
-        getNewRay().send(`unlimited loop iteration ${i}`);
+        (await getNewRay()).limit(limit).send(`limited loop iteration ${i}`);
+        (await getNewRay()).send(`unlimited loop iteration ${i}`);
     }
 
     expect(client.sentPayloads().length).toBe(iterations + limit);
 });
 
-it('can handle multiple consecutive calls to limit', () => {
+it('can handle multiple consecutive calls to limit', async () => {
     const limit = 2;
 
     for (let i = 0; i < 10; i++) {
-        getNewRay().limit(limit).send(`limited loop A iteration ${i}`);
-
-        getNewRay().limit(limit).send(`limited loop B iteration ${i}`);
+        (await getNewRay()).limit(limit).send(`limited loop A iteration ${i}`);
+        (await getNewRay()).limit(limit).send(`limited loop B iteration ${i}`);
     }
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a payload once when called with arguments', () => {
-    const r = getNewRay();
+it('sends a payload once when called with arguments', async () => {
+    const r = await getNewRay();
 
     for (let i = 0; i < 5; i++) {
         r.once(i);
@@ -683,71 +682,65 @@ it('sends a payload once when called with arguments', () => {
     expect(client.sentPayloads()[0]['payloads'][0]['content']['values']).toStrictEqual([0]);
 });
 
-it('sends a payload once when called without arguments', () => {
+it('sends a payload once when called without arguments', async () => {
     for (let i = 0; i < 5; i++) {
-        getNewRay().once().text(`${i}`);
+        (await getNewRay()).once().text(`${i}`);
     }
 
     expect(client.sentPayloads().length).toBe(1);
     expect(client.sentPayloads()[0]['payloads'][0]['content']['content']).toStrictEqual('0');
 });
 
-it('sends a payload once while allowing calls to limit', () => {
+it('sends a payload once while allowing calls to limit', async () => {
     for (let i = 0; i < 5; i++) {
-        getNewRay().once(i);
-        getNewRay().limit(5).text(`${i}`);
+        (await getNewRay()).once(i);
+        (await getNewRay()).limit(5).text(`${i}`);
     }
 
     expect(client.sentPayloads().length).toBe(6);
 });
 
-it('can conditionally send payloads using if with a truthy conditional and without a callback', () => {
+it('can conditionally send payloads using if with a truthy conditional and without a callback', async () => {
     for (let i = 0; i < 10; i++) {
-        getNewRay()
-            .if(i < 5)
-            .text(`value: ${i}`);
+        (await getNewRay()).if(i < 5).text(`value: ${i}`);
     }
 
     expect(client.sentPayloads().length).toBe(5);
 });
 
-it('can conditionally send payloads using if with a callable conditional param', () => {
+it('can conditionally send payloads using if with a callable conditional param', async () => {
     for (let i = 0; i < 10; i++) {
-        getNewRay()
-            .if(() => i < 5)
-            .text(`value: ${i}`);
+        (await getNewRay()).if(() => i < 5).text(`value: ${i}`);
     }
 
     expect(client.sentPayloads().length).toBe(5);
 });
 
-it('can conditionally send payloads using if with a callback', () => {
-    getNewRay().if(true, function ($ray) {
+it('can conditionally send payloads using if with a callback', async () => {
+    (await getNewRay()).if(true, function ($ray) {
         $ray.text('one');
     });
 
-    getNewRay().if(false, function ($ray) {
+    (await getNewRay()).if(false, function ($ray) {
         $ray.text('two');
     });
 
     expect(client.sentPayloads().length).toBe(1);
 });
 
-it('can chain method calls when using if with a callback and a false condition', () => {
-    getNewRay()
+it('can chain method calls when using if with a callback and a false condition', async () => {
+    (await getNewRay())
         .if(false, ray => ray.text('one').green())
         .text('two')
         .blue();
 
-    getNewRay()
-        .text('three')
-        .if(false, ray => ray.green());
+    (await getNewRay()).text('three').if(false, ray => ray.green());
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('can chain multiple if calls with callbacks together', () => {
-    getNewRay()
+it('can chain multiple if calls with callbacks together', async () => {
+    (await getNewRay())
         .text('test')
         .if(true, function (ray) {
             ray.green();
