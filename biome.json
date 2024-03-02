@@ -1,0 +1,85 @@
+{
+    "$schema": "https://biomejs.dev/schemas/1.5.2/schema.json",
+    "organizeImports": {
+        "enabled": false
+    },
+    "files": {
+        "include": ["./*.cjs", "./*.js", "./*.mjs", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "src/**/*.jsx"],
+        "ignore": [".git/**", ".husky/**", ".idea/**", ".vscode/**", "build/**", "dist/**", "node_modules/**", "scripts/**"]
+    },
+    "formatter": {
+        "enabled": true,
+        "formatWithErrors": false,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 170,
+        "lineEnding": "lf"
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "complexity": {
+                "noForEach": "off",
+                "useSimplifiedLogicExpression": "off",
+                "noStaticOnlyClass": "off",
+                "noThisInStatic": "off"
+            },
+            "correctness": {
+                "noConstAssign": "error",
+                "noSwitchDeclarations": "warn",
+                "useExhaustiveDependencies": "off",
+                "useHookAtTopLevel": "warn"
+            },
+            "style": {
+                "useSelfClosingElements": "off",
+                "noParameterAssign": "off",
+                "useFragmentSyntax": "off"
+            },
+            "nursery": {
+                "useNodejsImportProtocol": "warn",
+                "noGlobalEval": "error",
+                "noInvalidUseBeforeDeclaration": "error"
+            },
+            "suspicious": {
+                "noAssignInExpressions": "off",
+                "noExplicitAny": "off",
+                "noDoubleEquals": "warn",
+                "noImplicitAnyLet": "off"
+            },
+            "security": {
+                "recommended": true
+            },
+            "performance": {},
+            "a11y": {
+                "recommended": true
+            }
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "arrowParentheses": "asNeeded",
+            "bracketSameLine": false,
+            "bracketSpacing": true,
+            "indentStyle": "space",
+            "indentWidth": 4,
+            "jsxQuoteStyle": "double",
+            "lineWidth": 170,
+            "quoteProperties": "asNeeded",
+            "quoteStyle": "single",
+            "semicolons": "always",
+            "trailingComma": "all"
+        }
+    },
+    "json": {
+        "formatter": {
+            "enabled": false
+        }
+    },
+    "vcs": {
+        "clientKind": "git",
+        "defaultBranch": "main",
+        "enabled": true,
+        "useIgnoreFile": true,
+        "root": "."
+    }
+}
