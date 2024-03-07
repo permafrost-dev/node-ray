@@ -1,3 +1,4 @@
 dist/*
 *.bak
 *.d.ts
+scripts/*bun*.ts

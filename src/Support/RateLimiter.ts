@@ -8,7 +8,7 @@ export class RateLimiter {
 
     protected cache: CacheStore;
 
-    protected notified = false;
+    public notified = false;
 
     protected constructor(maxCalls: number | null = null, maxPerSecond: number | null = null) {
         this.maxCalls = maxCalls;

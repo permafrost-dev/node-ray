@@ -22,7 +22,9 @@ const dependencyNames = [
 ];
 
 const getDependencyNames = (isStandaloneBuild = false) => {
-    return isStandaloneBuild ? [] : dependencyNames.concat(['fs', 'node:fs', 'node:os', 'node:path', 'node:process', 'os', 'path']);
+    return isStandaloneBuild
+        ? []
+        : dependencyNames.concat(['fs', 'node:fs', 'node:fs/promises', 'node:os', 'node:path', 'node:process', 'os', 'path']);
 };
 
 const globalConfig = {

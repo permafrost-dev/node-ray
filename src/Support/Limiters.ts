@@ -1,4 +1,4 @@
-import { OriginData } from '../Origin/Origin';
+import { OriginData } from '@/Origin/Origin';
 
 export interface LimiterCounter {
     counter: number;

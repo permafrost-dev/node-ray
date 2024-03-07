@@ -632,7 +632,10 @@ it('cannot call when rate limit max has been reached', () => {
 
     myRay.text('this can pass');
     myRay.text('this cannot pass, but triggers a warning call');
+    usleep(200);
     myRay.text('this cannot pass');
+
+    usleep(300);
 
     expect(client.sentPayloads().length).toBe(2);
     expect(client.sentPayloads()[1]['payloads'][0]['content']['content']).toBe('Rate limit has been reached...');

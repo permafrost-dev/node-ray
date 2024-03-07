@@ -744,7 +744,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         };
     }
 
-    public sendRequest(payloads: Payload | Payload[], meta: any[] = []): this {
+    public sendRequest(payloads: Payload | Payload[], meta: any[] = []) {
         if (!this.enabled()) {
             return this;
         }
@@ -766,6 +766,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         }
 
         if (this.rateLimiter().isMaxReached() || this.rateLimiter().isMaxPerSecondReached()) {
+            this.rateLimiter().notified = true;
             this.notifyWhenRateLimitReached();
 
             return this;
