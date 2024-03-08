@@ -1,6 +1,6 @@
 /* eslint-disable constructor-super */
 
-import { Payload } from '../Payloads/Payload';
+import { Payload } from '@/Payloads/Payload';
 
 export class ImagePayload extends Payload {
     protected location: string;

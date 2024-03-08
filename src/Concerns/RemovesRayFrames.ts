@@ -2,9 +2,7 @@ import { StackFrame } from 'stacktrace-js';
 
 export class RemovesRayFrames {
     public static removeRayFrames(frames: StackFrame[]): StackFrame[] {
-        const result = frames.filter(frame => !RemovesRayFrames.isRayFrame(frame) && !RemovesRayFrames.isNodeFrame(frame));
-
-        return result;
+        return frames.filter(frame => !RemovesRayFrames.isRayFrame(frame) && !RemovesRayFrames.isNodeFrame(frame));
     }
 
     protected static isRayFrame(frame: StackFrame): boolean {
@@ -13,7 +11,6 @@ export class RemovesRayFrames {
                 return true;
             }
         }
-
         return false;
     }
 

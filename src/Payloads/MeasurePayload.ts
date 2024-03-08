@@ -1,6 +1,6 @@
-import { end } from '../lib/utils';
-import { StopwatchEvent } from '../Stopwatch/StopwatchEvent';
-import { Payload } from '../Payloads/Payload';
+import { Payload } from '@/Payloads/Payload';
+import { StopwatchEvent } from '@/Stopwatch/StopwatchEvent';
+import { end } from '@/lib/utils';
 
 export class MeasurePayload extends Payload {
     /** @var string */
@@ -31,12 +31,7 @@ export class MeasurePayload extends Payload {
 
         const periods = stopwatchEvent.getPeriods();
 
-        //const lastPeriod = end(periods);
         if (periods.length > 1) {
-            //const tempPeriods = periods.slice(0);
-            //const lastPeriod = <number>tempPeriods.pop();
-            //const prevPeriod = <number>tempPeriods.pop();
-
             this.timeSinceLastCall = end(periods);
             this.maxMemoryUsageSinceLastCall = 0;
         }

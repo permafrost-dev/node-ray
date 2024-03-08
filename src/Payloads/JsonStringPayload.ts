@@ -1,4 +1,4 @@
-import { Payload } from '../Payloads/Payload';
+import { Payload } from '@/Payloads/Payload';
 
 export class JsonStringPayload extends Payload {
     protected value: any;

@@ -1,7 +1,5 @@
-import { ArgumentConverter } from '../ArgumentConverter';
-import { Payload } from '../Payloads/Payload';
-
-// use Spatie\Ray\ArgumentConverter;
+import { ArgumentConverter } from '@/ArgumentConverter';
+import { Payload } from '@/Payloads/Payload';
 
 export class LogPayload extends Payload {
     protected values: any[];
@@ -17,11 +15,7 @@ export class LogPayload extends Payload {
     public constructor(values: any) {
         super();
 
-        if (!Array.isArray(values)) {
-            values = [values];
-        }
-
-        this.values = values;
+        this.values = Array.isArray(values) ? values : [values];
     }
 
     public getType(): string {

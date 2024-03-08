@@ -13,9 +13,7 @@ export class ExceptionPayload extends Payload {
         super();
 
         this.stack = StackTrace.getSync({});
-
         this.exception = exception;
-
         this.meta = meta;
     }
 
