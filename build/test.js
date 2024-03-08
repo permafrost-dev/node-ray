@@ -1,11 +1,11 @@
 
 const ray = require('./../dist/index.cjs').ray;
 
-const sleep = (seconds) => usleep(seconds * 1000);
-const usleep = (milliseconds) => {
-    const start = new Date().getTime();
-    while (new Date().getTime() < start + (milliseconds)) {}
-};
+// const sleep = (seconds) => usleep(seconds * 1000);
+// const usleep = (milliseconds) => {
+//     const start = new Date().getTime();
+//     while (new Date().getTime() < start + (milliseconds)) {}
+// };
 
 class TestOne {
     abc() {
@@ -29,15 +29,15 @@ class TestOne {
 async function main() {
 
 
-        ray('hello world 3!').green();
+    ray('hello world 3!').green();
 
-        //ray().table(['one', 'two', 'three', 'four']);
+    //ray().table(['one', 'two', 'three', 'four']);
 
-        const myclass = new TestOne();
+    const myclass = new TestOne();
 
-        myclass.abc();
+    myclass.abc();
 
-        ray().confetti();
+    ray().confetti();
 }
 
 main();

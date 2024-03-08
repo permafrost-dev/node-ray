@@ -9,6 +9,7 @@ module.exports = {
         browser: false,
         // commonjs: true,
         es6: true,
+        jest: true,
     },
     settings: {},
     extends: ['plugin:@typescript-eslint/recommended', 'eslint:recommended'],

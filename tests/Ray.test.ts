@@ -9,7 +9,7 @@ import { NullPayload } from './../src/Payloads/NullPayload';
 import { Request } from './../src/Request';
 import { end, usleep } from '../src/lib/utils';
 import { Hostname } from '../src/Origin/Hostname';
-import { Client } from '@/Client';
+// import { Client } from '@/Client';
 import { skip } from 'node:test';
 
 type BaseRay = Ray;
