@@ -1,14 +1,14 @@
-import { existsSync } from 'fs';
-import { Client } from './Client';
-import { FileContentsPayload } from './Payloads/FileContentsPayload';
-import { ImagePayload } from './Payloads/ImagePayload';
-import { NodeMeasurePayload } from './Payloads/NodeMeasurePayload';
-import { Ray as BaseRay } from './Ray';
-import { SettingsFactory } from './Settings/SettingsFactory';
-import { NodeStopwatch } from './Stopwatch/NodeStopwatch';
-import { PayloadFactory } from './PayloadFactory';
-import { OriginData } from './Origin/Origin';
-import { HostnameNode } from './Origin/HostnameNode';
+import { existsSync } from 'node:fs';
+import { Client } from '@/Client';
+import { FileContentsPayload } from '@/Payloads/FileContentsPayload';
+import { ImagePayload } from '@/Payloads/ImagePayload';
+import { NodeMeasurePayload } from '@/Payloads/NodeMeasurePayload';
+import { Ray as BaseRay } from '@/Ray';
+import { SettingsFactory } from '@/Settings/SettingsFactory';
+import { NodeStopwatch } from '@/Stopwatch/NodeStopwatch';
+import { PayloadFactory } from '@/PayloadFactory';
+import { OriginData } from '@/Origin/Origin';
+import { HostnameNode } from '@/Origin/HostnameNode';
 import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
 
 export class Ray extends BaseRay {
@@ -65,11 +65,6 @@ export class Ray extends BaseRay {
             line_number: frame?.getLineNumber(),
             hostname: HostnameNode.get(),
         };
-        // const result = super.getOriginData();
-
-        // result.hostname = HostnameNode.get();
-
-        // return result;
     }
 
     public send(...args: any[]): this {

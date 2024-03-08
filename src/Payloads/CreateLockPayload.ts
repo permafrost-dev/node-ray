@@ -1,4 +1,4 @@
-import { Payload } from '../Payloads/Payload';
+import { Payload } from '@/Payloads/Payload';
 
 export class CreateLockPayload extends Payload {
     protected name: string;

@@ -1,5 +1,5 @@
 import { stat } from 'node:fs/promises';
-import { RaySettings, Settings } from './Settings';
+import { RaySettings, Settings } from '@/Settings/Settings';
 import { findUp } from 'find-up';
 
 const exists = async (file: string): Promise<boolean> => {

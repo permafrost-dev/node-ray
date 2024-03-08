@@ -1,5 +1,5 @@
-import { Payload } from '../Payloads/Payload';
-import { RemovesRayFrames } from '../Concerns/RemovesRayFrames';
+import { Payload } from '@/Payloads/Payload';
+import { RemovesRayFrames } from '@/Concerns/RemovesRayFrames';
 import { StackFrame } from 'stacktrace-js';
 
 export class CallerPayload extends Payload {

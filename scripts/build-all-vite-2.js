@@ -77,6 +77,7 @@ async function buildWithVite(config) {
         defineConfig({
             define: {
                 __BUILDING_STANDALONE_LIB__: config.standalone ? 'true' : 'false',
+                __BUILD_VERSION__: JSON.stringify(globalConfig.pkg.version),
             },
             build: {
                 lib: {

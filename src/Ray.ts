@@ -49,20 +49,12 @@ import { Counters } from '@/Support/Counters';
 import { Limiters } from '@/Support/Limiters';
 import { RateLimiter } from '@/Support/RateLimiter';
 import { nonCryptoUuidV4, sleep } from '@/lib/utils';
-import PACKAGE_VERSION from '@/lib/version';
+import { PACKAGE_VERSION } from '@/lib/version';
 import md5 from 'md5';
 import Stacktrace from 'stacktrace-js';
 import { Mixin } from 'ts-mixer';
 
 export type BoolFunction = () => boolean;
-
-// let Client: any;
-// async function initialize() {
-//     Client = await import(BUILDING_STANDALONE_LIB ? './ClientStandalone' : './Client');
-//     // .then((module) => Client = module.default);
-// }
-
-// initialize();
 
 export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     protected static lockCounter = 0;
@@ -73,7 +65,6 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public static defaultSettings: RaySettings = { not_defined: true };
 
-    // @ts-ignore
     public static client: Client;
 
     public static projectName = '';
@@ -88,7 +79,6 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public uuid: string;
 
-    // @var \Symfony\Component\Stopwatch\Stopwatch[]
     public static stopWatches: Record<string, Stopwatch> = {};
 
     public static enabled: boolean | null = null;
@@ -145,6 +135,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
             };
         }
 
+        Ray.defaultSettings = Object.assign({}, Ray.defaultSettings, settings.toObject());
+
         this.inCallback = inCallback;
         this.settings = new Settings(Ray.defaultSettings);
 
@@ -153,9 +145,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         }
 
         Ray.client = client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
-
         Ray._rateLimiter = Ray._rateLimiter ?? RateLimiter.disabled();
-
         this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
 
         if (this.settings.intercept_console_log && !this.interceptor().active()) {
@@ -319,9 +309,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     public file(filename: string): this {
-        console.error(`file() unsupport on web (${filename})`);
-
-        return this;
+        throw new Error('file() unsupported on node-ray/web.');
     }
 
     public image(location: string): this {
@@ -341,11 +329,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     public error(err: Error): this {
         const payload = new ErrorPayload(err, 'Error');
 
-        this.sendRequest(payload);
-
-        this.red();
-
-        return this;
+        return this.sendRequest(payload).red();
     }
 
     public event(eventName: string, data: any[] = []): this {
@@ -357,55 +341,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     public exception(err: Error, meta: Record<string, unknown> = {}): this {
         const payload = new ExceptionPayload(err, meta);
 
-        this.sendRequest(payload);
-
-        this.red();
-
-        return this;
-    }
-
-    /**
-     * @deprecated Use `if` instead of this method
-     */
-    public showWhen(booleanOrCallable: boolean | BoolFunction): this {
-        if (typeof booleanOrCallable === 'function') {
-            booleanOrCallable = (booleanOrCallable as BoolFunction)();
-        }
-
-        if (!booleanOrCallable) {
-            this.remove();
-        }
-
-        return this;
-    }
-
-    /**
-     * @deprecated Use `if` instead of this method
-     */
-    public showIf(booleanOrCallable: boolean | BoolFunction): this {
-        return this.showWhen(booleanOrCallable);
-    }
-
-    /**
-     * @deprecated Use `if` instead of this method
-     */
-    public removeWhen(booleanOrCallable: boolean | BoolFunction): this {
-        if (typeof booleanOrCallable === 'function') {
-            booleanOrCallable = (booleanOrCallable as BoolFunction)();
-        }
-
-        if (booleanOrCallable) {
-            this.remove();
-        }
-
-        return this;
-    }
-
-    /**
-     * @deprecated Use `if` instead of this method
-     */
-    public removeIf(booleanOrCallable: boolean | BoolFunction): this {
-        return this.removeWhen(booleanOrCallable);
+        return this.sendRequest(payload).red();
     }
 
     public ban(): this {
@@ -669,8 +605,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
             hostname: Hostname.get(),
         };
 
-        // @ts-ignore
-        Ray.limiters.initialize(this.limitOrigin, count);
+        Ray.limiters.initialize(this.limitOrigin as OriginData, count);
 
         return this;
     }
@@ -685,8 +620,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
             hostname: Hostname.get(),
         };
 
-        // @ts-ignore
-        Ray.limiters.initialize(this.limitOrigin, 1);
+        Ray.limiters.initialize(this.limitOrigin as OriginData, 1);
 
         if (args.length > 0) {
             return this.send(...args);

@@ -1,4 +1,4 @@
-import { hostname } from 'os';
+import { hostname } from 'node:os';
 
 export class HostnameNode {
     protected static hostname: string | null = null;

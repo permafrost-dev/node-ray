@@ -1,4 +1,4 @@
-import { Payload } from '../Payloads/Payload';
+import { Payload } from '@/Payloads/Payload';
 
 export class CustomPayload extends Payload {
     protected content: string;

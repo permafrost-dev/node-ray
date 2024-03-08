@@ -1,6 +1,4 @@
-import { format } from '@permafrost-dev/pretty-format';
-
-const prettyFormat = format;
+import { format as prettyFormat } from '@permafrost-dev/pretty-format';
 
 export interface ArgumentConverterResult {
     value: any;
@@ -28,32 +26,40 @@ export class ArgumentConverter {
         return { value: ArgumentConverter.prettyFormatForHtml(arg), isHtml: true };
     }
 
+    protected static buildHtmlElement(tagName: string, classes: string, slot: string): string {
+        return `<${tagName} style="font-size: 0.8rem!important;" class="${classes}">${slot}</${tagName}>`;
+    }
+
     public static prettyFormatForHtml(arg: any): string {
         const formatted = prettyFormat(arg, { indent: '    ' } as any)
             // format whitespace for display in html
-            .replace(/ /g, '&nbsp;')
+            .replaceAll(' ', '&nbsp;')
             .replace(/\r\n|\r|\n/g, '<br>')
+
             // highlight quoted strings
-            .replace(/("[^"]+")/g, '<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">$1</code>')
+            .replace(/("[^"]+")/g, this.buildHtmlElement('code', 'bold text-green-600 p-0', '$1'))
+
             // highlight array contents
-            .replace(
-                /Array(&nbsp;|\s)+(\[[^\]]+\])/g,
-                '<code style="font-size: 0.8rem!important;" class="text-gray-500 p-0">Array$1$2</code>',
-            )
+            .replace(/Array(&nbsp;|\s)+(\[[^\]]+\])/g, this.buildHtmlElement('code', 'bold text-gray-500 p-0', '$1$2'))
+
             // highlight types like [Function Abc]
-            .replace(/^(\[[^\]]+\])$/g, '<code style="font-size: 0.8rem!important;"class="text-gray-500 p-0">$1</code>')
+            .replace(/^(\[[^\]]+\])$/g, this.buildHtmlElement('code', 'bold text-gray-500 p-0', '$1'))
+
             // highlight object contents
-            .replace(/(\{.+\})/g, '<code style="font-size: 0.8rem!important;" class="text-gray-600 ">$1</code>')
+            .replace(/(\{.+\})/g, this.buildHtmlElement('code', 'text-gray-600', '$1'))
+
             // highlight keywords
             .replace(
-                /(Array|Object|Function|Circular|Symbol|WeakMap|Map)/g,
-                '<span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">$1</span>',
+                /(Array|Object|Number|Function|Circular|Symbol|WeakMap|Map)/g,
+                this.buildHtmlElement('span', 'bold text-yellow-600', '$1'),
             )
-            // highlight reserved words
-            .replace(/(true|false|null)/g, '<span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">$1</span>')
-            // highlight special chars
-            .replace(/(:&nbsp;|[,[\]{}])/g, '<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">$1</span>');
 
-        return `<code style="font-size: 0.8rem!important;">${formatted}</code>`;
+            // highlight reserved words
+            .replaceAll(/(true|false|null|undefined|NaN)/g, this.buildHtmlElement('span', 'bold text-indigo-600', '$1'))
+
+            // highlight special chars
+            .replace(/(:&nbsp;|[,[\]{}])/g, this.buildHtmlElement('span', 'bold text-orange-400', '$1'));
+
+        return this.buildHtmlElement('code', '', formatted);
     }
 }
