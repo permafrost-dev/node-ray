@@ -67,10 +67,10 @@
     "devDependencies": {
         "@types/jest": "^29.5.12",
         "@types/md5": "^2.3.5",
-        "@types/node": "^20.11.24",
+        "@types/node": "^20.11.25",
         "@types/uuid": "^9.0.8",
-        "@typescript-eslint/eslint-plugin": "^7.1.0",
-        "@typescript-eslint/parser": "^7.1.0",
+        "@typescript-eslint/eslint-plugin": "^7.1.1",
+        "@typescript-eslint/parser": "^7.1.1",
         "auto-changelog": "^2.4.0",
         "concurrently": "^8.2.2",
         "dts-bundle-generator": "^9.3.1",
@@ -83,8 +83,8 @@
         "prettier": "^3.2.5",
         "ts-jest": "^29.1.2",
         "ts-mixer": "^6.0.4",
-        "typescript": "^5.3.3",
-        "vite": "^5.1.4",
+        "typescript": "^5.4.2",
+        "vite": "^5.1.5",
         "vite-plugin-externalize-deps": "^0.8.0"
     },
     "dependencies": {
