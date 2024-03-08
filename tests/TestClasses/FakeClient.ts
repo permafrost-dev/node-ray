@@ -9,6 +9,15 @@ export class FakeClient extends Client {
     protected sentRequests: any[] = [];
     protected requestedUrlList: string[] = [];
 
+    public updateRayAvailabilty(): any {
+        //FakeClient.rayState = true;
+        return true;
+    }
+
+    public async init() {
+        //
+    }
+
     public async send(request: Request) {
         const requestProperties: any = request.toArray();
         const payloads: Payload[] = request.payloads;

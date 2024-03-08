@@ -22,7 +22,8 @@
                 "noForEach": "off",
                 "useSimplifiedLogicExpression": "off",
                 "noStaticOnlyClass": "off",
-                "noThisInStatic": "off"
+                "noThisInStatic": "off",
+                "useLiteralKeys": "off"
             },
             "correctness": {
                 "noConstAssign": "error",
@@ -42,7 +43,7 @@
             },
             "suspicious": {
                 "noAssignInExpressions": "off",
-                "noAsyncPromiseExecutor": "warn",
+                "noAsyncPromiseExecutor": "off",
                 "noExplicitAny": "off",
                 "noDoubleEquals": "warn",
                 "noImplicitAnyLet": "off"
