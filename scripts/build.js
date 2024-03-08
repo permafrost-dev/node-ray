@@ -3,9 +3,11 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, build as viteBuild } from 'vite';
 
+const outputDir = process.env.BUILD_ENV !== 'production' ? 'dist-test-2' : 'dist';
+
 const globalConfig = {
     libraryName: 'Ray',
-    outDir: resolve(dirname(fileURLToPath(import.meta.url)), '../dist-test-2'),
+    outDir: resolve(dirname(fileURLToPath(import.meta.url)), '../' + outputDir),
     basePath: resolve(dirname(fileURLToPath(import.meta.url)), '..'),
     builds: [
         {
