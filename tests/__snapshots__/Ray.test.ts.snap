@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`allows defaults to the http url scheme 1`] = `
 [
@@ -23,9 +23,9 @@ exports[`can chain method calls when using if with a callback and a false condit
           "label": "Text",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -43,7 +43,7 @@ exports[`can chain method calls when using if with a callback and a false condit
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -60,9 +60,9 @@ exports[`can chain method calls when using if with a callback and a false condit
           "label": "Text",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -84,9 +84,9 @@ exports[`can chain multiple if calls with callbacks together 1`] = `
           "label": "Text",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -104,7 +104,7 @@ exports[`can chain multiple if calls with callbacks together 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -122,7 +122,7 @@ exports[`can chain multiple if calls with callbacks together 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "size",
@@ -136,97 +136,12 @@ exports[`can chain multiple if calls with callbacks together 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "hide",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`can handle multiple consecutive calls to limit 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "limited loop A iteration 0",
-          ],
-        },
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "limited loop B iteration 0",
-          ],
-        },
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "limited loop A iteration 1",
-          ],
-        },
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "limited loop B iteration 1",
-          ],
-        },
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "log",
       },
     ],
     "uuid": "fakeUuid",
@@ -245,9 +160,9 @@ exports[`can send additional payloads from the sent payload callback 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -265,7 +180,7 @@ exports[`can send additional payloads from the sent payload callback 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -287,9 +202,9 @@ exports[`can send payloads from the sending payload callback 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -306,9 +221,9 @@ exports[`can send payloads from the sending payload callback 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -321,43 +236,6 @@ exports[`can send payloads from the sending payload callback 1`] = `
 
 exports[`can transform a request into JSON 1`] = `"{"uuid":"1-2-3-4","payloads":[],"meta":[{"test_version":1}]}"`;
 
-exports[`conditionally shows a payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {},
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "remove",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {},
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "remove",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
 exports[`doesn't blow up when calling html without a value 1`] = `
 [
   {
@@ -369,9 +247,9 @@ exports[`doesn't blow up when calling html without a value 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -388,9 +266,9 @@ exports[`doesn't blow up when calling html without a value 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -416,9 +294,9 @@ exports[`measures the execution time of a closure 1`] = `
           "total_time": 20,
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "measure",
@@ -444,9 +322,9 @@ exports[`measures the execution time of named stopwatches 1`] = `
           "total_time": 0,
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "measure",
@@ -467,9 +345,9 @@ exports[`measures the execution time of named stopwatches 1`] = `
           "total_time": 20,
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "measure",
@@ -495,9 +373,9 @@ exports[`measures the execution time of repeated and unnamed calls to measure 1`
           "total_time": 0,
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "measure",
@@ -518,9 +396,9 @@ exports[`measures the execution time of repeated and unnamed calls to measure 1`
           "total_time": 20,
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "measure",
@@ -541,9 +419,9 @@ exports[`measures the execution time of repeated and unnamed calls to measure 1`
           "total_time": 40,
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "measure",
@@ -564,9 +442,9 @@ exports[`pauses code execution 1`] = `
           "name": "xxxxx",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "create_lock",
@@ -588,9 +466,9 @@ exports[`sends a boolean payload 1`] = `
           "label": "Boolean",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -617,9 +495,9 @@ exports[`sends a caller payload 1`] = `
           },
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "caller",
@@ -642,9 +520,9 @@ exports[`sends a classname payload 1`] = `
           ],
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "log",
@@ -663,9 +541,9 @@ exports[`sends a clear all payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "clear_all",
@@ -686,9 +564,9 @@ exports[`sends a clear screen payload 1`] = `
           "name": "",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "new_screen",
@@ -711,7 +589,7 @@ exports[`sends a color payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -729,7 +607,7 @@ exports[`sends a color payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -747,7 +625,7 @@ exports[`sends a color payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -765,7 +643,7 @@ exports[`sends a color payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -783,7 +661,7 @@ exports[`sends a color payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -801,7 +679,7 @@ exports[`sends a color payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -819,7 +697,7 @@ exports[`sends a color payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -838,9 +716,9 @@ exports[`sends a confetti payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "confetti",
@@ -862,9 +740,9 @@ exports[`sends a custom payload 1`] = `
           "label": "test",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -881,9 +759,9 @@ exports[`sends a custom payload 1`] = `
           "label": "",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -900,9 +778,9 @@ exports[`sends a custom payload 1`] = `
           "label": "",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -919,9 +797,9 @@ exports[`sends a custom payload 1`] = `
           "label": "",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -940,9 +818,9 @@ exports[`sends a hide payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "hide",
@@ -966,9 +844,9 @@ exports[`sends a json string payload 1`] = `
           "label": "JSON",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -989,9 +867,9 @@ exports[`sends a label payload 1`] = `
           "label": "test-123",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "label",
@@ -1012,9 +890,9 @@ exports[`sends a new screen payload 1`] = `
           "name": "test 1",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "new_screen",
@@ -1035,9 +913,9 @@ exports[`sends a notify payload 1`] = `
           "value": "hello world",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "notify",
@@ -1059,9 +937,9 @@ exports[`sends a null payload 1`] = `
           "label": "Null",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -1084,9 +962,9 @@ exports[`sends a raw payload 1`] = `
           ],
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "log",
@@ -1098,9 +976,9 @@ exports[`sends a raw payload 1`] = `
           ],
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "log",
@@ -1119,46 +997,9 @@ exports[`sends a remove payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "remove",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a remove payload conditionally 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {},
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
-          "line_number": 999,
-        },
-        "type": "remove",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {},
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "remove",
@@ -1179,9 +1020,9 @@ exports[`sends a screen color payload 1`] = `
           "color": "red",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "screen_color",
@@ -1197,9 +1038,9 @@ exports[`sends a screen color payload 1`] = `
           "color": "green",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "screen_color",
@@ -1218,9 +1059,9 @@ exports[`sends a separator payload 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "separator",
@@ -1243,7 +1084,7 @@ exports[`sends a size payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "size",
@@ -1261,7 +1102,7 @@ exports[`sends a size payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "size",
@@ -1279,7 +1120,7 @@ exports[`sends a size payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "size",
@@ -1302,9 +1143,9 @@ exports[`sends a string payload 1`] = `
           ],
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "log",
@@ -1326,16 +1167,16 @@ exports[`sends a table payload 1`] = `
           "values": [
             1,
             2,
-            "<code style="font-size: 0.8rem!important;"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600 "><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>1<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span></code></code>",
-            "<code style="font-size: 0.8rem!important;">Ray&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600 "><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"canSendPayload"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">true</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"inCallback"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"limitOrigin"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"settings"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>Settings&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_host"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"localhost"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_port"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>23510<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_scheme"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"http"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"always_send_raw_values"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enable"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">true</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enabled_callback"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"intercept_console_log"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"local_path"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"not_defined"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"originalSettings"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Object</span>&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"always_send_raw_values"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enable"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">true</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"host"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"localhost"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"local_path"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"not_defined"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">false</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"port"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>23510<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"remote_path"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"remote_path"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"sending_payload_callback"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"sent_payload_callback"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="text-indigo-600 bold">null</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"uuid"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"fakeUuid"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span></code></code>",
+            "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
+            "<code style="font-size: 0.8rem!important;" class="">Ray&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"canSendPayload"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">true</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"inCallback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"limitOrigin"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"settings"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>Settings&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_host"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"localhost"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_port"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>23510<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_scheme"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"http"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"always_send_raw_values"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enable"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">true</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enabled_callback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"intercept_console_log"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"local_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"not_defined"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"originalSettings"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"always_send_raw_values"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enable"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">true</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"host"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"localhost"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"local_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"not_defined"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"port"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>23510<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"remote_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"remote_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"sending_payload_callback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"sent_payload_callback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"uuid"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"fakeUuid"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
             true,
             null,
           ],
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "table",
@@ -1350,15 +1191,15 @@ exports[`sends a table payload 1`] = `
         "content": {
           "label": "Table",
           "values": [
-            "<code style="font-size: 0.8rem!important;"><code style="font-size: 0.8rem!important;" class="text-gray-500 p-0"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;13<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;14<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">]</span></code></code>",
-            "<code style="font-size: 0.8rem!important;"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600 "><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"B"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>2<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span></code></code>",
+            "<code style="font-size: 0.8rem!important;" class=""><code style="font-size: 0.8rem!important;" class="bold text-gray-500 p-0">&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;13<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;14<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span></code></code>",
+            "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"B"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>2<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
             false,
           ],
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "table",
@@ -1378,9 +1219,9 @@ exports[`sends a table payload 1`] = `
           },
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "table",
@@ -1400,9 +1241,9 @@ exports[`sends a table payload 1`] = `
           },
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "table",
@@ -1424,9 +1265,9 @@ exports[`sends a text payload 1`] = `
           "label": "Text",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -1443,12 +1284,35 @@ exports[`sends a text payload 1`] = `
           "label": "Text",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a trace payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "frames": [],
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "trace",
       },
     ],
     "uuid": "fakeUuid",
@@ -1467,9 +1331,9 @@ exports[`sends an error payload 1`] = `
           "label": "Error",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -1487,7 +1351,7 @@ exports[`sends an error payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -1508,12 +1372,12 @@ exports[`sends an event payload 1`] = `
           "class_based_event": true,
           "event": undefined,
           "name": "testevent",
-          "payload": "<code style="font-size: 0.8rem!important;"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">[</span><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">]</span></code>",
+          "payload": "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span></code>",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "event",
@@ -1534,10 +1398,10 @@ exports[`sends an exception payload 1`] = `
           "class": "Error",
           "frames": [
             {
-              "class": "Object",
+              "class": "unknown",
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
-              "method": "<anonymous>",
+              "method": "unknown",
               "snippet": [],
               "vendor_frame": false,
             },
@@ -1546,9 +1410,9 @@ exports[`sends an exception payload 1`] = `
           "meta": {},
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "exception",
@@ -1566,7 +1430,7 @@ exports[`sends an exception payload 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
@@ -1587,10 +1451,10 @@ exports[`sends an exception payload with metadata 1`] = `
           "class": "Error",
           "frames": [
             {
-              "class": "Object",
+              "class": "unknown",
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
-              "method": "<anonymous>",
+              "method": "unknown",
               "snippet": [],
               "vendor_frame": false,
             },
@@ -1603,9 +1467,9 @@ exports[`sends an exception payload with metadata 1`] = `
           },
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "exception",
@@ -1623,10 +1487,34 @@ exports[`sends an exception payload with metadata 1`] = `
         "origin": {
           "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an html markup payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<span style="color:#1D4ED8;">&lt;em</span>&gt;test<span style="color:#1D4ED8;">&lt;/em&gt;</span>",
+          "label": "Markup",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
       },
     ],
     "uuid": "fakeUuid",
@@ -1645,9 +1533,9 @@ exports[`sends an html payload 1`] = `
           "label": "HTML",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -1665,13 +1553,13 @@ exports[`sends an html payload when calling ray() with an object argument 1`] = 
     "payloads": [
       {
         "content": {
-          "content": "<code style="font-size: 0.8rem!important;"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600 "><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span>123<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"B"</code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="text-gray-500 p-0"><span style="font-size: 0.8rem!important;" class="text-yellow-600 bold">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;14<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;15<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;16<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="text-orange-400 bold">]</span></code><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">,</span><br><span style="font-size: 0.8rem!important;" class="text-orange-400 bold">}</span></code></code>",
+          "content": "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>123<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"B"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-gray-500 p-0">&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;14<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;15<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;16<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span></code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
           "label": "HTML",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -1693,9 +1581,9 @@ exports[`sends an image payload 1`] = `
           "label": "Image",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -1716,9 +1604,9 @@ exports[`sends an object as json payload 1`] = `
           "value": ""{\\"a\\":1,\\"b\\":2}"",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "json_string",
@@ -1740,9 +1628,9 @@ exports[`sends an xml payload 1`] = `
           "label": "XML",
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -1761,9 +1649,9 @@ exports[`sends show and hide app payloads 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "show_app",
@@ -1777,9 +1665,9 @@ exports[`sends show and hide app payloads 1`] = `
       {
         "content": {},
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "hide_app",
@@ -1802,9 +1690,9 @@ exports[`sends the ray ban payload 1`] = `
           ],
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "log",
@@ -1827,9 +1715,9 @@ exports[`sends the ray charles payload 1`] = `
           ],
         },
         "origin": {
-          "file": "/test/file.js",
+          "file": "",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "log",

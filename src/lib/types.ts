@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
 /// <reference lib="dom" />
@@ -41,3 +42,8 @@ export const isHtmlable = (item: any): boolean => {
 
     return item instanceof HTMLElement;
 };
+
+export enum SendRequestCallbackType {
+    Sending = 'sending',
+    Sent = 'sent',
+}

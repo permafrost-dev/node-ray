@@ -1,13 +1,10 @@
-/* eslint-disable constructor-super */
-
-import { Payload } from './Payload';
+import { Payload } from '@/Payloads/Payload';
 
 export class LabelPayload extends Payload {
     protected label: string;
 
     public constructor(label: string) {
         super();
-
         this.label = label;
     }
 

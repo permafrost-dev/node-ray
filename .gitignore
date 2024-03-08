@@ -1,16 +1,20 @@
 /build/*.js
 !/build/test.js
-
+/.cache
 /.vscode
 /node_modules
 /dist
+/dist-test*
+/dist-temp
 /coverage
 /build
 
 package-lock.json
 yarn.lock
+bun.lockb
 
 generate-from-ray-php-src.sh
 _ray_notes.txt
 
 *.ignore
+

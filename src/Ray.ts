@@ -1,78 +1,59 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-undef */
-/* eslint-disable no-useless-catch */
 
-// @ts-ignore
-const BUILDING_STANDALONE_LIB = typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_LIB__ === 'true';
-
-import * as md5lib from 'md5';
+import { Client } from '@/Client';
+import { RayColors } from '@/Concerns/RayColors';
 import { RayScreenColors } from '@/Concerns/RayScreenColors';
-import * as StackTrace from 'stacktrace-js';
+import { RaySizes } from '@/Concerns/RaySizes';
+import { RemovesRayFrames } from '@/Concerns/RemovesRayFrames';
+import { ConsoleInterceptor } from '@/ConsoleInterceptor';
+import { Hostname } from '@/Origin/Hostname';
+import { OriginData } from '@/Origin/Origin';
+import { PayloadFactory } from '@/PayloadFactory';
+import { CallerPayload } from '@/Payloads/CallerPayload';
+import { ClearAllPayload } from '@/Payloads/ClearAllPayload';
+import { ColorPayload } from '@/Payloads/ColorPayload';
+import { ConfettiPayload } from '@/Payloads/ConfettiPayload';
+import { CreateLockPayload } from '@/Payloads/CreateLockPayload';
+import { CustomPayload } from '@/Payloads/CustomPayload';
+import { DatePayload } from '@/Payloads/DatePayload';
+import { DecodedJsonPayload } from '@/Payloads/DecodedJsonPayload';
+import { ErrorPayload } from '@/Payloads/ErrorPayload';
+import { EventPayload } from '@/Payloads/EventPayload';
+import { ExceptionPayload } from '@/Payloads/ExceptionPayload';
+import { HideAppPayload } from '@/Payloads/HideAppPayload';
+import { HidePayload } from '@/Payloads/HidePayload';
+import { HtmlMarkupOptions, HtmlMarkupPayload } from '@/Payloads/HtmlMarkupPayload';
+import { HtmlPayload } from '@/Payloads/HtmlPayload';
+import { ImagePayload } from '@/Payloads/ImagePayload';
+import { JsonStringPayload } from '@/Payloads/JsonStringPayload';
+import { LabelPayload } from '@/Payloads/LabelPayload';
+import { LogPayload } from '@/Payloads/LogPayload';
+import { MeasurePayload } from '@/Payloads/MeasurePayload';
+import { NewScreenPayload } from '@/Payloads/NewScreenPayload';
+import { NotifyPayload } from '@/Payloads/NotifyPayload';
+import { Payload } from '@/Payloads/Payload';
+import { RemovePayload } from '@/Payloads/RemovePayload';
+import { ScreenColorPayload } from '@/Payloads/ScreenColorPayload';
+import { SeparatorPayload } from '@/Payloads/SeparatorPayload';
+import { ShowAppPayload } from '@/Payloads/ShowAppPayload';
+import { SizePayload } from '@/Payloads/SizePayload';
+import { TablePayload } from '@/Payloads/TablePayload';
+import { TextPayload } from '@/Payloads/TextPayload';
+import { TracePayload } from '@/Payloads/TracePayload';
+import { XmlPayload } from '@/Payloads/XmlPayload';
+import { Request } from '@/Request';
+import { RaySettings, Settings } from '@/Settings/Settings';
+import { Stopwatch } from '@/Stopwatch/Stopwatch';
+import { Counters } from '@/Support/Counters';
+import { Limiters } from '@/Support/Limiters';
+import { RateLimiter } from '@/Support/RateLimiter';
+import { SendRequestCallbackType } from '@/lib/types';
+import { nonCryptoUuidV4, sleep } from '@/lib/utils';
+import { PACKAGE_VERSION } from '@/lib/version';
+import { md5 } from '@/lib/utils';
+import Stacktrace from 'stacktrace-js';
 import { Mixin } from 'ts-mixer';
-import { RayColors } from './Concerns/RayColors';
-import { RaySizes } from './Concerns/RaySizes';
-import { RemovesRayFrames } from './Concerns/RemovesRayFrames';
-import { ConsoleInterceptor } from './ConsoleInterceptor';
-import { Hostname } from './Origin/Hostname';
-import { OriginData } from './Origin/Origin';
-import { PayloadFactory } from './PayloadFactory';
-import { CallerPayload } from './Payloads/CallerPayload';
-import { ClearAllPayload } from './Payloads/ClearAllPayload';
-import { ColorPayload } from './Payloads/ColorPayload';
-import { ConfettiPayload } from './Payloads/ConfettiPayload';
-import { CreateLockPayload } from './Payloads/CreateLockPayload';
-import { CustomPayload } from './Payloads/CustomPayload';
-import { DatePayload } from './Payloads/DatePayload';
-import { DecodedJsonPayload } from './Payloads/DecodedJsonPayload';
-import { ErrorPayload } from './Payloads/ErrorPayload';
-import { EventPayload } from './Payloads/EventPayload';
-import { ExceptionPayload } from './Payloads/ExceptionPayload';
-import { HideAppPayload } from './Payloads/HideAppPayload';
-import { HidePayload } from './Payloads/HidePayload';
-import { HtmlMarkupOptions, HtmlMarkupPayload } from './Payloads/HtmlMarkupPayload';
-import { HtmlPayload } from './Payloads/HtmlPayload';
-import { ImagePayload } from './Payloads/ImagePayload';
-import { JsonStringPayload } from './Payloads/JsonStringPayload';
-import { LabelPayload } from './Payloads/LabelPayload';
-import { LogPayload } from './Payloads/LogPayload';
-import { MeasurePayload } from './Payloads/MeasurePayload';
-import { NewScreenPayload } from './Payloads/NewScreenPayload';
-import { NotifyPayload } from './Payloads/NotifyPayload';
-import { Payload } from './Payloads/Payload';
-import { RemovePayload } from './Payloads/RemovePayload';
-import { ScreenColorPayload } from './Payloads/ScreenColorPayload';
-import { SeparatorPayload } from './Payloads/SeparatorPayload';
-import { ShowAppPayload } from './Payloads/ShowAppPayload';
-import { SizePayload } from './Payloads/SizePayload';
-import { TablePayload } from './Payloads/TablePayload';
-import { TextPayload } from './Payloads/TextPayload';
-import { TracePayload } from './Payloads/TracePayload';
-import { XmlPayload } from './Payloads/XmlPayload';
-import { Request } from './Request';
-import { RaySettings, Settings } from './Settings/Settings';
-import { Stopwatch } from './Stopwatch/Stopwatch';
-import { Counters } from './Support/Counters';
-import { Limiters } from './Support/Limiters';
-import { RateLimiter } from './Support/RateLimiter';
-import { nonCryptoUuidV4, sleep } from './lib/utils';
-import PACKAGE_VERSION from './lib/version';
-import { Client } from './Client';
-
-// const md5 = require('md5');
-const md5 = md5lib.default;
-
-const getSync = StackTrace.getSync;
-
-export type BoolFunction = () => boolean;
-
-// let Client: any;
-// async function initialize() {
-//     Client = await import(BUILDING_STANDALONE_LIB ? './ClientStandalone' : './Client');
-//     // .then((module) => Client = module.default);
-// }
-
-// initialize();
 
 export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     protected static lockCounter = 0;
@@ -83,7 +64,6 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public static defaultSettings: RaySettings = { not_defined: true };
 
-    // @ts-ignore
     public static client: Client;
 
     public static projectName = '';
@@ -98,7 +78,6 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public uuid: string;
 
-    // @var \Symfony\Component\Stopwatch\Stopwatch[]
     public static stopWatches: Record<string, Stopwatch> = {};
 
     public static enabled: boolean | null = null;
@@ -113,7 +92,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public static _rateLimiter: RateLimiter = RateLimiter.disabled();
 
-    public static create(client: Client | null = null, uuid: string | null = null): Ray {
+    public static async create(client: Client | null = null, uuid: string | null = null): Promise<Ray> {
         if (Ray.defaultSettings.not_defined === true) {
             Ray.defaultSettings = {
                 enable: true,
@@ -155,6 +134,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
             };
         }
 
+        Ray.defaultSettings = Object.assign({}, Ray.defaultSettings, settings.toObject());
+
         this.inCallback = inCallback;
         this.settings = new Settings(Ray.defaultSettings);
 
@@ -163,9 +144,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         }
 
         Ray.client = client ?? Ray.client ?? new Client(this.settings.port, this.settings.host);
-
         Ray._rateLimiter = Ray._rateLimiter ?? RateLimiter.disabled();
-
         this.uuid = uuid ?? Ray.fakeUuid ?? nonCryptoUuidV4();
 
         if (this.settings.intercept_console_log && !this.interceptor().active()) {
@@ -329,9 +308,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     public file(filename: string): this {
-        console.error(`file() unsupport on web (${filename})`);
-
-        return this;
+        throw new Error('file() unsupported on node-ray/web.');
     }
 
     public image(location: string): this {
@@ -351,11 +328,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     public error(err: Error): this {
         const payload = new ErrorPayload(err, 'Error');
 
-        this.sendRequest(payload);
-
-        this.red();
-
-        return this;
+        return this.sendRequest(payload).red();
     }
 
     public event(eventName: string, data: any[] = []): this {
@@ -364,58 +337,10 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this.sendRequest(payload);
     }
 
-    public exception(err: Error, meta: Record<string, unknown> = {}): this {
-        const payload = new ExceptionPayload(err, meta);
+    public async exception(err: Error, meta: Record<string, unknown> = {}) {
+        const payload = await ExceptionPayload.make(err, meta);
 
-        this.sendRequest(payload);
-
-        this.red();
-
-        return this;
-    }
-
-    /**
-     * @deprecated Use `if` instead of this method
-     */
-    public showWhen(booleanOrCallable: boolean | BoolFunction): this {
-        if (typeof booleanOrCallable === 'function') {
-            booleanOrCallable = (booleanOrCallable as BoolFunction)();
-        }
-
-        if (!booleanOrCallable) {
-            this.remove();
-        }
-
-        return this;
-    }
-
-    /**
-     * @deprecated Use `if` instead of this method
-     */
-    public showIf(booleanOrCallable: boolean | BoolFunction): this {
-        return this.showWhen(booleanOrCallable);
-    }
-
-    /**
-     * @deprecated Use `if` instead of this method
-     */
-    public removeWhen(booleanOrCallable: boolean | BoolFunction): this {
-        if (typeof booleanOrCallable === 'function') {
-            booleanOrCallable = (booleanOrCallable as BoolFunction)();
-        }
-
-        if (booleanOrCallable) {
-            this.remove();
-        }
-
-        return this;
-    }
-
-    /**
-     * @deprecated Use `if` instead of this method
-     */
-    public removeIf(booleanOrCallable: boolean | BoolFunction): this {
-        return this.removeWhen(booleanOrCallable);
+        return await this.sendRequest(payload).red();
     }
 
     public ban(): this {
@@ -432,12 +357,13 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this.sendRequest(payload);
     }
 
-    public count(name: string | null = null): this {
-        const fingerprint = md5(`${<string>this.getCaller()?.getFileName()}${this.getCaller()?.getLineNumber()}`);
+    public async count(name: string | null = null): Promise<Ray> {
+        const caller = await this.getCaller();
+        const fingerprint = md5(`${caller?.getFileName()}${caller?.getLineNumber()}`);
 
-        const [ray, times] = Ray.counters.increment(name ?? fingerprint ?? 'none');
+        const [r, times] = await Ray.counters.increment(name ?? fingerprint ?? 'none');
 
-        let message = `Called `;
+        let message = 'Called ';
 
         if (name) {
             message += `'${name}' `;
@@ -445,9 +371,9 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
         message += `${times} ${times === 1 ? 'time' : 'times'}.`;
 
-        ray.sendCustom(message, 'Count');
+        r.sendCustom(message, 'Count');
 
-        return ray;
+        return r;
     }
 
     public clearCounters(): this {
@@ -501,25 +427,18 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this;
     }
 
-    public caller(): this {
-        const backtrace = getSync({});
+    public async caller() {
+        const backtrace = await Stacktrace.get();
 
         const payload = new CallerPayload(backtrace);
 
         return this.sendRequest(payload);
     }
 
-    public trace(): this {
-        //startingFromFrame: CallableFunction | null = null
-        const backtrace = getSync({});
+    public async trace() {
+        const backtrace = await Stacktrace.get();
 
-        const payload = new TracePayload(backtrace);
-
-        // if (startingFromFrame) {
-        //     $backtrace->startingFromFrame($startingFromFrame);
-        // }
-
-        return this.sendRequest(payload);
+        return this.sendRequest(new TracePayload(backtrace));
     }
 
     public measure(stopwatchName: CallableFunction | string = 'default'): this {
@@ -669,8 +588,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this;
     }
 
-    public limit(count: number): this {
-        const frame = this.getCaller();
+    public async limit(count: number) {
+        const frame = await this.getCaller();
 
         this.limitOrigin = <any>{
             function_name: frame?.getFunctionName(),
@@ -679,14 +598,13 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
             hostname: Hostname.get(),
         };
 
-        // @ts-ignore
-        Ray.limiters.initialize(this.limitOrigin, count);
+        Ray.limiters.initialize(this.limitOrigin as OriginData, count);
 
         return this;
     }
 
-    public once(...args: any[]): this {
-        const frame = this.getCaller();
+    public async once(...args: any[]) {
+        const frame = await this.getCaller();
 
         this.limitOrigin = <any>{
             function_name: frame?.getFunctionName(),
@@ -695,8 +613,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
             hostname: Hostname.get(),
         };
 
-        // @ts-ignore
-        Ray.limiters.initialize(this.limitOrigin, 1);
+        Ray.limiters.initialize(this.limitOrigin as OriginData, 1);
 
         if (args.length > 0) {
             return this.send(...args);
@@ -711,8 +628,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this.sendRequest(payload);
     }
 
-    getOriginFrame() {
-        const st = getSync({});
+    async getOriginFrame() {
+        const st = await Stacktrace.get();
 
         let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.sendRequest'));
 
@@ -725,8 +642,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return callerFrames.slice(0).shift();
     }
 
-    getCaller() {
-        const st = getSync({});
+    async getCaller() {
+        const st = await Stacktrace.get();
 
         let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.getCaller'));
 
@@ -743,8 +660,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return callerFrames.slice(2).shift();
     }
 
-    getOriginData() {
-        const frame = this.getOriginFrame();
+    async getOriginData() {
+        const frame = await this.getOriginFrame();
 
         return <any>{
             function_name: frame?.getFunctionName(),
@@ -754,7 +671,38 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         };
     }
 
-    public sendRequest(payloads: Payload | Payload[], meta: any[] = []): this {
+    protected prepareMeta(meta: Record<string, any>) {
+        return Object.assign(
+            {},
+            {
+                node_ray_package_version: PACKAGE_VERSION ?? 'unknown',
+                project_name: Ray.projectName,
+            },
+            meta,
+        );
+    }
+
+    protected executePayloadCallback(callbackType: SendRequestCallbackType, args: any = []) {
+        if (this.inCallback) return;
+
+        this.inCallback = true;
+
+        try {
+            if (callbackType === SendRequestCallbackType.Sending && this.settings.sending_payload_callback !== null) {
+                this.settings.sending_payload_callback(new Ray(this.settings, this.client(), this.uuid, true), args);
+            }
+
+            if (callbackType === SendRequestCallbackType.Sent && this.settings.sent_payload_callback !== null) {
+                this.settings.sent_payload_callback(this);
+            }
+        } catch (e) {
+            //
+        }
+
+        this.inCallback = false;
+    }
+
+    public sendRequest(payloads: Payload | Payload[], meta: any[] = []) {
         if (!this.enabled()) {
             return this;
         }
@@ -776,47 +724,27 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         }
 
         if (this.rateLimiter().isMaxReached() || this.rateLimiter().isMaxPerSecondReached()) {
+            this.rateLimiter().notified = true;
             this.notifyWhenRateLimitReached();
 
             return this;
         }
 
-        const allMeta = Object.assign(
-            {},
-            {
-                node_ray_package_version: PACKAGE_VERSION,
-                project_name: Ray.projectName,
-            },
-            meta,
-        );
-
         payloads.forEach(payload => {
-            payload.data.origin = this.getOriginData();
+            this.getOriginData().then(data => {
+                payload.data.origin = data;
+            });
             payload.remotePath = this.settings.remote_path;
             payload.localPath = this.settings.local_path;
         });
 
-        if (this.settings.sending_payload_callback !== null && !this.inCallback) {
-            this.inCallback = true;
+        this.executePayloadCallback(SendRequestCallbackType.Sending, payloads);
 
-            this.settings.sending_payload_callback(new Ray(this.settings, this.client(), this.uuid, true), payloads);
-
-            this.inCallback = false;
-        }
-
-        const request = new Request(this.uuid, payloads, allMeta);
-
-        Ray.client?.send(request);
+        Ray.client.send(new Request(this.uuid, payloads, this.prepareMeta(meta)));
 
         this.rateLimiter().hit();
 
-        if (this.settings.sent_payload_callback !== null && !this.inCallback) {
-            this.inCallback = true;
-
-            this.settings.sent_payload_callback(this);
-
-            this.inCallback = false;
-        }
+        this.executePayloadCallback(SendRequestCallbackType.Sent, payloads);
 
         return this;
     }
@@ -825,7 +753,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return Ray._rateLimiter;
     }
 
-    protected notifyWhenRateLimitReached(): void {
+    protected async notifyWhenRateLimitReached() {
         if (this.rateLimiter().isNotified()) {
             return;
         }
@@ -833,41 +761,38 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         const customPayload = new CustomPayload('Rate limit has been reached...', 'Rate limit');
         const request = new Request(this.uuid, [customPayload], []);
 
-        Ray.client.send(request);
+        await Ray.client.send(request);
 
         this.rateLimiter().notify();
     }
 
-    standalone(windowObject) {
+    standalone(windowObject: any) {
         if (typeof windowObject !== 'undefined') {
-            windowObject['ray'] = ray;
-            windowObject['Ray'] = Ray;
+            windowObject.ray = ray;
+            windowObject.Ray = Ray;
         }
     }
 }
 
 export const ray = (...args: any[]) => {
-    return Ray.create().send(...args);
+    return Ray.create().then(r => r.send(...args));
 };
 
 export const standalone = windowObject => {
     if (typeof windowObject !== 'undefined') {
-        windowObject['ray'] = ray;
-        windowObject['Ray'] = Ray;
+        windowObject.ray = ray;
+        windowObject.Ray = Ray;
     }
 };
 
-function standaloneInitialization() {
-    if (typeof globalThis['window'] !== 'undefined') {
-        window['Ray'] = {
-            ray,
-            Ray,
-        };
-
-        window['rayInit'] = standalone;
+// @ts-ignore
+if (typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_LIB__) {
+    try {
+        const win: any = window;
+        win.ray = ray;
+        win.Ray = Ray;
+        win.rayInit = standalone;
+    } catch (e) {
+        //
     }
 }
-
-//if (BUILDING_STANDALONE_LIB) {
-// standaloneInitialization();
-//}

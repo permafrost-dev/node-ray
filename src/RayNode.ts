@@ -1,19 +1,19 @@
-import { existsSync } from 'fs';
-import { Client } from './Client';
-import { FileContentsPayload } from './Payloads/FileContentsPayload';
-import { ImagePayload } from './Payloads/ImagePayload';
-import { NodeMeasurePayload } from './Payloads/NodeMeasurePayload';
-import { Ray as BaseRay } from './Ray';
-import { SettingsFactory } from './Settings/SettingsFactory';
-import { NodeStopwatch } from './Stopwatch/NodeStopwatch';
-import { PayloadFactory } from './PayloadFactory';
-import { OriginData } from './Origin/Origin';
-import { HostnameNode } from './Origin/HostnameNode';
+import { Client } from '@/Client';
+import { HostnameNode } from '@/Origin/HostnameNode';
+import { OriginData } from '@/Origin/Origin';
+import { PayloadFactory } from '@/PayloadFactory';
+import { FileContentsPayload } from '@/Payloads/FileContentsPayload';
+import { ImagePayload } from '@/Payloads/ImagePayload';
 import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
+import { NodeMeasurePayload } from '@/Payloads/NodeMeasurePayload';
+import { Ray as BaseRay } from '@/Ray';
+import { SettingsFactory } from '@/Settings/SettingsFactory';
+import { NodeStopwatch } from '@/Stopwatch/NodeStopwatch';
+import { existsSync } from 'node:fs';
 
 export class Ray extends BaseRay {
-    public static create(client: Client | null = null, uuid: string | null = null): Ray {
-        const settings = SettingsFactory.createFromConfigFile();
+    public static async create(client: Client | null = null, uuid: string | null = null): Promise<Ray> {
+        const settings = await SettingsFactory.createFromConfigFile();
 
         return new this(settings, client, uuid);
     }
@@ -56,8 +56,8 @@ export class Ray extends BaseRay {
         return this.sendRequest(payload);
     }
 
-    getOriginData() {
-        const frame = this.getOriginFrame();
+    async getOriginData() {
+        const frame = await this.getOriginFrame();
 
         return <OriginData>{
             function_name: frame?.getFunctionName(),
@@ -65,11 +65,6 @@ export class Ray extends BaseRay {
             line_number: frame?.getLineNumber(),
             hostname: HostnameNode.get(),
         };
-        // const result = super.getOriginData();
-
-        // result.hostname = HostnameNode.get();
-
-        // return result;
     }
 
     public send(...args: any[]): this {
@@ -92,5 +87,5 @@ export class Ray extends BaseRay {
 }
 
 export const ray = (...args: any[]) => {
-    return Ray.create().send(...args);
+    return Ray.create().then(r => r.send(...args));
 };

@@ -1,22 +1,22 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
-import { ArgumentConverter } from './ArgumentConverter';
-import { BoolPayload } from './Payloads/BoolPayload';
-import { HtmlPayload } from './Payloads/HtmlPayload';
-import { LogPayload } from './Payloads/LogPayload';
-import { NullPayload } from './Payloads/NullPayload';
-import { Payload } from './Payloads/Payload';
+import { ArgumentConverter } from '@/ArgumentConverter';
+import { BoolPayload } from '@/Payloads/BoolPayload';
+import { HtmlPayload } from '@/Payloads/HtmlPayload';
+import { LogPayload } from '@/Payloads/LogPayload';
+import { NullPayload } from '@/Payloads/NullPayload';
+import { Payload } from '@/Payloads/Payload';
 
 export class PayloadFactory {
     protected values: any[];
 
-    protected static payloadFinder: Function | null = null;
+    protected static payloadFinder: CallableFunction | null = null;
 
     public static createForValues(args: any[]): any[] {
         return new this(args).getPayloads();
     }
 
-    public static registerPayloadFinder(callable: Function) {
+    public static registerPayloadFinder(callable: CallableFunction) {
         this.payloadFinder = callable;
     }
 

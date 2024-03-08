@@ -1,5 +1,5 @@
-import { Payload } from '../Payloads/Payload';
-import { RemovesRayFrames } from '../Concerns/RemovesRayFrames';
+import { Payload } from '@/Payloads/Payload';
+import { RemovesRayFrames } from '@/Concerns/RemovesRayFrames';
 import { StackFrame } from 'stacktrace-js';
 
 export class CallerPayload extends Payload {
@@ -16,22 +16,16 @@ export class CallerPayload extends Payload {
     }
 
     public getContent(): Record<string, unknown> {
-        const frames = this.frames.slice(0);
-
         /** @var Frame frame */
-        const frame: StackFrame = frames[0] || null;
-
-        const funcNameParts = frame?.getFunctionName()?.replace('Proxy.', '')?.split('.')?.slice(0);
-
-        const className = funcNameParts?.length ? funcNameParts.shift() : '';
-        const methodName = funcNameParts?.join('.') ?? '';
+        const frame: StackFrame = this.frames.slice(0)[0] || null;
+        const funcNameParts = frame?.getFunctionName()?.replace('Proxy.', '')?.split('.')?.slice(0) ?? [];
 
         return {
             frame: {
                 file_name: this.replaceRemotePathWithLocalPath(frame?.getFileName() ?? ''),
                 line_number: frame?.getLineNumber() || 0,
-                class: className,
-                method: methodName,
+                class: funcNameParts[0] ?? '',
+                method: funcNameParts ? funcNameParts.slice(1).join('.') : '',
                 vendor_frame: frame?.getFileName()?.includes('node_modules') ?? false,
             },
         };

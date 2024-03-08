@@ -24,8 +24,7 @@ export class ErrorPayload extends Payload {
 
     protected formatError(): string {
         return (
-            `<span class="text-red-400 bold">${this.err.name}</span>: <br>` +
-            `<span class="pl-5 text-gray-500">${this.err.message}</span>`
+            `<span class="text-red-400 bold">${this.err.name}</span>: <br>` + `<span class="pl-5 text-gray-500">${this.err.message}</span>`
         );
     }
 }

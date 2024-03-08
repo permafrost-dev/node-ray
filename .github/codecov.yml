@@ -1,6 +1,6 @@
 codecov:
   branch: main
-  require_ci_to_pass: yes
+  require_ci_to_pass: true
 
 coverage:
   status:
@@ -34,7 +34,10 @@ comment:
 
 ignore:
   - "build/"
+  - "dist/"
+  - "scripts/"
+  - ".eslintrc.cjs"
   - ".eslintrc.js"
-  - "jest.config.js"
-  - "rollup.config.js"
-  - "rollup.standalone-config.js"
+  - "prettier.config.cjs"
+  - "prettier.config.js"
+  - "jest.config.cjs"

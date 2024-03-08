@@ -1,12 +1,9 @@
 import { Payload } from '../Payloads/Payload';
 
 export class DecodedJsonPayload extends Payload {
-    /** @var string */
-    protected value;
-
-    public constructor(value: string) {
+    // eslint-disable-next-line no-unused-vars
+    public constructor(protected value: string) {
         super();
-        this.value = value;
     }
 
     public getType(): string {

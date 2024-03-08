@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import { OriginData } from '../Origin/Origin';
+import { OriginData } from '@/Origin/Origin';
 
 export interface PayloadData {
     type: string;
@@ -26,7 +26,7 @@ export abstract class Payload {
             return filePath;
         }
 
-        const pattern = new RegExp('^' + this.remotePath);
+        const pattern = new RegExp(`^${this.remotePath}`);
 
         return filePath.replace(pattern, this.localPath);
     }

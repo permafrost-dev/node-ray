@@ -5,7 +5,7 @@ export class Request {
     public payloads: Payload[];
     public meta: any[];
 
-    public constructor(uuid: string, payloads: Payload[], meta: any[] = []) {
+    public constructor(uuid: string, payloads: Payload[], meta: any = {}) {
         this.uuid = uuid;
         this.payloads = payloads;
         this.meta = meta;

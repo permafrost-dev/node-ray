@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`sends a missing file payload 1`] = `
 [
@@ -13,7 +13,7 @@ exports[`sends a missing file payload 1`] = `
         "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -37,7 +37,7 @@ exports[`sends an existing file payload 1`] = `
         "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -55,13 +55,13 @@ exports[`sends an existing image file payload 1`] = `
     "payloads": [
       {
         "content": {
-          "content": "<img src="file:///tests/TestData/test.txt" alt="" />",
+          "content": "<img src="file://tests/TestData/test.txt" alt="" />",
           "label": "Image",
         },
         "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -85,7 +85,7 @@ exports[`sends an image url payload 1`] = `
         "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",

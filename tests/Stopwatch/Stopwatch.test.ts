@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-undef */
+import { expect, it, describe, beforeEach } from 'vitest';
 
 import { usleep } from '../../src/lib/utils';
 import Stopwatch from './../../src/Stopwatch/Stopwatch';
@@ -42,7 +43,7 @@ describe('Stopwatch', () => {
     it('can get the previous duration', async () => {
         stopwatch.start('one');
         usleep(100);
-        const ev1 = stopwatch.lap();
+        stopwatch.lap();
         usleep(100);
         const ev2 = stopwatch.lap();
         expect(Math.floor(ev2.getPreviousDuration() / 10)).toBe(10);

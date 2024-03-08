@@ -1,13 +1,13 @@
 module.exports = {
     parser: '@typescript-eslint/parser',
     parserOptions: {
-        ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
-        sourceType: 'module', // Allows for the use of imports
+        ecmaVersion: 2020,
+        sourceType: 'module',
     },
     env: {
         node: true,
         browser: false,
-        commonjs: true,
+        es6: true,
     },
     settings: {},
     extends: ['plugin:@typescript-eslint/recommended', 'eslint:recommended'],
@@ -17,7 +17,9 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/no-empty-function': 'off',
-        // 'newline-per-chained-call': ['error', { ignoreChainWithDepth: 2 }],
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
         indent: ['error', 4, { SwitchCase: 1 }],
+        'no-useless-catch': 'off',
     },
 };

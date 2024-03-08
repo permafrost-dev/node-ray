@@ -1,11 +1,6 @@
-import { Payload } from '../Payloads/Payload';
-//import formatXml from 'xml-formatter/dist/esm/index';
-import { formatHtmlForDisplay } from '../lib/utils';
-import * as xmlfmt from 'xml-formatter';
-
-const formatXml = xmlfmt.default;
-
-// const formatXml = require('xml-formatter');
+import { Payload } from '@/Payloads/Payload';
+import { formatHtmlForDisplay } from '@/lib/utils';
+import formatXml from 'xml-formatter';
 
 export class XmlPayload extends Payload {
     protected value: string;
@@ -42,7 +37,6 @@ export class XmlPayload extends Payload {
     protected formatAndIndentXml(xml: string): string {
         return formatXml(xml.toString(), {
             indentation: '    ',
-            //filter: (node) => node.type !== 'Comment',
             collapseContent: true,
             lineSeparator: '\n',
         });

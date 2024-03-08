@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-
+import { expect, it } from 'vitest';
 import { RateLimiter } from '../../src/Support/RateLimiter';
 
 it('can initialize a disabled rate limit', () => {

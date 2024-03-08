@@ -1,11 +1,11 @@
-import { Ray, ray as rayFunc } from '../Ray';
+import { Ray, ray as rayFunc } from '@/Ray';
 
 export class Counters {
     protected counters: Record<string, any> = {};
 
-    public increment(name: string): any[] {
+    public async increment(name: string): Promise<any[]> {
         if (typeof this.counters[name] === 'undefined') {
-            this.counters[name] = [rayFunc(), 0];
+            this.counters[name] = [await rayFunc(), 0];
         }
 
         const data = this.counters[name];

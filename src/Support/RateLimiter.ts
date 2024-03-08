@@ -1,5 +1,5 @@
-import { CacheStore } from './CacheStore';
-import { SystemClock } from './SystemClock';
+import { CacheStore } from '@/Support/CacheStore';
+import { SystemClock } from '@/Support/SystemClock';
 
 export class RateLimiter {
     protected maxCalls: number | null;
@@ -8,7 +8,7 @@ export class RateLimiter {
 
     protected cache: CacheStore;
 
-    protected notified = false;
+    public notified = false;
 
     protected constructor(maxCalls: number | null = null, maxPerSecond: number | null = null) {
         this.maxCalls = maxCalls;

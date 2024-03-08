@@ -1,7 +1,7 @@
-import { Payload } from '../Payloads/Payload';
-import { existsSync, readFileSync } from 'fs';
-import { EOL } from 'os';
-import { basename } from 'path';
+import { Payload } from '@/Payloads/Payload';
+import { existsSync, readFileSync } from 'node:fs';
+import { EOL } from 'node:os';
+import { basename } from 'node:path';
 
 export class FileContentsPayload extends Payload {
     protected file: string;
@@ -33,11 +33,7 @@ export class FileContentsPayload extends Payload {
     }
 
     protected encodeContent(content: string): string {
-        const result = content
-            .replace(/>/g, '&gt;')
-            .replace(/</g, '&lt;')
-            .replace(new RegExp(EOL, 'g'), '<br>')
-            .replace(/ /g, '&nbsp;');
+        const result = content.replace(/>/g, '&gt;').replace(/</g, '&lt;').replace(new RegExp(EOL, 'g'), '<br>').replace(/ /g, '&nbsp;');
 
         return result;
     }

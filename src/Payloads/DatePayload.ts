@@ -1,5 +1,5 @@
-import * as dayjs from 'dayjs';
-import { Payload } from '../Payloads/Payload';
+import { Payload } from '@/Payloads/Payload';
+import dayjs from 'dayjs';
 
 export class DatePayload extends Payload {
     protected date: Date | null;
@@ -10,7 +10,6 @@ export class DatePayload extends Payload {
         super();
 
         this.date = date;
-
         this.format = format;
     }
 
@@ -20,18 +19,24 @@ export class DatePayload extends Payload {
 
     public getContent(): Record<string, string | number | null> {
         return {
-            formatted: this.date ? this.getFormatted() : null,
-            timestamp: this.date ? this.getTimestamp() : null,
-            timezone: this.date ? this.getTimezoneName() : null,
+            formatted: this.getFormatted(),
+            timestamp: this.getTimestamp(),
+            timezone: this.getTimezoneName(),
         };
     }
 
-    protected getTimestamp(): number {
-        return dayjs.default(this.date?.toISOString()).unix();
+    protected getTimestamp(): number | null {
+        if (this.date === null) return null;
+
+        return dayjs(this.date.toISOString()).unix();
     }
 
     protected getFormatted(): string {
-        return dayjs.default(this.date?.toISOString()).format(this.format);
+        if (this.date === null) {
+            return '--';
+        }
+
+        return dayjs(this.date.toISOString()).format(this.format);
     }
 
     protected getTimezoneName(): string {

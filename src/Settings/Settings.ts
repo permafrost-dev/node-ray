@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
-import { Ray } from './../Ray';
-import { Client } from './../Client';
+import { Client } from '@/Client';
 import { Payload } from '@/Payloads/Payload';
+import { Ray } from '@/Ray';
 
 export type RayEnabledCallback = () => boolean;
 export type RayAfterPayloadSentCallback = (rayInstance: Ray) => void; // eslint-disable-line no-unused-vars

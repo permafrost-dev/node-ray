@@ -1,5 +1,5 @@
-import { end } from '../lib/utils';
-import { Stopwatch } from './Stopwatch';
+import { end } from '@/lib/utils';
+import { Stopwatch } from '@/Stopwatch/Stopwatch';
 
 export class StopwatchEvent {
     protected name: string | undefined;
