@@ -2,9 +2,33 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v2.0.0](https://github.com/permafrost-dev/node-ray/compare/v1.21.0...v2.0.0)
+
+version 2
+
+- version 2 [`#264`](https://github.com/permafrost-dev/node-ray/pull/264)
+- Bump Dependency Versions [`#259`](https://github.com/permafrost-dev/node-ray/pull/259)
+- npm(deps-dev): bump esbuild from 0.19.12 to 0.20.0 [`#252`](https://github.com/permafrost-dev/node-ray/pull/252)
+- Bump actions/cache from 3 to 4 [`#250`](https://github.com/permafrost-dev/node-ray/pull/250)
+- npm(deps-dev): bump @typescript-eslint/eslint-plugin from 5.62.0 to 6.19.0 [`#248`](https://github.com/permafrost-dev/node-ray/pull/248)
+- npm(deps-dev): bump lint-staged from 13.3.0 to 15.2.0 [`#240`](https://github.com/permafrost-dev/node-ray/pull/240)
+- npm(deps-dev): bump prettier from 2.8.8 to 3.1.0 [`#230`](https://github.com/permafrost-dev/node-ray/pull/230)
+- Bump github/codeql-action from 2 to 3 [`#242`](https://github.com/permafrost-dev/node-ray/pull/242)
+- Bump actions/setup-node from 3 to 4 [`#226`](https://github.com/permafrost-dev/node-ray/pull/226)
+- Bump actions/checkout from 3 to 4 [`#210`](https://github.com/permafrost-dev/node-ray/pull/210)
+- npm(deps-dev): bump esbuild from 0.18.20 to 0.19.3 [`#214`](https://github.com/permafrost-dev/node-ray/pull/214)
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 [`#191`](https://github.com/permafrost-dev/node-ray/pull/191)
+- npm(deps-dev): bump esbuild from 0.17.19 to 0.18.6 [`#189`](https://github.com/permafrost-dev/node-ray/pull/189)
+- Fix limit() and once() [`#182`](https://github.com/permafrost-dev/node-ray/pull/182)
+- Remove rollup deps & config files [`#181`](https://github.com/permafrost-dev/node-ray/pull/181)
+- Add tests  [`#180`](https://github.com/permafrost-dev/node-ray/pull/180)
+- wip [`400e96b`](https://github.com/permafrost-dev/node-ray/commit/400e96bf285cf75589aef05cdab0f2d37da4f8a3)
+- wip [`ec0b6a1`](https://github.com/permafrost-dev/node-ray/commit/ec0b6a15bba6b4f4513f79528238d39df8028980)
+- move some methods to async to use async stack frame tracing [`ab519a7`](https://github.com/permafrost-dev/node-ray/commit/ab519a7e8bd8b1d495f14542a6d3c95c577b017e)
+
 #### [v1.21.0](https://github.com/permafrost-dev/node-ray/compare/v1.20.11...v1.21.0)
 
-Fix stack frames
+> 25 May 2023
 
 - Fix stack frames [`#179`](https://github.com/permafrost-dev/node-ray/pull/179)
 - Fix issue 176 [`#178`](https://github.com/permafrost-dev/node-ray/pull/178)
