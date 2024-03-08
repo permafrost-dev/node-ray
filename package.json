@@ -47,8 +47,8 @@
         "lint:fix": "./node_modules/.bin/eslint --ext ts,js --fix src/",
         "lint:staged": "./node_modules/.bin/lint-staged",
         "fix": "npm run fmt && npm run lint:fix",
-        "build:dev": "BUILD_ENV=developmentnode scripts/build.js",
-        "build:release": "BUILD_ENV=production node scripts/build.js",
+        "build:dev": "BUILD_ENV=development node ./scripts/build.js",
+        "build:release": "BUILD_ENV=production node ./scripts/build.js",
         "postversion": "npm run build:release",
         "version": "auto-changelog -p -o CHANGELOG.md --hide-credit --release-summary --hide-empty-releases --sort-commits date-desc && git add CHANGELOG.md",
         "prepare": "is-ci || husky install"

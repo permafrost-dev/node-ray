@@ -4,7 +4,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, build as viteBuild } from 'vite';
 
-const outputDir = process.env.BUILD_ENV !== 'production' ? 'dist-test-2' : 'dist';
+const outputDir = process.env.BUILD_ENV !== 'production' ? 'dist-temp' : 'dist';
 
 export const globalConfig = {
     libraryName: 'Ray',

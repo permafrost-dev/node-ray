@@ -2,4 +2,4 @@
 // this is replaced with the actual package version by rollup
 
 // @ts-ignore
-export const PACKAGE_VERSION = typeof __BUILD_VERSION__ === 'undefined' ? '0.0.0' : __BUILD_VERSION__;
+export const PACKAGE_VERSION = __BUILD_VERSION__ || '0.0.0';
