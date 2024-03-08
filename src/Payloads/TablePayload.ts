@@ -1,5 +1,5 @@
-import { Payload } from '../Payloads/Payload';
-import { ArgumentConverter } from '../ArgumentConverter';
+import { ArgumentConverter } from '@/ArgumentConverter';
+import { Payload } from '@/Payloads/Payload';
 
 export class TablePayload extends Payload {
     protected values: Record<string | number, unknown> | any[];
@@ -29,11 +29,10 @@ export class TablePayload extends Payload {
 
     protected getValues(): any {
         if (Array.isArray(this.values)) {
-            return this.values.map((item: any) => {
-                return ArgumentConverter.convertToPrimitive(item).value;
-            });
+            return this.values.map((item: any) => ArgumentConverter.convertToPrimitive(item).value);
         }
-        const values: Record<string | number, unknown> = {};
+
+        const values = {};
 
         for (const prop in this.values) {
             values[prop] = ArgumentConverter.convertToPrimitive(this.values[prop]).value;

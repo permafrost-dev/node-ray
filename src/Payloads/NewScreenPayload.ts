@@ -1,7 +1,6 @@
-import { Payload } from '../Payloads/Payload';
+import { Payload } from '@/Payloads/Payload';
 
 export class NewScreenPayload extends Payload {
-    /** @var mixed */
     protected name;
 
     public constructor(name: string) {

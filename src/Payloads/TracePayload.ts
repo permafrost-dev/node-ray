@@ -1,13 +1,10 @@
-import { Payload } from './Payload';
-import { RemovesRayFrames } from '../Concerns/RemovesRayFrames';
+import { RemovesRayFrames } from '@/Concerns/RemovesRayFrames';
+import { Payload } from '@/Payloads/Payload';
 import { StackFrame } from 'stacktrace-js';
 
 export class TracePayload extends Payload {
-    /** @var array */
     protected frames: StackFrame[];
-
     protected startFromIndexNum: number | null = null;
-
     protected limitNum: number | null = null;
 
     public constructor(frames: StackFrame[]) {
