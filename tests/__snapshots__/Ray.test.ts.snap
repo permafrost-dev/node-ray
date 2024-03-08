@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`allows defaults to the http url scheme 1`] = `
 [
@@ -1398,10 +1398,10 @@ exports[`sends an exception payload 1`] = `
           "class": "Error",
           "frames": [
             {
-              "class": "Object",
+              "class": "unknown",
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
-              "method": "<anonymous>",
+              "method": "unknown",
               "snippet": [],
               "vendor_frame": false,
             },
@@ -1451,10 +1451,10 @@ exports[`sends an exception payload with metadata 1`] = `
           "class": "Error",
           "frames": [
             {
-              "class": "Object",
+              "class": "unknown",
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
-              "method": "<anonymous>",
+              "method": "unknown",
               "snippet": [],
               "vendor_frame": false,
             },

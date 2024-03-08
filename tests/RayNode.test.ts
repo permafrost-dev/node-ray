@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-useless-catch */
+import { expect, it, beforeEach } from 'vitest';
 
 import { Hostname } from '../src/Origin/Hostname';
 import { HostnameNode } from '../src/Origin/HostnameNode';

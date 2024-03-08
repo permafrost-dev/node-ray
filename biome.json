@@ -34,7 +34,8 @@
             "style": {
                 "useSelfClosingElements": "off",
                 "noParameterAssign": "off",
-                "useFragmentSyntax": "off"
+                "useFragmentSyntax": "off",
+                "useSingleVarDeclarator": "off"
             },
             "nursery": {
                 "useNodejsImportProtocol": "warn",

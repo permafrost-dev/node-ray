@@ -36,20 +36,22 @@ export class ExceptionPayload extends Payload {
             .map(frame => {
                 const funcNameParts = frame.functionName?.split('.') ?? ['unknown', 'unknown'];
                 const methodName = funcNameParts.pop();
-                let className = funcNameParts.pop();
+                let className = typeof frame.functionName !== 'string' ? 'unknown' : funcNameParts.pop();
 
-                if (typeof className === 'undefined') {
+                if (typeof frame.functionName === 'undefined') {
                     className = 'unknown';
                 }
 
-                return {
+                const result = {
                     file_name: this.replaceRemotePathWithLocalPath(frame.getFileName() ?? ''),
                     line_number: frame.getLineNumber(),
                     class: className,
-                    method: methodName,
+                    method: typeof frame.fileName === 'undefined' ? '<anonymous>' : methodName,
                     vendor_frame: frame.getFileName()?.includes('node_modules'),
                     snippet: [],
                 };
+
+                return result;
             })
             .filter((obj: any) => !obj.file_name.startsWith('node:'))
             .filter((obj: any) => !obj.file_name.includes('jest-circus'))

@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+import { expect, it } from 'vitest';
 
 import { resolve } from 'node:path';
 import { SettingsFactory } from './../src/Settings/SettingsFactory';

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-
+import { expect, it, beforeEach } from 'vitest';
 import { FakeClient } from './TestClasses/FakeClient';
 //import { Ray as NodeRay } from './../src/RayNode';
 import { Ray } from './../src/Ray';

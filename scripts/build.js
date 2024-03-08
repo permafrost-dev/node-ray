@@ -1,11 +1,12 @@
-import { readFile } from 'node:fs/promises';
+import { generateDtsBundle } from 'dts-bundle-generator';
+import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, build as viteBuild } from 'vite';
 
 const outputDir = process.env.BUILD_ENV !== 'production' ? 'dist-test-2' : 'dist';
 
-const globalConfig = {
+export const globalConfig = {
     libraryName: 'Ray',
     outDir: resolve(dirname(fileURLToPath(import.meta.url)), '../' + outputDir),
     basePath: resolve(dirname(fileURLToPath(import.meta.url)), '..'),
@@ -52,6 +53,7 @@ const globalConfig = {
             'node:os',
             'node:path',
             'node:process',
+            'node:url',
             'fs',
             'os',
             'process',
@@ -73,6 +75,30 @@ const globalConfig = {
         });
     },
 };
+
+async function buildTypeDefinitions() {
+    async function generateTypesForEntry(info) {
+        const dts = generateDtsBundle([{ filePath: info.entry }])
+            .pop()
+            .replaceAll('export {};', '')
+            .replaceAll(/\n{2,}/g, '\n')
+            .replaceAll(/\t/g, '    ')
+            .trim();
+
+        const baseFn = info.outfile;
+
+        await writeFile(outputDir + '/' + baseFn, dts, 'utf8');
+
+        console.log(`Compiled ${outputDir}/${baseFn}`);
+    }
+
+    const entries = [
+        { entry: 'src/Ray.ts', outfile: 'web.d.ts' },
+        { entry: 'src/RayNode.ts', outfile: 'index.d.ts' },
+    ];
+
+    await Promise.all(entries.map(e => generateTypesForEntry(e)));
+}
 
 async function buildWithVite(config) {
     await viteBuild(
@@ -111,8 +137,11 @@ async function buildWithVite(config) {
 async function main() {
     await globalConfig.init();
     await Promise.all(globalConfig.builds.map(config => buildWithVite(config)));
+    console.log('All library file builds complete.');
 
-    console.log('All builds completed');
+    console.log('Building type definitions...');
+    await buildTypeDefinitions();
+    console.log('All type definitions created.');
 }
 
 main();

@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+import { expect, it } from 'vitest';
 
 import { DateImmutable } from '../../src/Support/DateImmutable';
 import dayjs from 'dayjs';

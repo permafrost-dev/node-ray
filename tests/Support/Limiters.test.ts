@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+import { expect, it, beforeEach } from 'vitest';
 
 import { LimiterCounter, Limiters } from '../../src/Support/Limiters';
 import { OriginData } from '../../src/Origin/Origin';

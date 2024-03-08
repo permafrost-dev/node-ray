@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+import { expect, it } from 'vitest';
 import { ArgumentConverter } from '@/ArgumentConverter';
 
 // Tests that convertToPrimitive method returns the same string value and isHtml property is false when string argument is passed.

@@ -1,7 +1,6 @@
 /* eslint-disable no-empty */
 
-import { fileURLToPath } from 'node:url';
-import uuidV4 from 'uuid/dist/esm-browser/v4';
+import { v4 as uuidV4 } from 'uuid';
 
 export function randomInteger(minimum, maximum) {
     if (maximum === undefined) {
@@ -106,7 +105,6 @@ export function toPath(urlOrPath) {
 
 export function md5(inputString) {
     const hc = '0123456789abcdef';
-    // biome-ignore lint/style/useSingleVarDeclarator: <explanation>
     function rh(n) {
         let j,
             s = '';
@@ -232,4 +230,21 @@ export function md5(inputString) {
         d = ad(d, oldd);
     }
     return rh(a) + rh(b) + rh(c) + rh(d);
+}
+
+/**
+ * Mimics the functionality of Node.js's `fileURLToPath` for file URLs.
+ * Converts a file URL to a local file system path.
+ *
+ * @param {string} url - The file URL to convert.
+ * @returns {string} The local file system path.
+ */
+export function fileURLToPath(url): string {
+    try {
+        const urlObject = url instanceof URL ? url : new URL(url);
+
+        return decodeURIComponent(urlObject.pathname);
+    } catch (error) {
+        throw new Error('Invalid URL.');
+    }
 }
