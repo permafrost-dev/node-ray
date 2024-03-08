@@ -56,8 +56,8 @@ export class Ray extends BaseRay {
         return this.sendRequest(payload);
     }
 
-    getOriginData() {
-        const frame = this.getOriginFrame();
+    async getOriginData() {
+        const frame = await this.getOriginFrame();
 
         return <OriginData>{
             function_name: frame?.getFunctionName(),

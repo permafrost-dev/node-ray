@@ -275,7 +275,7 @@ See [using the package](docs/usage.md).
 | `ray(variable)` | Display a string, array or object |
 | `ray(var1, var2, …)` | Ray accepts multiple arguments |
 | `ray(…).blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
-| `ray().caller()` | Show the calling class and method |
+| `ray().caller()` | **Asynchronous.** Show the calling class and method |
 | `ray().clearScreen()` | Clear current screen |
 | `ray().clearAll()` | Clear current and all previous screens |
 | `ray().className(obj)` | Display the classname for an object |
@@ -289,7 +289,7 @@ See [using the package](docs/usage.md).
 | `ray().enabled()` | Check if Ray is enabled |
 | `ray().error(err)` | Display information about an Error/Exception |
 | `ray().event(name, data)` | Display information about an event with optional data |
-| `ray().exception(err)` | Display extended information and stack trace for an Error/Exception |
+| `ray().exception(err)` | **Asynchronous.** Display extended information and stack trace for an Error/Exception |
 | `ray().file(filename)` | Display contents of a file - NodeJS only |
 | `ray(…).hide()` | Display something in Ray and make it collapse immediately |
 | `ray().hideApp()` | Programmatically hide the Ray app window |
@@ -300,7 +300,7 @@ See [using the package](docs/usage.md).
 | `ray().interceptor()` | Access ConsoleInterceptor; call `.enable()` to show `console.log()` calls in Ray |
 | `ray().json([…])` | Send JSON to Ray |
 | `ray().label(string)` | Add a text label to the payload |
-| `ray().limit(N).…` | Limit the number of payloads that can be sent to Ray to N; used for debugging within loops |
+| `ray().limit(N).…` | **Asynchronous.** Limit the number of payloads that can be sent to Ray to N; used for debugging within loops |
 | `ray().macro(name, callable)` | Add a custom method to the Ray class. make sure not to use an arrow function if returning `this` |
 | `ray().measure(callable)` | Measure the performance of a callback function |
 | `ray().measure()` | Begin measuring the overall time and elapsed time since previous `measure()` call |
@@ -308,7 +308,7 @@ See [using the package](docs/usage.md).
 | `ray().newScreen('title')` | Start a new named screen |
 | `ray().nodeinfo()` | Display statistics about node, such as the v8 version and memory usage (NodeJS only) |
 | `ray(…).notify(message)` | Display a notification |
-| `ray().once(arg1, …)` | Only send a payload once when in a loop |
+| `ray().once(arg1, …)` | **Asynchronous.** Only send a payload once when in a loop |
 | `ray(…).pass(variable)` | Display something in Ray and return the value instead of a Ray instance |
 | `ray().pause()` | Pause code execution within your code; must be called using `await` |
 | `ray().projectName(name)` | Change the active project name |

@@ -55,8 +55,6 @@ import { md5 } from '@/lib/utils';
 import Stacktrace from 'stacktrace-js';
 import { Mixin } from 'ts-mixer';
 
-export type BoolFunction = () => boolean;
-
 export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     protected static lockCounter = 0;
 
@@ -339,10 +337,10 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this.sendRequest(payload);
     }
 
-    public exception(err: Error, meta: Record<string, unknown> = {}): this {
-        const payload = new ExceptionPayload(err, meta);
+    public async exception(err: Error, meta: Record<string, unknown> = {}) {
+        const payload = await ExceptionPayload.make(err, meta);
 
-        return this.sendRequest(payload).red();
+        return await this.sendRequest(payload).red();
     }
 
     public ban(): this {
@@ -360,7 +358,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     public async count(name: string | null = null): Promise<Ray> {
-        const fingerprint = md5(`${<string>this.getCaller()?.getFileName()}${this.getCaller()?.getLineNumber()}`);
+        const caller = await this.getCaller();
+        const fingerprint = md5(`${caller?.getFileName()}${caller?.getLineNumber()}`);
 
         const [r, times] = await Ray.counters.increment(name ?? fingerprint ?? 'none');
 
@@ -428,25 +427,18 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this;
     }
 
-    public caller(): this {
-        const backtrace = Stacktrace.getSync({});
+    public async caller() {
+        const backtrace = await Stacktrace.get();
 
         const payload = new CallerPayload(backtrace);
 
         return this.sendRequest(payload);
     }
 
-    public trace(): this {
-        //startingFromFrame: CallableFunction | null = null
-        const backtrace = Stacktrace.getSync({});
+    public async trace() {
+        const backtrace = await Stacktrace.get();
 
-        const payload = new TracePayload(backtrace);
-
-        // if (startingFromFrame) {
-        //     $backtrace->startingFromFrame($startingFromFrame);
-        // }
-
-        return this.sendRequest(payload);
+        return this.sendRequest(new TracePayload(backtrace));
     }
 
     public measure(stopwatchName: CallableFunction | string = 'default'): this {
@@ -596,8 +588,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this;
     }
 
-    public limit(count: number): this {
-        const frame = this.getCaller();
+    public async limit(count: number) {
+        const frame = await this.getCaller();
 
         this.limitOrigin = <any>{
             function_name: frame?.getFunctionName(),
@@ -611,8 +603,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this;
     }
 
-    public once(...args: any[]): this {
-        const frame = this.getCaller();
+    public async once(...args: any[]) {
+        const frame = await this.getCaller();
 
         this.limitOrigin = <any>{
             function_name: frame?.getFunctionName(),
@@ -636,8 +628,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this.sendRequest(payload);
     }
 
-    getOriginFrame() {
-        const st = Stacktrace.getSync({});
+    async getOriginFrame() {
+        const st = await Stacktrace.get();
 
         let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.sendRequest'));
 
@@ -650,8 +642,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return callerFrames.slice(0).shift();
     }
 
-    getCaller() {
-        const st = Stacktrace.getSync({});
+    async getCaller() {
+        const st = await Stacktrace.get();
 
         let startFrameIndex = st.findIndex(frame => frame.functionName?.includes('Ray.getCaller'));
 
@@ -668,8 +660,8 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return callerFrames.slice(2).shift();
     }
 
-    getOriginData() {
-        const frame = this.getOriginFrame();
+    async getOriginData() {
+        const frame = await this.getOriginFrame();
 
         return <any>{
             function_name: frame?.getFunctionName(),
@@ -739,7 +731,9 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         }
 
         payloads.forEach(payload => {
-            payload.data.origin = this.getOriginData();
+            this.getOriginData().then(data => {
+                payload.data.origin = data;
+            });
             payload.remotePath = this.settings.remote_path;
             payload.localPath = this.settings.local_path;
         });

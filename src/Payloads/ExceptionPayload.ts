@@ -1,4 +1,4 @@
-import { Payload } from '../Payloads/Payload';
+import { Payload } from '@/Payloads/Payload';
 import StackTrace from 'stacktrace-js';
 
 export class ExceptionPayload extends Payload {
@@ -7,14 +7,19 @@ export class ExceptionPayload extends Payload {
     protected meta = {};
 
     // eslint-disable-next-line no-undef
-    protected stack: StackTrace.StackFrame[];
+    protected stack!: StackTrace.StackFrame[];
 
-    public constructor(exception: Error, meta: Record<string, unknown> = {}) {
+    protected constructor(exception: Error, meta: Record<string, unknown> = {}) {
         super();
-
-        this.stack = StackTrace.getSync({});
         this.exception = exception;
         this.meta = meta;
+    }
+
+    public static async make(exception: Error, meta: Record<string, unknown> = {}) {
+        const result = new ExceptionPayload(exception, meta);
+        result.stack = await StackTrace.get();
+
+        return result;
     }
 
     public getType(): string {
@@ -30,7 +35,7 @@ export class ExceptionPayload extends Payload {
         };
     }
 
-    protected getFrames(): any[] {
+    protected getFrames() {
         return this.stack
             .slice(1)
             .map(frame => {

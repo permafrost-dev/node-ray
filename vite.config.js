@@ -4,6 +4,9 @@ export default defineConfig({
     test: {
         passWithNoTests: true,
         name: 'Ray',
+        coverage: {
+            exclude: ['**/node_modules/**', '**/dist/**', './coverage/**', '**/.git/**'],
+        },
         alias: {
             '@/': new URL('./src/', import.meta.url).pathname,
         },

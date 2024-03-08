@@ -482,7 +482,7 @@ it('sends an html payload when calling ray() with an object argument', () => {
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends an exception payload', () => {
+it('sends an exception payload', async () => {
     let err;
     try {
         err = new Error('test');
@@ -491,12 +491,12 @@ it('sends an exception payload', () => {
         err = e;
     }
 
-    myRay.exception(err, {});
+    await myRay.exception(err, {});
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends an exception payload with metadata', () => {
+it('sends an exception payload with metadata', async () => {
     let err;
 
     try {
@@ -506,7 +506,7 @@ it('sends an exception payload with metadata', () => {
         err = e;
     }
 
-    myRay.exception(err, { one: 1, ten: 10, twentyThree: 23 });
+    await myRay.exception(err, { one: 1, ten: 10, twentyThree: 23 });
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
@@ -517,16 +517,16 @@ it('sends an event payload', () => {
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a caller payload', () => {
-    const func1 = () => {
-        myRay.caller();
+it('sends a caller payload', async () => {
+    const func1 = async () => {
+        await myRay.caller();
     };
 
-    const func2 = () => {
-        func1();
+    const func2 = async () => {
+        await func1();
     };
 
-    func2();
+    await func2();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
@@ -626,7 +626,8 @@ it('can limit the number of payloads sent from a loop', async () => {
     const limit = 5;
 
     for (let i = 0; i < 10; i++) {
-        await (await getNewRay()).limit(limit).send(`limited loop iteration ${i}`);
+        const r = await (await getNewRay()).limit(limit);
+        r.send(`limited loop iteration ${i}`);
     }
 
     expect(client.sentPayloads().length).toBe(limit);
@@ -640,7 +641,7 @@ skip('only limits the number of payloads sent from the line that calls limit', a
     const r2 = await getNewRay();
 
     for (let i = 0; i < iterations; i++) {
-        await r1.limit(limit).send(`limited loop iteration ${i}`);
+        (await r1.limit(limit)).send(`limited loop iteration ${i}`);
         await r2.send(`unlimited loop iteration ${i}`);
     }
 
@@ -651,8 +652,8 @@ skip('can handle multiple consecutive calls to limit', async () => {
     const limit = 2;
 
     for (let i = 0; i < 10; i++) {
-        await (await getNewRay()).limit(limit).send(`limited loop A iteration ${i}`);
-        await (await getNewRay()).limit(limit).send(`limited loop B iteration ${i}`);
+        (await (await getNewRay()).limit(limit)).send(`limited loop A iteration ${i}`);
+        (await (await getNewRay()).limit(limit)).send(`limited loop B iteration ${i}`);
     }
 
     expect(client.sentPayloads()).toMatchSnapshot();
@@ -671,7 +672,7 @@ skip('sends a payload once when called with arguments', async () => {
 
 skip('sends a payload once when called without arguments', async () => {
     for (let i = 0; i < 5; i++) {
-        (await getNewRay()).once().text(`${i}`);
+        (await (await getNewRay()).once()).text(`${i}`);
     }
 
     expect(client.sentPayloads().length).toBe(1);
@@ -681,7 +682,7 @@ skip('sends a payload once when called without arguments', async () => {
 skip('sends a payload once while allowing calls to limit', async () => {
     for (let i = 0; i < 5; i++) {
         (await getNewRay()).once(i);
-        (await getNewRay()).limit(5).text(`${i}`);
+        (await (await getNewRay()).limit(5)).text(`${i}`);
     }
 
     expect(client.sentPayloads().length).toBe(6);
@@ -762,8 +763,8 @@ it('sends an html markup payload', () => {
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('sends a trace payload', () => {
-    myRay.trace();
+it('sends a trace payload', async () => {
+    await myRay.trace();
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });

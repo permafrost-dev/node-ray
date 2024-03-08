@@ -13,7 +13,7 @@ exports[`sends a missing file payload 1`] = `
         "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -37,7 +37,7 @@ exports[`sends an existing file payload 1`] = `
         "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -61,7 +61,7 @@ exports[`sends an existing image file payload 1`] = `
         "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
@@ -85,7 +85,7 @@ exports[`sends an image url payload 1`] = `
         "origin": {
           "file": "/test/file.js",
           "function_name": "xxxx",
-          "hostname": "fake-hostname",
+          "hostname": "remote",
           "line_number": 999,
         },
         "type": "custom",
