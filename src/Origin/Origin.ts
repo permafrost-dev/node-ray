@@ -1,5 +1,3 @@
-//import md5 from 'md5';
-
 export interface OriginData {
     function_name: string | null;
     file: string | null;

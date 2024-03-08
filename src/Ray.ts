@@ -51,7 +51,7 @@ import { RateLimiter } from '@/Support/RateLimiter';
 import { SendRequestCallbackType } from '@/lib/types';
 import { nonCryptoUuidV4, sleep } from '@/lib/utils';
 import { PACKAGE_VERSION } from '@/lib/version';
-import md5 from 'md5';
+import { md5 } from '@/lib/utils';
 import Stacktrace from 'stacktrace-js';
 import { Mixin } from 'ts-mixer';
 

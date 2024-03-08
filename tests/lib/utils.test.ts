@@ -9,6 +9,7 @@ import {
     formatHtmlForDisplay,
     end,
     nonCryptoUuidV4,
+    md5,
 } from '../../src/lib/utils';
 
 it.concurrent('sleeps for 0.1 sec', async () => {
@@ -71,4 +72,9 @@ it('gets the last item in an array', () => {
     }
 
     expect(end([])).toBe(false);
+});
+
+it('calculates an md5 hash', () => {
+    const data = 'test';
+    expect(md5(data)).toBe('098f6bcd4621d373cade4e832627b4f6');
 });

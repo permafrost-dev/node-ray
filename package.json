@@ -41,14 +41,14 @@
     },
     "scripts": {
         "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose --coverage --coverageReporters json",
-        "test:coverage": "./node_modules/.bin/jest tests --coverage",
         "fmt": "./node_modules/.bin/prettier --config prettier.config.cjs --write 'src/**/*.{js,ts,json}' 'tests/**/*.{js,ts,json}' './*.js'",
         "lint": "./node_modules/.bin/eslint --ext ts,js src/",
         "lint:fix": "./node_modules/.bin/eslint --ext ts,js --fix src/",
         "lint:staged": "./node_modules/.bin/lint-staged",
         "fix": "npm run fmt && npm run lint:fix",
-        "build": "node scripts/build-all.js --verbose",
-        "postversion": "npm run build",
+        "build:dev": "node scripts/build.js",
+        "build:release": "BUILD_ENV=production node scripts/build.js",
+        "postversion": "npm run build:release",
         "version": "auto-changelog -p -o CHANGELOG.md --hide-credit --release-summary --hide-empty-releases --sort-commits date-desc && git add CHANGELOG.md",
         "prepare": "is-ci || husky install"
     },
@@ -66,7 +66,6 @@
     },
     "devDependencies": {
         "@types/jest": "^29.5.12",
-        "@types/md5": "^2.3.5",
         "@types/node": "^20.11.25",
         "@types/uuid": "^9.0.8",
         "@typescript-eslint/eslint-plugin": "^7.1.1",
@@ -91,12 +90,7 @@
         "@permafrost-dev/pretty-format": "^1.1.5",
         "axios": "^1.6.7",
         "dayjs": "^1.11.10",
-        "error-stack-parser": "^2.1.4",
-        "find-up": "^7.0.0",
-        "md5": "^2.3.0",
-        "stacktrace-gps": "^3.1.2",
         "stacktrace-js": "^2.0.2",
-        "tslib": "^2.6.2",
         "uuid": "^9.0.1",
         "xml-formatter": "^3.6.2"
     },
