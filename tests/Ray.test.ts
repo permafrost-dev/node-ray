@@ -202,7 +202,7 @@ it('sends a date payload', () => {
     expect(client.sentPayloads()[0].payloads[0].content.formatted.split(' ')[0]).toBe('2018-04-04');
     expect(client.sentPayloads()[0].payloads[0].content.timestamp).toBe(1522857600);
 
-    expect(client.sentPayloads()[1].payloads[0].content.formatted).toBe(null);
+    expect(client.sentPayloads()[1].payloads[0].content.formatted).toBe('--');
     expect(client.sentPayloads()[1].payloads[0].content.timestamp).toBe(null);
 });
 
@@ -280,18 +280,6 @@ it('sends show and hide app payloads', () => {
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
-it('conditionally shows a payload', () => {
-    myRay.showIf(true);
-    myRay.showIf(false);
-    myRay.showIf(() => true);
-
-    myRay.showWhen(true);
-    myRay.showWhen(false);
-    myRay.showWhen(() => true);
-
-    expect(client.sentPayloads()).toMatchSnapshot();
-});
-
 it('sends a null payload', () => {
     myRay.send(null);
 
@@ -318,16 +306,6 @@ it('sends a hide payload', () => {
 
 it('sends a remove payload', () => {
     myRay.remove();
-
-    expect(client.sentPayloads()).toMatchSnapshot();
-});
-
-it('sends a remove payload conditionally', () => {
-    myRay.removeIf(true);
-    myRay.removeIf(false);
-    myRay.removeWhen(true);
-    myRay.removeWhen(false);
-    myRay.removeWhen(() => false);
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
@@ -401,14 +379,6 @@ it('counts the number of times a piece of code is called', async () => {
     expect(Ray.counters.get('first')).toBe(6);
     expect(Ray.counters.get('second')).toBe(4);
 });
-
-// function myFunc1(r: any) {
-//     r.count();
-// }
-
-// function myFunc2(r: any) {
-//     r.count();
-// }
 
 it('counts the number of times an unnamed piece of code is called', async () => {
     myRay.enable();

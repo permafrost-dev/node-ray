@@ -1,4 +1,4 @@
-import { Ray } from './Ray';
+import { Ray } from '@/Ray';
 
 export const consoleLog = console.log.bind({});
 

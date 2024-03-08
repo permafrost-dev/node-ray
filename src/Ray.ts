@@ -691,14 +691,16 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     }
 
     protected executePayloadCallback(callbackType: SendRequestCallbackType, args: any = []) {
+        if (this.inCallback) return;
+
         this.inCallback = true;
 
         try {
-            if (callbackType === SendRequestCallbackType.Sending && this.settings.sending_payload_callback !== null && !this.inCallback) {
+            if (callbackType === SendRequestCallbackType.Sending && this.settings.sending_payload_callback !== null) {
                 this.settings.sending_payload_callback(new Ray(this.settings, this.client(), this.uuid, true), args);
             }
 
-            if (callbackType === SendRequestCallbackType.Sent && this.settings.sent_payload_callback !== null && !this.inCallback) {
+            if (callbackType === SendRequestCallbackType.Sent && this.settings.sent_payload_callback !== null) {
                 this.settings.sent_payload_callback(this);
             }
         } catch (e) {

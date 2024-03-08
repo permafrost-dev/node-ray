@@ -1,15 +1,15 @@
-import { existsSync } from 'node:fs';
 import { Client } from '@/Client';
+import { HostnameNode } from '@/Origin/HostnameNode';
+import { OriginData } from '@/Origin/Origin';
+import { PayloadFactory } from '@/PayloadFactory';
 import { FileContentsPayload } from '@/Payloads/FileContentsPayload';
 import { ImagePayload } from '@/Payloads/ImagePayload';
+import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
 import { NodeMeasurePayload } from '@/Payloads/NodeMeasurePayload';
 import { Ray as BaseRay } from '@/Ray';
 import { SettingsFactory } from '@/Settings/SettingsFactory';
 import { NodeStopwatch } from '@/Stopwatch/NodeStopwatch';
-import { PayloadFactory } from '@/PayloadFactory';
-import { OriginData } from '@/Origin/Origin';
-import { HostnameNode } from '@/Origin/HostnameNode';
-import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
+import { existsSync } from 'node:fs';
 
 export class Ray extends BaseRay {
     public static async create(client: Client | null = null, uuid: string | null = null): Promise<Ray> {
