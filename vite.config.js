@@ -12,6 +12,11 @@ export default defineConfig({
         },
         watch: false,
     },
+    build: {
+        rollupOptions: {
+            treeshake: true,
+        },
+    },
     server: {
         watch: {
             usePolling: true,

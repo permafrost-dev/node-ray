@@ -126,6 +126,8 @@ async function buildWithVite(config) {
                 sourcemap: true,
                 rollupOptions: {
                     external: globalConfig.getDependencies(config),
+                    preserveEntrySignatures: 'strict',
+                    shimMissingExports: true,
                     treeshake: false,
                 },
                 target: config.target === 'browser' ? 'chrome70' : 'node18',
