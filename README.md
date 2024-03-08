@@ -17,13 +17,12 @@
     <br>
     <img src="https://img.shields.io/npm/dt/node-ray.svg?style=flat-square&logo=npm&logoColor=white" alt="npm downloads">
     <img alt="jsDelivr hits (npm)" src="https://img.shields.io/jsdelivr/npm/hm/node-ray?logo=jsdelivr&logoColor=%23fff&style=flat-square">
-    <!--img src="https://data.jsdelivr.com/v1/package/npm/node-ray/badge?style=flat-square" alt="cdn downloads"-->
 </p>
 
 # node-ray
 ### The official javascript, TypeScript, and NodeJS integration for Ray. 
 
-The package can be installed in any NodeJS, ES6+, or TypeScript application to send messages to the [Ray app](https://myray.app).
+The package can be installed in any NodeJS, ES6+, or TypeScript application to send data to the [Ray app](https://myray.app).
 
 <br>
 
@@ -35,15 +34,15 @@ Install with npm:
 npm install node-ray
 ```
 
-or yarn:
+or bun:
 
 ```bash
-yarn add node-ray
+bun add node-ray
 ```
 
 ## Available environments
 
-`node-ray` offers several variants to allow you to use it in either NodeJS or Browser environments.
+`node-ray` offers several options to allow you to use it in either NodeJS, Web-based TypeScript or Javascript projects, and browser environments.
 
 >If you're using NextJs/React, take a look at [permafrost-dev/react-ray](https://github.com/permafrost-dev/react-ray).
 >
@@ -62,21 +61,19 @@ const ray = require('node-ray').ray;
 ```
 
 ### Browser bundle
-When bundling scripts for use in a Browser environment _(i.e., using webpack)_, import the `/web` variant:
+
+When bundling scripts for use in a Browser environment _(i.e., using webpack or vite)_, import the `/web` export:
 
 ```js
-// es module import:
 import { ray } from 'node-ray/web';
 
-// commonjs import:
+// or a commonjs import:
 const { ray } = require('node-ray/web');
 ```
 
 ### Browser standalone
 
-> **Important Note** - As of version `1.20.6`, you should no longer include `axios` as a separate `<script>` tag.
-> 
-> It is now included in the standalone build.
+There are two standalone versions of `node-ray` available: one with axios included, and one without _(slim version)_.
 
 `node-ray` may be directly used within a web page via a script tag. The standalone version includes all required libraries, **including** axios.
 
@@ -87,19 +84,27 @@ const { ray } = require('node-ray/web');
     window.Ray = Ray.Ray;
 </script>
 ```
+
+Or use the slim version _(without axios)_ if you already have axios included in your project:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone-slim.min.js"></script>
+<script>
+    window.ray = Ray.ray;
+    window.Ray = Ray.Ray;
+</script>
+```
+
 #### Recommended Standalone Initialization
 
-As of version `1.20.3`, you may use the `rayInit()` method instead of manually assigning properties to the `window` global object.  `rayInit()` is simply a wrapper around the above method to provide a better developer experience as well as more succinct and readable code:
+As of version `2.0.0`, you no longer need to manually initialize the global `ray` objects; it is now performed automatically on load.:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
 <script>
-    rayInit(window);
-    ray('hello world');
+    // nothing to do here, just use `window.ray()` as normal
 </script>
 ```
-
-Regardless of the method used for initialization, the `ray()` helper function and the `Ray` class will now available in all scopes via the global window object.
 
 ### Laravel Mix
 
@@ -257,17 +262,7 @@ This feature is helpful when sending additional payloads or modifying all payloa
 
 ## About
 
-This package attempts to replicate the entire PHP API for Ray to provide a robust solution for debugging NodeJS projects.
-
-## How is this different from `js-ray`?
-
-This package is a more comprehensive implementation written in Typescript, and its primary use case is for NodeJS projects, although it also works within browser environments.
-
-The codebase was translated to Typescript directly from [`spatie/ray`](https://github.com/spatie/ray).
-
-As a result, `node-ray` implements most features in the original package; [`js-ray`](https://github.com/m1guelpf/ray-js) does not.
-
-However, we did draw some inspiration for portions of the code from [`js-ray`](https://github.com/m1guelpf/ray-js).
+This package attempts to replicate the entire PHP API for Ray to provide a robust solution for debugging NodeJS, TypeScript, Javascript and web-based projects.
 
 ## Using the package
 
@@ -318,13 +313,9 @@ See [using the package](docs/usage.md).
 | `ray().pause()` | Pause code execution within your code; must be called using `await` |
 | `ray().projectName(name)` | Change the active project name |
 | `ray(…).remove()` | Remove an item from Ray   |
-| `ray(…).removeIf(true)` | Conditionally remove an item based on a truthy value or callable   |
-| `ray(…).removeWhen(true)` | Conditionally remove an item based on a truthy value or callable   |
 | `ray(…).screenColor(color)` | Changes the screen color to the specified color |
 | `ray(…).separator()` | Display a separator |
 | `ray().showApp()` | Programmatically show the Ray app window |
-| `ray(…).showIf(true)` | Conditionally show things based on a truthy value or callable  |
-| `ray(…).showWhen(true)` | Conditionally show things based on a truthy value or callable  |
 | `ray(…).small()` | Output text smaller or bigger. Use `large` or `small`|
 | `ray().stopTime(name)` | Removes a named stopwatch if specified, otherwise removes all stopwatches |
 | `ray().table(…)` | Display an array or an object formatted as a table; Objects and arrays are pretty-printed |
@@ -336,34 +327,21 @@ See [using the package](docs/usage.md).
 
 - Is `node-ray` only for NodeJS? _Not at all! It can be used in a web environment with javascript as well._
 
-- Can `node-ray` be used with React/Vue? _yes, be sure to import `node-ray/web`_
+- Can `node-ray` be used with React/Vue? _yes, be sure to import `node-ray/web`_. Alternatively, check out the [react-ray](https://github.com/permafrost-dev/react-ray) and [vue-ray](https://github.com/permafrost-dev/vue-ray) packages.
 
-- Can `node-ray` be used if I am using webpack? _yes, be sure to import `node-ray/web`_
+- Can `node-ray` be used with webpack-based projects? _Yes! Just be sure to import `node-ray/web`_.
 
 ## Development setup
 
 - `npm install`
-- `npm run build:all`
+- `npm run build:dev`
 - `npm run test`
-- `node build/test.js`
-
-## Code Coverage Details
-
-<p align="center">
-    <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graphs/sunburst.svg" height="175" alt="codecov graph" />
-    <img src="https://codecov.io/gh/permafrost-dev/node-ray/branch/main/graphs/icicle.svg" width="400" alt="codecov graph" />
-</p>
-
 
 ## Testing
 
-`node-ray` uses Jest for unit tests. To run the test suite:
+`node-ray` uses Vitest for unit tests. To run the test suite:
 
 `npm run test`
-
-To update the test snapshots:
-
-`npm run test -- -u`
 
 ---
 
