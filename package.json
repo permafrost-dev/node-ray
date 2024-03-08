@@ -41,7 +41,7 @@
         }
     },
     "scripts": {
-        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose --coverage --coverageReporters json",
+        "test": "vitest --coverage",
         "fmt": "./node_modules/.bin/prettier --config prettier.config.cjs --write 'src/**/*.{js,ts,json}' 'tests/**/*.{js,ts,json}' './*.js'",
         "lint": "./node_modules/.bin/eslint --ext ts,js src/",
         "lint:fix": "./node_modules/.bin/eslint --ext ts,js --fix src/",

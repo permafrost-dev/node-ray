@@ -41,11 +41,17 @@ export const globalConfig = {
             outfile: 'standalone.min.js',
             target: 'browser',
         },
+        {
+            entry: 'src/Ray.ts',
+            outfile: 'standalone-slim.min.js',
+            target: 'browser',
+        },
     ],
     /** @type Record<string, any>|null */
     pkg: null, // assigned in init()
-    getDependencies(standalone = false) {
-        if (standalone) return [];
+    getDependencies(config) {
+        if (config.standalone && config.outfile.includes('slim')) return ['axios'];
+        if (config.standalone) return [];
 
         return Object.keys(this.pkg.dependencies).concat([
             'node:fs',
@@ -119,7 +125,7 @@ async function buildWithVite(config) {
                 minify: config.minify || false,
                 sourcemap: true,
                 rollupOptions: {
-                    external: globalConfig.getDependencies(config.standalone),
+                    external: globalConfig.getDependencies(config),
                     treeshake: false,
                 },
                 target: config.target === 'browser' ? 'chrome70' : 'node18',
