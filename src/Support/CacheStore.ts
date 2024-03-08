@@ -1,5 +1,5 @@
-import { Clock } from './Clock';
-import { DateImmutable } from './DateImmutable';
+import { Clock } from '@/Support/Clock';
+import { DateImmutable } from '@/Support/DateImmutable';
 
 export class CacheStore {
     protected store: DateImmutable[] = [];

@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-inferrable-types */
-
-import { StopwatchEvent } from './StopwatchEvent';
+import { StopwatchEvent } from '@/Stopwatch/StopwatchEvent';
 
 export class Stopwatch {
     public name: string | undefined;
     public laps: number[] = [];
-    public startedAt: number = 0;
-    public endedAt: number = 0;
+    public startedAt = 0;
+    public endedAt = 0;
 
     constructor(name: string | undefined = undefined) {
         this.name = name;
@@ -49,9 +47,7 @@ export class Stopwatch {
     }
 
     public totalDuration(): number {
-        return this.laps.reduce((prev, cur) => {
-            return cur + prev;
-        }, 0);
+        return this.laps.reduce((prev, cur) => cur + prev, 0);
     }
 
     public reset(): this {

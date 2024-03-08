@@ -48,6 +48,7 @@ import { Stopwatch } from '@/Stopwatch/Stopwatch';
 import { Counters } from '@/Support/Counters';
 import { Limiters } from '@/Support/Limiters';
 import { RateLimiter } from '@/Support/RateLimiter';
+import { SendRequestCallbackType } from '@/lib/types';
 import { nonCryptoUuidV4, sleep } from '@/lib/utils';
 import { PACKAGE_VERSION } from '@/lib/version';
 import md5 from 'md5';
@@ -678,6 +679,35 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         };
     }
 
+    protected prepareMeta(meta: Record<string, any>) {
+        return Object.assign(
+            {},
+            {
+                node_ray_package_version: PACKAGE_VERSION ?? 'unknown',
+                project_name: Ray.projectName,
+            },
+            meta,
+        );
+    }
+
+    protected executePayloadCallback(callbackType: SendRequestCallbackType, args: any = []) {
+        this.inCallback = true;
+
+        try {
+            if (callbackType === SendRequestCallbackType.Sending && this.settings.sending_payload_callback !== null && !this.inCallback) {
+                this.settings.sending_payload_callback(new Ray(this.settings, this.client(), this.uuid, true), args);
+            }
+
+            if (callbackType === SendRequestCallbackType.Sent && this.settings.sent_payload_callback !== null && !this.inCallback) {
+                this.settings.sent_payload_callback(this);
+            }
+        } catch (e) {
+            //
+        }
+
+        this.inCallback = false;
+    }
+
     public sendRequest(payloads: Payload | Payload[], meta: any[] = []) {
         if (!this.enabled()) {
             return this;
@@ -706,42 +736,19 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
             return this;
         }
 
-        const allMeta = Object.assign(
-            {},
-            {
-                node_ray_package_version: PACKAGE_VERSION,
-                project_name: Ray.projectName,
-            },
-            meta,
-        );
-
         payloads.forEach(payload => {
             payload.data.origin = this.getOriginData();
             payload.remotePath = this.settings.remote_path;
             payload.localPath = this.settings.local_path;
         });
 
-        if (this.settings.sending_payload_callback !== null && !this.inCallback) {
-            this.inCallback = true;
+        this.executePayloadCallback(SendRequestCallbackType.Sending, payloads);
 
-            this.settings.sending_payload_callback(new Ray(this.settings, this.client(), this.uuid, true), payloads);
-
-            this.inCallback = false;
-        }
-
-        const request = new Request(this.uuid, payloads, allMeta);
-
-        Ray.client?.send(request);
+        Ray.client.send(new Request(this.uuid, payloads, this.prepareMeta(meta)));
 
         this.rateLimiter().hit();
 
-        if (this.settings.sent_payload_callback !== null && !this.inCallback) {
-            this.inCallback = true;
-
-            this.settings.sent_payload_callback(this);
-
-            this.inCallback = false;
-        }
+        this.executePayloadCallback(SendRequestCallbackType.Sent, payloads);
 
         return this;
     }

@@ -1,4 +1,4 @@
-import { StopwatchEvent } from './StopwatchEvent';
+import { StopwatchEvent } from '@/Stopwatch/StopwatchEvent';
 
 export class NodeStopwatchEvent extends StopwatchEvent {
     public getMemory() {

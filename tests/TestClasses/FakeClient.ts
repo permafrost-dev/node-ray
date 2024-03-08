@@ -9,7 +9,7 @@ export class FakeClient extends Client {
     protected sentRequests: any[] = [];
     protected requestedUrlList: string[] = [];
 
-    public updateRayAvailabilty(): any {
+    public updateRayAvailability(): any {
         //FakeClient.rayState = true;
         return true;
     }

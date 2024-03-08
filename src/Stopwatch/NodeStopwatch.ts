@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-inferrable-types */
-
-import { Stopwatch } from './Stopwatch';
-import { NodeStopwatchEvent } from './NodeStopwatchEvent';
-import { end } from '../lib/utils';
+import { NodeStopwatchEvent } from '@/Stopwatch/NodeStopwatchEvent';
+import { Stopwatch } from '@/Stopwatch/Stopwatch';
+import { end } from '@/lib/utils';
 
 export class NodeStopwatch extends Stopwatch {
     public memoryLaps: number[] = [];

@@ -1,36 +1,32 @@
 /* eslint-disable no-async-promise-executor */
+/* eslint-disable no-unused-vars */
 
-import { Request } from './Request';
+import { Payload } from '@/Payloads/Payload';
+import { Request } from '@/Request';
 import axios from 'axios';
-import { Payload } from './Payloads/Payload';
 
 export class Client {
     public static rayState: boolean | null = true;
     public static lastRayStateCheck: number | null = null;
 
-    protected portNumber: number;
-    protected host: string;
-    protected scheme = 'http';
-
-    public constructor(portNumber = 23517, host = 'localhost', scheme = 'http') {
-        this.portNumber = portNumber;
-
-        this.host = host;
-
-        this.scheme = scheme;
-
-        //this.init();
+    // eslint-disable-next-line no-unused-vars
+    public constructor(
+        protected portNumber = 23517,
+        protected host = 'localhost',
+        protected scheme = 'http',
+    ) {
+        //
     }
 
     public async init() {
-        await this.updateRayAvailabilty();
+        await this.updateRayAvailability();
     }
 
     public isRayAvailable(): boolean {
         this.attemptAvailableReset();
 
         if (Client.rayState === null) {
-            this.updateRayAvailabilty();
+            this.updateRayAvailability();
         }
 
         if (Client.rayState !== null) {
@@ -46,7 +42,7 @@ export class Client {
         }
     }
 
-    protected async updateRayAvailabilty() {
+    protected async updateRayAvailability() {
         let result = true;
 
         if (Client.lastRayStateCheck !== null && new Date().getTime() - Client.lastRayStateCheck < 30000) {
@@ -58,15 +54,11 @@ export class Client {
         try {
             await axios.get(this.getUrlForPath('/locks/__availabilty_check'), {});
         } catch (err) {
+            result = false;
+
             if ((<any>err).response) {
                 // 4xx error
                 result = true;
-            } else if ((<any>err).request) {
-                // connection error
-                result = false;
-            } else {
-                // error during setup
-                result = false;
             }
         } finally {
             Client.rayState = result;
@@ -81,7 +73,7 @@ export class Client {
 
     public async send(request: Request) {
         if (Client.rayState === null || Client.lastRayStateCheck === null) {
-            this.updateRayAvailabilty();
+            this.updateRayAvailability();
         }
 
         // if (!this.isRayAvailable()) {

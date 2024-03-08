@@ -1,4 +1,4 @@
-import { Ray, ray as rayFunc } from '../Ray';
+import { Ray, ray as rayFunc } from '@/Ray';
 
 export class Counters {
     protected counters: Record<string, any> = {};

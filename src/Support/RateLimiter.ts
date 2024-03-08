@@ -1,5 +1,5 @@
-import { CacheStore } from './CacheStore';
-import { SystemClock } from './SystemClock';
+import { CacheStore } from '@/Support/CacheStore';
+import { SystemClock } from '@/Support/SystemClock';
 
 export class RateLimiter {
     protected maxCalls: number | null;
