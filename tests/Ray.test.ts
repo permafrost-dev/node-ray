@@ -755,3 +755,15 @@ it('sends a screen color payload', () => {
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
+
+it('sends an html markup payload', () => {
+    myRay.htmlMarkup('<em>test</em>');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a trace payload', () => {
+    myRay.trace();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});

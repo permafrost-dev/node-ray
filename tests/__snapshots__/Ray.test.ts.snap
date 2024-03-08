@@ -1297,6 +1297,29 @@ exports[`sends a text payload 1`] = `
 ]
 `;
 
+exports[`sends a trace payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "frames": [],
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "trace",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends an error payload 1`] = `
 [
   {
@@ -1468,6 +1491,30 @@ exports[`sends an exception payload with metadata 1`] = `
           "line_number": 999,
         },
         "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an html markup payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<span style="color:#1D4ED8;">&lt;em</span>&gt;test<span style="color:#1D4ED8;">&lt;/em&gt;</span>",
+          "label": "Markup",
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "fake-hostname",
+          "line_number": 999,
+        },
+        "type": "custom",
       },
     ],
     "uuid": "fakeUuid",
