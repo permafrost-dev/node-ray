@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/github/actions/workflow/status/permafrost-dev/node-ray/run-tests.yml?branch=main&label=tests&logo=github&style=flat-square&nocache=2" alt="test status">
+    <img src="https://img.shields.io/github/actions/workflow/status/permafrost-dev/node-ray/run-tests.yml?branch=main&label=tests&logo=github&style=flat-square&nocache=1" alt="test status">
     <img src="https://shields.io/npm/v/node-ray?style=flat-square" alt="npm version">
     <img src="https://shields.io/github/license/permafrost-dev/node-ray?style=flat-square" alt="license">
     <br>
