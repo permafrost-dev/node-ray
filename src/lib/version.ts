@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// this is replaced with the actual package version by rollup
+// globalThis.__BUILD_VERSION__ is defined by esbuild during the build process.
 
-// @ts-ignore
-export const PACKAGE_VERSION = __BUILD_VERSION__ || '0.0.0';
+export const PACKAGE_VERSION = globalThis.__BUILD_VERSION__ || '0.0.0';
