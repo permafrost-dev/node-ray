@@ -2,15 +2,20 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
     test: {
-        passWithNoTests: true,
         name: 'Ray',
-        coverage: {
-            exclude: ['**/node_modules/**', '**/dist/**', './coverage/**', '**/.git/**'],
-        },
+        globals: true,
+        passWithNoTests: true,
+        watch: false,
         alias: {
             '@/': new URL('./src/', import.meta.url).pathname,
         },
-        watch: false,
+        coverage: {
+            all: true,
+            include: ['src/**/*.ts'],
+            reporter: [['text'], ['json', { file: 'coverage.json' }]],
+        },
+        include: ['tests/**/*.ts', 'tests/**/*.js'],
+        reporters: ['default', process.env.CI ? 'github-actions' : 'verbose'],
     },
     build: {
         rollupOptions: {
