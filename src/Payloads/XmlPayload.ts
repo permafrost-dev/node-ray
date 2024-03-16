@@ -2,6 +2,8 @@ import { Payload } from '@/Payloads/Payload';
 import { formatHtmlForDisplay } from '@/lib/utils';
 import formatXml from 'xml-formatter';
 
+export type PayloadType = 'xml';
+
 export class XmlPayload extends Payload {
     protected value: string;
 

@@ -1,6 +1,8 @@
 import { Payload } from '../Payloads/Payload';
 import { ArgumentConverter } from '../ArgumentConverter';
 
+export type PayloadType = 'event';
+
 export class EventPayload extends Payload {
     protected eventName: string;
 

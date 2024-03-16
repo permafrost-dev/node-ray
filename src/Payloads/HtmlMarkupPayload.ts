@@ -2,6 +2,8 @@ import { Payload } from '@/Payloads/Payload';
 import { formatHtmlForDisplay } from '@/lib/utils';
 import formatXml from 'xml-formatter';
 
+export type PayloadType = 'htmlMarkup';
+
 export type HtmlMarkupHighlightTypes = 'tailwindcss' | 'none';
 export interface HtmlMarkupOptions {
     highlight?: HtmlMarkupHighlightTypes;

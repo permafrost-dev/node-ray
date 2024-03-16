@@ -1,6 +1,8 @@
 import { ArgumentConverter } from '@/ArgumentConverter';
 import { Payload } from '@/Payloads/Payload';
 
+export type PayloadType = 'log';
+
 export class LogPayload extends Payload {
     protected values: any[];
 

@@ -1,5 +1,7 @@
 import { Payload } from '@/Payloads/Payload';
 
+export type PayloadType = 'boolean';
+
 export class BoolPayload extends Payload {
     protected value: boolean;
 

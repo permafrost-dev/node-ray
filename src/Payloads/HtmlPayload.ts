@@ -1,5 +1,7 @@
 import { Payload } from '@/Payloads/Payload';
 
+export type PayloadType = 'html';
+
 export class HtmlPayload extends Payload {
     protected html: string;
 

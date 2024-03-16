@@ -1,5 +1,7 @@
 import { Payload } from '../Payloads/Payload';
 
+export type PayloadType = 'error';
+
 export class ErrorPayload extends Payload {
     protected err: Error;
     protected label: string;

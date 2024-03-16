@@ -3,6 +3,8 @@
 
 /// <reference lib="dom" />
 
+import { Ray } from '@/Ray';
+
 /**
  * Check type of operand with more specificity than `typeof`.
  *   Slightly modified version of MDN helper found in `typeof` definition page.
@@ -47,3 +49,5 @@ export enum SendRequestCallbackType {
     Sending = 'sending',
     Sent = 'sent',
 }
+
+export type { PayloadTypes } from '@/Payloads';

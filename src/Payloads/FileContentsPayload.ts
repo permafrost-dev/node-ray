@@ -3,6 +3,8 @@ import { existsSync, readFileSync } from 'node:fs';
 import { EOL } from 'node:os';
 import { basename } from 'node:path';
 
+export type PayloadType = 'file';
+
 export class FileContentsPayload extends Payload {
     protected file: string;
 

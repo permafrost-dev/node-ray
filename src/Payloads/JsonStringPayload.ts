@@ -1,5 +1,7 @@
 import { Payload } from '@/Payloads/Payload';
 
+export type PayloadType = 'toJson';
+
 export class JsonStringPayload extends Payload {
     protected value: any;
 

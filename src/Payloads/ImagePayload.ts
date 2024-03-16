@@ -2,6 +2,8 @@
 
 import { Payload } from '@/Payloads/Payload';
 
+export type PayloadType = 'image';
+
 export class ImagePayload extends Payload {
     protected location: string;
 

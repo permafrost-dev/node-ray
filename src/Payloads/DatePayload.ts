@@ -1,6 +1,8 @@
 import { Payload } from '@/Payloads/Payload';
 import dayjs from 'dayjs';
 
+export type PayloadType = 'date';
+
 export class DatePayload extends Payload {
     protected date: Date | null;
 

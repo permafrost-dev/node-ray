@@ -1,6 +1,8 @@
 import { ArgumentConverter } from '@/ArgumentConverter';
 import { Payload } from '@/Payloads/Payload';
 
+export type PayloadType = 'table';
+
 export class TablePayload extends Payload {
     protected values: Record<string | number, unknown> | any[];
 

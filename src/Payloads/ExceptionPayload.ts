@@ -1,6 +1,8 @@
 import { Payload } from '@/Payloads/Payload';
 import StackTrace from 'stacktrace-js';
 
+export type PayloadType = 'exception';
+
 export class ExceptionPayload extends Payload {
     protected exception: Error;
 
