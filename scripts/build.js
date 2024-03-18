@@ -144,11 +144,8 @@ async function buildWithVite(config) {
 
 async function main() {
     await globalConfig.init();
-    await Promise.all(globalConfig.builds.map(config => buildWithVite(config)));
+    await Promise.all([...globalConfig.builds.map(config => buildWithVite(config)), buildTypeDefinitions()]);
     console.log('All library file builds complete.');
-
-    console.log('Building type definitions...');
-    await buildTypeDefinitions();
     console.log('All type definitions created.');
 }
 
