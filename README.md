@@ -20,8 +20,8 @@
     <img alt="npm-installs-monthly" src="https://img.shields.io/npm/dm/node-ray?style=flat-square&logo=npm&logoColor=white&label=installs">
 </p>
 
-# node-ray
-### The official Node/JS & TypeScript integration for Ray - Understand and fix bugs faster.
+# Understand and fix Javascript & TypeScript bugs faster.
+## Official Node/JS & TypeScript integration for Ray
 
 The package can be installed in any NodeJS, ES6+, or TypeScript application to send data to the [Ray app](https://myray.app).
 
