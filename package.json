@@ -1,7 +1,7 @@
 {
     "name": "node-ray",
     "version": "2.0.0",
-    "description": "Debug NodeJS & Javascript with Ray to fix problems faster",
+    "description": "Understand and fix Javascript & TypeScript bugs faster",
     "license": "MIT",
     "author": "Patrick Organ <patrick@permafrost.dev>",
     "homepage": "https://github.com/permafrost-dev/node-ray",

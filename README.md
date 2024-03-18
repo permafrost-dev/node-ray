@@ -21,7 +21,7 @@
 </p>
 
 # node-ray
-### The official javascript, TypeScript, and NodeJS integration for Ray. 
+### The official Node/JS & TypeScript integration for Ray - Understand and fix bugs faster.
 
 The package can be installed in any NodeJS, ES6+, or TypeScript application to send data to the [Ray app](https://myray.app).
 
