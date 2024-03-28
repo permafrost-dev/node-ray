@@ -170,9 +170,9 @@ ray(['several', 'arguments'], 'can', {be: provided});
 
 (await ray()).clearAll();
 
-(await ray()).disable(); // disable sending data to Ray at runtime
+ray().then(r => r.disable()); // disable sending data to Ray at runtime
 
-(await ray()).xml('<one>11</one>'); // disabled, data not sent to Ray
+ray().then(r => r.xml('<one>11</one>')); // disabled, data not sent to Ray
 ```
 
 ## Configuration
