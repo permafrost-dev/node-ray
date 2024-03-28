@@ -162,17 +162,17 @@ ray('a string');
 
 ray(['several', 'arguments'], 'can', {be: provided});
 
-ray().table(['one two', {a: 100, b: 200, c: 300}, [9, 8, 7]]).blue();
+(await ray()).table(['one two', {a: 100, b: 200, c: 300}, [9, 8, 7]]).blue();
 
-ray().html('<em>large text</em>').large().green();
+(await ray()).html('<em>large text</em>').large().green();
 
-ray().image('https://placekitten.com/200/300');
+(await ray()).image('https://placekitten.com/200/300');
 
-ray().clearAll();
+(await ray()).clearAll();
 
-ray().disable(); // disable sending data to Ray at runtime
+(await ray()).disable(); // disable sending data to Ray at runtime
 
-ray().xml('<one>11</one>'); // disabled, data not sent to Ray
+(await ray()).xml('<one>11</one>'); // disabled, data not sent to Ray
 ```
 
 ## Configuration
@@ -273,8 +273,8 @@ See [using the package](docs/usage.md).
 
 | Call | Description |
 | --- | --- |
-| `ray(variable)` | Display a string, array or object |
-| `ray(var1, var2, …)` | Ray accepts multiple arguments |
+| `ray(variable)` | **Asynchronous.** Display a string, array or object |
+| `ray(var1, var2, …)` | **Asynchronous.** Ray accepts multiple arguments |
 | `ray(…).blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
 | `ray().caller()` | **Asynchronous.** Show the calling class and method |
 | `ray().clearScreen()` | Clear current screen |
