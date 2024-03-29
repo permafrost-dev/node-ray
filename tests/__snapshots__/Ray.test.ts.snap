@@ -858,6 +858,29 @@ exports[`sends a custom payload 1`] = `
 ]
 `;
 
+exports[`sends a custom screen color payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends a hide payload 1`] = `
 [
   {
@@ -1059,6 +1082,47 @@ exports[`sends a remove payload 1`] = `
 `;
 
 exports[`sends a screen color payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "green",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a screen color payload 2`] = `
 [
   {
     "meta": [],
@@ -1682,6 +1746,119 @@ exports[`sends an xml payload 1`] = `
           "line_number": 999,
         },
         "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends screen color payloads 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "green",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "orange",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "purple",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "blue",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "gray",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
       },
     ],
     "uuid": "fakeUuid",

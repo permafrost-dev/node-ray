@@ -101,6 +101,20 @@ it('sends a color payload', () => {
     expect(client.sentPayloads()).toMatchSnapshot();
 });
 
+it('sends screen color payloads', async () => {
+    const r = await getNewRay();
+    r.screenGreen().screenOrange().screenRed().screenPurple().screenBlue().screenGray();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('sends a custom screen color payload', async () => {
+    const r = await getNewRay();
+    r.screenColor('red');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
 it('sends a label payload', () => {
     myRay.label('test-123');
 

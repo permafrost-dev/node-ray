@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 export class RayScreenColors {
-    /* istanbul ignore next */
     public screenColor(color: string): this {
         return this;
     }
