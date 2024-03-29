@@ -149,6 +149,9 @@ Ray.useDefaultSettings({ port: 3000 });
 // ...and use ray() as normal
 ```
 
+**When using NodeJS,** you must call `await Ray.initSettings()` to initialize the settings before using `ray()`.
+This is not necessary when using the browser bundle.
+
 ```js
 ray('a string');
 
