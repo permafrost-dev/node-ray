@@ -11,6 +11,7 @@ import {
     end,
     nonCryptoUuidV4,
     md5,
+    formatDateExtended,
 } from '../../src/lib/utils';
 
 it.concurrent('sleeps for 0.1 sec', async () => {
@@ -78,4 +79,12 @@ it('gets the last item in an array', () => {
 it('calculates an md5 hash', () => {
     const data = 'test';
     expect(md5(data)).toBe('098f6bcd4621d373cade4e832627b4f6');
+});
+
+it('formats a date', () => {
+    const date = new Date('2021-01-01T12:34:56');
+    expect(formatDateExtended(date)).toBe('2021-01-01 12:34:56');
+    expect(formatDateExtended(date, 'YYYY-MM-DD')).toBe('2021-01-01');
+    expect(formatDateExtended(date, 'hh:mm:ss')).toBe('12:34:56');
+    expect(formatDateExtended(date, 'T').length).greaterThan(1);
 });

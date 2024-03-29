@@ -248,3 +248,97 @@ export function fileURLToPath(url): string {
         throw new Error('Invalid URL.');
     }
 }
+
+/**
+ * Returns a formatted date string using dayjs format strings.
+ * @param date Date
+ * @param format string
+ * @returns {string}
+ */
+export function formatDateExtended(date: Date, format = 'YYYY-MM-DD HH:mm:ss'): string {
+    const pad = number => (number < 10 ? `0${number}` : number);
+    const getTzName = date => {
+        const tzNameMatch = new Intl.DateTimeFormat('en', { timeZoneName: 'short' })
+            .formatToParts(date)
+            .find(part => part.type === 'timeZoneName');
+        return tzNameMatch ? tzNameMatch.value : '';
+    };
+
+    const tokens = {
+        // Year
+        YYYY: () => date.getFullYear(),
+        YY: () => String(date.getFullYear()).slice(-2),
+
+        // Month
+        MM: () => pad(date.getMonth() + 1),
+        M: () => date.getMonth() + 1,
+
+        // Day
+        DD: () => pad(date.getDate()),
+        D: () => date.getDate(),
+
+        // Hours
+        HH: () => pad(date.getHours()),
+        H: () => date.getHours(),
+        hh: () => pad(date.getHours() % 12 || 12),
+        h: () => date.getHours() % 12 || 12,
+
+        // Minutes
+        mm: () => pad(date.getMinutes()),
+        m: () => date.getMinutes(),
+
+        // Seconds
+        ss: () => pad(date.getSeconds()),
+        s: () => date.getSeconds(),
+
+        // AM/PM
+        A: () => (date.getHours() < 12 ? 'AM' : 'PM'),
+        a: () => (date.getHours() < 12 ? 'am' : 'pm'),
+
+        T: () => getTzName(date),
+        Z: () => {
+            const offset = date.getTimezoneOffset();
+            return `${(offset > 0 ? '-' : '+') + pad(Math.floor(Math.abs(offset) / 60))}:${pad(Math.abs(offset) % 60)}`;
+        },
+        z: () => {
+            const offset = date.getTimezoneOffset();
+            return `${(offset > 0 ? '-' : '+') + pad(Math.floor(Math.abs(offset) / 60)) + pad(Math.abs(offset) % 60)}`;
+        },
+
+        // Escape character is handled below in the loop
+    };
+
+    let formattedDate = '';
+    let escapeNext = false;
+    for (let i = 0; i < format.length; i++) {
+        if (format[i] === '[') {
+            escapeNext = true;
+            continue;
+        }
+
+        if (format[i] === ']') {
+            escapeNext = false;
+            continue;
+        }
+
+        if (escapeNext) {
+            formattedDate += format[i];
+            continue;
+        }
+
+        const twoCharToken = format.substring(i, i + 2);
+        const fourCharToken = format.substring(i, i + 4);
+
+        if (tokens[fourCharToken]) {
+            formattedDate += tokens[fourCharToken]();
+            i += 3; // Skip next 3 characters
+        } else if (tokens[twoCharToken]) {
+            formattedDate += tokens[twoCharToken]();
+            i += 1; // Skip next character
+        } else {
+            formattedDate += format[i];
+        }
+    }
+
+    return formattedDate;
+}
