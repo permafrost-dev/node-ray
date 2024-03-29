@@ -814,7 +814,7 @@ if (typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_
         const win: any = window;
         win.ray = ray;
         win.Ray = Ray;
-        win.rayInit = standalone;
+        win.rayInit = () => standalone(win);
     } catch (e) {
         //
     }
