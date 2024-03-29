@@ -13,18 +13,6 @@ export class TracePayload extends Payload {
         this.frames = RemovesRayFrames.removeRayFrames(frames);
     }
 
-    public startFromIndex(index: number): this {
-        this.startFromIndexNum = index;
-
-        return this;
-    }
-
-    public limit(limit: number): this {
-        this.limitNum = limit;
-
-        return this;
-    }
-
     public getType(): string {
         return 'trace';
     }

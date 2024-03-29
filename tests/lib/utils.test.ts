@@ -12,6 +12,7 @@ import {
     nonCryptoUuidV4,
     md5,
     formatDateExtended,
+    getType,
 } from '../../src/lib/utils';
 
 it.concurrent('sleeps for 0.1 sec', async () => {
@@ -87,4 +88,10 @@ it('formats a date', () => {
     expect(formatDateExtended(date, 'YYYY-MM-DD')).toBe('2021-01-01');
     expect(formatDateExtended(date, 'hh:mm:ss')).toBe('12:34:56');
     expect(formatDateExtended(date, 'T').length).greaterThan(1);
+});
+
+it('gets the type of a variable', () => {
+    expect(getType('test')).toBe('string');
+    expect(getType(123)).toBe('number');
+    expect(getType(true)).toBe('boolean');
 });
