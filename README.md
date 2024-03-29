@@ -349,15 +349,19 @@ See [using the package](docs/usage.md).
 
 ## Development setup
 
-- `npm install`
-- `npm run build:dev`
-- `npm run test`
+```sh
+npm install`
+npm run build:dev
+npm run test
+```
 
 ## Testing
 
-`node-ray` uses Vitest for unit tests. To run the test suite:
+`node-ray` uses Vitest for unit tests. To execute the test suite, run the following command:
 
-`npm run test`
+```sh
+npm run test
+```
 
 ---
 
