@@ -27,14 +27,19 @@ const { ray } = require('node-ray/web');
 
 ### Browser standalone
 
-If you'd like to use `node-ray` directly in a webpage, you may inject it via a CDN package. The standalone version is bundled with everything _except_ the axios library.
+If you'd like to use `node-ray` directly in a webpage, you may inject it via a CDN package. 
+
+There are two standalone versions of `node-ray` available: one with axios included, and one without _(slim version)_.
+
+`node-ray` may be directly used within a web page via a script tag. The standalone version includes all required libraries, **including** axios.
 
 ```html
-    <script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.js"></script>
-    <script>
-        window.ray = Ray.ray;
-        window.Ray = Ray.Ray;
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
 ```
 
+Or use the slim version _(without axios)_ if you already have axios included in your project:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/axios@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone-slim.min.js"></script>
+```
