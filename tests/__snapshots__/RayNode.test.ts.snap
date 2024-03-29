@@ -1,5 +1,188 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`gets the node runtime info 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "label": "NodeInfo",
+          "values": {
+            "Extensions": "xxx",
+            "Memory Heap usage": 999,
+            "Memory RSS usage": 999,
+            "Node version": "v999",
+            "V8 version": "v999",
+          },
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "table",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`measures the execution time of a closure 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "closure",
+          "time_since_last_call": 0,
+          "total_time": 20,
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`measures the execution time of named stopwatches 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": true,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "first",
+          "time_since_last_call": 0,
+          "total_time": 0,
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "first",
+          "time_since_last_call": 0,
+          "total_time": 20,
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`measures the execution time of repeated and unnamed calls to measure 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": true,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "default",
+          "time_since_last_call": 0,
+          "total_time": 0,
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "default",
+          "time_since_last_call": 0,
+          "total_time": 20,
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "default",
+          "time_since_last_call": 20,
+          "total_time": 40,
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
 exports[`sends a missing file payload 1`] = `
 [
   {

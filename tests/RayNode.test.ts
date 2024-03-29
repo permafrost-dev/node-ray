@@ -6,6 +6,7 @@ import { Hostname } from '../src/Origin/Hostname';
 import { HostnameNode } from '../src/Origin/HostnameNode';
 import { Ray as RayNode } from './../src/RayNode';
 import { FakeClientNode } from './TestClasses/FakeClientNode';
+import { usleep } from '@/lib/utils';
 
 let client: FakeClientNode, myRay: RayNode;
 
@@ -68,4 +69,36 @@ it("doesn't send data when in staging environment", () => {
     process.env.NODE_ENV = 'development';
 
     expect(client.sentPayloads().length).toBe(1);
+});
+
+it('measures the execution time of a closure', async () => {
+    myRay.measure(() => {
+        usleep(200);
+    });
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('measures the execution time of repeated and unnamed calls to measure', async () => {
+    myRay.measure();
+    usleep(200);
+    myRay.measure();
+    usleep(200);
+    myRay.measure();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('measures the execution time of named stopwatches', async () => {
+    myRay.measure('first');
+    usleep(200);
+    myRay.measure('first');
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});
+
+it('gets the node runtime info', async () => {
+    myRay.nodeinfo();
+
+    expect(client.sentPayloads()).toMatchSnapshot();
 });

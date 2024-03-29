@@ -1,15 +1,15 @@
 import { usleep } from '@/lib/utils';
-import Stopwatch from '@/Stopwatch/Stopwatch';
+import NodeStopwatch from '@/Stopwatch/NodeStopwatch';
 import { beforeEach, expect, it } from 'vitest';
 
-let stopwatch: Stopwatch;
+let stopwatch: NodeStopwatch;
 
 beforeEach(() => {
-    stopwatch = new Stopwatch('one');
+    stopwatch = new NodeStopwatch('one');
 });
 
 it('can created an unnamed stopwatch', () => {
-    const sw = new Stopwatch();
+    const sw = new NodeStopwatch();
     expect(sw.name).toBeUndefined();
 });
 
@@ -52,4 +52,12 @@ it('can get the laps', async () => {
     stopwatch.stop();
 
     expect(stopwatch.getLaps().length).toBe(1);
+});
+
+it('stores the memory usage', async () => {
+    stopwatch.start('one');
+    usleep(5);
+    stopwatch.stop();
+
+    expect(stopwatch.memoryLaps.length).toBe(1);
 });

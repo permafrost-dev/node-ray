@@ -20,7 +20,8 @@ export class StopwatchEvent {
         return this.laps.reduce((prev, cur) => cur + prev, 0);
     }
 
-    public getMemory() {
+    // eslint-disable-next-line no-unused-vars
+    public getMemory(callback: null | CallableFunction = null): number {
         return 0;
     }
 

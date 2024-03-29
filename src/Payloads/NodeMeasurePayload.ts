@@ -17,13 +17,13 @@ export class NodeMeasurePayload extends Payload {
 
         this.name = name;
         this.totalTime = stopwatchEvent.getDuration();
-        this.maxMemoryUsageDuringTotalTime = stopwatchEvent.getMemory();
+        this.maxMemoryUsageDuringTotalTime = stopwatchEvent.getMemory(process.memoryUsage);
 
         const periods = stopwatchEvent.getPeriods();
 
         if (periods.length > 1) {
             this.timeSinceLastCall = end(periods);
-            this.maxMemoryUsageSinceLastCall = stopwatchEvent.getMemory(); //process.memoryUsage().heapUsed;
+            this.maxMemoryUsageSinceLastCall = stopwatchEvent.getMemory(process.memoryUsage); //process.memoryUsage().heapUsed;
         }
     }
 

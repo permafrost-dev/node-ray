@@ -14,24 +14,17 @@ export class NodeInfoPayload extends Payload {
     }
 
     getContent(): Record<string, any> {
-        let values: Record<string, any> = {};
+        const extensions: string[] = Object.keys(versions)
+            .filter(extension => extension !== 'node' && extension !== 'v8')
+            .map(extension => `${extension} v${versions[extension]}`);
 
-        if (Object.keys(versions).length === 0) {
-            const extensions: string[] = [];
-            for (const extension in versions) {
-                if (extension !== 'node' && extension !== 'v8') {
-                    extensions.push(`${extension} v${versions[extension]}`);
-                }
-            }
-
-            values = {
-                'Node version': versions.node,
-                'V8 version': versions.v8,
-                'Memory Heap usage': memoryUsage().heapUsed,
-                'Memory RSS usage': memoryUsage().rss,
-                Extensions: extensions.join(', '),
-            };
-        }
+        const values: Record<string, any> = {
+            'Node version': versions.node,
+            'V8 version': versions.v8,
+            'Memory Heap usage': memoryUsage().heapUsed,
+            'Memory RSS usage': memoryUsage().rss,
+            Extensions: extensions.join(', '),
+        };
 
         return {
             values,
