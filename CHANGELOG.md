@@ -2,9 +2,26 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [v2.0.0](https://github.com/permafrost-dev/node-ray/compare/v1.21.0...v2.0.0)
+#### [2.1.0](https://github.com/permafrost-dev/node-ray/compare/2.0.0...2.1.0)
 
-version 2
+Add initSettings() to NodeRay
+
+- Add initSettings() to NodeRay [`#269`](https://github.com/permafrost-dev/node-ray/pull/269)
+- Chain payloads, minor bug fixes, doc updates [`#268`](https://github.com/permafrost-dev/node-ray/pull/268)
+- Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 [`#266`](https://github.com/permafrost-dev/node-ray/pull/266)
+- add initSettings() to RayNode, remove async from findUp() [`cc8bbfb`](https://github.com/permafrost-dev/node-ray/commit/cc8bbfb06df6f45b0b3049305e4debe24a5bea6d)
+- update docs [`98bbe5c`](https://github.com/permafrost-dev/node-ray/commit/98bbe5c2ab07ab5f1e69a2f959ba3e4737675da8)
+- type fix [`f10a743`](https://github.com/permafrost-dev/node-ray/commit/f10a743f07a71d4036b993dbeba9ad5a32101214)
+
+#### [2.0.0](https://github.com/permafrost-dev/node-ray/compare/v2.0.0...2.0.0)
+
+> 8 March 2024
+
+- Add bun.lockb to .gitignore to exclude package lock files from version control [`a6d4ac3`](https://github.com/permafrost-dev/node-ray/commit/a6d4ac3411a7267a205dc676a8ba0c39876ccb03)
+
+### [v2.0.0](https://github.com/permafrost-dev/node-ray/compare/v1.21.0...v2.0.0)
+
+> 8 March 2024
 
 - version 2 [`#264`](https://github.com/permafrost-dev/node-ray/pull/264)
 - Bump Dependency Versions [`#259`](https://github.com/permafrost-dev/node-ray/pull/259)
