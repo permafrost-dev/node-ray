@@ -4,7 +4,7 @@ dist-*/*
 *.d.ts
 .eslintrc.cjs
 biome.json
-bun.lockb
+*.lockb
 package-lock.json
 prettier.config.cjs
 vite.config.js
