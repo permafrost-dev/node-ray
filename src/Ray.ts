@@ -48,7 +48,7 @@ import { Stopwatch } from '@/Stopwatch/Stopwatch';
 import { Counters } from '@/Support/Counters';
 import { Limiters } from '@/Support/Limiters';
 import { RateLimiter } from '@/Support/RateLimiter';
-import { SendRequestCallbackType } from '@/lib/types';
+import { RayCallback, SendRequestCallbackType } from '@/lib/types';
 import { nonCryptoUuidV4, sleep } from '@/lib/utils';
 import { PACKAGE_VERSION } from '@/lib/version';
 import { md5 } from '@/lib/utils';
@@ -87,6 +87,10 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
     public limitOrigin: OriginData | null = null;
 
     public canSendPayload = true;
+
+    protected chaining = false;
+
+    protected chainedPayloads: Payload[] = [];
 
     [macroName: string]: any;
 
@@ -622,6 +626,18 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this;
     }
 
+    public chain(callback: RayCallback): this {
+        this.chaining = true;
+
+        callback(this);
+
+        this.chaining = false;
+        this.sendRequest(this.chainedPayloads.slice(0));
+        this.chainedPayloads = [];
+
+        return this;
+    }
+
     public sendCustom(content: string, label = ''): this {
         const payload = new CustomPayload(content, label);
 
@@ -708,6 +724,13 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         }
 
         if (!this.canSendPayload) {
+            return this;
+        }
+
+        if (this.chaining) {
+            const tempPayloads = Array.isArray(payloads) ? payloads : [payloads];
+            this.chainedPayloads.push(...tempPayloads);
+
             return this;
         }
 
