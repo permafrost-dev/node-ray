@@ -80,25 +80,17 @@ There are two standalone versions of `node-ray` available: one with axios includ
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
-<script>
-    window.ray = Ray.ray;
-    window.Ray = Ray.Ray;
-</script>
 ```
 
 Or use the slim version _(without axios)_ if you already have axios included in your project:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone-slim.min.js"></script>
-<script>
-    window.ray = Ray.ray;
-    window.Ray = Ray.Ray;
-</script>
 ```
 
 #### Recommended Standalone Initialization
 
-As of version `2.0.0`, you no longer need to manually initialize the global `ray` objects; it is now performed automatically on load.:
+As of version `2.0.0`, you no longer need to manually initialize the global `ray` objects; it is now performed automatically on load:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
@@ -147,7 +139,7 @@ To modify the host or port:
 
 ```js
 // make sure you import the Ray class (capital "R")
-const { Ray, ray } = require('node-ray');
+import { Ray, ray } from 'node-ray';
 
 Ray.useDefaultSettings({ host: '127.0.0.1', port: 3000 });
 
@@ -226,7 +218,7 @@ This section only applies within a browser environment _(i.e., webpack)_.
 You can configure `node-ray` by importing the `Ray` class and calling the `useDefaultSettings()` method.
 
 ```js
-const { Ray, ray } = require('node-ray/web');
+import { Ray, ray } from 'node-ray/web';
 
 // set several settings at once:
 Ray.useDefaultSettings({
@@ -290,7 +282,7 @@ See [using the package](docs/usage.md).
 | `ray(var1, var2, …)` | Ray accepts multiple arguments |
 | `ray().blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
 | `ray().caller()` | **Asynchronous.** Show the calling class and method |
-| `ray().chain(callback)` | Chain multiple Ray payloads together and send them all at the same time. `callback` receives an instance of `Ray` and returns `void`. |
+| `ray().chain(callback)` | Chain multiple Ray payloads and send them all at once. `callback: (ray: Ray) => void` |
 | `ray().clearScreen()` | Clear current screen |
 | `ray().clearAll()` | Clear current and all previous screens |
 | `ray().className(obj)` | Display the classname for an object |
@@ -305,7 +297,7 @@ See [using the package](docs/usage.md).
 | `ray().error(err)` | Display information about an Error/Exception |
 | `ray().event(name, data)` | Display information about an event with optional data |
 | `ray().exception(err)` | **Asynchronous.** Display extended information and stack trace for an Error/Exception |
-| `ray().file(filename)` | Display contents of a file - NodeJS only |
+| `ray().file(filename)` | **NodeJS only.** Display contents of a file |
 | `ray().hide()` | Display something in Ray and make it collapse immediately |
 | `ray().hideApp()` | Programmatically hide the Ray app window |
 | `ray().html(string)` | Send HTML to Ray |
@@ -321,7 +313,7 @@ See [using the package](docs/usage.md).
 | `ray().measure()` | Begin measuring the overall time and elapsed time since previous `measure()` call |
 | `ray().newScreen()` | Start a new screen |
 | `ray().newScreen('title')` | Start a new named screen |
-| `ray().nodeinfo()` | Display statistics about node, such as the v8 version and memory usage (NodeJS only) |
+| `ray().nodeinfo()` | **NodeJS only.** Display statistics about node, such as the v8 version and memory usage |
 | `ray().notify(message)` | Display a notification |
 | `ray().once(arg1, …)` | **Asynchronous.** Only send a payload once when in a loop |
 | `ray().pass(variable)` | Display something in Ray and return the value instead of a Ray instance |
