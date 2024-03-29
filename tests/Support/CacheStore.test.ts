@@ -14,11 +14,11 @@ it('can count per second', () => {
 
     expect(store.countLastSecond()).toBe(3);
 
-    clock.moveForward('1 second');
+    clock.moveForwardInSeconds(1);
 
     expect(store.countLastSecond()).toBe(3);
 
-    clock.moveForward('1 second');
+    clock.moveForwardInSeconds(1);
 
     expect(store.countLastSecond()).toBe(0);
 });

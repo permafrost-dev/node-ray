@@ -15,7 +15,7 @@ it('modifies the date by adding time', () => {
 
     expect(now.getTimestamp()).toBe(1624385463);
 
-    now = now.modify('5 seconds');
+    now = now.addSeconds(5);
 
     expect(now.getTimestamp()).toBe(1624385468);
 });
@@ -25,7 +25,7 @@ it('modifies the date by subtracting time', () => {
 
     expect(now.getTimestamp()).toBe(1624385463);
 
-    now = now.modify('-2 seconds');
+    now = now.subSeconds(2);
 
     expect(now.getTimestamp()).toBe(1624385461);
 });

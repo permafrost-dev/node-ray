@@ -27,7 +27,7 @@ export class CacheStore {
     }
 
     public countLastSecond(): number {
-        const lastSecond = this.clock.now().modify('-1 second');
+        const lastSecond = this.clock.now().subSeconds(1);
         let amount = 0;
 
         this.store.forEach(item => {
