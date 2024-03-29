@@ -75,7 +75,7 @@ function findUpMultipleSync(name, options: any = {}) {
     return matches;
 }
 
-export async function findUp(name, options: any = {}) {
+export function findUp(name, options: any = {}) {
     const matches = findUpMultipleSync(name, { ...options, limit: 1 });
     return matches[0];
 }

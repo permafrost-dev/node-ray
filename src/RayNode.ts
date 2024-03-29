@@ -7,14 +7,28 @@ import { ImagePayload } from '@/Payloads/ImagePayload';
 import { NodeInfoPayload } from '@/Payloads/NodeInfoPayload';
 import { NodeMeasurePayload } from '@/Payloads/NodeMeasurePayload';
 import { Ray as BaseRay } from '@/Ray';
+import { Settings } from '@/Settings/Settings';
 import { SettingsFactory } from '@/Settings/SettingsFactory';
 import { NodeStopwatch } from '@/Stopwatch/NodeStopwatch';
 import { existsSync } from 'node:fs';
 
 // @ts-ignore
 export class Ray extends BaseRay {
-    public static async create(client: Client | null = null, uuid: string | null = null): Promise<Ray> {
-        const settings = await SettingsFactory.createFromConfigFile();
+    protected static settingsInstance: Settings | null = null;
+
+    public static async initSettings(): Promise<void> {
+        Ray.settingsInstance = await SettingsFactory.createFromConfigFile();
+    }
+
+    public static create(client: Client | null = null, uuid: string | null = null): Ray {
+        const settings =
+            Ray.settingsInstance ??
+            new Settings({
+                host: 'localhost',
+                port: 23517,
+                enable: true,
+                always_send_raw_values: false,
+            });
 
         return new this(settings, client, uuid);
     }
@@ -88,5 +102,5 @@ export class Ray extends BaseRay {
 }
 
 export const ray = (...args: any[]) => {
-    return Ray.create().then(r => r.send(...args));
+    return Ray.create().send(...args);
 };

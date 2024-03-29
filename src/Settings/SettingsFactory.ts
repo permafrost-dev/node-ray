@@ -25,7 +25,7 @@ export class SettingsFactory {
     }
 
     public async getSettingsFromConfigFile(configDirectory: string | null = null) {
-        const configFilePath = await this.searchConfigFiles(configDirectory);
+        const configFilePath = this.searchConfigFiles(configDirectory);
 
         if (!(await exists(configFilePath))) {
             return {};
@@ -43,20 +43,20 @@ export class SettingsFactory {
         return options as RaySettings;
     }
 
-    protected async searchConfigFiles(configDirectory: string | null = null): Promise<string> {
+    protected searchConfigFiles(configDirectory: string | null = null): string {
         if (configDirectory === null) {
             configDirectory = '';
         }
 
         if (typeof this.cache[configDirectory] === 'undefined') {
-            this.cache[configDirectory] = await this.searchConfigFilesOnDisk(configDirectory);
+            this.cache[configDirectory] = this.searchConfigFilesOnDisk(configDirectory);
         }
 
         return this.cache[configDirectory];
     }
 
-    protected async searchConfigFilesOnDisk(configDirectory: string | null = null): Promise<string> {
-        const configFn = await findUp('ray.config.js', {
+    protected searchConfigFilesOnDisk(configDirectory: string | null = null): string {
+        const configFn = findUp('ray.config.js', {
             type: 'file',
             cwd: configDirectory ?? process.cwd(),
         });
