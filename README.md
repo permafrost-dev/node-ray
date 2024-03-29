@@ -261,6 +261,19 @@ Specify the `sending_payload_callback` or `sent_payload_callback` settings to tr
 
 This feature is helpful when sending additional payloads or modifying all payloads _(i.e., changing the color)_.
 
+### Chaining payloads
+
+You can chain payloads together using the `chain()` method. This allows you to send multiple payloads at once.
+
+```js
+ray().chain((ray) => {
+    ray.text('first payload')
+        .blue()
+        .small()
+        .label('test');
+});
+```
+
 ## About
 
 This package attempts to replicate the entire PHP API for Ray to provide a robust solution for debugging NodeJS, TypeScript, Javascript and web-based projects.
@@ -277,6 +290,7 @@ See [using the package](docs/usage.md).
 | `ray(var1, var2, …)` | Ray accepts multiple arguments |
 | `ray(…).blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
 | `ray().caller()` | **Asynchronous.** Show the calling class and method |
+| `ray().chain(callback)` | Chain multiple Ray payloads together and send them all at the same time. `callback` receives an instance of `Ray` and returns `void`. |
 | `ray().clearScreen()` | Clear current screen |
 | `ray().clearAll()` | Clear current and all previous screens |
 | `ray().className(obj)` | Display the classname for an object |
