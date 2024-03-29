@@ -50,4 +50,6 @@ export enum SendRequestCallbackType {
     Sent = 'sent',
 }
 
+export type RayCallback = (r: Ray) => void;
+
 export type { PayloadTypes } from '@/Payloads';

@@ -768,3 +768,9 @@ it('sends a trace payload', async () => {
 
     expect(client.sentPayloads()).toMatchSnapshot();
 });
+
+it('chains payloads together', () => {
+    myRay.chain(r => r.text('one').green().label('test'));
+
+    expect(client.sentPayloads()).toMatchSnapshot();
+});

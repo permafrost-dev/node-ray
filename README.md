@@ -80,25 +80,17 @@ There are two standalone versions of `node-ray` available: one with axios includ
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
-<script>
-    window.ray = Ray.ray;
-    window.Ray = Ray.Ray;
-</script>
 ```
 
 Or use the slim version _(without axios)_ if you already have axios included in your project:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone-slim.min.js"></script>
-<script>
-    window.ray = Ray.ray;
-    window.Ray = Ray.Ray;
-</script>
 ```
 
 #### Recommended Standalone Initialization
 
-As of version `2.0.0`, you no longer need to manually initialize the global `ray` objects; it is now performed automatically on load.:
+As of version `2.0.0`, you no longer need to manually initialize the global `ray` objects; it is now performed automatically on load:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/node-ray@latest/dist/standalone.min.js"></script>
@@ -147,7 +139,7 @@ To modify the host or port:
 
 ```js
 // make sure you import the Ray class (capital "R")
-const { Ray, ray } = require('node-ray');
+import { Ray, ray } from 'node-ray';
 
 Ray.useDefaultSettings({ host: '127.0.0.1', port: 3000 });
 
@@ -164,15 +156,14 @@ ray(['several', 'arguments'], 'can', {be: provided});
 
 ray().table(['one two', {a: 100, b: 200, c: 300}, [9, 8, 7]]).blue();
 
-ray().html('<em>large text</em>').large().green();
+ray().chain(ray => ray.html('<em>large text</em>').large().green());
 
 ray().image('https://placekitten.com/200/300');
 
 ray().clearAll();
 
 ray().disable(); // disable sending data to Ray at runtime
-
-ray().xml('<one>11</one>'); // disabled, data not sent to Ray
+ray().xml('<one>11</one>'); // previous call disabled sending data, XML not sent to Ray
 ```
 
 ## Configuration
@@ -227,7 +218,7 @@ This section only applies within a browser environment _(i.e., webpack)_.
 You can configure `node-ray` by importing the `Ray` class and calling the `useDefaultSettings()` method.
 
 ```js
-const { Ray, ray } = require('node-ray/web');
+import { Ray, ray } from 'node-ray/web';
 
 // set several settings at once:
 Ray.useDefaultSettings({
@@ -261,6 +252,20 @@ Specify the `sending_payload_callback` or `sent_payload_callback` settings to tr
 
 This feature is helpful when sending additional payloads or modifying all payloads _(i.e., changing the color)_.
 
+### Chaining payloads
+
+You can chain payloads together using the `chain()` method. This allows you to send multiple payloads at once, which may be necessary when performing multiple chained
+calls to `ray()` in an asynchronous context.
+
+```js
+ray().chain((ray) => {
+    ray.text('first payload')
+        .blue()
+        .small()
+        .label('test');
+});
+```
+
 ## About
 
 This package attempts to replicate the entire PHP API for Ray to provide a robust solution for debugging NodeJS, TypeScript, Javascript and web-based projects.
@@ -275,8 +280,9 @@ See [using the package](docs/usage.md).
 | --- | --- |
 | `ray(variable)` | Display a string, array or object |
 | `ray(var1, var2, …)` | Ray accepts multiple arguments |
-| `ray(…).blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
+| `ray().blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
 | `ray().caller()` | **Asynchronous.** Show the calling class and method |
+| `ray().chain(callback)` | Chain multiple Ray payloads and send them all at once. `callback: (ray: Ray) => void` |
 | `ray().clearScreen()` | Clear current screen |
 | `ray().clearAll()` | Clear current and all previous screens |
 | `ray().className(obj)` | Display the classname for an object |
@@ -291,8 +297,8 @@ See [using the package](docs/usage.md).
 | `ray().error(err)` | Display information about an Error/Exception |
 | `ray().event(name, data)` | Display information about an event with optional data |
 | `ray().exception(err)` | **Asynchronous.** Display extended information and stack trace for an Error/Exception |
-| `ray().file(filename)` | Display contents of a file - NodeJS only |
-| `ray(…).hide()` | Display something in Ray and make it collapse immediately |
+| `ray().file(filename)` | **NodeJS only.** Display contents of a file |
+| `ray().hide()` | Display something in Ray and make it collapse immediately |
 | `ray().hideApp()` | Programmatically hide the Ray app window |
 | `ray().html(string)` | Send HTML to Ray |
 | `ray().htmlMarkup(string)` | Display syntax-highlighted HTML code in Ray |
@@ -301,26 +307,27 @@ See [using the package](docs/usage.md).
 | `ray().interceptor()` | Access ConsoleInterceptor; call `.enable()` to show `console.log()` calls in Ray |
 | `ray().json([…])` | Send JSON to Ray |
 | `ray().label(string)` | Add a text label to the payload |
-| `ray().limit(N).…` | **Asynchronous.** Limit the number of payloads that can be sent to Ray to N; used for debugging within loops |
+| `ray().limit(N)` | **Asynchronous.** Limit the number of payloads that can be sent to Ray to N; used for debugging within loops |
 | `ray().macro(name, callable)` | Add a custom method to the Ray class. make sure not to use an arrow function if returning `this` |
 | `ray().measure(callable)` | Measure the performance of a callback function |
 | `ray().measure()` | Begin measuring the overall time and elapsed time since previous `measure()` call |
 | `ray().newScreen()` | Start a new screen |
 | `ray().newScreen('title')` | Start a new named screen |
-| `ray().nodeinfo()` | Display statistics about node, such as the v8 version and memory usage (NodeJS only) |
-| `ray(…).notify(message)` | Display a notification |
+| `ray().nodeinfo()` | **NodeJS only.** Display statistics about node, such as the v8 version and memory usage |
+| `ray().notify(message)` | Display a notification |
 | `ray().once(arg1, …)` | **Asynchronous.** Only send a payload once when in a loop |
-| `ray(…).pass(variable)` | Display something in Ray and return the value instead of a Ray instance |
+| `ray().pass(variable)` | Display something in Ray and return the value instead of a Ray instance |
 | `ray().pause()` | Pause code execution within your code; must be called using `await` |
 | `ray().projectName(name)` | Change the active project name |
-| `ray(…).remove()` | Remove an item from Ray   |
-| `ray(…).screenColor(color)` | Changes the screen color to the specified color |
-| `ray(…).separator()` | Display a separator |
+| `ray().remove()` | Remove an item from Ray   |
+| `ray().screenColor(color)` | Changes the screen color to the specified color |
+| `ray().separator()` | Display a separator |
 | `ray().showApp()` | Programmatically show the Ray app window |
-| `ray(…).small()` | Output text smaller or bigger. Use `large` or `small`|
+| `ray().small()` | Output text smaller or bigger. Use `large` or `small`|
 | `ray().stopTime(name)` | Removes a named stopwatch if specified, otherwise removes all stopwatches |
 | `ray().table(…)` | Display an array or an object formatted as a table; Objects and arrays are pretty-printed |
 | `ray().text(string)` | Display raw text in Ray while preserving whitespace formatting |
+| `ray().toJson(variable)` | Convert a variable using `JSON.stringify()` and display the result |
 | `ray().trace()` | Display a stack trace |
 | `ray().xml(string)` | Send XML to Ray |
 
@@ -334,15 +341,19 @@ See [using the package](docs/usage.md).
 
 ## Development setup
 
-- `npm install`
-- `npm run build:dev`
-- `npm run test`
+```sh
+npm install`
+npm run build:dev
+npm run test
+```
 
 ## Testing
 
-`node-ray` uses Vitest for unit tests. To run the test suite:
+`node-ray` uses Vitest for unit tests. To execute the test suite, run the following command:
 
-`npm run test`
+```sh
+npm run test
+```
 
 ---
 

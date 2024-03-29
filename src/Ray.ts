@@ -48,7 +48,7 @@ import { Stopwatch } from '@/Stopwatch/Stopwatch';
 import { Counters } from '@/Support/Counters';
 import { Limiters } from '@/Support/Limiters';
 import { RateLimiter } from '@/Support/RateLimiter';
-import { SendRequestCallbackType } from '@/lib/types';
+import { RayCallback, SendRequestCallbackType } from '@/lib/types';
 import { nonCryptoUuidV4, sleep } from '@/lib/utils';
 import { PACKAGE_VERSION } from '@/lib/version';
 import { md5 } from '@/lib/utils';
@@ -88,11 +88,15 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public canSendPayload = true;
 
+    protected chaining = false;
+
+    protected chainedPayloads: Payload[] = [];
+
     [macroName: string]: any;
 
     public static _rateLimiter: RateLimiter = RateLimiter.disabled();
 
-    public static async create(client: Client | null = null, uuid: string | null = null): Promise<Ray> {
+    public static create(client: Client | null = null, uuid: string | null = null): Ray {
         if (Ray.defaultSettings.not_defined === true) {
             Ray.defaultSettings = {
                 enable: true,
@@ -622,6 +626,18 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
         return this;
     }
 
+    public chain(callback: RayCallback): this {
+        this.chaining = true;
+
+        callback(this);
+
+        this.chaining = false;
+        this.sendRequest(this.chainedPayloads.slice(0));
+        this.chainedPayloads = [];
+
+        return this;
+    }
+
     public sendCustom(content: string, label = ''): this {
         const payload = new CustomPayload(content, label);
 
@@ -711,6 +727,13 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
             return this;
         }
 
+        if (this.chaining) {
+            const tempPayloads = Array.isArray(payloads) ? payloads : [payloads];
+            this.chainedPayloads.push(...tempPayloads);
+
+            return this;
+        }
+
         if (this.limitOrigin !== null) {
             if (!Ray.limiters.canSendPayload(this.limitOrigin)) {
                 return this;
@@ -775,7 +798,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 }
 
 export const ray = (...args: any[]) => {
-    return Ray.create().then(r => r.send(...args));
+    return Ray.create().send(...args);
 };
 
 export const standalone = windowObject => {
@@ -791,7 +814,7 @@ if (typeof __BUILDING_STANDALONE_LIB__ !== 'undefined' && __BUILDING_STANDALONE_
         const win: any = window;
         win.ray = ray;
         win.Ray = Ray;
-        win.rayInit = standalone;
+        win.rayInit = () => standalone(win);
     } catch (e) {
         //
     }
