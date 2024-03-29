@@ -1,17 +1,10 @@
-/* eslint-disable no-unused-vars */
-import dayjs from 'dayjs';
-
-interface DateImmutableModifyPart {
-    value: number;
-    unit: string;
-}
-
 export class DateImmutable {
     public dateStr: string;
     public dateTs: number;
+    protected _date!: Date;
 
     public get date() {
-        return dayjs(this.dateStr).toDate();
+        return this._date;
     }
 
     public set date(value: Date) {
@@ -24,7 +17,8 @@ export class DateImmutable {
     }
 
     constructor(date: Date | null = null) {
-        this.date = date ?? new Date();
+        this._date = date ?? new Date();
+        this.date = this._date;
         this.dateStr = this.date.toISOString();
         this.dateTs = this.date.getTime();
     }
@@ -33,25 +27,11 @@ export class DateImmutable {
         return Math.floor(this.dateTs / 1000);
     }
 
-    public modify(str: string): DateImmutable {
-        const strParts = str.split(' ');
-        const parts: DateImmutableModifyPart[] = [];
+    public addSeconds(seconds: number): DateImmutable {
+        return DateImmutable.createFrom(new Date(this.dateTs + seconds * 1000));
+    }
 
-        for (let idx = 0; idx < strParts.length; idx++) {
-            parts.push({
-                value: Number(strParts[idx]),
-                unit: strParts[idx + 1],
-            });
-
-            idx++;
-        }
-
-        let tempDate = dayjs(this.getTimestamp() * 1000);
-
-        parts.forEach(part => {
-            tempDate = tempDate.add(part.value * 1000);
-        });
-
-        return DateImmutable.createFrom(tempDate.toDate());
+    public subSeconds(seconds: number): DateImmutable {
+        return DateImmutable.createFrom(new Date(this.dateTs - seconds * 1000));
     }
 }

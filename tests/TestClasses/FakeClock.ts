@@ -16,9 +16,9 @@ export class FakeClock implements Clock {
         this.fixedNow = now ?? new DateImmutable();
     }
 
-    public moveForward(modifier: string): void {
+    public moveForwardInSeconds(modifier: number): void {
         const currentTime = this.now();
-        const modifiedTime = currentTime.modify(`${modifier}`);
+        const modifiedTime = currentTime.addSeconds(modifier);
 
         this.freeze(modifiedTime);
     }

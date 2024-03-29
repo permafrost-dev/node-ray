@@ -1,5 +1,5 @@
+import { formatDateExtended } from '@/lib/utils';
 import { Payload } from '@/Payloads/Payload';
-import dayjs from 'dayjs';
 
 export type PayloadType = 'date';
 
@@ -28,27 +28,27 @@ export class DatePayload extends Payload {
     }
 
     protected getTimestamp(): number | null {
-        if (this.date === null) return null;
+        if (!this.date) {
+            return null;
+        }
 
-        return dayjs(this.date.toISOString()).unix();
+        //remove the last '000' to get the timestamp in seconds:
+        return this.date.getTime() / 1000;
     }
 
     protected getFormatted(): string {
-        if (this.date === null) {
+        if (!this.date) {
             return '--';
         }
 
-        return dayjs(this.date.toISOString()).format(this.format);
+        return formatDateExtended(this.date, this.format);
     }
 
     protected getTimezoneName(): string {
-        if (this.date === null) {
+        if (!this.date) {
             return '--';
         }
 
-        const dateObj = this.date ? this.date : new Date();
-        const matches = /\((.*)\)/.exec(dateObj.toString());
-
-        return matches ? matches[1] : '--';
+        return formatDateExtended(this.date, 'T');
     }
 }
