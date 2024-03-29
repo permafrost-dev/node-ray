@@ -20,8 +20,8 @@
     <img alt="npm-installs-monthly" src="https://img.shields.io/npm/dm/node-ray?style=flat-square&logo=npm&logoColor=white&label=installs">
 </p>
 
-# Understand and fix Javascript & TypeScript bugs faster.
-## Official Node/JS & TypeScript integration for Ray
+# node-ray
+### The official Node/JS & TypeScript integration for Ray - Understand and fix bugs faster.
 
 The package can be installed in any NodeJS, ES6+, or TypeScript application to send data to the [Ray app](https://myray.app).
 
@@ -162,17 +162,17 @@ ray('a string');
 
 ray(['several', 'arguments'], 'can', {be: provided});
 
-(await ray()).table(['one two', {a: 100, b: 200, c: 300}, [9, 8, 7]]).blue();
+ray().table(['one two', {a: 100, b: 200, c: 300}, [9, 8, 7]]).blue();
 
-(await ray()).html('<em>large text</em>').large().green();
+ray().html('<em>large text</em>').large().green();
 
-(await ray()).image('https://placekitten.com/200/300');
+ray().image('https://placekitten.com/200/300');
 
-(await ray()).clearAll();
+ray().clearAll();
 
-(await ray()).disable(); // disable sending data to Ray at runtime
+ray().disable(); // disable sending data to Ray at runtime
 
-(await ray()).xml('<one>11</one>'); // disabled, data not sent to Ray
+ray().xml('<one>11</one>'); // disabled, data not sent to Ray
 ```
 
 ## Configuration
@@ -273,8 +273,8 @@ See [using the package](docs/usage.md).
 
 | Call | Description |
 | --- | --- |
-| `ray(variable)` | **Asynchronous.** Display a string, array or object |
-| `ray(var1, var2, …)` | **Asynchronous.** Ray accepts multiple arguments |
+| `ray(variable)` | Display a string, array or object |
+| `ray(var1, var2, …)` | Ray accepts multiple arguments |
 | `ray(…).blue()` | Output in color. Use `green`, `orange`, `red`, `blue`,`purple` or `gray` |
 | `ray().caller()` | **Asynchronous.** Show the calling class and method |
 | `ray().clearScreen()` | Clear current screen |
