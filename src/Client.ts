@@ -84,6 +84,7 @@ export class Client {
             request.payloads = this.ensureAllPayloadsHaveAnOrigin(request.payloads);
 
             await axios.post(this.getUrlForPath('/'), request.toArray(), { withCredentials: false });
+            await new Promise(resolve => setTimeout(resolve, 50));
         } catch (err) {
             // ignore all errors, such as when Ray isn't running and we can't connect
         }

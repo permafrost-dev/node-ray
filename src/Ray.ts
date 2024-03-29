@@ -92,7 +92,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 
     public static _rateLimiter: RateLimiter = RateLimiter.disabled();
 
-    public static async create(client: Client | null = null, uuid: string | null = null): Promise<Ray> {
+    public static create(client: Client | null = null, uuid: string | null = null): Ray {
         if (Ray.defaultSettings.not_defined === true) {
             Ray.defaultSettings = {
                 enable: true,
@@ -775,7 +775,7 @@ export class Ray extends Mixin(RayColors, RaySizes, RayScreenColors) {
 }
 
 export const ray = (...args: any[]) => {
-    return Ray.create().then(r => r.send(...args));
+    return Ray.create().send(...args);
 };
 
 export const standalone = windowObject => {
