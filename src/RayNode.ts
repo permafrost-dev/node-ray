@@ -11,6 +11,7 @@ import { SettingsFactory } from '@/Settings/SettingsFactory';
 import { NodeStopwatch } from '@/Stopwatch/NodeStopwatch';
 import { existsSync } from 'node:fs';
 
+// @ts-ignore
 export class Ray extends BaseRay {
     public static async create(client: Client | null = null, uuid: string | null = null): Promise<Ray> {
         const settings = await SettingsFactory.createFromConfigFile();
