@@ -263,7 +263,8 @@ This feature is helpful when sending additional payloads or modifying all payloa
 
 ### Chaining payloads
 
-You can chain payloads together using the `chain()` method. This allows you to send multiple payloads at once.
+You can chain payloads together using the `chain()` method. This allows you to send multiple payloads at once, which may be necessary when performing multiple chained
+calls to `ray()` in an asynchronous context.
 
 ```js
 ray().chain((ray) => {
