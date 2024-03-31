@@ -2,9 +2,16 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [2.1.0](https://github.com/permafrost-dev/node-ray/compare/2.0.0...2.1.0)
+#### [v2.1.1](https://github.com/permafrost-dev/node-ray/compare/v2.1.0...v2.1.1)
 
-Add initSettings() to NodeRay
+- Remove dayjs dependency [`#270`](https://github.com/permafrost-dev/node-ray/pull/270)
+- web exports fix [`48dc634`](https://github.com/permafrost-dev/node-ray/commit/48dc634bcc1a67089d9e8da1e56b39e8eb35d8c0)
+- add unit tests to increase code coverage [`fcba31d`](https://github.com/permafrost-dev/node-ray/commit/fcba31d600ab81220eba5a5fcdd3ed220d07fd00)
+- add unit tests to increase code coverage [`cad91bd`](https://github.com/permafrost-dev/node-ray/commit/cad91bde3d639f60feae52b933cce7948455b1b3)
+
+#### [v2.1.0](https://github.com/permafrost-dev/node-ray/compare/2.0.0...v2.1.0)
+
+> 29 March 2024
 
 - Add initSettings() to NodeRay [`#269`](https://github.com/permafrost-dev/node-ray/pull/269)
 - Chain payloads, minor bug fixes, doc updates [`#268`](https://github.com/permafrost-dev/node-ray/pull/268)
