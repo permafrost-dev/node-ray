@@ -29,6 +29,11 @@
             "require": "./dist/index.cjs",
             "types": "./dist/index.d.ts"
         },
+        "./dist/web": {
+            "import": "./dist/web.js",
+            "require": "./dist/web.cjs",
+            "types": "./dist/web.d.ts"
+        },
         "./web": {
             "import": "./dist/web.js",
             "require": "./dist/web.cjs",
