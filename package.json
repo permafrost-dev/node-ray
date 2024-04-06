@@ -1,6 +1,6 @@
 {
     "name": "node-ray",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "description": "Understand and fix Javascript & TypeScript bugs faster",
     "license": "MIT",
     "author": "Patrick Organ <patrick@permafrost.dev>",

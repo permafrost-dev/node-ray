@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v2.1.2](https://github.com/permafrost-dev/node-ray/compare/v2.1.1...v2.1.2)
+
+- update npmignore [`8517423`](https://github.com/permafrost-dev/node-ray/commit/85174235d68dc0d9df260ee39d092d941fc6bd26)
+- update npmignore [`1c7d0af`](https://github.com/permafrost-dev/node-ray/commit/1c7d0af07b2bc9338899b2cad2c180a20d440798)
+
 #### [v2.1.1](https://github.com/permafrost-dev/node-ray/compare/v2.1.0...v2.1.1)
+
+> 31 March 2024
 
 - Remove dayjs dependency [`#270`](https://github.com/permafrost-dev/node-ray/pull/270)
 - web exports fix [`48dc634`](https://github.com/permafrost-dev/node-ray/commit/48dc634bcc1a67089d9e8da1e56b39e8eb35d8c0)
