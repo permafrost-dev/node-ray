@@ -8,6 +8,8 @@
 /scripts
 /src
 /tests
+/dist-*
+/coverage
 .editorconfig
 .eslintrc.js
 .prettierignore
@@ -22,3 +24,6 @@ _*.txt
 *.ignore
 rollup.*.js
 .eslintignore
+biome.json
+prettier.config.cjs
+.eslintrc.cjs
