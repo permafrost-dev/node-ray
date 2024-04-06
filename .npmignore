@@ -27,3 +27,4 @@ rollup.*.js
 biome.json
 prettier.config.cjs
 .eslintrc.cjs
+vite.config.js
