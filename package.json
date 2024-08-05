@@ -88,7 +88,7 @@
         "typescript": "^5.4.3",
         "vite": "^5.2.6",
         "vite-plugin-externalize-deps": "^0.8.0",
-        "vitest": "^1.4.0"
+        "vitest": "^2.0.5"
     },
     "dependencies": {
         "@permafrost-dev/pretty-format": "^1.1.5",
