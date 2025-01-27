@@ -94,7 +94,7 @@
         "@permafrost-dev/pretty-format": "^1.1.5",
         "axios": "^1.6.8",
         "stacktrace-js": "^2.0.2",
-        "uuid": "^9.0.1",
+        "uuid": "^10.0.0",
         "xml-formatter": "^3.6.2"
     },
     "engines": {
