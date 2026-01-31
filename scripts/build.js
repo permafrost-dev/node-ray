@@ -13,18 +13,8 @@ export const globalConfig = {
     builds: [
         {
             entry: 'src/Ray.ts',
-            outfile: 'web.cjs',
-            target: 'browser',
-        },
-        {
-            entry: 'src/Ray.ts',
             outfile: 'web.js',
             target: 'browser',
-        },
-        {
-            entry: 'src/RayNode.ts',
-            outfile: 'index.cjs',
-            target: 'node',
         },
         {
             entry: 'src/RayNode.ts',

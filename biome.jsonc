@@ -1,11 +1,23 @@
 {
-    "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-    "organizeImports": {
-        "enabled": false
-    },
+    "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
+    "assist": { "actions": { "source": { "organizeImports": "off" } } },
     "files": {
-        "include": ["./*.cjs", "./*.js", "./*.mjs", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "src/**/*.jsx"],
-        "ignore": [".git/**", ".husky/**", ".idea/**", ".vscode/**", "build/**", "dist/**", "node_modules/**", "scripts/**"]
+        "includes": [
+            "**/*.js",
+            "**/*.mjs",
+            "**/src/**/*.js",
+            "**/src/**/*.ts",
+            "**/src/**/*.tsx",
+            "**/src/**/*.jsx",
+            "!**/.git/**",
+            "!**/.husky/**",
+            "!**/.idea/**",
+            "!**/.vscode/**",
+            "!**/build/**",
+            "!**/dist/**",
+            "!**/node_modules/**",
+            "!**/scripts/**"
+        ]
     },
     "formatter": {
         "enabled": true,
@@ -29,19 +41,17 @@
                 "noConstAssign": "error",
                 "noSwitchDeclarations": "warn",
                 "useExhaustiveDependencies": "off",
-                "useHookAtTopLevel": "warn"
+                "useHookAtTopLevel": "warn",
+                "noInvalidUseBeforeDeclaration": "error"
             },
             "style": {
                 "useSelfClosingElements": "off",
                 "noParameterAssign": "off",
                 "useFragmentSyntax": "off",
-                "useSingleVarDeclarator": "off"
+                "useSingleVarDeclarator": "off",
+                "useNodejsImportProtocol": "warn"
             },
-            "nursery": {
-                "useNodejsImportProtocol": "warn",
-                "noGlobalEval": "error",
-                "noInvalidUseBeforeDeclaration": "error"
-            },
+            "nursery": {},
             "suspicious": {
                 "noAssignInExpressions": "off",
                 "noAsyncPromiseExecutor": "off",
@@ -50,7 +60,8 @@
                 "noImplicitAnyLet": "off"
             },
             "security": {
-                "recommended": true
+                "recommended": true,
+                "noGlobalEval": "error"
             },
             "performance": {},
             "a11y": {
@@ -70,7 +81,7 @@
             "quoteProperties": "asNeeded",
             "quoteStyle": "single",
             "semicolons": "always",
-            "trailingComma": "all"
+            "trailingCommas": "all"
         }
     },
     "json": {
