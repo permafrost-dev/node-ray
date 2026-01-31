@@ -8,6 +8,7 @@
     <img src="https://shields.io/github/license/permafrost-dev/node-ray?style=flat-square&logo=opensourceinitiative&logoColor=%23fff" alt="license">
     <br>
     <img alt="Codecov" src="https://img.shields.io/codecov/c/github/permafrost-dev/node-ray?color=%234c1&label=coverage&logo=codecov&logoColor=%23ef6f6f&style=flat-square&token=YW2BTKSNEO" alt="codecov">
+    <img alt="Deepscan" src="https://deepscan.io/api/teams/25132/projects/28123/branches/903898/badge/grade.svg" alt="DeepScan grade">
     <!--<img alt="tech debt" src="https://img.shields.io/codeclimate/tech-debt/permafrost-dev/node-ray?label=tech%20debt&logo=codeclimate&style=flat-square">
     <img src="https://img.shields.io/codeclimate/maintainability/permafrost-dev/node-ray?logo=codeclimate&style=flat-square" /> 
     <br>-->
