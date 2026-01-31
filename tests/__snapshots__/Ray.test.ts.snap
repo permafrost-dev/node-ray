@@ -1,4 +1,10 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`allows setting the url scheme to https 1`] = `
+[
+  "https://otherhost:3000/",
+]
+`;
 
 exports[`allows defaults to the http url scheme 1`] = `
 [
@@ -6,9 +12,1609 @@ exports[`allows defaults to the http url scheme 1`] = `
 ]
 `;
 
-exports[`allows setting the url scheme to https 1`] = `
+exports[`sends the ray ban payload 1`] = `
 [
-  "https://otherhost:3000/",
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
+            "🕶",
+          ],
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends the ray charles payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
+            "🎶 🎹 🎷 🕺",
+          ],
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a color payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "green",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "orange",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "purple",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "blue",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "gray",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends screen color payloads 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "green",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "orange",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "purple",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "blue",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "gray",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a custom screen color payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "screen_color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a label payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "label": "test-123",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "label",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a size payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "size": "lg",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "size",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "size": "sm",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "size",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "size": "lg",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "size",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a new screen payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "name": "test 1",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "new_screen",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a clear screen payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "name": "",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "new_screen",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a clear all payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "clear_all",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a confetti payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "confetti",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an html payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<em>test</em>",
+          "label": "HTML",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`doesn't blow up when calling html without a value 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "",
+          "label": "HTML",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "",
+          "label": "HTML",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a text payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "test 1",
+          "label": "Text",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "&lt;em&gt;test 2&lt;/em&gt;",
+          "label": "Text",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an image payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<img src="http://localhost/test.png" alt="" />",
+          "label": "Image",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an xml payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "&lt;root&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;abc&gt;1&lt;/abc&gt;<br>&lt;/root&gt;",
+          "label": "XML",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a json string payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": {
+            "A": 123,
+          },
+          "label": "JSON",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an object as json payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "value": ""{\\"a\\":1,\\"b\\":2}"",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "json_string",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a classname payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
+            "Ray",
+          ],
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a notify payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "value": "hello world",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "notify",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an error payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<span class="text-red-400 bold">Error</span>: <br><span class="pl-5 text-gray-500">test error</span>",
+          "label": "Error",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a raw payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
+            "one",
+          ],
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+      {
+        "content": {
+          "values": [
+            "two",
+          ],
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends show and hide app payloads 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "show_app",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "hide_app",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a null payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": null,
+          "label": "Null",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a boolean payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": true,
+          "label": "Boolean",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a string payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "values": [
+            "test",
+          ],
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "log",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a hide payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "hide",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a remove payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {},
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "remove",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a table payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "label": "table",
+          "values": [
+            1,
+            2,
+            "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
+            "<code style="font-size: 0.8rem!important;" class="">Ray&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"canSendPayload"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">true</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"chainedPayloads"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"chaining"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"inCallback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"limitOrigin"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"settings"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>Settings&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_host"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"localhost"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_port"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>23510<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_scheme"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"http"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"always_send_raw_values"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enable"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">true</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enabled_callback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"intercept_console_log"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"local_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"not_defined"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"originalSettings"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"always_send_raw_values"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enable"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">true</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"host"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"localhost"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"local_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"not_defined"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"port"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>23510<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"remote_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"remote_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"sending_payload_callback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"sent_payload_callback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"uuid"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"fakeUuid"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
+            true,
+            null,
+          ],
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "table",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "label": "Table",
+          "values": [
+            "<code style="font-size: 0.8rem!important;" class=""><code style="font-size: 0.8rem!important;" class="bold text-gray-500 p-0">&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;13<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;14<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span></code></code>",
+            "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"B"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>2<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
+            false,
+          ],
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "table",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "label": "Table",
+          "values": {
+            "counter": 123,
+            "message": "hello world",
+          },
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "table",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "label": "Test",
+          "values": {
+            "name": "test",
+            "value": 987,
+          },
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "table",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a custom payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "test 123",
+          "label": "test",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "test 4",
+          "label": "",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "test 5",
+          "label": "",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "test 5",
+          "label": "",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`can transform a request into JSON 1`] = `"{"uuid":"1-2-3-4","payloads":[],"meta":[{"test_version":1}]}"`;
+
+exports[`measures the execution time of a closure 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "closure",
+          "time_since_last_call": 0,
+          "total_time": 20,
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`measures the execution time of repeated and unnamed calls to measure 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": true,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "default",
+          "time_since_last_call": 0,
+          "total_time": 0,
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "default",
+          "time_since_last_call": 0,
+          "total_time": 20,
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "default",
+          "time_since_last_call": 20,
+          "total_time": 40,
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`measures the execution time of named stopwatches 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": true,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "first",
+          "time_since_last_call": 0,
+          "total_time": 0,
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "first",
+          "time_since_last_call": 0,
+          "total_time": 20,
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`pauses code execution 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "name": "xxxxx",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "create_lock",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an html payload when calling ray() with an object argument 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>123<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"B"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-gray-500 p-0">&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;14<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;15<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;16<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span></code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
+          "label": "HTML",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an exception payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "class": "Error",
+          "frames": [
+            {
+              "class": undefined,
+              "file_name": "/tests/Ray.test.ts",
+              "line_number": 999,
+              "method": "<anonymous>",
+              "snippet": [],
+              "vendor_frame": false,
+            },
+          ],
+          "message": "test",
+          "meta": {},
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "exception",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an exception payload with metadata 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "class": "Error",
+          "frames": [
+            {
+              "class": undefined,
+              "file_name": "/tests/Ray.test.ts",
+              "line_number": 999,
+              "method": "<anonymous>",
+              "snippet": [],
+              "vendor_frame": false,
+            },
+          ],
+          "message": "test",
+          "meta": {
+            "one": 1,
+            "ten": 10,
+            "twentyThree": 23,
+          },
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "exception",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "red",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an event payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "class_based_event": true,
+          "event": undefined,
+          "name": "testevent",
+          "payload": "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span></code>",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "event",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends a caller payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "frame": {
+            "class": "",
+            "file_name": "Ray.ts",
+            "line_number": 999,
+            "method": "caller",
+            "vendor_frame": false,
+          },
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "caller",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`can send payloads from the sending payload callback 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "sent before the main payload",
+          "label": "HTML",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<strong>test</strong>",
+          "label": "HTML",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`can send additional payloads from the sent payload callback 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<strong>test</strong>",
+          "label": "HTML",
+        },
+        "origin": {
+          "file": "",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "color": "purple",
+        },
+        "origin": {
+          "file": "/tests/Ray.test.ts",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "color",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
 ]
 `;
 
@@ -149,439 +1755,7 @@ exports[`can chain multiple if calls with callbacks together 1`] = `
 ]
 `;
 
-exports[`can send additional payloads from the sent payload callback 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "<strong>test</strong>",
-          "label": "HTML",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "purple",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`can send payloads from the sending payload callback 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "sent before the main payload",
-          "label": "HTML",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "<strong>test</strong>",
-          "label": "HTML",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`can transform a request into JSON 1`] = `"{"uuid":"1-2-3-4","payloads":[],"meta":[{"test_version":1}]}"`;
-
-exports[`chains payloads together 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "one",
-          "label": "Text",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-      {
-        "content": {
-          "color": "green",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-      {
-        "content": {
-          "label": "test",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "label",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`doesn't blow up when calling html without a value 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "",
-          "label": "HTML",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "",
-          "label": "HTML",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`measures the execution time of a closure 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "is_new_timer": false,
-          "max_memory_usage_during_total_time": 0,
-          "max_memory_usage_since_last_call": 0,
-          "name": "closure",
-          "time_since_last_call": 0,
-          "total_time": 20,
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "measure",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`measures the execution time of named stopwatches 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "is_new_timer": true,
-          "max_memory_usage_during_total_time": 0,
-          "max_memory_usage_since_last_call": 0,
-          "name": "first",
-          "time_since_last_call": 0,
-          "total_time": 0,
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "measure",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "is_new_timer": false,
-          "max_memory_usage_during_total_time": 0,
-          "max_memory_usage_since_last_call": 0,
-          "name": "first",
-          "time_since_last_call": 0,
-          "total_time": 20,
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "measure",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`measures the execution time of repeated and unnamed calls to measure 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "is_new_timer": true,
-          "max_memory_usage_during_total_time": 0,
-          "max_memory_usage_since_last_call": 0,
-          "name": "default",
-          "time_since_last_call": 0,
-          "total_time": 0,
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "measure",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "is_new_timer": false,
-          "max_memory_usage_during_total_time": 0,
-          "max_memory_usage_since_last_call": 0,
-          "name": "default",
-          "time_since_last_call": 0,
-          "total_time": 20,
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "measure",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "is_new_timer": false,
-          "max_memory_usage_during_total_time": 0,
-          "max_memory_usage_since_last_call": 0,
-          "name": "default",
-          "time_since_last_call": 20,
-          "total_time": 40,
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "measure",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`pauses code execution 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "name": "xxxxx",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "create_lock",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a boolean payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": true,
-          "label": "Boolean",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a caller payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "frame": {
-            "class": "",
-            "file_name": "Ray.ts",
-            "line_number": 999,
-            "method": "caller",
-            "vendor_frame": false,
-          },
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "caller",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a classname payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "Ray",
-          ],
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a clear all payload 1`] = `
+exports[`sends a separator payload 1`] = `
 [
   {
     "meta": [],
@@ -594,486 +1768,7 @@ exports[`sends a clear all payload 1`] = `
           "hostname": "remote",
           "line_number": 999,
         },
-        "type": "clear_all",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a clear screen payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "name": "",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "new_screen",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a color payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "red",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "green",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "orange",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "red",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "purple",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "blue",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "gray",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a confetti payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {},
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "confetti",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a custom payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "test 123",
-          "label": "test",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "test 4",
-          "label": "",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "test 5",
-          "label": "",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "test 5",
-          "label": "",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a custom screen color payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "red",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "screen_color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a hide payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {},
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "hide",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a json string payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": {
-            "A": 123,
-          },
-          "label": "JSON",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a label payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "label": "test-123",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "label",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a new screen payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "name": "test 1",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "new_screen",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a notify payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "value": "hello world",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "notify",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a null payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": null,
-          "label": "Null",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a raw payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "one",
-          ],
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-      {
-        "content": {
-          "values": [
-            "two",
-          ],
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a remove payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {},
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "remove",
+        "type": "separator",
       },
     ],
     "uuid": "fakeUuid",
@@ -1122,278 +1817,15 @@ exports[`sends a screen color payload 1`] = `
 ]
 `;
 
-exports[`sends a screen color payload 2`] = `
+exports[`sends an html markup payload 1`] = `
 [
   {
     "meta": [],
     "payloads": [
       {
         "content": {
-          "color": "red",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "screen_color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "green",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "screen_color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a separator payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {},
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "separator",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a size payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "size": "lg",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "size",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "size": "sm",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "size",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "size": "lg",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "size",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a string payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "test",
-          ],
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a table payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "label": "table",
-          "values": [
-            1,
-            2,
-            "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
-            "<code style="font-size: 0.8rem!important;" class="">Ray&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"canSendPayload"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">true</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"chainedPayloads"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"chaining"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"inCallback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"limitOrigin"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"settings"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>Settings&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_host"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"localhost"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_port"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>23510<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"_scheme"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"http"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"always_send_raw_values"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enable"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">true</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enabled_callback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"intercept_console_log"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"local_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"not_defined"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"originalSettings"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"always_send_raw_values"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"enable"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">true</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"host"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"localhost"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"local_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"not_defined"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">false</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"port"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>23510<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"remote_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"remote_path"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"sending_payload_callback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"sent_payload_callback"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"uuid"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"fakeUuid"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
-            true,
-            null,
-          ],
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "table",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "label": "Table",
-          "values": [
-            "<code style="font-size: 0.8rem!important;" class=""><code style="font-size: 0.8rem!important;" class="bold text-gray-500 p-0">&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;13<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;14<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span></code></code>",
-            "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"B"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>2<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
-            false,
-          ],
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "table",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "label": "Table",
-          "values": {
-            "counter": 123,
-            "message": "hello world",
-          },
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "table",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "label": "Test",
-          "values": {
-            "name": "test",
-            "value": 987,
-          },
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "table",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a text payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "test 1",
-          "label": "Text",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "&lt;em&gt;test 2&lt;/em&gt;",
-          "label": "Text",
+          "content": "<span style="color:#1D4ED8;">&lt;em</span>&gt;test<span style="color:#1D4ED8;">&lt;/em&gt;</span>",
+          "label": "Markup",
         },
         "origin": {
           "file": "",
@@ -1432,15 +1864,15 @@ exports[`sends a trace payload 1`] = `
 ]
 `;
 
-exports[`sends an error payload 1`] = `
+exports[`chains payloads together 1`] = `
 [
   {
     "meta": [],
     "payloads": [
       {
         "content": {
-          "content": "<span class="text-red-400 bold">Error</span>: <br><span class="pl-5 text-gray-500">test error</span>",
-          "label": "Error",
+          "content": "one",
+          "label": "Text",
         },
         "origin": {
           "file": "",
@@ -1450,335 +1882,21 @@ exports[`sends an error payload 1`] = `
         },
         "type": "custom",
       },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "red",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an event payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "class_based_event": true,
-          "event": undefined,
-          "name": "testevent",
-          "payload": "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Array</span>&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span></code>",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "event",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an exception payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "class": "Error",
-          "frames": [
-            {
-              "class": "unknown",
-              "file_name": "/tests/Ray.test.ts",
-              "line_number": 999,
-              "method": "unknown",
-              "snippet": [],
-              "vendor_frame": false,
-            },
-          ],
-          "message": "test",
-          "meta": {},
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "exception",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "red",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an exception payload with metadata 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "class": "Error",
-          "frames": [
-            {
-              "class": "unknown",
-              "file_name": "/tests/Ray.test.ts",
-              "line_number": 999,
-              "method": "unknown",
-              "snippet": [],
-              "vendor_frame": false,
-            },
-          ],
-          "message": "test",
-          "meta": {
-            "one": 1,
-            "ten": 10,
-            "twentyThree": 23,
-          },
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "exception",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "red",
-        },
-        "origin": {
-          "file": "/tests/Ray.test.ts",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an html markup payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "<span style="color:#1D4ED8;">&lt;em</span>&gt;test<span style="color:#1D4ED8;">&lt;/em&gt;</span>",
-          "label": "Markup",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an html payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "<em>test</em>",
-          "label": "HTML",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an html payload when calling ray() with an object argument 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "<code style="font-size: 0.8rem!important;" class=""><span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>123<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"B"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span><code style="font-size: 0.8rem!important;" class="bold text-gray-500 p-0">&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;14<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;15<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;16<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;1<span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span></code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code></code>",
-          "label": "HTML",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an image payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "<img src="http://localhost/test.png" alt="" />",
-          "label": "Image",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an object as json payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "value": ""{\\"a\\":1,\\"b\\":2}"",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "json_string",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an xml payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "&lt;root&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;abc&gt;1&lt;/abc&gt;<br>&lt;/root&gt;",
-          "label": "XML",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends screen color payloads 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
       {
         "content": {
           "color": "green",
         },
         "origin": {
-          "file": "",
+          "file": "/tests/Ray.test.ts",
           "function_name": "xxxx",
           "hostname": "remote",
           "line_number": 999,
         },
-        "type": "screen_color",
+        "type": "color",
       },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
       {
         "content": {
-          "color": "orange",
+          "label": "test",
         },
         "origin": {
           "file": "",
@@ -1786,166 +1904,7 @@ exports[`sends screen color payloads 1`] = `
           "hostname": "remote",
           "line_number": 999,
         },
-        "type": "screen_color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "red",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "screen_color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "purple",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "screen_color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "blue",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "screen_color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "color": "gray",
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "screen_color",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends show and hide app payloads 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {},
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "show_app",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {},
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "hide_app",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends the ray ban payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "🕶",
-          ],
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "log",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends the ray charles payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "values": [
-            "🎶 🎹 🎷 🕺",
-          ],
-        },
-        "origin": {
-          "file": "",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "log",
+        "type": "label",
       },
     ],
     "uuid": "fakeUuid",
