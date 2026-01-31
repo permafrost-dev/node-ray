@@ -2,6 +2,8 @@
 
 The API for the NodeJS package closely mirrors the official `spatie/ray` package API, so it's likely that if it exists there, it's available to use in your NodeJS project.
 
+`node-ray` is ESM-only. Ensure your project uses ESM (`"type": "module"`) or use `.mjs` files. Requires Node.js >= 20.19.
+
 ### Enabling and disabling
 
 Ray can be enabled or disabled at runtime using `enable()` or `disable()`.
@@ -238,10 +240,10 @@ ray().uppercase('this is uppercase text');
 
 Here's a sample script that demonstrates a number of the features, both basic and advanced.
 
-Save as `demo.js`, and run with `node demo.js`:
+Save as `demo.mjs` (or set `"type": "module"` in your project), and run with `node demo.mjs`:
 
 ```js
-const { ray } = require('node-ray');
+import { ray } from 'node-ray';
 
 function test1() { 
     return ray().count('test one');

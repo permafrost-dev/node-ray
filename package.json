@@ -1,6 +1,6 @@
 {
     "name": "node-ray",
-    "version": "2.1.2",
+    "version": "3.0.0",
     "description": "Understand and fix Javascript & TypeScript bugs faster",
     "license": "MIT",
     "author": "Patrick Organ <patrick@permafrost.dev>",
@@ -26,30 +26,26 @@
     "exports": {
         ".": {
             "import": "./dist/index.js",
-            "require": "./dist/index.cjs",
             "types": "./dist/index.d.ts"
         },
         "./dist/web": {
             "import": "./dist/web.js",
-            "require": "./dist/web.cjs",
             "types": "./dist/web.d.ts"
         },
         "./web": {
             "import": "./dist/web.js",
-            "require": "./dist/web.cjs",
             "types": "./dist/web.d.ts"
         },
         "./node": {
             "import": "./dist/index.js",
-            "require": "./dist/index.cjs",
             "types": "./dist/index.d.ts"
         }
     },
     "scripts": {
         "test": "vitest --coverage",
-        "fmt": "./node_modules/.bin/prettier --config prettier.config.cjs --write 'src/**/*.{js,ts,json}' 'tests/**/*.{js,ts,json}' './*.js'",
-        "lint": "./node_modules/.bin/eslint --ext ts,js src/",
-        "lint:fix": "./node_modules/.bin/eslint --ext ts,js --fix src/",
+        "fmt": "./node_modules/.bin/prettier --write 'src/**/*.{js,ts,json}' 'tests/**/*.{js,ts,json}' './*.js'",
+        "lint": "./node_modules/.bin/eslint src tests scripts",
+        "lint:fix": "./node_modules/.bin/eslint src tests scripts --fix",
         "lint:staged": "./node_modules/.bin/lint-staged",
         "fix": "npm run fmt && npm run lint:fix",
         "build:dev": "BUILD_ENV=development node ./scripts/build.js",
@@ -60,35 +56,37 @@
     },
     "lint-staged": {
         "*.{js,ts}": [
-            "./node_modules/.bin/prettier --config prettier.config.cjs --write",
-            "./node_modules/.bin/eslint --ext ts,js --fix"
+            "./node_modules/.bin/prettier --write",
+            "./node_modules/.bin/eslint --fix"
         ],
         "*.{json,css,scss,gql}": [
-            "./node_modules/.bin/prettier --config prettier.config.cjs --write"
+            "./node_modules/.bin/prettier --write"
         ],
         "*.{yaml,yml}": [
-            "./node_modules/.bin/prettier --config prettier.config.cjs --tab-width 2 --write"
+            "./node_modules/.bin/prettier --write"
         ]
     },
     "devDependencies": {
         "@types/node": "^20.11.30",
         "@types/uuid": "^9.0.8",
-        "@typescript-eslint/eslint-plugin": "^7.4.0",
-        "@typescript-eslint/parser": "^7.4.0",
-        "@vitest/coverage-v8": "^1.4.0",
+        "@eslint/js": "^9.39.2",
+        "@typescript-eslint/eslint-plugin": "^8.54.0",
+        "@typescript-eslint/parser": "^8.54.0",
+        "@vitest/coverage-v8": "^4.0.18",
         "auto-changelog": "^2.4.0",
         "dts-bundle-generator": "^9.3.1",
-        "esbuild": "^0.25.3",
-        "eslint": "^8.57.0",
+        "esbuild": "^0.27.2",
+        "eslint": "^9.39.2",
+        "globals": "^17.2.0",
         "husky": "^9.0.11",
         "is-ci": "^3.0.1",
         "lint-staged": "^15.2.2",
-        "prettier": "^3.2.5",
+        "prettier": "^3.8.1",
         "ts-mixer": "^6.0.4",
-        "typescript": "^5.4.3",
-        "vite": "^5.2.6",
-        "vite-plugin-externalize-deps": "^0.8.0",
-        "vitest": "^1.4.0"
+        "typescript": "^5.9.3",
+        "vite": "^7.3.1",
+        "vite-plugin-externalize-deps": "^0.10.0",
+        "vitest": "^4.0.18"
     },
     "dependencies": {
         "@permafrost-dev/pretty-format": "^1.1.5",
@@ -98,6 +96,6 @@
         "xml-formatter": "^3.6.2"
     },
     "engines": {
-        "node": ">=18"
+        "node": ">=20.19"
     }
 }

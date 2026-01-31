@@ -87,7 +87,7 @@ it('formats a date', () => {
     expect(formatDateExtended(date)).toBe('2021-01-01 12:34:56');
     expect(formatDateExtended(date, 'YYYY-MM-DD')).toBe('2021-01-01');
     expect(formatDateExtended(date, 'hh:mm:ss')).toBe('12:34:56');
-    expect(formatDateExtended(date, 'T').length).greaterThan(1);
+    expect(formatDateExtended(date, 'T').length).toBeGreaterThan(1);
 });
 
 it('gets the type of a variable', () => {
