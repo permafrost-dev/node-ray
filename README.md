@@ -45,7 +45,7 @@ bun add node-ray
 ## Requirements
 
 - Node.js >= 20.19
-- ESM-only (CommonJS `require` is not supported)
+- ESM-only (CommonJS is no longer supported; use v2.x for `require` support)
 
 ## Available environments
 

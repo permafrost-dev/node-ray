@@ -62,7 +62,7 @@ export const globalConfig = {
             config.entry = resolve(globalConfig.basePath, config.entry);
             config.minify = config.outfile.includes('.min.');
             config.standalone = config.outfile.includes('standalone');
-            config.format = config.outfile.endsWith('.js') ? 'es' : 'cjs';
+            config.format = 'es';
             if (config.standalone) {
                 config.format = 'iife';
             }

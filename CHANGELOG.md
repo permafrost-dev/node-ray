@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. Dates are d
 
 - BREAKING: ESM-only packages moving forward; removed CommonJS builds.
 - BREAKING: Node.js >= 20.19 required
+- Upgrade all outdated dependencies
 - Upgrade ESLint 9 + TypeScript ESLint 8, Prettier 3.8, Vite 7, Vitest 4, and TypeScript 5.9
 - Docs updated for ESM-only usage and configuration
 

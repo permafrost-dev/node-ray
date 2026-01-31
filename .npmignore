@@ -26,4 +26,5 @@ _*.txt
 *.ignore
 rollup.*.js
 biome.json
+biome.jsonc
 vite.config.js
