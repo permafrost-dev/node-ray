@@ -35,7 +35,7 @@ it('convert to primitive with a null argument', () => {
     expect(result.isHtml).toBe(false);
 });
 
-// Tests that convertToPrimive returns string value and isHtml property is true when an object or array argument is passed
+// Tests that convertToPrimitive returns string value and isHtml property is true when an object or array argument is passed
 it('converts json to html without formatting issues', () => {
     const arg = ['foo', 'bar', 123, { A: 123 }, null];
     const result = ArgumentConverter.convertToPrimitive(arg);
