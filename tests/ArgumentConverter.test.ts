@@ -34,3 +34,14 @@ it('convert to primitive with a null argument', () => {
     expect(result.value).toBeNull();
     expect(result.isHtml).toBe(false);
 });
+
+// Tests that convertToPrimive returns string value and isHtml property is true when an object or array argument is passed
+it('converts json to html without formatting issues', () => {
+    const arg = ['foo', 'bar', 123, { A: 123 }, null];
+    const result = ArgumentConverter.convertToPrimitive(arg);
+
+    expect(result.value).toBe(
+        '<code style="font-size: 0.8rem!important;" class=""><code style="font-size: 0.8rem!important;" class="bold text-gray-500 p-0">&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">[</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"foo"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"bar"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;123<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-yellow-600">Object</span>&nbsp;<code style="font-size: 0.8rem!important;" class="text-gray-600"><span style="font-size: 0.8rem!important;" class="bold text-orange-400">{</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code style="font-size: 0.8rem!important;" class="bold text-green-600 p-0">"A"</code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">:&nbsp;</span>123<span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-orange-400">}</span></code><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8rem!important;" class="bold text-indigo-600">null</span><span style="font-size: 0.8rem!important;" class="bold text-orange-400">,</span><br><span style="font-size: 0.8rem!important;" class="bold text-orange-400">]</span></code></code>',
+    );
+    expect(result.isHtml).toBe(true);
+});
