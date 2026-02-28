@@ -1469,10 +1469,10 @@ exports[`sends an exception payload 1`] = `
           "class": "Error",
           "frames": [
             {
-              "class": "unknown",
+              "class": undefined,
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
-              "method": "unknown",
+              "method": "<anonymous>",
               "snippet": [],
               "vendor_frame": false,
             },
@@ -1522,10 +1522,10 @@ exports[`sends an exception payload with metadata 1`] = `
           "class": "Error",
           "frames": [
             {
-              "class": "unknown",
+              "class": undefined,
               "file_name": "/tests/Ray.test.ts",
               "line_number": 999,
-              "method": "unknown",
+              "method": "<anonymous>",
               "snippet": [],
               "vendor_frame": false,
             },
