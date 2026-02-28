@@ -1,14 +1,20 @@
-// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`sends an existing file payload 1`] = `
+exports[`gets the node runtime info 1`] = `
 [
   {
     "meta": [],
     "payloads": [
       {
         "content": {
-          "content": "one,two,three<br>",
-          "label": "test.txt",
+          "label": "NodeInfo",
+          "values": {
+            "Extensions": "xxx",
+            "Memory Heap usage": 999,
+            "Memory RSS usage": 999,
+            "Node version": "v999",
+            "V8 version": "v999",
+          },
         },
         "origin": {
           "file": "/test/file.js",
@@ -16,79 +22,7 @@ exports[`sends an existing file payload 1`] = `
           "hostname": "remote",
           "line_number": 999,
         },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends a missing file payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "File not found: '{missing.txt'",
-          "label": "File",
-        },
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an existing image file payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "<img src="file://tests/TestData/test.txt" alt="" />",
-          "label": "Image",
-        },
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-]
-`;
-
-exports[`sends an image url payload 1`] = `
-[
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "content": "<img src="http://localhost:35599/test.png" alt="" />",
-          "label": "Image",
-        },
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "custom",
+        "type": "table",
       },
     ],
     "uuid": "fakeUuid",
@@ -107,6 +41,57 @@ exports[`measures the execution time of a closure 1`] = `
           "max_memory_usage_during_total_time": 0,
           "max_memory_usage_since_last_call": 0,
           "name": "closure",
+          "time_since_last_call": 0,
+          "total_time": 20,
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`measures the execution time of named stopwatches 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": true,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "first",
+          "time_since_last_call": 0,
+          "total_time": 0,
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "measure",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "is_new_timer": false,
+          "max_memory_usage_during_total_time": 0,
+          "max_memory_usage_since_last_call": 0,
+          "name": "first",
           "time_since_last_call": 0,
           "total_time": 20,
         },
@@ -198,19 +183,15 @@ exports[`measures the execution time of repeated and unnamed calls to measure 1`
 ]
 `;
 
-exports[`measures the execution time of named stopwatches 1`] = `
+exports[`sends a missing file payload 1`] = `
 [
   {
     "meta": [],
     "payloads": [
       {
         "content": {
-          "is_new_timer": true,
-          "max_memory_usage_during_total_time": 0,
-          "max_memory_usage_since_last_call": 0,
-          "name": "first",
-          "time_since_last_call": 0,
-          "total_time": 0,
+          "content": "File not found: '{missing.txt'",
+          "label": "File",
         },
         "origin": {
           "file": "/test/file.js",
@@ -218,30 +199,7 @@ exports[`measures the execution time of named stopwatches 1`] = `
           "hostname": "remote",
           "line_number": 999,
         },
-        "type": "measure",
-      },
-    ],
-    "uuid": "fakeUuid",
-  },
-  {
-    "meta": [],
-    "payloads": [
-      {
-        "content": {
-          "is_new_timer": false,
-          "max_memory_usage_during_total_time": 0,
-          "max_memory_usage_since_last_call": 0,
-          "name": "first",
-          "time_since_last_call": 0,
-          "total_time": 20,
-        },
-        "origin": {
-          "file": "/test/file.js",
-          "function_name": "xxxx",
-          "hostname": "remote",
-          "line_number": 999,
-        },
-        "type": "measure",
+        "type": "custom",
       },
     ],
     "uuid": "fakeUuid",
@@ -249,21 +207,15 @@ exports[`measures the execution time of named stopwatches 1`] = `
 ]
 `;
 
-exports[`gets the node runtime info 1`] = `
+exports[`sends an existing file payload 1`] = `
 [
   {
     "meta": [],
     "payloads": [
       {
         "content": {
-          "label": "NodeInfo",
-          "values": {
-            "Extensions": "xxx",
-            "Memory Heap usage": 999,
-            "Memory RSS usage": 999,
-            "Node version": "v999",
-            "V8 version": "v999",
-          },
+          "content": "one,two,three<br>",
+          "label": "test.txt",
         },
         "origin": {
           "file": "/test/file.js",
@@ -271,7 +223,55 @@ exports[`gets the node runtime info 1`] = `
           "hostname": "remote",
           "line_number": 999,
         },
-        "type": "table",
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an existing image file payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<img src="file://tests/TestData/test.txt" alt="" />",
+          "label": "Image",
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
+      },
+    ],
+    "uuid": "fakeUuid",
+  },
+]
+`;
+
+exports[`sends an image url payload 1`] = `
+[
+  {
+    "meta": [],
+    "payloads": [
+      {
+        "content": {
+          "content": "<img src="http://localhost:35599/test.png" alt="" />",
+          "label": "Image",
+        },
+        "origin": {
+          "file": "/test/file.js",
+          "function_name": "xxxx",
+          "hostname": "remote",
+          "line_number": 999,
+        },
+        "type": "custom",
       },
     ],
     "uuid": "fakeUuid",

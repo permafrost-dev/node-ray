@@ -31,7 +31,7 @@ export class ArgumentConverter {
     }
 
     public static prettyFormatForHtml(arg: any): string {
-        const formatted = prettyFormat(arg, { indent: '    ' } as any)
+        const formatted = prettyFormat(arg, { indent: 4 })
             // format whitespace for display in html
             .replaceAll(' ', '&nbsp;')
             .replace(/\r\n|\r|\n/g, '<br>')
