@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
-
 import { ArgumentConverter } from '@/ArgumentConverter';
 import { BoolPayload } from '@/Payloads/BoolPayload';
 import { HtmlPayload } from '@/Payloads/HtmlPayload';
