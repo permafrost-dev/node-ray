@@ -2,27 +2,27 @@
 
 `node-ray` offers several variants to allow you to use it in either NodeJS or Browser environments.
 
+Requirements:
+- Node.js >= 20.19
+- ESM-only (CommonJS `require` is not supported)
+
 ### NodeJS
 
 When using in a NodeJS environment (the default), import the package as you would normally:
 
-```js 
+```js
 // es module import:
 import { ray } from 'node-ray';
-
-// commonjs import:
-const ray = require('node-ray').ray;
 ```
+
+`node-ray` is ESM-only. CommonJS `require` is not supported.
 
 ### Browser bundle
 If you're bundling your scripts for use in a Browser environment _(i.e. using webpack)_, import the `/web` variant:
 
-```js 
+```js
 // es module import:
 import { ray } from 'node-ray/web';
-
-// commonjs import:
-const { ray } = require('node-ray/web');
 ```
 
 ### Browser standalone
