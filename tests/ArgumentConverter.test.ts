@@ -36,7 +36,7 @@ it('convert to primitive with a null argument', () => {
 });
 
 // Tests that convertToPrimitive returns string value and isHtml property is true when an object or array argument is passed
-it('converts json to html without formatting issues', () => {
+it('converts array with decimal numbers to html correctly', () => {
     const arg = ['foo', 'bar', 123, 0.123, { A: 123 }, null];
     const result = ArgumentConverter.convertToPrimitive(arg);
 
