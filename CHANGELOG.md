@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### [v3.0.0](https://github.com/permafrost-dev/node-ray/compare/v2.1.2...v3.0.0)
+
+> 31 January 2026
+
+- BREAKING: ESM-only packages moving forward; removed CommonJS builds.
+- BREAKING: Node.js >= 20.19 required
+- Upgrade all outdated dependencies
+- Upgrade ESLint 9 + TypeScript ESLint 8, Prettier 3.8, Vite 7, Vitest 4, and TypeScript 5.9
+- Docs updated for ESM-only usage and configuration
+
 #### [v2.1.2](https://github.com/permafrost-dev/node-ray/compare/v2.1.1...v2.1.2)
 
 - update npmignore [`8517423`](https://github.com/permafrost-dev/node-ray/commit/85174235d68dc0d9df260ee39d092d941fc6bd26)
